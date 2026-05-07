@@ -124,6 +124,19 @@ Failing bots are **excluded from the leaderboard** with a public report on the d
 | 9 | LightForest | LightGBM | Same features, different hyperparams | Same target |
 | 10 | Ensemble | Average(8, 9) | — | Blended signal |
 
+### Bot #11 — Codex Bot (the rival)
+
+The user has an existing Codex-built bot at `../morning-quant-bot/` (`morning-quant-bot` package, ~2,300 LOC). It uses a genetic algorithm to tune a single momentum/trend/vol/RSI strategy on a 19-ETF universe.
+
+**We include it as bot #11 in our tournament.** Adapter:
+
+- `src/strategies/codex_bot.py` imports `morning_quant_bot.strategy.target_weights` and `morning_quant_bot.evolver.StrategyEvolver`
+- Wraps it to conform to our `Strategy` interface
+- Runs on the SAME universe (R1000 + watchlist), data feed, slippage model, and paper-trading engine as our bots — fair comparison on identical infrastructure
+- A second variant runs it on its NATIVE universe (19 ETFs only) to check whether it does better on its home turf — both variants compete
+
+This lets the tournament objectively answer: does the Codex bot's GA-tuned strategy beat hand-coded classical strategies, vol-targeted indexes, or ML strategies? The dashboard's "Bot vs Bot" page will feature a default view of "Codex Bot vs Tournament Leader."
+
 ### Custom user bots (extensibility)
 
 - **v1**: Drop-in support — create `src/strategies/<name>.py` implementing the `Strategy` base class. Auto-discovered, joins tournament next morning. Works for any rule-based bot in ~30 lines.
@@ -469,6 +482,7 @@ Tables:
 
 ```
 quant-lab/
+├── bootstrap.sh                # automated setup (full + --fast paths)
 ├── .github/workflows/
 │   ├── morning.yml
 │   ├── watchdog.yml
@@ -495,7 +509,8 @@ quant-lab/
 │   │   ├── qqq_vol.py
 │   │   ├── gradboost.py        # ML, v2
 │   │   ├── lightforest.py      # ML, v2
-│   │   └── ensemble.py         # ML, v2
+│   │   ├── ensemble.py         # ML, v2
+│   │   └── codex_bot.py        # Adapter — wraps morning_quant_bot package
 │   ├── engine/
 │   │   ├── paper.py            # Per-bot portfolio + executor
 │   │   ├── slippage.py         # Spread + liquidity model
@@ -542,20 +557,48 @@ quant-lab/
 
 ---
 
-## 16. User Setup (one-time, ~30 min)
+## 16. User Setup — Automated (`./bootstrap.sh`, ~3 min)
 
-Step-by-step instructions will be provided when scaffolding completes. High-level:
+A single shell script handles all configuration with two modes:
 
-1. Create free **Alpaca** account → API key + secret (paper trading endpoint)
-2. Create free **Turso** account → one database → URL + auth token
-3. Create **Discord** server (or reuse) → channel → webhook URL
-4. Create **GitHub** account + new public repo `quant-lab`
-5. Push the scaffolded code to the repo
-6. Add 4 GitHub repo secrets: `ALPACA_KEY`, `ALPACA_SECRET`, `TURSO_URL`, `DISCORD_WEBHOOK`
-7. Enable GitHub Pages (Settings → Pages → Source: GitHub Actions)
-8. Provide initial holdings list (`{ ticker: shares }`) — seeds the user-portfolio tracker
-9. Provide watchlist tickers (10–30)
-10. Manually trigger first `morning.yml` run to verify
+### Fast path — `./bootstrap.sh --fast` (60 seconds, zero accounts)
+
+- Uses yfinance only as data source (no Alpaca account needed)
+- Uses local SQLite file (no Turso account needed)
+- Only required input: Discord webhook URL (or `--no-discord` flag for fully zero-input mode)
+- Creates GitHub repo via `gh` CLI, enables Pages, triggers first run
+- Trade-off: data is less reliable (Yahoo can break), state is local-only (no cross-device dashboard)
+
+### Full path — `./bootstrap.sh` (3 minutes, ~6 clicks, paste-back of 3 credentials)
+
+The script:
+
+1. Installs missing dependencies via `brew` or `pipx` (`gh`, `turso`, Python 3.11+, `uv`)
+2. Authenticates with GitHub (`gh auth login`)
+3. Opens browser tabs in sequence:
+   a. **Alpaca paper account signup** — user fills form → paste back `KEY` + `SECRET`
+   b. **Turso signup** (one-click GitHub OAuth) → paste back `URL` + `TOKEN`
+   c. **Discord webhook generator** (custom HTML helper page hosted in repo) → paste back webhook URL
+4. Auto-creates the GitHub repo (`gh repo create`)
+5. Auto-sets all secrets (`gh secret set ALPACA_KEY`, etc.)
+6. Auto-enables GitHub Pages with Actions source (`gh api`)
+7. Auto-prompts for initial holdings (`{ ticker: shares }`) and watchlist tickers — written to `config/account.json`
+8. Triggers first morning run (`gh workflow run morning.yml`)
+9. Watches the run, posts the resulting Discord message inline so user sees their first brief immediately
+10. Validates everything: checks Discord received, dashboard URL reachable, Turso DB seeded
+
+User clicks: ~6. Manual typing: 0 (all paste-back). Total time including KYC on Alpaca (the slowest piece): ~3 min.
+
+### Unautomatable bits (inherent to third-party services)
+
+- Alpaca KYC verification (~90 sec form)
+- Turso GitHub-OAuth click (~10 sec)
+- Discord webhook authorization (~10 sec)
+- GitHub OAuth (~10 sec, one-time)
+
+### Re-running setup
+
+`./bootstrap.sh --reconfigure` rotates secrets, repushes config without re-creating the repo. Idempotent.
 
 ---
 
@@ -563,10 +606,10 @@ Step-by-step instructions will be provided when scaffolding completes. High-leve
 
 | Week | Milestone |
 |---|---|
-| **1** | Project scaffold; Alpaca data fetcher; paper engine + slippage; SPY-Vol + QQQ-Vol benchmarks; Discord webhook; basic leaderboard JSON |
-| **2** | 5 classical strategies (Momo, MeanRev, Breakout, MA-Cross, RSI-Rev); tournament stats + bootstrapped CIs + factor decomp; regime kill-switch; watchdog; basic dashboard pages |
+| **1** | Project scaffold; `bootstrap.sh` setup script; Alpaca + yfinance data fetcher; paper engine + slippage; SPY-Vol + QQQ-Vol benchmarks; Discord webhook; basic leaderboard JSON |
+| **2** | 5 classical strategies (Momo, MeanRev, Breakout, MA-Cross, RSI-Rev); Codex bot adapter (`codex_bot.py`); tournament stats + bootstrapped CIs + factor decomp; regime kill-switch; watchdog; basic dashboard pages |
 | **3** | ML feature pipeline (walk-forward safe); GradBoost + LightForest training; validation gates (walk-forward Sharpe, label-shuffle, OOS stability) |
-| **4** | Ensemble bot; full dashboard polish (Bot vs Bot, Methodology, Validation pages); error handling hardening; complete test coverage |
+| **4** | Ensemble bot; full dashboard polish (Bot vs Bot — default view "Codex vs Leader"; Methodology; Validation pages); error handling hardening; complete test coverage |
 | **Ongoing** | Monthly universe rebalance; weekly retrains; on-going strategy research; v2-stretch Bot Builder UI |
 
 ---
