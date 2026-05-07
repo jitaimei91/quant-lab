@@ -1,0 +1,261 @@
+from __future__ import annotations
+
+import json
+from datetime import date, datetime
+from pathlib import Path
+from typing import Any
+
+from .models import Account, BacktestMetrics, Recommendation, StrategyParams
+
+
+def write_public_artifacts(
+    public_dir: Path,
+    run_log_path: Path,
+    *,
+    bot_id: str,
+    report_date: date,
+    report_path: Path,
+    account: Account,
+    equity: float,
+    data_start: date,
+    data_end: date,
+    strategy: StrategyParams,
+    metrics: BacktestMetrics,
+    recommendations: list[Recommendation],
+    redact: bool = False,
+) -> None:
+    public_dir.mkdir(parents=True, exist_ok=True)
+    run_log_path.parent.mkdir(parents=True, exist_ok=True)
+
+    payload = _payload(
+        bot_id=bot_id,
+        report_date=report_date,
+        report_path=report_path,
+        account=account,
+        equity=equity,
+        data_start=data_start,
+        data_end=data_end,
+        strategy=strategy,
+        metrics=metrics,
+        recommendations=recommendations,
+        redact=redact,
+    )
+    _write_json(public_dir / "latest.json", payload)
+
+    with run_log_path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(payload, sort_keys=True) + "\n")
+
+    history = load_history(run_log_path, limit=250)
+    _write_json(public_dir / "history.json", {"runs": history})
+    write_dashboard(public_dir / "index.html")
+
+
+def load_history(path: Path, limit: int = 250) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    rows: list[dict[str, Any]] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        try:
+            rows.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
+    return rows[-limit:]
+
+
+def rebuild_public_site(public_dir: Path, run_log_path: Path) -> None:
+    public_dir.mkdir(parents=True, exist_ok=True)
+    history = load_history(run_log_path, limit=250)
+    _write_json(public_dir / "history.json", {"runs": history})
+    if history:
+        _write_json(public_dir / "latest.json", history[-1])
+    write_dashboard(public_dir / "index.html")
+
+
+def write_dashboard(path: Path) -> None:
+    html = """<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morning Quant Bot</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; background: #f5f5f2; color: #161816; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    h1 { font-size: clamp(30px, 5vw, 58px); line-height: 1; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: 18px; margin: 0 0 14px; }
+    .top { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 18px; align-items: stretch; margin-bottom: 18px; }
+    .panel { border: 1px solid #d6d6ce; border-radius: 8px; background: #fffef9; padding: 18px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .metric { border-left: 4px solid #315f72; padding: 10px 12px; background: #f1f4f0; min-height: 66px; }
+    .metric span { display: block; color: #5d625c; font-size: 12px; }
+    .metric strong { display: block; margin-top: 7px; font-size: 22px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 11px 10px; border-bottom: 1px solid #dfdfd8; text-align: left; vertical-align: top; }
+    th { color: #555a54; font-size: 12px; text-transform: uppercase; }
+    .action { font-weight: 800; }
+    .BUY { color: #0f6b38; }
+    .SELL { color: #9b2d20; }
+    .HOLD { color: #4e5650; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .muted { color: #5f665f; }
+    @media (max-width: 820px) { .top, .grid, .metrics { grid-template-columns: 1fr; } main { padding: 22px 14px 40px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="top">
+      <div class="panel">
+        <h1>Morning Quant Bot</h1>
+        <p id="subtitle" class="muted">Loading latest run...</p>
+        <div class="metrics" id="metrics"></div>
+      </div>
+      <div class="panel">
+        <h2>Strategy</h2>
+        <div id="strategy" class="muted"></div>
+      </div>
+    </section>
+    <section class="grid">
+      <div class="panel">
+        <h2>Morning Actions</h2>
+        <div id="actions"></div>
+      </div>
+      <div class="panel">
+        <h2>Bot Comparison</h2>
+        <div id="comparison"></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const money = value => typeof value === "number" ? value.toLocaleString(undefined, {style: "currency", currency: "USD"}) : "redacted";
+    const pct = value => typeof value === "number" ? (value * 100).toFixed(1) + "%" : "redacted";
+    const num = value => typeof value === "number" ? value.toFixed(2) : "redacted";
+
+    async function loadJson(path, fallback) {
+      try {
+        const response = await fetch(path, {cache: "no-store"});
+        if (!response.ok) return fallback;
+        return await response.json();
+      } catch {
+        return fallback;
+      }
+    }
+
+    function renderLatest(run) {
+      if (!run || !run.bot_id) {
+        document.getElementById("subtitle").textContent = "No run data has been published yet.";
+        return;
+      }
+      document.getElementById("subtitle").textContent = `${run.bot_id} • ${run.report_date} • data through ${run.data_window.end}`;
+      document.getElementById("metrics").innerHTML = [
+        ["Equity", money(run.account.equity)],
+        ["Cash", money(run.account.cash)],
+        ["Test Sharpe", num(run.walk_forward.sharpe)],
+        ["Max Drawdown", pct(run.walk_forward.max_drawdown)]
+      ].map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join("");
+      const strategy = run.strategy;
+      document.getElementById("strategy").innerHTML = `
+        <p>Lookback ${strategy.lookback}, SMA ${strategy.sma_fast}/${strategy.sma_slow}</p>
+        <p>Max positions ${strategy.max_positions}, cash buffer ${pct(strategy.cash_buffer)}</p>
+        <p>Rebalance every ${strategy.rebalance_days} trading days</p>`;
+      const rows = (run.recommendations || []).map(item => `
+        <tr>
+          <td>${item.symbol}</td>
+          <td class="action ${item.action}">${item.action}</td>
+          <td>${item.current_shares}</td>
+          <td>${item.target_shares}</td>
+          <td>${money(item.latest_price)}</td>
+          <td>${pct(item.target_weight)}</td>
+          <td>${item.reason}</td>
+        </tr>`).join("");
+      document.getElementById("actions").innerHTML = `<table>
+        <thead><tr><th>Symbol</th><th>Action</th><th>Now</th><th>Target</th><th>Price</th><th>Weight</th><th>Reason</th></tr></thead>
+        <tbody>${rows || "<tr><td colspan='7'>No current actions.</td></tr>"}</tbody>
+      </table>`;
+    }
+
+    function renderComparison(history) {
+      const best = new Map();
+      for (const run of history.runs || []) {
+        const current = best.get(run.bot_id);
+        if (!current || run.generated_at > current.generated_at) best.set(run.bot_id, run);
+      }
+      const rows = [...best.values()].sort((a, b) => b.walk_forward.sharpe - a.walk_forward.sharpe).map(run => `
+        <tr>
+          <td>${run.bot_id}</td>
+          <td>${run.report_date}</td>
+          <td>${money(run.account.equity)}</td>
+          <td>${num(run.walk_forward.sharpe)}</td>
+          <td>${pct(run.walk_forward.cagr)}</td>
+          <td>${pct(run.walk_forward.max_drawdown)}</td>
+        </tr>`).join("");
+      document.getElementById("comparison").innerHTML = `<table>
+        <thead><tr><th>Bot</th><th>Date</th><th>Equity</th><th>Sharpe</th><th>CAGR</th><th>Drawdown</th></tr></thead>
+        <tbody>${rows || "<tr><td colspan='6'>No comparison history yet.</td></tr>"}</tbody>
+      </table>`;
+    }
+
+    Promise.all([loadJson("latest.json", null), loadJson("history.json", {runs: []})]).then(([latest, history]) => {
+      renderLatest(latest);
+      renderComparison(history);
+    });
+  </script>
+</body>
+</html>
+"""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(html, encoding="utf-8")
+
+
+def _payload(
+    *,
+    bot_id: str,
+    report_date: date,
+    report_path: Path,
+    account: Account,
+    equity: float,
+    data_start: date,
+    data_end: date,
+    strategy: StrategyParams,
+    metrics: BacktestMetrics,
+    recommendations: list[Recommendation],
+    redact: bool,
+) -> dict[str, Any]:
+    return {
+        "schema_version": 1,
+        "bot_id": bot_id,
+        "generated_at": datetime.now().replace(microsecond=0).isoformat(),
+        "report_date": report_date.isoformat(),
+        "report_path": str(report_path),
+        "data_window": {"start": data_start.isoformat(), "end": data_end.isoformat()},
+        "account": {
+            "cash": None if redact else round(account.cash, 2),
+            "equity": None if redact else round(equity, 2),
+            "positions": None if redact else {
+                symbol: position.to_dict()
+                for symbol, position in sorted(account.positions.items())
+            },
+        },
+        "strategy": strategy.to_dict(),
+        "walk_forward": metrics.to_dict(),
+        "recommendations": [
+            {
+                "symbol": rec.symbol,
+                "action": rec.action,
+                "current_shares": None if redact else round(rec.current_shares, 6),
+                "target_shares": None if redact else round(rec.target_shares, 6),
+                "delta_shares": None if redact else round(rec.delta_shares, 6),
+                "latest_price": round(rec.latest_price, 4),
+                "target_weight": round(rec.target_weight, 6),
+                "reason": rec.reason,
+            }
+            for rec in recommendations
+        ],
+    }
+
+
+def _write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+

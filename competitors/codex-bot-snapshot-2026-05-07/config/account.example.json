@@ -1,0 +1,15 @@
+{
+  "cash": 10000.0,
+  "positions": {
+    "SPY": {
+      "shares": 2.0,
+      "avg_cost": 500.0
+    },
+    "QQQ": {
+      "shares": 1.0,
+      "avg_cost": 430.0
+    }
+  },
+  "notes": "Simulation account only. Do not store brokerage credentials here."
+}
+

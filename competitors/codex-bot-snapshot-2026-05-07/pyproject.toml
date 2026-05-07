@@ -1,0 +1,10 @@
+[project]
+name = "morning-quant-bot"
+version = "0.1.0"
+description = "Free local paper-trading quant assistant with walk-forward strategy evolution."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+morning-quant-bot = "morning_quant_bot.cli:main"
+

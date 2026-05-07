@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+data/cache/*.csv
+reports/*.md
+reports/*.txt
+public/*.json
+state/*.json
+state/*.jsonl
+config/account.json
+config/.env
