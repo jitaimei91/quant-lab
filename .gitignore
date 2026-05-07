@@ -19,3 +19,5 @@ dashboard/data/*.json
 state/*.json
 !state/.gitkeep
 data/cache/
+.omc/
+.claude/
