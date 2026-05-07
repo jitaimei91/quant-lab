@@ -376,6 +376,142 @@ def backtest_command(
     )
 
 
+def ml_train_command(
+    state_dir: Path,
+    dashboard_data_dir: Path,
+    models_dir: Path,
+    start: date,
+    end: date,
+    horizon: int = 5,
+    seed: int = 42,
+) -> None:
+    """Walk-forward ML training pipeline: train, validate, persist state."""
+    from .data.universe import load_universe as _load_universe
+    from .ml.train import train_xgboost_walkforward, train_lightgbm_walkforward
+    from .ml.validate import label_shuffle_test, run_all_gates
+    from .ml.features import build_training_set
+
+    state_dir.mkdir(parents=True, exist_ok=True)
+    dashboard_data_dir.mkdir(parents=True, exist_ok=True)
+    models_dir.mkdir(parents=True, exist_ok=True)
+
+    repo_root = Path(__file__).resolve().parents[2]
+    universe_path = repo_root / "config" / "universe_r1000.txt"
+    if universe_path.exists():
+        symbols = _load_universe(universe_path)
+    else:
+        symbols = ["SPY", "QQQ"]
+
+    lookback_days = (end - start).days + 365
+    print(f"[ml-train] Fetching {len(symbols)} symbols ...")
+    histories: dict = {}
+    for sym in symbols:
+        bars = fetch_history(sym, lookback_days=lookback_days)
+        if bars:
+            histories[sym] = bars
+    if not histories:
+        raise RuntimeError("No data fetched for ML training.")
+
+    target_symbols = [s for s in histories if s not in {"SPY", "QQQ", "^VIX"}]
+    windows = walk_forward_windows(start=start, end=end, train_years=3, step_months=12)
+    if not windows:
+        raise RuntimeError("No walk-forward windows generated.")
+
+    print(f"[ml-train] Training with {len(windows)} walk-forward windows ...")
+
+    # --- Build full training set for label-shuffle test ---
+    X_full, y_full = build_training_set(
+        histories=histories,
+        target_symbols=target_symbols,
+        train_start=windows[0].train_start,
+        train_end=windows[-1].train_end,
+        horizon=horizon,
+        sample_every_days=5,
+    )
+
+    # Benchmark fold Sharpes (SPY buy-and-hold annualised daily return)
+    bench_sharpes: list[float] = []
+    import math as _math
+
+    import numpy as np
+    spy_bars = histories.get("SPY", [])
+    for w in windows:
+        spy_in_w = [b for b in spy_bars if w.test_start <= b.date < w.test_end]
+        if len(spy_in_w) > 1:
+            rets = [spy_in_w[i].close / spy_in_w[i - 1].close - 1.0 for i in range(1, len(spy_in_w))]
+            arr = np.array(rets)
+            std = float(np.std(arr, ddof=1))
+            bench_sharpes.append(float(np.mean(arr)) / std * _math.sqrt(252) if std > 0 else 0.0)
+
+    ml_validation: dict = {}
+
+    for train_fn_name, train_fn, bot_id in [
+        ("xgboost", train_xgboost_walkforward, "gradboost"),
+        ("lightgbm", train_lightgbm_walkforward, "lightforest"),
+    ]:
+        print(f"[ml-train] Training {bot_id} ...")
+        artifacts = train_fn(
+            histories=histories,
+            target_symbols=target_symbols,
+            windows=windows,
+            horizon=horizon,
+            seed=seed,
+            models_dir=models_dir,
+        )
+
+        # Label-shuffle test
+        if not X_full.empty:
+            def _simple_train(X, y):
+                from sklearn.linear_model import Ridge
+                m = Ridge()
+                m.fit(X.fillna(0.0).values, y.values)
+                return m
+
+            shuffle_result = label_shuffle_test(
+                train_fn=_simple_train,
+                X=X_full,
+                y=y_full,
+                n_shuffles=10,
+                seed=seed,
+            )
+        else:
+            shuffle_result = {"pass": True, "detail": "No training data for shuffle test"}
+
+        gate_artifacts = {
+            "label_shuffle_result": shuffle_result,
+            "fold_sharpes": artifacts["fold_sharpes"],
+            "benchmark_fold_sharpes": bench_sharpes,
+            "live_sharpe": None,
+        }
+        gate_result = run_all_gates(bot_id, gate_artifacts)
+        ml_validation[bot_id] = gate_result
+        status = "PASS" if gate_result["overall_pass"] else f"FAIL: {gate_result['reasons_failed']}"
+        print(f"[ml-train] {bot_id} gates: {status}")
+
+    # Ensemble: passes iff both components pass
+    both_pass = all(ml_validation.get(bid, {}).get("overall_pass", False) for bid in ["gradboost", "lightforest"])
+    ml_validation["ml-ensemble"] = {
+        "bot_id": "ml-ensemble",
+        "overall_pass": both_pass,
+        "reasons_failed": [] if both_pass else ["component bots failed gates"],
+        "gates": {},
+    }
+
+    # Write validation state
+    validation_path = state_dir / "ml_validation.json"
+    validation_path.write_text(json.dumps(ml_validation, indent=2) + "\n")
+    print(f"[ml-train] Validation state written to {validation_path}")
+
+    # Write failures to dashboard
+    failures = {bid: v for bid, v in ml_validation.items() if not v.get("overall_pass", False)}
+    if failures:
+        failed_path = dashboard_data_dir / "validation_failed.json"
+        failed_path.write_text(json.dumps(failures, indent=2) + "\n")
+        print(f"[ml-train] {len(failures)} bots failed gates → {failed_path}")
+    else:
+        print("[ml-train] All ML bots passed gates.")
+
+
 def cli() -> None:
     parser = argparse.ArgumentParser(prog="quant-lab")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -388,6 +524,12 @@ def cli() -> None:
     bt.add_argument("--step-months", type=int, default=12)
     bt.add_argument("--no-slippage-sweep", action="store_true")
     bt.add_argument("--no-regime-stress", action="store_true")
+
+    mlt = sub.add_parser("ml-train", help="Walk-forward ML training + validation gates")
+    mlt.add_argument("--start", type=lambda s: _dt.fromisoformat(s).date(), default=date(2020, 1, 1))
+    mlt.add_argument("--end", type=lambda s: _dt.fromisoformat(s).date(), default=date.today())
+    mlt.add_argument("--horizon", type=int, default=5)
+    mlt.add_argument("--seed", type=int, default=42)
 
     args = parser.parse_args()
     if args.cmd == "morning":
@@ -409,6 +551,17 @@ def cli() -> None:
             step_months=args.step_months,
             enable_slippage_sweep=not args.no_slippage_sweep,
             enable_regime_stress=not args.no_regime_stress,
+        )
+    elif args.cmd == "ml-train":
+        repo_root = Path(__file__).resolve().parents[2]
+        ml_train_command(
+            state_dir=repo_root / "state",
+            dashboard_data_dir=repo_root / "dashboard" / "data",
+            models_dir=repo_root / "models",
+            start=args.start,
+            end=args.end,
+            horizon=args.horizon,
+            seed=args.seed,
         )
 
 
