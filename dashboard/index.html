@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Lab — Morning Brief</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Quant Lab</h1>
+    <p class="disclaimer">Research tool. Not financial advice. Paper trading only.</p>
+  </header>
+
+  <section id="market">
+    <h2>Market</h2>
+    <div id="market-stats"></div>
+  </section>
+
+  <section id="leaderboard">
+    <h2>Tournament Leaderboard</h2>
+    <table id="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Bot</th>
+          <th>Total return</th>
+          <th>Annualized</th>
+          <th>Sharpe</th>
+          <th>Max DD</th>
+          <th>Days</th>
+          <th>Current weights</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="curves">
+    <h2>Equity Curves</h2>
+    <canvas id="equity-chart" height="120"></canvas>
+  </section>
+
+  <footer>
+    <p>Generated: <span id="generated-at"></span></p>
+    <p>
+      Disclaimer: Strategies in this tournament are well-known, public, and have been studied
+      (and largely arbitraged) by professional quants for decades. The probability that any
+      single strategy here delivers consistent risk-adjusted outperformance vs. a passive index
+      over a 5+ year horizon is low. Use this system to learn, not to allocate real capital.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
