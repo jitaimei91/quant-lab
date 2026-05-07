@@ -39,7 +39,11 @@ from .backtest.slippage_sweep import run_slippage_sweep as _run_slippage_sweep
 from .backtest.windows import regime_stress_windows, walk_forward_windows
 
 
-SYMBOLS_FOR_PHASE_1 = ["SPY", "QQQ", "IWM", "VTV", "VUG", "TLT", "IEF", "GLD", "USO", "EFA", "EEM", "VNQ", "HYG", "VXX"]
+SYMBOLS_FOR_PHASE_1 = [
+    "SPY", "QQQ", "IWM", "VTV", "VUG",
+    "TLT", "IEF", "GLD", "USO",
+    "EFA", "EEM", "VNQ", "HYG", "VXX",
+]
 
 
 def _market_snapshot(histories: dict, today: date) -> dict[str, dict[str, float]]:
