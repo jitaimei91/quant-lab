@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Lab — Walk-Forward Calibration</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Calibration Report</h1>
+    <p class="disclaimer">Walk-forward out-of-sample evidence. Survivorship-biased data. Past performance ≠ future results.</p>
+    <p><a href="index.html">← Live tournament</a></p>
+  </header>
+
+  <section>
+    <h2>Aggregate Calibration</h2>
+    <table id="agg-table">
+      <thead><tr><th>Bot</th><th>Sharpe</th><th>95% CI</th><th>Median α t-stat</th><th>Sig weight</th><th>Days</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Equity Curves Per Window</h2>
+    <div id="curves"></div>
+  </section>
+
+  <footer>
+    <p>Disclaimer: backtest data is survivorship-biased (yfinance only contains currently-listed names). Real-world results would be lower by 1-3%/yr from delisted names. Strategies that beat SPY here may still fail live.</p>
+  </footer>
+
+  <script src="backtest.js"></script>
+</body>
+</html>
