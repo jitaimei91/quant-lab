@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Lab — Validation</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Quant Lab — Validation Evidence</h1>
+    <p class="disclaimer">Walk-forward out-of-sample evidence only. Not financial advice.</p>
+  </header>
+
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="compare.html">Compare</a>
+    <a href="validation.html">Validation</a>
+    <a href="methodology.html">Methodology</a>
+  </nav>
+
+  <section>
+    <p class="muted">
+      Each card shows the backtest aggregate Sharpe with 95% bootstrap CI, median alpha t-stat,
+      and significance badge. Mini-charts show per-window Sharpe. Red border = failed significance gate.
+    </p>
+    <div id="val-grid" class="val-grid"></div>
+  </section>
+
+  <footer>
+    <p>Past performance does not predict future results. Survivorship-biased data. See <a href="methodology.html">Methodology</a> for details.</p>
+  </footer>
+
+  <script src="validation.js"></script>
+</body>
+</html>
