@@ -13,6 +13,7 @@ from pathlib import Path
 from . import strategies  # noqa: F401  (registers strategies via import)
 from .data import fetch_history
 from .tournament.factors import factor_proxies_from_histories
+from .engine.regime import regime_state, should_pause_bot
 from .persistence import (
     save_portfolios,
     load_portfolios,
@@ -75,6 +76,10 @@ def morning_command(
     prior_portfolios = {p.bot_id: p for p in prior_portfolios_list}
     prior_navs = load_nav_history(state_dir / "nav_history.json")
 
+    # Regime check (VIX kill-switch)
+    reg = regime_state(histories)
+    print(f"[regime] VIX={reg['vix']:.1f} regime={reg['regime']}")
+
     strategies_list = get_all()
     portfolios, trades, nav_history = run_morning_for_strategies(
         strategies=strategies_list,
@@ -83,6 +88,8 @@ def morning_command(
         prior_portfolios=prior_portfolios,
         prior_navs=prior_navs,
         as_of=today,
+        block_new_entries=reg["halt_new_entries"],
+        liquidate_all=reg["liquidate_all"],
     )
 
     save_portfolios(portfolios.values(), state_dir / "portfolios.json")
@@ -106,6 +113,7 @@ def morning_command(
     qqq_rets = _bar_rets("QQQ")
     factor_rets = factor_proxies_from_histories(histories)
 
+    paused_bots: dict[str, str] = {}
     for strat in strategies_list:
         navs = nav_history.get(strat.bot_id, [])
         nav_values = [n for _, n in navs]
@@ -115,13 +123,22 @@ def morning_command(
             daily_returns_vs_qqq=qqq_rets if qqq_rets else None,
             factor_returns=factor_rets if factor_rets else None,
         )
+        # Per-bot drawdown/Sharpe pause check
+        paused, reason = should_pause_bot(strat.bot_id, navs)
+        if paused:
+            paused_bots[strat.bot_id] = reason
+            print(f"[regime] {strat.bot_id} paused: {reason}")
+
         portfolio = portfolios[strat.bot_id]
         weights = {
             sym: portfolio.weight(sym, last_prices)
             for sym in portfolio.positions
         }
         leaderboard.append((strat.bot_id, metrics, weights))
-    leaderboard.sort(key=lambda row: row[1].sharpe, reverse=True)
+    # Sort active (non-paused) bots first by Sharpe, then paused bots
+    leaderboard.sort(
+        key=lambda row: (row[0] in paused_bots, -row[1].sharpe)
+    )
 
     market = _market_snapshot(histories, today)
     write_dashboard_data(

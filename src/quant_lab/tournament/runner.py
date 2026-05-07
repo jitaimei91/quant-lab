@@ -31,8 +31,18 @@ def run_morning_for_strategies(
     prior_navs: dict[str, list[tuple[date, float]]],
     as_of: date,
     starting_cash: float = 100_000.0,
+    block_new_entries: bool = False,
+    liquidate_all: bool = False,
 ) -> tuple[dict[str, Portfolio], list[Trade], dict[str, list[tuple[date, float]]]]:
-    """Run one morning step for all strategies. Returns updated state."""
+    """Run one morning step for all strategies. Returns updated state.
+
+    Parameters
+    ----------
+    block_new_entries:
+        When True, the paper engine will not open new positions (regime CAUTION).
+    liquidate_all:
+        When True, all strategies' target weights are forced to {} (regime PANIC).
+    """
     if advs is None:
         advs = {sym: _avg_dollar_volume(bars) for sym, bars in histories.items()}
 
@@ -48,7 +58,9 @@ def run_morning_for_strategies(
             Portfolio(bot_id=strat.bot_id, cash=starting_cash, positions={}),
         )
         weights = strat.target_weights(histories, as_of)
-        result = rebalance(portfolio, weights, prices, advs, as_of=as_of)
+        if liquidate_all:
+            weights = {}
+        result = rebalance(portfolio, weights, prices, advs, as_of=as_of, block_new_entries=block_new_entries)
         new_portfolios[strat.bot_id] = result.portfolio
         all_trades.extend(result.trades)
 

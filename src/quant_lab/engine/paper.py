@@ -28,12 +28,16 @@ def rebalance(
     drift_threshold: float = 0.005,
     min_trade_value: float = 5.0,
     adv_floor: float = 1_000_000,
+    block_new_entries: bool = False,
 ) -> PaperResult:
     """Rebalance `portfolio` toward `target_weights`.
 
     - Applies slippage from `slippage.apply_slippage`.
     - Skips names with ADV below `adv_floor` (liquidity gate).
     - Skips trades whose change in weight is below `drift_threshold`.
+    - When `block_new_entries=True`, skips opening brand-new positions
+      (current_shares == 0 and target_value > 0). Existing positions
+      are still managed (trimmed or closed) normally.
     """
     equity = portfolio.equity(prices)
     if equity <= 0:
@@ -61,6 +65,11 @@ def rebalance(
         current_shares = current_pos.shares if current_pos else 0.0
         current_value = current_shares * price
         target_value = equity * target_w
+
+        # Regime kill-switch: skip opening brand-new positions
+        if block_new_entries and current_shares == 0 and target_value > 0:
+            skipped.append(f"{symbol}: new entry blocked (regime halt_new_entries)")
+            continue
         delta_value = target_value - current_value
 
         if abs(delta_value) < min_trade_value:
