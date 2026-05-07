@@ -14,9 +14,10 @@ from ..types import Bar, Portfolio, Trade
 
 
 def _avg_dollar_volume(bars: list[Bar], window: int = 30) -> float:
-    if not bars:
+    if len(bars) < 2:
         return 0.0
-    recent = bars[-window:]
+    # Use trailing window excluding current day
+    recent = bars[-(window + 1):-1]
     if not recent:
         return 0.0
     return sum(b.close * b.volume for b in recent) / len(recent)
