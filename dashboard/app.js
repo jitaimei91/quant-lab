@@ -9,16 +9,18 @@
   const leaderboard = await leaderboardRes.json();
   const navHistory = await navRes.json();
 
-  // Market
+  // Market — SPY and QQQ dual-index banner
   const marketEl = document.getElementById("market-stats");
   for (const sym of ["SPY", "QQQ"]) {
     const m = leaderboard.market[sym] || { change_pct: 0, ytd_pct: 0 };
+    const chgSign = m.change_pct >= 0 ? "+" : "";
+    const ytdSign = m.ytd_pct >= 0 ? "+" : "";
     const card = document.createElement("div");
     card.className = "market-card";
     card.innerHTML = `
       <div class="sym">${sym}</div>
-      <div class="chg ${m.change_pct >= 0 ? "pos" : "neg"}">${(m.change_pct >= 0 ? "+" : "") + m.change_pct.toFixed(2)}%</div>
-      <div>YTD ${(m.ytd_pct >= 0 ? "+" : "") + m.ytd_pct.toFixed(2)}%</div>
+      <div class="chg ${m.change_pct >= 0 ? "pos" : "neg"}">${chgSign}${m.change_pct.toFixed(2)}% today</div>
+      <div class="${m.ytd_pct >= 0 ? "pos" : "neg"}">YTD ${ytdSign}${m.ytd_pct.toFixed(2)}%</div>
     `;
     marketEl.appendChild(card);
   }
@@ -32,7 +34,7 @@
       .map(([s, w]) => `${s} ${(w * 100).toFixed(0)}%`)
       .join(", ") || "cash";
     row.innerHTML = `
-      <td>${bot.bot_id}</td>
+      <td><a href="bot.html?id=${encodeURIComponent(bot.bot_id)}">${bot.bot_id}</a></td>
       <td class="${cls(bot.metrics.total_return)}">${fmtPct(bot.metrics.total_return)}</td>
       <td class="${cls(bot.metrics.annualized_return)}">${fmtPct(bot.metrics.annualized_return)}</td>
       <td>${bot.metrics.sharpe.toFixed(2)}</td>
