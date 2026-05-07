@@ -12,6 +12,7 @@ from pathlib import Path
 
 from . import strategies  # noqa: F401  (registers strategies via import)
 from .data import fetch_history
+from .tournament.factors import factor_proxies_from_histories
 from .persistence import (
     save_portfolios,
     load_portfolios,
@@ -30,7 +31,7 @@ from .backtest.slippage_sweep import run_slippage_sweep as _run_slippage_sweep
 from .backtest.windows import regime_stress_windows, walk_forward_windows
 
 
-SYMBOLS_FOR_PHASE_1 = ["SPY", "QQQ"]
+SYMBOLS_FOR_PHASE_1 = ["SPY", "QQQ", "IWM", "VTV", "VUG"]
 
 
 def _market_snapshot(histories: dict, today: date) -> dict[str, dict[str, float]]:
@@ -90,10 +91,30 @@ def morning_command(
 
     leaderboard = []
     last_prices = {s: bars[-1].close for s, bars in histories.items()}
+
+    # Build benchmark return series for extended metrics
+    def _bar_rets(sym: str) -> list[float]:
+        bars_sym = histories.get(sym, [])
+        rets = []
+        for i in range(1, len(bars_sym)):
+            prev = bars_sym[i - 1].close
+            if prev > 0:
+                rets.append(bars_sym[i].close / prev - 1.0)
+        return rets
+
+    spy_rets = _bar_rets("SPY")
+    qqq_rets = _bar_rets("QQQ")
+    factor_rets = factor_proxies_from_histories(histories)
+
     for strat in strategies_list:
         navs = nav_history.get(strat.bot_id, [])
         nav_values = [n for _, n in navs]
-        metrics = compute_metrics(nav_values)
+        metrics = compute_metrics(
+            nav_values,
+            daily_returns_vs_spy=spy_rets if spy_rets else None,
+            daily_returns_vs_qqq=qqq_rets if qqq_rets else None,
+            factor_returns=factor_rets if factor_rets else None,
+        )
         portfolio = portfolios[strat.bot_id]
         weights = {
             sym: portfolio.weight(sym, last_prices)
