@@ -85,13 +85,15 @@ def morning_command(
     append_trades(trades, state_dir / "trades.jsonl")
 
     leaderboard = []
+    last_prices = {s: bars[-1].close for s, bars in histories.items()}
     for strat in strategies_list:
         navs = nav_history.get(strat.bot_id, [])
         nav_values = [n for _, n in navs]
         metrics = compute_metrics(nav_values)
+        portfolio = portfolios[strat.bot_id]
         weights = {
-            sym: portfolios[strat.bot_id].weight(sym, {s: bars[-1].close for s, bars in histories.items()})
-            for sym in {sym for pos in portfolios[strat.bot_id].positions.keys() for sym in [pos]}
+            sym: portfolio.weight(sym, last_prices)
+            for sym in portfolio.positions
         }
         leaderboard.append((strat.bot_id, metrics, weights))
     leaderboard.sort(key=lambda row: row[1].sharpe, reverse=True)
