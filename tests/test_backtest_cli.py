@@ -1,7 +1,6 @@
 # tests/test_backtest_cli.py
 import json
 from datetime import date
-from unittest.mock import patch
 
 from quant_lab.main import backtest_command
 from quant_lab.types import Bar

@@ -2,7 +2,6 @@
 """E2E smoke: pull synthetic 7 years of data, run walk-forward, write report, assert artifacts exist."""
 import json
 from datetime import date
-from pathlib import Path
 
 from quant_lab.main import backtest_command
 from quant_lab.types import Bar
