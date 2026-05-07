@@ -196,7 +196,7 @@ def regime_stress_windows() -> list[Window]:
 
 ```bash
 git add src/quant_lab/backtest/__init__.py src/quant_lab/backtest/windows.py tests/test_backtest_windows.py
-git -c user.email="bozoballz239@gmail.com" -c user.name="victalino" commit -m "feat(backtest): walk-forward + regime-stress window generators"
+git -c user.email="<your-email>" -c user.name="<your-name>" commit -m "feat(backtest): walk-forward + regime-stress window generators"
 ```
 
 ---
@@ -363,7 +363,7 @@ def significance_weight(t_stat: float) -> float:
 
 ```bash
 git add src/quant_lab/backtest/stats.py tests/test_backtest_stats.py
-git -c user.email="bozoballz239@gmail.com" -c user.name="victalino" commit -m "feat(backtest): block-bootstrap Sharpe CI + alpha t-stat + significance weight"
+git -c user.email="<your-email>" -c user.name="<your-name>" commit -m "feat(backtest): block-bootstrap Sharpe CI + alpha t-stat + significance weight"
 ```
 
 ---
@@ -572,7 +572,7 @@ def run_walk_forward(
 
 ```bash
 git add src/quant_lab/backtest/harness.py tests/test_backtest_harness.py
-git -c user.email="bozoballz239@gmail.com" -c user.name="victalino" commit -m "feat(backtest): walk-forward harness driving paper engine through history"
+git -c user.email="<your-email>" -c user.name="<your-name>" commit -m "feat(backtest): walk-forward harness driving paper engine through history"
 ```
 
 ---
@@ -670,7 +670,7 @@ def run_slippage_sweep(
 
 ```bash
 git add src/quant_lab/backtest/slippage_sweep.py tests/test_backtest_harness.py
-git -c user.email="bozoballz239@gmail.com" -c user.name="victalino" commit -m "feat(backtest): slippage sensitivity sweep (1x/2x/5x)"
+git -c user.email="<your-email>" -c user.name="<your-name>" commit -m "feat(backtest): slippage sensitivity sweep (1x/2x/5x)"
 ```
 
 ---
@@ -853,7 +853,7 @@ def write_calibration_report(
 
 ```bash
 git add src/quant_lab/backtest/report.py tests/test_backtest_report.py
-git -c user.email="bozoballz239@gmail.com" -c user.name="victalino" commit -m "feat(backtest): calibration report (JSON + markdown) with bootstrap CIs and alpha t-stats"
+git -c user.email="<your-email>" -c user.name="<your-name>" commit -m "feat(backtest): calibration report (JSON + markdown) with bootstrap CIs and alpha t-stats"
 ```
 
 ---
@@ -1045,7 +1045,7 @@ def cli() -> None:
 
 ```bash
 git add src/quant_lab/main.py tests/test_backtest_cli.py
-git -c user.email="bozoballz239@gmail.com" -c user.name="victalino" commit -m "feat(cli): add quant-lab backtest subcommand with walk-forward + sweeps"
+git -c user.email="<your-email>" -c user.name="<your-name>" commit -m "feat(cli): add quant-lab backtest subcommand with walk-forward + sweeps"
 ```
 
 ---
@@ -1188,7 +1188,7 @@ Add after the `<header>` block in `dashboard/index.html`:
 
 ```bash
 git add dashboard/backtest.html dashboard/backtest.js dashboard/index.html
-git -c user.email="bozoballz239@gmail.com" -c user.name="victalino" commit -m "feat(dashboard): walk-forward calibration report page"
+git -c user.email="<your-email>" -c user.name="<your-name>" commit -m "feat(dashboard): walk-forward calibration report page"
 ```
 
 ---
@@ -1262,7 +1262,7 @@ def test_backtest_e2e_produces_calibration_artifacts(tmp_path, monkeypatch):
 
 ```bash
 git add tests/test_backtest_e2e.py
-git -c user.email="bozoballz239@gmail.com" -c user.name="victalino" commit -m "test: e2e smoke for backtest pipeline (synthetic 7-yr data)"
+git -c user.email="<your-email>" -c user.name="<your-name>" commit -m "test: e2e smoke for backtest pipeline (synthetic 7-yr data)"
 ```
 
 ---
