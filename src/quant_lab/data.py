@@ -14,11 +14,18 @@ from .types import Bar
 
 
 def fetch_history(symbol: str, lookback_days: int = 365) -> list[Bar]:
-    """Fetch OHLCV bars for the last `lookback_days` trading days for `symbol`."""
-    ticker = yf.Ticker(symbol)
+    """Fetch OHLCV bars for the last `lookback_days` trading days for `symbol`.
+
+    Returns an empty list on any fetch failure (network, rate limit, etc.).
+    The caller is responsible for handling missing data.
+    """
     end = date.today()
     start = end - timedelta(days=lookback_days)
-    df = ticker.history(start=start, end=end + timedelta(days=1), auto_adjust=True)
+    try:
+        ticker = yf.Ticker(symbol)
+        df = ticker.history(start=start, end=end + timedelta(days=1), auto_adjust=True)
+    except Exception:
+        return []
     if df.empty:
         return []
 
