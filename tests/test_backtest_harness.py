@@ -64,3 +64,22 @@ def test_run_walk_forward_multiple_windows_isolated():
     )
     # Each window has its own NAV series starting from the same starting_cash
     assert result.nav_by_window["w1"]["test-always-spy"][0] != result.nav_by_window["w2"]["test-always-spy"][-1]
+
+
+from quant_lab.backtest.slippage_sweep import run_slippage_sweep
+
+
+def test_slippage_sweep_returns_one_result_per_multiplier():
+    histories = {"SPY": _bars("SPY", date(2018, 1, 1), date(2021, 1, 1))}
+    window = Window(date(2018, 1, 1), date(2020, 1, 1), date(2020, 12, 31), "test")
+    sweep = run_slippage_sweep(
+        strategies=[_AlwaysSPY()],
+        histories=histories,
+        windows=[window],
+        multipliers=(1.0, 2.0, 5.0),
+    )
+    assert set(sweep.results.keys()) == {1.0, 2.0, 5.0}
+    # Higher slippage should produce same-or-lower NAV (cumulative cost drag)
+    nav_1x = sweep.results[1.0].nav_by_window["test"]["test-always-spy"][-1]
+    nav_5x = sweep.results[5.0].nav_by_window["test"]["test-always-spy"][-1]
+    assert nav_5x <= nav_1x
