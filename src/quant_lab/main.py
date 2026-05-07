@@ -229,9 +229,17 @@ def backtest_command(
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    symbols = ["SPY", "QQQ"]
+    # Load universe: SPY+QQQ always, plus R1000 universe if available
+    from .data.universe import load_universe as _load_universe
+    repo_root = Path(__file__).resolve().parents[2]
+    universe_path = repo_root / "config" / "universe_r1000.txt"
+    if universe_path.exists():
+        symbols = _load_universe(universe_path)
+    else:
+        symbols = ["SPY", "QQQ"]
     lookback_days = (end - start).days + 365
     histories = {}
+    print(f"[backtest] Fetching {len(symbols)} symbols ...")
     for sym in symbols:
         bars = fetch_history(sym, lookback_days=lookback_days)
         if bars:
