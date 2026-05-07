@@ -604,12 +604,14 @@ User clicks: ~6. Manual typing: 0 (all paste-back). Total time including KYC on 
 
 ## 17. Roadmap
 
-| Week | Milestone |
+| Phase | Milestone |
 |---|---|
-| **1** | Project scaffold; `bootstrap.sh` setup script; Alpaca + yfinance data fetcher; paper engine + slippage; SPY-Vol + QQQ-Vol benchmarks; Discord webhook; basic leaderboard JSON |
-| **2** | 5 classical strategies (Momo, MeanRev, Breakout, MA-Cross, RSI-Rev); Codex bot adapter (`codex_bot.py`); tournament stats + bootstrapped CIs + factor decomp; regime kill-switch; watchdog; basic dashboard pages |
-| **3** | ML feature pipeline (walk-forward safe); GradBoost + LightForest training; validation gates (walk-forward Sharpe, label-shuffle, OOS stability) |
-| **4** | Ensemble bot; full dashboard polish (Bot vs Bot — default view "Codex vs Leader"; Methodology; Validation pages); error handling hardening; complete test coverage |
+| **1** | (SHIPPED 2026-05-07) Project scaffold; `bootstrap.sh` fast-path; yfinance data fetcher; paper engine + slippage + liquidity gate; SPY-Vol + QQQ-Vol benchmarks; Discord webhook; basic leaderboard JSON; static dashboard; GH Actions cron + Pages |
+| **1.5** | **Walk-forward backtest harness** (NEW — max calibration before any strategy goes live). Replay 10+ years of history through every strategy with rolling-window retraining; output bootstrap-CI Sharpe, alpha t-stats vs SPY/QQQ, regime-stress P&L (2008/2020/2022 windows), transaction-cost sensitivity (1×/2×/5× slippage). Every strategy added in Phase 2/3 must clear configurable calibration gates *before* joining the live tournament. |
+| **2** | 5 classical strategies (Momo, MeanRev, Breakout, MA-Cross, RSI-Rev); Codex bot adapter (`codex_bot.py`); each shipped with its walk-forward calibration report; tournament stats + factor decomp; regime kill-switch; watchdog; basic dashboard pages |
+| **3** | ML feature pipeline (walk-forward safe); GradBoost + LightForest training; validation gates (walk-forward Sharpe, label-shuffle, OOS stability) — shared infrastructure with Phase 1.5 |
+| **4** | Full dashboard polish (Bot vs Bot — default view "Codex vs Leader"; Methodology; Validation pages); error handling hardening; complete test coverage |
+| **5** | **Synthesis: meta-ensemble bot** (NEW — the "usable model" deliverable). Take walk-forward results from every strategy, weight each by `calibrated_sharpe × significance_factor × regime_stability`, produce an ensemble bot whose daily signal is the evidence-weighted average. Ship as bot #N+1 in the live tournament alongside the individual strategies — competing against itself, the Codex bot, and SPY/QQQ. Updates online as new live evidence accumulates. |
 | **Ongoing** | Monthly universe rebalance; weekly retrains; on-going strategy research; v2-stretch Bot Builder UI |
 
 ---
