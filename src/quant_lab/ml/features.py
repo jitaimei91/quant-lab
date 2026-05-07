@@ -45,9 +45,9 @@ def _rsi_wilder(closes: np.ndarray, period: int = 14) -> float:
     avg_gain = float(np.mean(gains[:period]))
     avg_loss = float(np.mean(losses[:period]))
     # Apply Wilder smoothing on the rest
-    for g, l in zip(gains[period:], losses[period:]):
+    for g, loss in zip(gains[period:], losses[period:]):
         avg_gain = (avg_gain * (period - 1) + g) / period
-        avg_loss = (avg_loss * (period - 1) + l) / period
+        avg_loss = (avg_loss * (period - 1) + loss) / period
     if avg_loss == 0:
         return 100.0
     rs = avg_gain / avg_loss

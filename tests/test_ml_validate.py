@@ -1,13 +1,11 @@
 """Tests for ML validation gates."""
 from __future__ import annotations
 
-import math
 from datetime import date, timedelta
 from typing import Any
 
 import numpy as np
 import pandas as pd
-import pytest
 
 from quant_lab.ml.validate import (
     label_shuffle_test,

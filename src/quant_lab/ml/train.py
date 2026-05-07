@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 
 from ..backtest.windows import Window
-from .features import build_training_set, compute_features
+from .features import build_training_set
 
 logger = logging.getLogger(__name__)
 

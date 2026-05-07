@@ -5,7 +5,6 @@ import math
 from datetime import date, timedelta
 
 import pandas as pd
-import pytest
 
 from quant_lab.ml.features import compute_features, build_training_set
 from quant_lab.types import Bar

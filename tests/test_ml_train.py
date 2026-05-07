@@ -5,7 +5,6 @@ import tempfile
 from datetime import date, timedelta
 from pathlib import Path
 
-import pytest
 
 from quant_lab.backtest.windows import Window
 from quant_lab.ml.train import train_xgboost_walkforward, train_lightgbm_walkforward
