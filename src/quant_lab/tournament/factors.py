@@ -10,7 +10,6 @@ OLS regression is pure-Python (no scipy/statsmodels dependency).
 from __future__ import annotations
 
 import statistics
-from math import sqrt
 
 from ..types import Bar
 

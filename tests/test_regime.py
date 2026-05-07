@@ -3,8 +3,6 @@ from __future__ import annotations
 
 from datetime import date, timedelta
 
-import pytest
-
 from quant_lab.engine.regime import per_bot_drawdown, regime_state, should_pause_bot
 from quant_lab.engine.paper import rebalance
 from quant_lab.types import Bar, Portfolio, Position

@@ -4,8 +4,6 @@ from __future__ import annotations
 import math
 from datetime import date
 
-import pytest
-
 from quant_lab.tournament.factors import compute_factor_loadings, factor_proxies_from_histories
 from quant_lab.types import Bar
 
