@@ -6,8 +6,9 @@ strategies, persist state, write dashboard data, post Discord brief.
 from __future__ import annotations
 
 import argparse
+import json
 import os
-from datetime import date, datetime as _dt
+from datetime import date, datetime as _dt, timezone
 from pathlib import Path
 
 from . import strategies  # noqa: F401  (registers strategies via import)
@@ -51,6 +52,20 @@ def _market_snapshot(histories: dict, today: date) -> dict[str, dict[str, float]
     return snapshot
 
 
+def _write_last_morning(state_dir: Path, status: str, strategy_ids: list[str]) -> None:
+    """Write state/last_morning.json for the watchdog workflow."""
+    payload = {
+        "timestamp": _dt.now(tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "status": status,
+        "strategies": strategy_ids,
+    }
+    try:
+        state_dir.mkdir(parents=True, exist_ok=True)
+        (state_dir / "last_morning.json").write_text(json.dumps(payload, indent=2) + "\n")
+    except Exception as exc:
+        print(f"[warn] Could not write last_morning.json: {exc}")
+
+
 def morning_command(
     state_dir: Path,
     dashboard_data_dir: Path,
@@ -62,6 +77,33 @@ def morning_command(
     dashboard_data_dir.mkdir(parents=True, exist_ok=True)
     snapshot_dir.mkdir(parents=True, exist_ok=True)
 
+    completed_strategy_ids: list[str] = []
+    run_status = "failed"
+    try:
+        _morning_command_inner(
+            state_dir=state_dir,
+            dashboard_data_dir=dashboard_data_dir,
+            snapshot_dir=snapshot_dir,
+            discord_webhook=discord_webhook,
+            dashboard_url=dashboard_url,
+            completed_strategy_ids=completed_strategy_ids,
+        )
+        run_status = "success"
+    except Exception:
+        run_status = "partial" if completed_strategy_ids else "failed"
+        raise
+    finally:
+        _write_last_morning(state_dir, run_status, completed_strategy_ids)
+
+
+def _morning_command_inner(
+    state_dir: Path,
+    dashboard_data_dir: Path,
+    snapshot_dir: Path,
+    discord_webhook: str | None,
+    dashboard_url: str | None,
+    completed_strategy_ids: list[str],
+) -> None:
     histories: dict[str, list] = {}
     for symbol in SYMBOLS_FOR_PHASE_1:
         bars = fetch_history(symbol, lookback_days=400)
@@ -139,6 +181,9 @@ def morning_command(
     leaderboard.sort(
         key=lambda row: (row[0] in paused_bots, -row[1].sharpe)
     )
+
+    # Record completed strategy IDs for watchdog last_morning.json
+    completed_strategy_ids.extend([strat.bot_id for strat in strategies_list])
 
     market = _market_snapshot(histories, today)
     write_dashboard_data(
