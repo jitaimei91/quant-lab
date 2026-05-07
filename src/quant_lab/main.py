@@ -24,7 +24,7 @@ from .persistence import (
 )
 from .ensemble.live_calibration import update_weights_from_live
 from .reporting.discord import build_message, post_to_discord
-from .reporting.dashboard import write_dashboard_data
+from .reporting.dashboard import write_dashboard_data, write_validation_data
 from .strategies.base import get_all
 from .tournament.runner import run_morning_for_strategies
 from .tournament.stats import compute_metrics
@@ -217,6 +217,17 @@ def _morning_command_inner(
         market=market,
         generated_at=today,
     )
+
+    # Write per-bot detail files and validation data
+    repo_root_for_bt = Path(__file__).resolve().parents[2]
+    backtest_results_path = repo_root_for_bt / "dashboard" / "data" / "backtest" / "backtest_results.json"
+    try:
+        write_validation_data(
+            out_dir=dashboard_data_dir,
+            backtest_results_path=backtest_results_path,
+        )
+    except Exception as exc:
+        print(f"[warn] write_validation_data failed: {exc}")
 
     if discord_webhook:
         msg = build_message(today, leaderboard, market, dashboard_url=dashboard_url)
