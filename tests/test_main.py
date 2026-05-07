@@ -1,5 +1,5 @@
 from datetime import date
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
 from quant_lab.main import morning_command
 
