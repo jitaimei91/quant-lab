@@ -2,6 +2,7 @@
 from datetime import date
 
 from quant_lab.backtest.harness import run_walk_forward
+from quant_lab.backtest.slippage_sweep import run_slippage_sweep
 from quant_lab.backtest.windows import Window
 from quant_lab.strategies.base import Strategy
 from quant_lab.types import Bar
@@ -64,9 +65,6 @@ def test_run_walk_forward_multiple_windows_isolated():
     )
     # Each window has its own NAV series starting from the same starting_cash
     assert result.nav_by_window["w1"]["test-always-spy"][0] != result.nav_by_window["w2"]["test-always-spy"][-1]
-
-
-from quant_lab.backtest.slippage_sweep import run_slippage_sweep
 
 
 def test_slippage_sweep_returns_one_result_per_multiplier():
