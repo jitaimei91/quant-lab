@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Lab — Methodology</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Quant Lab — Methodology &amp; Disclosures</h1>
+    <p class="disclaimer">Research tool. Not financial advice. Paper trading only.</p>
+  </header>
+
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="compare.html">Compare</a>
+    <a href="validation.html">Validation</a>
+    <a href="methodology.html">Methodology</a>
+  </nav>
+
+  <section>
+    <h2>Strategy Descriptions</h2>
+
+    <h3>Momentum (Momo) — Jegadeesh &amp; Titman (1993)</h3>
+    <p>
+      Ranks assets by their 12-1 month total return (skipping the most recent month to avoid short-term reversal).
+      Long the top decile, short (or underweight) the bottom decile. Rebalanced monthly.
+      Academic basis: Jegadeesh, N. &amp; Titman, S. (1993). "Returns to Buying Winners and Selling Losers:
+      Implications for Stock Market Efficiency." <em>Journal of Finance</em>, 48(1), 65–91.
+    </p>
+
+    <h3>52-Week High Momentum — George &amp; Hwang (2004)</h3>
+    <p>
+      Ranks assets by the ratio of current price to their 52-week high. Assets near their yearly peak
+      are overweighted. Academic basis: George, T.J. &amp; Hwang, C.-Y. (2004). "The 52-Week High and Momentum
+      Investing." <em>Journal of Finance</em>, 59(5), 2145–2176.
+    </p>
+
+    <h3>Mean Reversion (MeanRev)</h3>
+    <p>
+      Fades short-term (5-day) price movements by taking positions opposite to recent excess returns.
+      Based on the observation by De Bondt &amp; Thaler (1985) that extreme price moves partially reverse
+      over subsequent periods. Positions sized inversely to recent return magnitude.
+    </p>
+
+    <h3>Breakout</h3>
+    <p>
+      Enters long when price closes above its N-day rolling high (Donchian channel).
+      Exits on close below the rolling low. Classic trend-following approach widely used
+      in commodity trading advisor (CTA) strategies.
+    </p>
+
+    <h3>Moving Average Cross (MA-Cross)</h3>
+    <p>
+      Long when the 20-day EMA crosses above the 60-day EMA; exits (flat) when it crosses back below.
+      A reduced form of the dual-moving-average trend system popularized by Faber (2007).
+    </p>
+
+    <h3>RSI Reversal (RSI-Rev)</h3>
+    <p>
+      Fades extreme RSI readings: long when RSI(14) &lt; 30 (oversold), exits at RSI &gt; 50.
+      Exploits short-term mean reversion after momentum exhaustion.
+    </p>
+
+    <h3>Codex Bot (codex-native, codex-r1000)</h3>
+    <p>
+      Rule-based composite strategy that blends price momentum, volume-trend, and volatility filters.
+      The R1000 variant is run on the Russell 1000 universe rather than the 5-symbol base universe,
+      allowing broader cross-sectional alpha generation.
+    </p>
+
+    <h3>Meta-Ensemble</h3>
+    <p>
+      Allocates capital across all registered sub-strategies proportional to their bootstrapped
+      significance weight (see below). Weights are updated nightly as live NAV evidence accumulates.
+      A strategy with significance weight &lt; 0.1 receives a floor weight of 0.05 to maintain
+      diversification. The weighting formula is:
+    </p>
+    <pre style="background:#161b22;padding:.8rem 1rem;border-radius:6px;overflow-x:auto;font-size:.88rem;">
+w_i = max(sig_weight_i, 0.05)
+w_i = w_i / sum(w_j)   # normalize to sum = 1</pre>
+  </section>
+
+  <section>
+    <h2>Factor Decomposition</h2>
+    <p>
+      Each strategy's daily returns are regressed against three Fama-French-style factor proxies
+      using OLS over the full live history:
+    </p>
+    <pre style="background:#161b22;padding:.8rem 1rem;border-radius:6px;overflow-x:auto;font-size:.88rem;">
+r_t = α + β_MKT · MKT_t + β_SIZE · SIZE_t + β_VALUE · VALUE_t + ε_t
+
+MKT   = SPY daily return (market factor)
+SIZE  = IWM return − SPY return  (small-cap premium proxy)
+VALUE = VTV return − VUG return  (value premium proxy)</pre>
+    <p>
+      The residual <em>α</em> measures daily excess return after factor exposure.
+      Factor loadings (β) appear on the bot detail page.
+    </p>
+  </section>
+
+  <section>
+    <h2>Slippage Model</h2>
+    <p>
+      Each trade incurs a round-trip slippage cost estimated as:
+    </p>
+    <pre style="background:#161b22;padding:.8rem 1rem;border-radius:6px;overflow-x:auto;font-size:.88rem;">
+slippage = spread_bps / 2 + market_impact_bps
+
+spread_bps     = 2 bps  (liquid ETFs), 5 bps  (single-name large-cap)
+market_impact  = k · sqrt(order_size / ADV)    k = 0.1 (calibrated)</pre>
+    <p>
+      For paper trading at the simulated scale (&lt; 0.01% of ADV), market impact is negligible.
+      The slippage sweep in the Calibration Report tests 0–20 bps round-trip to bound sensitivity.
+    </p>
+  </section>
+
+  <section>
+    <h2>Bootstrapped Sharpe CI</h2>
+    <p>
+      95% confidence intervals for the annualized Sharpe ratio are computed via <strong>block bootstrap</strong>
+      (Politis &amp; Romano, 1994) with block length 21 trading days (≈1 month) and 1,000 resamples.
+      Block bootstrap preserves autocorrelation structure in returns, which naive IID bootstrap ignores.
+    </p>
+    <p>
+      Formula for each resample: annualized Sharpe = (mean daily return / std daily return) × √252.
+      The 2.5th and 97.5th percentiles of the 1,000 Sharpe estimates form the reported CI.
+    </p>
+  </section>
+
+  <section>
+    <h2>Significance Gates</h2>
+    <p>
+      A strategy is considered <strong>significant</strong> when its alpha t-statistic vs. SPY
+      exceeds a threshold. The significance weight is a sigmoid transformation:
+    </p>
+    <pre style="background:#161b22;padding:.8rem 1rem;border-radius:6px;overflow-x:auto;font-size:.88rem;">
+sig_weight = 1 / (1 + exp(-2 · (|α_t| - 1.5)))
+
+Badge thresholds:
+  Green  (Significant) : sig_weight ≥ 0.70
+  Yellow (Marginal)    : 0.30 ≤ sig_weight &lt; 0.70
+  Gray   (Not sig.)    : sig_weight &lt; 0.30</pre>
+  </section>
+
+  <section>
+    <h2>Regime Kill-Switch Rules</h2>
+    <p>
+      Live trading is paused under two conditions to limit drawdown during stress regimes:
+    </p>
+    <ol>
+      <li>
+        <strong>VIX spike gate:</strong> if VIX proxy (IWM/SPY rolling-vol ratio) exceeds 1.5×
+        its 60-day mean, new entries are halted. If it exceeds 2.0×, all positions are liquidated.
+      </li>
+      <li>
+        <strong>Per-bot drawdown gate:</strong> if any single bot's NAV falls &gt; 15% below
+        its rolling 60-day peak, that bot is paused and its signal weight set to 0 until it
+        recovers above the 10% drawdown threshold.
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Walk-Forward Validation Windows</h2>
+    <p>
+      Out-of-sample evidence is generated via anchored walk-forward windows: 5-year training periods
+      followed by 1-year test periods, stepped annually. The Calibration Report shows 4 test windows
+      (2021, 2022, 2023, 2024). No future data leaks into any training window.
+    </p>
+  </section>
+
+  <section>
+    <h2>Data Sources</h2>
+    <ul>
+      <li><strong>Price data:</strong> Yahoo Finance via <code>yfinance</code> — daily OHLCV adjusted for splits and dividends.</li>
+      <li><strong>Universe:</strong> Russell 1000 constituent list (static snapshot; no survivorship-bias correction applied to this list).</li>
+      <li><strong>Factor proxies:</strong> ETF-based (SPY, IWM, VTV, VUG) — approximate Fama-French factors, not the original academic data.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Limitations &amp; Survivorship Bias Disclosure</h2>
+    <p>
+      <strong>Survivorship bias:</strong> Yahoo Finance only provides data for currently-listed securities.
+      Companies that were delisted, merged, or went bankrupt during the backtest period are excluded.
+      This mechanically inflates backtest returns by an estimated 1–3% per year (Elton, Gruber &amp; Blake, 1996).
+    </p>
+    <p>
+      <strong>Look-ahead bias:</strong> The static Russell 1000 universe list was compiled after the backtest period,
+      so some constituents may not have been in the index at the time. This further inflates results.
+    </p>
+    <p>
+      <strong>Transaction costs:</strong> The slippage model is a simplified approximation. Real execution costs
+      (market impact, bid-ask spread, borrow cost for short exposure) will be higher.
+    </p>
+    <p>
+      <strong>Overfitting risk:</strong> With 10 strategies and 4 test windows, multiple-comparison bias
+      is a real concern. The significance gates are a partial mitigation but not a complete solution.
+    </p>
+    <p>
+      <strong>Regime change risk:</strong> All strategies are based on documented academic anomalies.
+      Most have been partially arbitraged since publication. Live performance will likely be lower
+      than out-of-sample backtest results.
+    </p>
+    <p style="margin-top:1rem; font-style:italic; color:var(--muted);">
+      This system is a research and education tool. Paper trading only. Not financial advice.
+      Past performance, including paper performance, does not predict future results.
+    </p>
+  </section>
+
+  <footer>
+    <p>Quant Lab — for educational purposes only.</p>
+  </footer>
+</body>
+</html>
