@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Lab — Bot vs Bot</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Quant Lab — Bot vs Bot</h1>
+    <p class="disclaimer">Research tool. Not financial advice. Paper trading only.</p>
+  </header>
+
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="compare.html">Compare</a>
+    <a href="validation.html">Validation</a>
+    <a href="methodology.html">Methodology</a>
+  </nav>
+
+  <section>
+    <div class="compare-controls">
+      <label>
+        Bot A
+        <select id="select-a"></select>
+      </label>
+      <label>
+        Bot B
+        <select id="select-b"></select>
+      </label>
+      <button id="run-compare" style="align-self:flex-end; padding:.4rem 1rem; background:var(--accent); color:#0d1117; border:none; border-radius:4px; cursor:pointer; font-weight:600;">Compare</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Overlay Equity Curves</h2>
+    <canvas id="overlay-chart" height="100"></canvas>
+  </section>
+
+  <section>
+    <h2>Side-by-Side Stats</h2>
+    <div class="side-by-side" id="stats-compare"></div>
+  </section>
+
+  <section>
+    <h2>Daily Return Differential (A − B)</h2>
+    <canvas id="diff-chart" height="80"></canvas>
+  </section>
+
+  <footer>
+    <p>Paper trading only. Past performance does not predict future results.</p>
+  </footer>
+
+  <script src="compare.js"></script>
+</body>
+</html>
