@@ -26,3 +26,89 @@ th:first-child, td:first-child, th:last-child, td:last-child { text-align: left;
 .market-card .sym { font-weight: 600; }
 .market-card .chg { font-size: 1.2rem; }
 footer { color: var(--muted); font-size: .85rem; }
+
+/* Nav */
+.site-nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: .6rem 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: .92rem;
+}
+.site-nav a { color: var(--accent); text-decoration: none; }
+.site-nav a:hover { text-decoration: underline; }
+
+/* Metrics grid (bot detail page) */
+.metrics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: .5rem;
+}
+.metric-card {
+  padding: .75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.02);
+  min-width: 170px;
+}
+.metric-label { font-size: .8rem; color: var(--muted); margin-bottom: .2rem; }
+.metric-value { font-size: 1.15rem; font-weight: 600; }
+.muted { color: var(--muted); font-size: .9rem; }
+
+/* Significance badge */
+.sig-badge {
+  display: inline-block;
+  padding: .2rem .6rem;
+  border-radius: 4px;
+  font-size: .82rem;
+  font-weight: 600;
+  margin-left: .8rem;
+  vertical-align: middle;
+}
+.sig-green { background: rgba(63,185,80,0.15); color: var(--good); border: 1px solid var(--good); }
+.sig-yellow { background: rgba(240,136,62,0.15); color: #f0883e; border: 1px solid #f0883e; }
+.sig-gray { background: rgba(139,148,158,0.15); color: var(--muted); border: 1px solid var(--border); }
+
+/* Compare page */
+.compare-controls {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.compare-controls label { font-size: .9rem; color: var(--muted); display: flex; flex-direction: column; gap: .3rem; }
+.compare-controls select {
+  background: #161b22;
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .35rem .6rem;
+  font-size: .92rem;
+}
+.side-by-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.side-by-side table { font-size: .88rem; }
+
+/* Validation page */
+.val-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.val-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.015);
+}
+.val-card h3 { margin: 0 0 .5rem 0; font-size: 1rem; display: flex; align-items: center; gap: .5rem; }
+.val-failed { border-color: var(--bad); }
+.val-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: .88rem; color: var(--muted); margin-bottom: .5rem; }
+.val-stat strong { color: var(--fg); }

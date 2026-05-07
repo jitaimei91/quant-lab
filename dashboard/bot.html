@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Lab — Bot Detail</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Quant Lab</h1>
+    <p class="disclaimer">Research tool. Not financial advice. Paper trading only.</p>
+  </header>
+
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="compare.html">Compare</a>
+    <a href="validation.html">Validation</a>
+    <a href="methodology.html">Methodology</a>
+  </nav>
+
+  <section id="bot-header">
+    <h2 id="bot-title">Bot Detail</h2>
+    <span id="sig-badge" class="sig-badge"></span>
+  </section>
+
+  <section>
+    <h2>Performance Metrics</h2>
+    <div id="metrics-grid" class="metrics-grid"></div>
+  </section>
+
+  <section>
+    <h2>Equity Curve</h2>
+    <canvas id="equity-chart" height="100"></canvas>
+  </section>
+
+  <section>
+    <h2>Factor Loadings</h2>
+    <div id="factor-loadings"></div>
+  </section>
+
+  <section>
+    <h2>Current Weights</h2>
+    <div id="weights"></div>
+  </section>
+
+  <section>
+    <h2>Recent Trades</h2>
+    <div id="recent-trades"></div>
+  </section>
+
+  <footer>
+    <p><a href="index.html">← Back to tournament</a></p>
+    <p>Paper trading only. Past performance does not predict future results.</p>
+  </footer>
+
+  <script src="bot.js"></script>
+</body>
+</html>
