@@ -24,7 +24,11 @@ from .persistence import (
 )
 from .ensemble.live_calibration import update_weights_from_live
 from .reporting.discord import build_message, post_to_discord
-from .reporting.dashboard import write_dashboard_data, write_validation_data
+from .reporting.dashboard import (
+    write_dashboard_data,
+    write_per_bot_files,
+    write_validation_data,
+)
 from .strategies.base import get_all
 from .tournament.runner import run_morning_for_strategies
 from .tournament.stats import compute_metrics
@@ -218,13 +222,23 @@ def _morning_command_inner(
         generated_at=today,
     )
 
-    # Write per-bot detail files and validation data
+    # Refresh per-bot JSONs with embedded recent trades from trades.jsonl
+    write_per_bot_files(
+        out_dir=dashboard_data_dir,
+        leaderboard=leaderboard,
+        nav_history=nav_history,
+        trades_log_path=state_dir / "trades.jsonl",
+    )
+
+    # Write validation data, merging live metrics alongside backtest aggregates
     repo_root_for_bt = Path(__file__).resolve().parents[2]
     backtest_results_path = repo_root_for_bt / "dashboard" / "data" / "backtest" / "backtest_results.json"
+    live_metrics_by_bot = {bot_id: m for bot_id, m, _ in leaderboard}
     try:
         write_validation_data(
             out_dir=dashboard_data_dir,
             backtest_results_path=backtest_results_path,
+            live_metrics=live_metrics_by_bot,
         )
     except Exception as exc:
         print(f"[warn] write_validation_data failed: {exc}")
