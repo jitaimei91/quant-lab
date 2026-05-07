@@ -1,11 +1,13 @@
 """Online weight updates from live NAV tournament evidence.
 
-When live paper-trading NAV accumulates >= min_days of data, this module
-re-computes strategy weights using live Sharpe (with bootstrap CI) and
-alpha t-stat vs SPY. The result is written to live_weights.json for
-MetaEnsemble to prefer over the backtest-calibrated weights.
+When live paper-trading NAV accumulates data, this module re-computes strategy
+weights using live Sharpe (with bootstrap CI) and alpha t-stat vs SPY. The
+result is blended with backtest-calibrated weights using a confidence ramp:
+new strategies (few live days) stay close to backtest; mature strategies
+(365+ live days) use full live evidence.
 
-Strategies with < min_days fall back to their backtest-calibrated weight.
+The result is written to live_weights.json for MetaEnsemble to prefer over
+the backtest-calibrated weights.
 """
 from __future__ import annotations
 
@@ -18,6 +20,7 @@ from ..backtest.stats import (
     alpha_t_stat_vs_benchmark,
     significance_weight,
 )
+from .blend import blend_weights
 from .weights import compute_strategy_weights
 
 
@@ -39,14 +42,14 @@ def update_weights_from_live(
     weights_path: Path | None = None,
     backtest_weights_path: Path | None = None,
     n_iter: int = 1000,
+    full_confidence_days: int = 365,
 ) -> dict[str, float]:
-    """Recompute strategy weights from live NAV data.
+    """Recompute strategy weights from live NAV data using confidence-weighted blend.
 
-    For bots with >= min_days of live NAV:
-        1. Compute live Sharpe with bootstrap CI
-        2. Compute alpha t-stat vs SPY benchmark
-        3. Derive significance_weight
-    Bots with < min_days fall back to their backtest-calibrated weight.
+    For each bot, computes live Sharpe (with bootstrap CI) and alpha t-stat vs SPY
+    when enough data is available (>= min_days). Then blends backtest and live
+    weights using a confidence ramp: bots with 0 live days get pure backtest weight;
+    bots with full_confidence_days+ get pure live weight. In between, a smooth ramp.
 
     Writes the result to weights_path (live_weights.json).
 
@@ -54,10 +57,12 @@ def update_weights_from_live(
         nav_history: {bot_id: [(date, nav), ...]} loaded from persistence.
         benchmark_returns: {bot_id: [float, ...]} daily SPY returns aligned per bot.
             If a bot_id key is missing, uses the "SPY" key as fallback.
-        min_days: Minimum live NAV days required to use live weights.
+        min_days: Minimum live NAV days required to compute live weights for a bot.
+            Bots below this use backtest weight only (confidence blend still applies).
         weights_path: Where to write live_weights.json.
         backtest_weights_path: Where to read backtest_results.json for fallback.
         n_iter: Bootstrap iterations (use 200 in tests for speed, 1000+ in prod).
+        full_confidence_days: Days of live history for full confidence in live weights.
 
     Returns:
         dict[str, float] of {bot_id: weight}.
@@ -75,16 +80,18 @@ def update_weights_from_live(
 
     spy_rets = benchmark_returns.get("SPY", [])
 
-    # Build calibration records for live-data-rich bots
+    # Build calibration records and track days-of-live per bot
     live_calibration_records: list[dict] = []
-    fallback_bots: list[str] = []
+    days_of_live_per_bot: dict[str, int] = {}
 
     for bot_id, nav_series in nav_history.items():
         if bot_id == "meta-ensemble":
             continue
         returns = _nav_to_returns(nav_series)
+        days_of_live_per_bot[bot_id] = len(returns)
+
         if len(returns) < min_days:
-            fallback_bots.append(bot_id)
+            # Not enough live data to compute meaningful live metrics
             continue
 
         # Live Sharpe with bootstrap CI
@@ -115,24 +122,23 @@ def update_weights_from_live(
         })
 
     # Compute weights for live-data-rich bots
-    live_weights: dict[str, float] = {}
+    raw_live_weights: dict[str, float] = {}
     if live_calibration_records:
-        live_weights = compute_strategy_weights(live_calibration_records)
+        raw_live_weights = compute_strategy_weights(live_calibration_records)
 
-    # Merge: live weights take precedence; fallback bots use backtest weights
-    merged: dict[str, float] = {}
-    for bot_id in fallback_bots:
-        fb_w = fallback_weights.get(bot_id, 0.0)
-        if fb_w > 0:
-            merged[bot_id] = fb_w
+    # Confidence-weighted blend: smooth ramp from backtest to live
+    merged = blend_weights(
+        backtest_weights=fallback_weights,
+        live_weights=raw_live_weights,
+        days_of_live_per_bot=days_of_live_per_bot,
+        full_confidence_days=full_confidence_days,
+    )
 
-    for bot_id, w in live_weights.items():
-        merged[bot_id] = w
-
-    # Re-normalize the merged weights to sum = 1.0
-    total = sum(merged.values())
-    if total > 0:
-        merged = {k: v / total for k, v in merged.items()}
+    # If blend produced nothing (no weights in either dict), use backtest as-is
+    if not merged and fallback_weights:
+        total = sum(fallback_weights.values())
+        if total > 0:
+            merged = {k: v / total for k, v in fallback_weights.items()}
 
     # Write to file
     if weights_path is not None:

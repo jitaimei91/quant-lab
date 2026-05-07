@@ -39,9 +39,9 @@ def _make_spy_rets(n_days: int, seed: int = 42) -> list[float]:
 # Tests
 # ---------------------------------------------------------------------------
 
-def test_insufficient_history_uses_fallback(tmp_path):
-    """Bots with < min_days of data fall back to backtest-calibrated weights."""
-    # Only 30 days of live NAV (< min_days=60)
+def test_insufficient_history_blends_toward_backtest(tmp_path):
+    """Bots with few live days get a weight close to backtest (confidence ramp)."""
+    # Only 30 days of live NAV → confidence_weight(30, 365) ≈ 0.08 → strongly backtest
     nav_history = {
         "spy-vol": _make_nav_series(30),
     }
@@ -74,7 +74,7 @@ def test_insufficient_history_uses_fallback(tmp_path):
         n_iter=200,
     )
 
-    # spy-vol has fallback data → should appear in result
+    # spy-vol has backtest data → should appear in result with positive weight
     assert "spy-vol" in result
     assert result["spy-vol"] > 0
 
