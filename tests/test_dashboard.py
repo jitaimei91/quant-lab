@@ -1,6 +1,5 @@
 import json
 from datetime import date
-from pathlib import Path
 
 from quant_lab.reporting.dashboard import write_dashboard_data
 from quant_lab.tournament.stats import Metrics

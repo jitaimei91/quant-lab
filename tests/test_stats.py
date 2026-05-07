@@ -1,6 +1,5 @@
 import math
-import pytest
-from quant_lab.tournament.stats import compute_metrics, Metrics
+from quant_lab.tournament.stats import compute_metrics
 
 
 def test_compute_metrics_flat_curve():

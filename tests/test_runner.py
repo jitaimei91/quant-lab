@@ -1,7 +1,7 @@
 from datetime import date
 
 from quant_lab.tournament.runner import run_morning_for_strategies
-from quant_lab.types import Bar, Portfolio
+from quant_lab.types import Bar
 from quant_lab.strategies.base import Strategy, register
 
 

@@ -5,7 +5,6 @@ state files, dashboard data, and a (mocked) Discord post all happen.
 """
 import json
 from datetime import date
-from pathlib import Path
 from unittest.mock import patch
 
 from quant_lab.main import morning_command

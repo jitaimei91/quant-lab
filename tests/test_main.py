@@ -24,7 +24,7 @@ def test_morning_command_dry_run(tmp_path, monkeypatch):
     dashboard_dir = tmp_path / "dashboard_data"
     snapshot_dir = tmp_path / "snapshots"
 
-    with patch("quant_lab.main.post_to_discord") as mock_post:
+    with patch("quant_lab.main.post_to_discord"):
         morning_command(
             state_dir=state_dir,
             dashboard_data_dir=dashboard_dir,

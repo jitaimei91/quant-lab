@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 
 from quant_lab.persistence import (
     save_portfolios,

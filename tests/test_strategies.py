@@ -1,5 +1,8 @@
 from datetime import date
+
 from quant_lab.strategies.base import Strategy, register, get_all
+from quant_lab.strategies.qqq_vol import QQQVol
+from quant_lab.strategies.spy_vol import SPYVol
 from quant_lab.types import Bar
 
 
@@ -29,11 +32,8 @@ def test_register_and_get_all():
     assert any(s.bot_id == "fake-strat" for s in instances)
 
 
-from quant_lab.strategies.spy_vol import SPYVol
-
-
 def _synth_bars(symbol, n_days=300, vol=0.01):
-    import math, random
+    import random
     random.seed(42)
     base_date = date(2025, 1, 1)
     price = 500.0
@@ -77,9 +77,6 @@ def test_spy_vol_returns_zero_with_insufficient_history():
     strat = SPYVol(target_vol=0.15)
     weights = strat.target_weights({"SPY": bars}, bars[-1].date)
     assert weights == {} or weights.get("SPY", 0.0) == 0.0
-
-
-from quant_lab.strategies.qqq_vol import QQQVol
 
 
 def test_qqq_vol_targets_qqq():
