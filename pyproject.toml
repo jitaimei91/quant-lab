@@ -32,6 +32,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+pythonpath = ["src", "competitors/codex-bot-snapshot-2026-05-07/src"]
 
 [tool.ruff]
 line-length = 100
