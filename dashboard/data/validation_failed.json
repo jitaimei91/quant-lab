@@ -1,0 +1,52 @@
+{
+  "gradboost": {
+    "bot_id": "gradboost",
+    "gates": {
+      "label_shuffle": {
+        "pass": true,
+        "detail": "mean_shuffled_oos_sharpe=-0.2455 (threshold |mean|<0.5); PASS"
+      },
+      "oos_stability": {
+        "pass": true,
+        "detail": "No backtest folds or live data \u2014 defaulting to PASS"
+      },
+      "walk_forward_sharpe": {
+        "pass": false,
+        "detail": "bot_median_sharpe=1.3735 vs benchmark=1.8824; FAIL"
+      }
+    },
+    "overall_pass": false,
+    "reasons_failed": [
+      "walk_forward_sharpe"
+    ]
+  },
+  "lightforest": {
+    "bot_id": "lightforest",
+    "gates": {
+      "label_shuffle": {
+        "pass": true,
+        "detail": "mean_shuffled_oos_sharpe=-0.2455 (threshold |mean|<0.5); PASS"
+      },
+      "oos_stability": {
+        "pass": true,
+        "detail": "No backtest folds or live data \u2014 defaulting to PASS"
+      },
+      "walk_forward_sharpe": {
+        "pass": false,
+        "detail": "bot_median_sharpe=0.4049 vs benchmark=1.8824; FAIL"
+      }
+    },
+    "overall_pass": false,
+    "reasons_failed": [
+      "walk_forward_sharpe"
+    ]
+  },
+  "ml-ensemble": {
+    "bot_id": "ml-ensemble",
+    "overall_pass": false,
+    "reasons_failed": [
+      "component bots failed gates"
+    ],
+    "gates": {}
+  }
+}

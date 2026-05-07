@@ -323,14 +323,16 @@ def backtest_command(
     step_months: int = 12,
     enable_slippage_sweep: bool = True,
     enable_regime_stress: bool = True,
+    universe_path: Path | None = None,
 ) -> None:
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load universe: SPY+QQQ always, plus R1000 universe if available
+    # Load universe: SPY+QQQ always, plus universe file if available
     from .data.universe import load_universe as _load_universe
     repo_root = Path(__file__).resolve().parents[2]
-    universe_path = repo_root / "config" / "universe_r1000.txt"
+    if universe_path is None:
+        universe_path = repo_root / "config" / "universe_r1000.txt"
     if universe_path.exists():
         symbols = _load_universe(universe_path)
     else:
@@ -384,6 +386,7 @@ def ml_train_command(
     end: date,
     horizon: int = 5,
     seed: int = 42,
+    universe_path: Path | None = None,
 ) -> None:
     """Walk-forward ML training pipeline: train, validate, persist state."""
     from .data.universe import load_universe as _load_universe
@@ -396,7 +399,8 @@ def ml_train_command(
     models_dir.mkdir(parents=True, exist_ok=True)
 
     repo_root = Path(__file__).resolve().parents[2]
-    universe_path = repo_root / "config" / "universe_r1000.txt"
+    if universe_path is None:
+        universe_path = repo_root / "config" / "universe_r1000.txt"
     if universe_path.exists():
         symbols = _load_universe(universe_path)
     else:
@@ -524,12 +528,14 @@ def cli() -> None:
     bt.add_argument("--step-months", type=int, default=12)
     bt.add_argument("--no-slippage-sweep", action="store_true")
     bt.add_argument("--no-regime-stress", action="store_true")
+    bt.add_argument("--universe-file", type=Path, default=None)
 
     mlt = sub.add_parser("ml-train", help="Walk-forward ML training + validation gates")
     mlt.add_argument("--start", type=lambda s: _dt.fromisoformat(s).date(), default=date(2020, 1, 1))
     mlt.add_argument("--end", type=lambda s: _dt.fromisoformat(s).date(), default=date.today())
     mlt.add_argument("--horizon", type=int, default=5)
     mlt.add_argument("--seed", type=int, default=42)
+    mlt.add_argument("--universe-file", type=Path, default=None)
 
     args = parser.parse_args()
     if args.cmd == "morning":
@@ -551,6 +557,7 @@ def cli() -> None:
             step_months=args.step_months,
             enable_slippage_sweep=not args.no_slippage_sweep,
             enable_regime_stress=not args.no_regime_stress,
+            universe_path=args.universe_file,
         )
     elif args.cmd == "ml-train":
         repo_root = Path(__file__).resolve().parents[2]
@@ -562,6 +569,7 @@ def cli() -> None:
             end=args.end,
             horizon=args.horizon,
             seed=args.seed,
+            universe_path=args.universe_file,
         )
 
 
