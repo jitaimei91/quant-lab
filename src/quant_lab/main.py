@@ -22,6 +22,7 @@ from .persistence import (
     load_nav_history,
     append_trades,
 )
+from .ensemble.live_calibration import update_weights_from_live
 from .reporting.discord import build_message, post_to_discord
 from .reporting.dashboard import write_dashboard_data
 from .strategies.base import get_all
@@ -137,6 +138,29 @@ def _morning_command_inner(
     save_portfolios(portfolios.values(), state_dir / "portfolios.json")
     save_nav_history(nav_history, state_dir / "nav_history.json")
     append_trades(trades, state_dir / "trades.jsonl")
+
+    # Live calibration: update ensemble weights from accumulated live NAV evidence.
+    # Writes to live_weights.json; MetaEnsemble picks it up on next run.
+    try:
+        spy_rets_live = []
+        spy_bars = histories.get("SPY", [])
+        for i in range(1, len(spy_bars)):
+            prev = spy_bars[i - 1].close
+            if prev > 0:
+                spy_rets_live.append(spy_bars[i].close / prev - 1.0)
+        bench_rets = {"SPY": spy_rets_live}
+        repo_root = Path(__file__).resolve().parents[2]
+        live_weights_path = dashboard_data_dir / "backtest" / "live_weights.json"
+        backtest_results_path = repo_root / "dashboard" / "data" / "backtest" / "backtest_results.json"
+        update_weights_from_live(
+            nav_history=nav_history,
+            benchmark_returns=bench_rets,
+            min_days=60,
+            weights_path=live_weights_path,
+            backtest_weights_path=backtest_results_path,
+        )
+    except Exception as exc:
+        print(f"[warn] Live calibration update failed: {exc}")
 
     leaderboard = []
     last_prices = {s: bars[-1].close for s, bars in histories.items()}
