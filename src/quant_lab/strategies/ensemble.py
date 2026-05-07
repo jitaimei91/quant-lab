@@ -14,7 +14,7 @@ from ..types import Bar
 from ..ensemble.weights import compute_strategy_weights
 from .base import Strategy, register, get_all
 
-_REPO_ROOT = Path(__file__).resolve().parents[4]
+_REPO_ROOT = Path(__file__).resolve().parents[3]
 
 _BACKTEST_RESULTS = (
     _REPO_ROOT / "dashboard" / "data" / "backtest" / "backtest_results.json"
