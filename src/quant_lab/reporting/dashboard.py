@@ -128,11 +128,17 @@ def write_validation_data(
     out_dir: Path,
     backtest_results_path: Path,
     live_metrics: dict[str, Metrics] | None = None,
+    lifecycle_state: dict | None = None,
 ) -> None:
     """Write data/validation.json from backtest_results.json plus optional live metrics.
 
     `live_metrics` lets the validation page show live-tournament Sharpe + alpha
     alongside the backtest aggregates.
+
+    `lifecycle_state` is a dict of {bot_id: LifecycleState} (or compatible dicts).
+    When provided, each bot entry gains a ``"lifecycle"`` key with:
+    ``paused``, ``paused_at``, ``pause_reason``, ``consecutive_fail_days``,
+    ``consecutive_recovery_days``.
     """
     if not backtest_results_path.exists():
         return
@@ -164,6 +170,28 @@ def write_validation_data(
                     "days": live.days,
                 }
 
+        lifecycle_payload = None
+        if lifecycle_state is not None:
+            ls = lifecycle_state.get(s["bot_id"])
+            if ls is not None:
+                # Support both LifecycleState dataclass and plain dicts
+                if hasattr(ls, "paused"):
+                    lifecycle_payload = {
+                        "paused": ls.paused,
+                        "paused_at": ls.paused_at.isoformat() if ls.paused_at else None,
+                        "pause_reason": ls.pause_reason,
+                        "consecutive_fail_days": ls.consecutive_fail_days,
+                        "consecutive_recovery_days": ls.consecutive_recovery_days,
+                    }
+                else:
+                    lifecycle_payload = {
+                        "paused": ls.get("paused", False),
+                        "paused_at": ls.get("paused_at"),
+                        "pause_reason": ls.get("pause_reason", ""),
+                        "consecutive_fail_days": ls.get("consecutive_fail_days", 0),
+                        "consecutive_recovery_days": ls.get("consecutive_recovery_days", 0),
+                    }
+
         validation_entries.append(
             {
                 "bot_id": s["bot_id"],
@@ -172,6 +200,7 @@ def write_validation_data(
                 "significance_badge": badge,
                 "failed_validation": sig_weight < 0.3,
                 "live": live_payload,
+                "lifecycle": lifecycle_payload,
             }
         )
 

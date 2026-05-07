@@ -113,3 +113,74 @@ def test_write_validation_data_no_op_when_file_missing(tmp_path):
     # Should not raise
     write_validation_data(out_dir=tmp_path, backtest_results_path=missing)
     assert not (tmp_path / "validation.json").exists()
+
+
+def test_write_validation_data_merges_lifecycle_state(tmp_path):
+    """When lifecycle_state is provided, each strategy entry has a lifecycle key."""
+    from quant_lab.lifecycle import LifecycleState
+    from datetime import date as _date
+
+    backtest_data = {
+        "strategies": [
+            {
+                "bot_id": "momo",
+                "aggregate": {"sharpe": 1.1, "significance_weight": 0.75},
+                "per_window": [],
+            },
+            {
+                "bot_id": "breakout",
+                "aggregate": {"sharpe": -0.1, "significance_weight": 0.0},
+                "per_window": [],
+            },
+        ]
+    }
+    bt_path = tmp_path / "backtest_results.json"
+    bt_path.write_text(json.dumps(backtest_data))
+
+    lifecycle_state = {
+        "momo": LifecycleState(bot_id="momo", paused=False),
+        "breakout": LifecycleState(
+            bot_id="breakout",
+            paused=True,
+            paused_at=_date(2025, 6, 1),
+            pause_reason="low significance for 90d",
+            consecutive_fail_days=95,
+        ),
+    }
+
+    write_validation_data(
+        out_dir=tmp_path,
+        backtest_results_path=bt_path,
+        lifecycle_state=lifecycle_state,
+    )
+
+    data = json.loads((tmp_path / "validation.json").read_text())
+    by_bot = {s["bot_id"]: s for s in data["strategies"]}
+
+    assert by_bot["momo"]["lifecycle"]["paused"] is False
+    assert by_bot["breakout"]["lifecycle"]["paused"] is True
+    assert by_bot["breakout"]["lifecycle"]["consecutive_fail_days"] == 95
+    assert "low significance" in by_bot["breakout"]["lifecycle"]["pause_reason"]
+
+
+def test_write_validation_data_lifecycle_none_omits_key(tmp_path):
+    """When lifecycle_state is None, the lifecycle key is present but null."""
+    backtest_data = {
+        "strategies": [
+            {
+                "bot_id": "momo",
+                "aggregate": {"sharpe": 1.1, "significance_weight": 0.75},
+                "per_window": [],
+            },
+        ]
+    }
+    bt_path = tmp_path / "backtest_results.json"
+    bt_path.write_text(json.dumps(backtest_data))
+
+    write_validation_data(out_dir=tmp_path, backtest_results_path=bt_path)
+
+    data = json.loads((tmp_path / "validation.json").read_text())
+    entry = data["strategies"][0]
+    # lifecycle key exists but is null when not provided
+    assert "lifecycle" in entry
+    assert entry["lifecycle"] is None

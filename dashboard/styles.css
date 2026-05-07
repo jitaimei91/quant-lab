@@ -108,7 +108,20 @@ footer { color: var(--muted); font-size: .85rem; }
   padding: 1rem 1.25rem;
   background: rgba(255,255,255,0.015);
 }
-.val-card h3 { margin: 0 0 .5rem 0; font-size: 1rem; display: flex; align-items: center; gap: .5rem; }
+.val-card h3 { margin: 0 0 .5rem 0; font-size: 1rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
 .val-failed { border-color: var(--bad); }
 .val-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: .88rem; color: var(--muted); margin-bottom: .5rem; }
 .val-stat strong { color: var(--fg); }
+
+/* Lifecycle badges */
+.lifecycle-badge {
+  display: inline-block;
+  padding: .2rem .6rem;
+  border-radius: 4px;
+  font-size: .78rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.lifecycle-active { background: rgba(63,185,80,0.1); color: var(--good); border: 1px solid var(--good); }
+.lifecycle-paused { background: rgba(248,81,73,0.1); color: var(--bad); border: 1px solid var(--bad); }
+.lifecycle-recovering { background: rgba(240,136,62,0.1); color: #f0883e; border: 1px solid #f0883e; }

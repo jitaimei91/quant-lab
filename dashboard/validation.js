@@ -38,6 +38,7 @@
     const agg = s.aggregate || {};
     const badge = s.significance_badge || "gray";
     const failed = s.failed_validation;
+    const lc = s.lifecycle || null;
 
     const card = document.createElement("div");
     card.className = "val-card" + (failed ? " val-failed" : "");
@@ -48,11 +49,24 @@
       gray: `<span class="sig-badge sig-gray">Not significant</span>`,
     }[badge] || "";
 
+    let lifecycleBadgeHtml = "";
+    if (lc) {
+      if (lc.paused) {
+        const reason = lc.pause_reason ? ` — ${lc.pause_reason.slice(0, 60)}` : "";
+        lifecycleBadgeHtml = `<span class="lifecycle-badge lifecycle-paused">PAUSED${reason}</span>`;
+      } else if (lc.consecutive_recovery_days > 0) {
+        lifecycleBadgeHtml = `<span class="lifecycle-badge lifecycle-recovering">RECOVERING (${lc.consecutive_recovery_days}d)</span>`;
+      } else {
+        lifecycleBadgeHtml = `<span class="lifecycle-badge lifecycle-active">ACTIVE</span>`;
+      }
+    }
+
     card.innerHTML = `
       <h3>
         ${s.bot_id}
         ${badgeHtml}
         ${failed ? `<span class="sig-badge sig-gray" style="background:rgba(248,81,73,0.1);color:var(--bad);border-color:var(--bad)">Failed validation</span>` : ""}
+        ${lifecycleBadgeHtml}
       </h3>
       <div class="val-stats">
         <span>Sharpe: <strong class="${agg.sharpe >= 0 ? 'pos' : 'neg'}">${fmt2(agg.sharpe)}</strong></span>
