@@ -23,6 +23,7 @@ from .persistence import (
     append_trades,
 )
 from .ensemble.live_calibration import update_weights_from_live
+from .lifecycle import evaluate_lifecycle, load_lifecycle_state, save_lifecycle_state
 from .reporting.discord import build_message, post_to_discord
 from .reporting.dashboard import (
     write_dashboard_data,
@@ -205,9 +206,52 @@ def _morning_command_inner(
             for sym in portfolio.positions
         }
         leaderboard.append((strat.bot_id, metrics, weights))
-    # Sort active (non-paused) bots first by Sharpe, then paused bots
+
+    # Lifecycle: auto-pause/resume based on rolling significance
+    lifecycle_state: dict = {}
+    try:
+        lifecycle_path = state_dir / "strategy_lifecycle.json"
+        prior_lifecycle = load_lifecycle_state(lifecycle_path)
+        lifecycle_state = evaluate_lifecycle(
+            nav_history=nav_history,
+            benchmark_returns={"SPY": spy_rets},
+            prior_state=prior_lifecycle,
+            today=today,
+        )
+        save_lifecycle_state(lifecycle_state, lifecycle_path)
+        # Write dashboard/data/lifecycle.json for the validation page
+        import json as _json
+        lifecycle_dashboard: dict[str, dict] = {}
+        for bot_id, ls in lifecycle_state.items():
+            lifecycle_dashboard[bot_id] = {
+                "bot_id": ls.bot_id,
+                "paused": ls.paused,
+                "paused_at": ls.paused_at.isoformat() if ls.paused_at else None,
+                "pause_reason": ls.pause_reason,
+                "consecutive_fail_days": ls.consecutive_fail_days,
+                "consecutive_recovery_days": ls.consecutive_recovery_days,
+            }
+        lifecycle_data_path = dashboard_data_dir / "lifecycle.json"
+        lifecycle_data_path.write_text(
+            _json.dumps(lifecycle_dashboard, indent=2) + "\n", encoding="utf-8"
+        )
+        for bot_id, ls in lifecycle_state.items():
+            if ls.paused:
+                print(f"[lifecycle] {bot_id} paused: {ls.pause_reason}")
+    except Exception as exc:
+        print(f"[warn] Lifecycle evaluation failed: {exc}")
+
+    # Include lifecycle-paused bots in the sort-to-bottom set
+    lifecycle_paused_bots: set[str] = {
+        bot_id for bot_id, ls in lifecycle_state.items() if ls.paused
+    }
+
+    # Sort active (non-paused) bots first by Sharpe, then paused bots (regime or lifecycle)
     leaderboard.sort(
-        key=lambda row: (row[0] in paused_bots, -row[1].sharpe)
+        key=lambda row: (
+            row[0] in paused_bots or row[0] in lifecycle_paused_bots,
+            -row[1].sharpe,
+        )
     )
 
     # Record completed strategy IDs for watchdog last_morning.json
@@ -239,6 +283,7 @@ def _morning_command_inner(
             out_dir=dashboard_data_dir,
             backtest_results_path=backtest_results_path,
             live_metrics=live_metrics_by_bot,
+            lifecycle_state=lifecycle_state if lifecycle_state else None,
         )
     except Exception as exc:
         print(f"[warn] write_validation_data failed: {exc}")
