@@ -1,10 +1,6 @@
 """Tests for quant_lab.data.universe — parse_universe_text + load_universe."""
 from __future__ import annotations
 
-from pathlib import Path
-
-import pytest
-
 from quant_lab.data.universe import load_universe, parse_universe_text
 
 
