@@ -189,7 +189,7 @@ class MLEnsemble(Strategy):
 After all code lands:
 
 ```bash
-cd "/Users/victalino/Downloads/CollegeBoard/Interesting Projects/quant-lab"
+cd "<project-dir>/quant-lab"
 source .venv/bin/activate
 quant-lab backtest --start 2015-01-01 --end 2026-04-01 --train-years 5 --step-months 12 --no-regime-stress
 ```
@@ -208,7 +208,7 @@ data: full recalibration with multi-asset universe + ML + regime bots (2015-2026
 After everything lands in `quant-lab/`:
 
 ```bash
-cd "/Users/victalino/Downloads/CollegeBoard/Interesting Projects"
+cd "<project-dir>"
 # Sync new commits to public clone (privacy-preserving)
 cd quant-lab-public
 git remote add backup ../quant-lab 2>/dev/null
@@ -223,7 +223,7 @@ git -c http.postBuffer=524288000 -c http.version=HTTP/1.1 push origin main
 Or simpler if cherry-picking is fragile:
 ```bash
 # Re-clone + re-rewrite (clean every time)
-cd "/Users/victalino/Downloads/CollegeBoard/Interesting Projects"
+cd "<project-dir>"
 rm -rf quant-lab-public
 git clone quant-lab quant-lab-public
 cd quant-lab-public
