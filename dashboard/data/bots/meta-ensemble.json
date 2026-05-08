@@ -1,8 +1,8 @@
 {
   "bot_id": "meta-ensemble",
   "metrics": {
-    "total_return": 0.0028475352795120923,
-    "annualized_return": 1.0473763827293872,
+    "total_return": 0.0031268084055677825,
+    "annualized_return": 1.196195152251013,
     "sharpe": 0.0,
     "sharpe_ci_lo": 0.0,
     "sharpe_ci_hi": 0.0,
@@ -21,14 +21,9 @@
     }
   },
   "current_weights": {
-    "EEM": 0.02874017779739301,
-    "EFA": 0.020249074815913332,
-    "IWM": 0.03850457478799214,
-    "QQQ": 0.10122258755531141,
-    "SPY": 0.10043307265244268,
-    "USO": 0.09901528997271321,
-    "VTV": 0.03293290512531262,
-    "GLD": 0.03295498187068384
+    "QQQ": 0.10141167981324949,
+    "SPY": 0.10039179130737495,
+    "USO": 0.09933466034907543
   },
   "nav_series": [
     {
@@ -37,13 +32,13 @@
     },
     {
       "date": "2026-05-08",
-      "nav": 100253.81938874665
+      "nav": 100281.73808680868
     }
   ],
   "daily_returns": [
     {
       "date": "2026-05-08",
-      "ret": 0.0028475352795120923
+      "ret": 0.0031268084055677825
     }
   ],
   "recent_trades": [
@@ -154,6 +149,56 @@
       "shares": 30.767513865602496,
       "price": 97.08561030933454,
       "slippage_bps": 10.741036058172966,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meta-ensemble",
+      "symbol": "EEM",
+      "side": "SELL",
+      "shares": 42.638738057320126,
+      "price": 67.65042681406122,
+      "slippage_bps": 7.322029012626771,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meta-ensemble",
+      "symbol": "EFA",
+      "side": "SELL",
+      "shares": 19.578040713529198,
+      "price": 103.44283206804852,
+      "slippage_bps": 7.454074335410081,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meta-ensemble",
+      "symbol": "GLD",
+      "side": "SELL",
+      "shares": 7.610658385909588,
+      "price": 432.09120584468354,
+      "slippage_bps": 6.679287544926932,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meta-ensemble",
+      "symbol": "IWM",
+      "side": "SELL",
+      "shares": 13.61873529790624,
+      "price": 283.0475262785577,
+      "slippage_bps": 6.089786787727576,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meta-ensemble",
+      "symbol": "VTV",
+      "side": "SELL",
+      "shares": 15.93691659327836,
+      "price": 206.86514708366545,
+      "slippage_bps": 8.932501150508697,
       "timestamp": "2026-05-08",
       "reason": "rebalance to target weight 0.0000"
     }

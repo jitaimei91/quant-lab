@@ -1,8 +1,8 @@
 {
   "bot_id": "qqq-vol",
   "metrics": {
-    "total_return": 0.011983463957134788,
-    "annualized_return": 19.123376588768853,
+    "total_return": 0.013663135792502556,
+    "annualized_return": 29.563315851171776,
     "sharpe": 0.0,
     "sharpe_ci_lo": 0.0,
     "sharpe_ci_hi": 0.0,
@@ -21,7 +21,7 @@
     }
   },
   "current_weights": {
-    "QQQ": 0.7730400425669911
+    "QQQ": 0.773416122385617
   },
   "nav_series": [
     {
@@ -30,13 +30,13 @@
     },
     {
       "date": "2026-05-08",
-      "nav": 101154.31840820101
+      "nav": 101322.21251488107
     }
   ],
   "daily_returns": [
     {
       "date": "2026-05-08",
-      "ret": 0.011983463957134788
+      "ret": 0.013663135792502556
     }
   ],
   "recent_trades": [

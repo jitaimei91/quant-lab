@@ -126,5 +126,13 @@
     "pause_reason": "",
     "consecutive_fail_days": 0,
     "consecutive_recovery_days": 0
+  },
+  "apex": {
+    "bot_id": "apex",
+    "paused": false,
+    "paused_at": null,
+    "pause_reason": "",
+    "consecutive_fail_days": 0,
+    "consecutive_recovery_days": 0
   }
 }

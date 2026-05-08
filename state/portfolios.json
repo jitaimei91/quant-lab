@@ -178,6 +178,27 @@
     }
   },
   {
+    "bot_id": "apex",
+    "cash": 5000.000000000004,
+    "positions": {
+      "SSO": {
+        "symbol": "SSO",
+        "shares": 569.3141229590996,
+        "avg_cost": 66.12000274658203
+      },
+      "TMF": {
+        "symbol": "TMF",
+        "shares": 1087.7999989340226,
+        "avg_cost": 35.685001373291016
+      },
+      "UGL": {
+        "symbol": "UGL",
+        "shares": 299.8035344004815,
+        "avg_cost": 61.43989944458008
+      }
+    }
+  },
+  {
     "bot_id": "regime-momo",
     "cash": 5000.0,
     "positions": {
@@ -239,23 +260,8 @@
   },
   {
     "bot_id": "meta-ensemble",
-    "cash": 54733.30556118851,
+    "cash": 70083.08285881327,
     "positions": {
-      "EEM": {
-        "symbol": "EEM",
-        "shares": 42.638738057320126,
-        "avg_cost": 66.58999633789062
-      },
-      "EFA": {
-        "symbol": "EFA",
-        "shares": 19.578040713529198,
-        "avg_cost": 102.88999938964844
-      },
-      "IWM": {
-        "symbol": "IWM",
-        "shares": 13.61873529790624,
-        "avg_cost": 282.260009765625
-      },
       "QQQ": {
         "symbol": "QQQ",
         "shares": 14.381711204095977,
@@ -270,16 +276,6 @@
         "symbol": "USO",
         "shares": 74.04087756662328,
         "avg_cost": 134.97000122070312
-      },
-      "VTV": {
-        "symbol": "VTV",
-        "shares": 15.93691659327836,
-        "avg_cost": 205.91000366210938
-      },
-      "GLD": {
-        "symbol": "GLD",
-        "shares": 7.610658385909588,
-        "avg_cost": 434.1099853515625
       }
     }
   }
