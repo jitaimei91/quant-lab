@@ -83,10 +83,21 @@ jobs:
           git config user.name "quant-lab-bot"
           git config user.email "quant-lab@users.noreply.github.com"
           git add dashboard/data/historical/
-          if ! git diff --cached --quiet; then
-            STAMP=$(date -u +%Y-%m-%d)
-            git commit -m "data: stress-test recalibration ${STAMP} (post-rank-label-ML, risk-parity sleeve)"
-            git push
-          else
+          if git diff --cached --quiet; then
             echo "No stress-test changes to commit."
+            exit 0
           fi
+          STAMP=$(date -u +%Y-%m-%d)
+          git commit -m "data: stress-test recalibration ${STAMP} (post-rank-label-ML, risk-parity sleeve)"
+          # Retry push with rebase on conflict — morning/recalibrate workflows may
+          # commit in parallel and race us to the remote.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push failed (attempt $attempt) — rebasing on origin/main."
+            git pull --rebase origin main
+          done
+          echo "Failed to push after 5 attempts."
+          exit 1
