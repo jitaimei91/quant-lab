@@ -1,0 +1,89 @@
+name: Historical Stress Tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stress
+  cancel-in-progress: false
+
+jobs:
+  stress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run 2008 financial crisis stress (2007–2009)
+        run: |
+          quant-lab backtest \
+            --start 2007-01-01 \
+            --end 2009-12-31 \
+            --train-years 4 \
+            --step-months 12 \
+            --no-slippage-sweep \
+            --no-regime-stress \
+            --universe-file config/universe_classic.txt
+          mkdir -p dashboard/data/historical/2008-crisis
+          mv dashboard/data/backtest/backtest_results.json dashboard/data/historical/2008-crisis/results.json
+          mv dashboard/data/backtest/backtest_curves.json  dashboard/data/historical/2008-crisis/curves.json
+          mv dashboard/data/backtest/calibration_report.md dashboard/data/historical/2008-crisis/report.md
+
+      - name: Run 2020 COVID stress (2018–2022)
+        run: |
+          quant-lab backtest \
+            --start 2018-01-01 \
+            --end 2022-12-31 \
+            --train-years 3 \
+            --step-months 12 \
+            --no-slippage-sweep \
+            --no-regime-stress \
+            --universe-file config/universe_classic.txt
+          mkdir -p dashboard/data/historical/2020-covid
+          mv dashboard/data/backtest/backtest_results.json dashboard/data/historical/2020-covid/results.json
+          mv dashboard/data/backtest/backtest_curves.json  dashboard/data/historical/2020-covid/curves.json
+          mv dashboard/data/backtest/calibration_report.md dashboard/data/historical/2020-covid/report.md
+
+      - name: Run 2022 rates stress (2021–2023)
+        run: |
+          quant-lab backtest \
+            --start 2021-01-01 \
+            --end 2023-12-31 \
+            --train-years 3 \
+            --step-months 12 \
+            --no-slippage-sweep \
+            --no-regime-stress \
+            --universe-file config/universe_classic.txt
+          mkdir -p dashboard/data/historical/2022-rates
+          mv dashboard/data/backtest/backtest_results.json dashboard/data/historical/2022-rates/results.json
+          mv dashboard/data/backtest/backtest_curves.json  dashboard/data/historical/2022-rates/curves.json
+          mv dashboard/data/backtest/calibration_report.md dashboard/data/historical/2022-rates/report.md
+
+      - name: Commit stress test results
+        run: |
+          git config user.name "quant-lab-bot"
+          git config user.email "quant-lab@users.noreply.github.com"
+          git add dashboard/data/historical/
+          if ! git diff --cached --quiet; then
+            STAMP=$(date -u +%Y-%m-%d)
+            git commit -m "data: stress-test recalibration ${STAMP} (post-rank-label-ML, risk-parity sleeve)"
+            git push
+          else
+            echo "No stress-test changes to commit."
+          fi
