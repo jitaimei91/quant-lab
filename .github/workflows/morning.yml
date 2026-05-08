@@ -3,10 +3,11 @@ name: Morning Quant Lab
 on:
   workflow_dispatch:
   schedule:
-    # 11:30 UTC = 6:30 AM EST winter / 7:30 AM EDT summer.
+    # 21:30 UTC = 4:30 PM EST winter / 5:30 PM EDT summer (post-close).
+    # Captures today's close so NAV advances same-day, not lagged a day.
     # Run twice for DST coverage; idempotent on the second fire of the same day.
-    - cron: "30 11 * * 1-5"
-    - cron: "30 10 * * 1-5"
+    - cron: "30 21 * * 1-5"
+    - cron: "30 20 * * 1-5"
 
 permissions:
   contents: write

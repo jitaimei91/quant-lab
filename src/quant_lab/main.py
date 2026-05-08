@@ -45,6 +45,10 @@ SYMBOLS_FOR_PHASE_1 = [
     "EFA", "EEM", "VNQ", "HYG", "VXX",
 ]
 
+# Index symbols fetched for regime/diagnostics only — never passed to strategies
+# (they're not tradable, so we keep them out of the tradable universe).
+REGIME_SYMBOLS = ["^VIX"]
+
 
 def _market_snapshot(histories: dict, today: date) -> dict[str, dict[str, float]]:
     snapshot: dict[str, dict[str, float]] = {}
@@ -122,14 +126,23 @@ def _morning_command_inner(
     if not histories:
         raise RuntimeError("No data fetched; check network or yfinance status.")
 
+    # Fetch index-only series (e.g. ^VIX) into a separate dict so the regime
+    # engine can read them without exposing non-tradables to strategies.
+    regime_histories: dict[str, list] = {}
+    for symbol in REGIME_SYMBOLS:
+        bars = fetch_history(symbol, lookback_days=400)
+        if bars:
+            regime_histories[symbol] = bars
+
     today = max(bars[-1].date for bars in histories.values())
 
     prior_portfolios_list = load_portfolios(state_dir / "portfolios.json")
     prior_portfolios = {p.bot_id: p for p in prior_portfolios_list}
     prior_navs = load_nav_history(state_dir / "nav_history.json")
 
-    # Regime check (VIX kill-switch)
-    reg = regime_state(histories)
+    # Regime check (VIX kill-switch). Pass tradable histories + regime-only
+    # symbols so HMM features (SPY/TLT/SHY) and VIX are both available.
+    reg = regime_state({**histories, **regime_histories})
     print(f"[regime] VIX={reg['vix']:.1f} regime={reg['regime']}")
 
     strategies_list = get_all()
