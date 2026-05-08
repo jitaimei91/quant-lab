@@ -12,11 +12,11 @@
   },
   {
     "bot_id": "qqq-vol",
-    "cash": 21941.334226763123,
+    "cash": 22957.979800090325,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 112.26171881277439,
+        "shares": 110.82012101548072,
         "avg_cost": 694.9400024414062
       }
     }
@@ -96,17 +96,12 @@
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 8000.0,
+    "cash": 8020.606660852891,
     "positions": {
       "EEM": {
         "symbol": "EEM",
-        "shares": 187.60680661428708,
-        "avg_cost": 66.58999633789062
-      },
-      "EFA": {
-        "symbol": "EFA",
-        "shares": 149.21565614153656,
-        "avg_cost": 102.88999938964844
+        "shares": 196.94578342534987,
+        "avg_cost": 66.6390503327075
       },
       "IWM": {
         "symbol": "IWM",
@@ -115,90 +110,70 @@
       },
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 25.38358975891934,
-        "avg_cost": 694.9400024414062
+        "shares": 26.869539907929283,
+        "avg_cost": 695.5521230836437
       },
       "VTV": {
         "symbol": "VTV",
         "shares": 143.43224933950526,
         "avg_cost": 205.91000366210938
+      },
+      "GLD": {
+        "symbol": "GLD",
+        "shares": 31.674486444466705,
+        "avg_cost": 434.1099853515625
       }
     }
   },
   {
     "bot_id": "codex-native",
-    "cash": 7999.999999999996,
+    "cash": 8037.195791073078,
     "positions": {
       "EEM": {
         "symbol": "EEM",
-        "shares": 196.14183590159405,
-        "avg_cost": 66.58999633789062
+        "shares": 231.2059022898283,
+        "avg_cost": 66.74688267884896
       },
       "EFA": {
         "symbol": "EFA",
-        "shares": 156.004109174113,
-        "avg_cost": 102.88999938964844
+        "shares": 177.27782998608507,
+        "avg_cost": 102.9952765982028
       },
       "IWM": {
         "symbol": "IWM",
-        "shares": 62.64734524737151,
-        "avg_cost": 282.260009765625
+        "shares": 71.74210146391364,
+        "avg_cost": 282.43274897063617
       },
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 26.538396910745046,
-        "avg_cost": 694.9400024414062
+        "shares": 31.544275513522265,
+        "avg_cost": 696.6965211161719
       },
-      "VNQ": {
-        "symbol": "VNQ",
-        "shares": 276.9076247904225,
-        "avg_cost": 96.38999938964844
+      "GLD": {
+        "symbol": "GLD",
+        "shares": 37.18732644992985,
+        "avg_cost": 434.1099853515625
       }
     }
   },
   {
-    "bot_id": "meta-ensemble",
-    "cash": 53566.97641367961,
+    "bot_id": "risk-parity",
+    "cash": 5000.0,
     "positions": {
-      "EEM": {
-        "symbol": "EEM",
-        "shares": 42.638738057320126,
-        "avg_cost": 66.58999633789062
-      },
-      "EFA": {
-        "symbol": "EFA",
-        "shares": 33.91330725729439,
-        "avg_cost": 102.88999938964844
-      },
-      "IWM": {
-        "symbol": "IWM",
-        "shares": 13.61873529790624,
-        "avg_cost": 282.260009765625
-      },
-      "QQQ": {
-        "symbol": "QQQ",
-        "shares": 14.381711204095977,
-        "avg_cost": 694.9400024414062
+      "GLD": {
+        "symbol": "GLD",
+        "shares": 35.64943189516294,
+        "avg_cost": 434.1099853515625
       },
       "SPY": {
         "symbol": "SPY",
-        "shares": 13.661560137861615,
-        "avg_cost": 731.5800170898438
+        "shares": 43.25486370105073,
+        "avg_cost": 737.0167846679688
       },
-      "USO": {
-        "symbol": "USO",
-        "shares": 74.04087756662328,
-        "avg_cost": 134.97000122070312
-      },
-      "VNQ": {
-        "symbol": "VNQ",
-        "shares": 30.767513865602496,
-        "avg_cost": 96.38999938964844
-      },
-      "VTV": {
-        "symbol": "VTV",
-        "shares": 15.93691659327836,
-        "avg_cost": 205.91000366210938
+      "TLT": {
+        "symbol": "TLT",
+        "shares": 551.9369655018609,
+        "avg_cost": 86.20999908447266
       }
     }
   },
@@ -231,17 +206,81 @@
   },
   {
     "bot_id": "gradboost",
-    "cash": 100000.0,
-    "positions": {}
+    "cash": 0.0,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 135.60777088209827,
+        "avg_cost": 737.0167846679688
+      }
+    }
   },
   {
     "bot_id": "lightforest",
-    "cash": 100000.0,
-    "positions": {}
+    "cash": 0.0,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 135.60777088209827,
+        "avg_cost": 737.0167846679688
+      }
+    }
   },
   {
     "bot_id": "ml-ensemble",
-    "cash": 100000.0,
-    "positions": {}
+    "cash": 0.0,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 135.60777088209827,
+        "avg_cost": 737.0167846679688
+      }
+    }
+  },
+  {
+    "bot_id": "meta-ensemble",
+    "cash": 54733.30556118851,
+    "positions": {
+      "EEM": {
+        "symbol": "EEM",
+        "shares": 42.638738057320126,
+        "avg_cost": 66.58999633789062
+      },
+      "EFA": {
+        "symbol": "EFA",
+        "shares": 19.578040713529198,
+        "avg_cost": 102.88999938964844
+      },
+      "IWM": {
+        "symbol": "IWM",
+        "shares": 13.61873529790624,
+        "avg_cost": 282.260009765625
+      },
+      "QQQ": {
+        "symbol": "QQQ",
+        "shares": 14.381711204095977,
+        "avg_cost": 694.9400024414062
+      },
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 13.661560137861615,
+        "avg_cost": 731.5800170898438
+      },
+      "USO": {
+        "symbol": "USO",
+        "shares": 74.04087756662328,
+        "avg_cost": 134.97000122070312
+      },
+      "VTV": {
+        "symbol": "VTV",
+        "shares": 15.93691659327836,
+        "avg_cost": 205.91000366210938
+      },
+      "GLD": {
+        "symbol": "GLD",
+        "shares": 7.610658385909588,
+        "avg_cost": 434.1099853515625
+      }
+    }
   }
 ]

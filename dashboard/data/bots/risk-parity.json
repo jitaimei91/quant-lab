@@ -1,0 +1,61 @@
+{
+  "bot_id": "risk-parity",
+  "metrics": {
+    "total_return": 0.0,
+    "annualized_return": 0.0,
+    "sharpe": 0.0,
+    "sharpe_ci_lo": 0.0,
+    "sharpe_ci_hi": 0.0,
+    "volatility": 0.0,
+    "max_drawdown": 0.0,
+    "days": 1,
+    "alpha_t_stat_vs_spy": 0.0,
+    "alpha_t_stat_vs_qqq": 0.0,
+    "significance_weight": 0.0,
+    "factor_loadings": null
+  },
+  "current_weights": {
+    "GLD": 0.1548540314824624,
+    "SPY": 0.31899395541890724,
+    "TLT": 0.47612090386227507
+  },
+  "nav_series": [
+    {
+      "date": "2026-05-08",
+      "nav": 99937.8202146024
+    }
+  ],
+  "daily_returns": [],
+  "recent_trades": [
+    {
+      "bot_id": "risk-parity",
+      "symbol": "GLD",
+      "side": "BUY",
+      "shares": 35.64943189516294,
+      "price": 434.3999398933912,
+      "slippage_bps": 6.679287544926932,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.1549"
+    },
+    {
+      "bot_id": "risk-parity",
+      "symbol": "SPY",
+      "side": "BUY",
+      "shares": 43.25486370105073,
+      "price": 737.4208671783507,
+      "slippage_bps": 5.4826771762600295,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.3190"
+    },
+    {
+      "bot_id": "risk-parity",
+      "symbol": "TLT",
+      "side": "BUY",
+      "shares": 551.9369655018609,
+      "price": 86.27226078996324,
+      "slippage_bps": 7.222097918082017,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.4762"
+    }
+  ]
+}
