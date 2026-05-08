@@ -18,6 +18,10 @@ dashboard/data/*.json
 !dashboard/data/.gitkeep
 state/*.json
 !state/.gitkeep
+!state/nav_history.json
+!state/portfolios.json
+!state/last_morning.json
+!state/strategy_lifecycle.json
 data/cache/
 .omc/
 .claude/
