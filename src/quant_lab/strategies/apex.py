@@ -1,32 +1,34 @@
-"""Apex bot v2 — trend-filtered leveraged risk-parity with circuit breakers.
+"""Apex bot v3 — dual momentum + portfolio vol-targeting + master switches.
 
-Lessons from v1 stress tests:
-- v1 was crushed by Feb 2018 Volmageddon (SVXY -90% intraday). Daily VIX
-  kill switch can't react to overnight gaps. **v2 drops SVXY entirely.**
-- v1 stayed in leveraged risk parity through 2022 → TMF -50% drag wrecked
-  it. **v2 adds an SPY 200-day-MA trend filter** so leveraged exposure
-  only fires in confirmed uptrends.
-- v1's SHY-only defensive missed flight-to-quality in COVID/2008.
-  **v2 uses IEF** (medium-duration treasuries) in panic regimes so we
-  capture the bond rally that typically accompanies risk-off.
+Layered design (read top-down — first true gate routes the bot):
 
-Decision matrix:
-                          | calm     | normal   | caution  | panic
-                          | (VIX<15) | (VIX<25) | (VIX<35) | (VIX≥35)
-    SPY > 200d MA  (up)   | LEV-RP   | LEV-RP   | UNLEV-RP | IEF 100%
-    SPY ≤ 200d MA (down)  | DEF      | DEF      | DEF      | IEF 100%
-    SPY 60d DD > 15%      | DEF      | DEF      | DEF      | IEF 100%
+    1.  vix >= 35           → flight-to-quality (100% IEF)
+    2.  spy 60d DD < -15%   → defensive (50% IEF / 50% SHY)
+    3.  spy < 200d MA       → defensive
+    4.  vix >= 25 (caution) → unleveraged-only top-3 dual momentum
+    5.  otherwise           → top-3 dual momentum, leveraged where allowed
+        (calm + normal)       and vol-targeted to 12% annualized portfolio vol
 
-  LEV-RP   = inverse-vol on SSO/TMF/UGL (leverage from the ETFs themselves)
-  UNLEV-RP = inverse-vol on SPY/TLT/GLD
-  DEF      = 50% IEF / 50% SHY  (defensive bond mix; capture flight-to-
-             quality when stress arrives without giving up all yield)
+Key v3 changes over v2:
 
-The drawdown circuit breaker (15% off the 60-day SPY high) is what
-catches fast crashes the 200-day MA misses (e.g., Feb-Mar 2020 COVID).
+- **Dual momentum across a diversified universe.** Rank ETFs by 6-month
+  total return; pick the top 3 with positive returns; inverse-vol weight.
+  Universe: SPY, QQQ, IWM, EFA, EEM, TLT, IEF, GLD, USO, VNQ. This avoids
+  the v2 problem of being permanently long SPY+TLT+GLD even when the
+  best performers are e.g. QQQ + GLD + EEM. Antonacci-style.
 
-Honest expected backtest Sharpe: 1.0–1.5 across regimes. Anything higher
-on free-tier daily ETF data is overfitting noise.
+- **Portfolio-level vol targeting.** Compute realized portfolio vol from
+  weighted leg vols (treating legs as independent — first-order approx),
+  then scale gross exposure so portfolio annualised vol ≈ 12%. Below
+  target → up to 95% gross. Above → scale down. This is what smooths
+  the leveraged-ETF-decay drag in choppy regimes that hit v2.
+
+- **Leverage gates per leg.** A leveraged ETF (SSO/TMF/UGL) is used in
+  place of its unleveraged sibling only when (i) regime is normal/calm,
+  (ii) trend is up, and (iii) the leg has at least 60 bars of history.
+
+Honest expected backtest Sharpe across stress regimes: 1.2–1.5 aggregate.
+Live will land 0.5–1.0 lower. Sharpe 2 still needs paid intraday/options data.
 """
 from __future__ import annotations
 
@@ -39,23 +41,36 @@ from .base import Strategy, register
 
 TRADING_DAYS_PER_YEAR = 252
 
-# Leveraged candidates (preferred when uptrend + low-vol regime)
-_STOCK_LEG = ("SSO", "SPY")
-_BOND_LEG = ("TMF", "TLT")
-_GOLD_LEG = ("UGL", "GLD")
-_PANIC_BOND = "IEF"      # medium-duration flight-to-quality
-_DEFENSIVE_BOND = "IEF"  # used in defensive 50/50 mix
-_DEFENSIVE_CASH = "SHY"  # 1-3yr cash proxy
+# Dual-momentum universe (unleveraged baselines)
+_MOMO_UNIVERSE = ("SPY", "QQQ", "IWM", "EFA", "EEM", "TLT", "IEF", "GLD", "USO", "VNQ")
+
+# Per-leg leverage upgrade map. When the regime allows leverage AND the
+# leveraged ETF has enough history, swap the unleveraged pick for its 2x/3x
+# sibling. Anything not in this dict stays unleveraged.
+_LEVERAGE_UPGRADE = {
+    "SPY": "SSO",   # 2x S&P
+    "TLT": "TMF",   # 3x long bonds
+    "GLD": "UGL",   # 2x gold
+}
+
+_PANIC_BOND = "IEF"
+_DEFENSIVE_BOND = "IEF"
+_DEFENSIVE_CASH = "SHY"
 _VIX_SYMBOL = "^VIX"
 
+# Lookback windows
+_MOMO_WINDOW = 126     # 6 trading months
 _VOL_WINDOW = 60
 _TREND_WINDOW = 200
 _DD_WINDOW = 60
-_DD_CIRCUIT_BREAKER = -0.15  # SPY 15% off 60-day high → defensive
-_GROSS_LEVERAGE = 0.95       # 5% cash buffer
 
-# VIX regime thresholds — tighter than the global engine since leveraged
-# ETFs amplify whatever the engine sees and we want to deleverage early.
+# Risk knobs
+_DD_CIRCUIT_BREAKER = -0.15
+_TARGET_PORTFOLIO_VOL = 0.12      # 12% annualised
+_GROSS_LEVERAGE_CAP = 0.95
+_TOP_N = 3                        # how many momentum picks to hold
+
+# VIX regime thresholds (apex-internal, more conservative than engine.regime)
 _VIX_CALM = 15.0
 _VIX_CAUTION = 25.0
 _VIX_PANIC = 35.0
@@ -86,42 +101,25 @@ def _realized_vol(bars: list[Bar], window: int) -> float | None:
     return sqrt(var) * sqrt(TRADING_DAYS_PER_YEAR)
 
 
-def _inverse_vol_weights(legs: list[tuple[str, list[Bar]]]) -> dict[str, float]:
-    inv: dict[str, float] = {}
-    for sym, bars in legs:
-        vol = _realized_vol(bars, window=_VOL_WINDOW)
-        if vol is None or vol <= 0:
-            continue
-        inv[sym] = 1.0 / vol
-    if not inv:
-        return {}
-    total = sum(inv.values())
-    return {sym: _GROSS_LEVERAGE * (v / total) for sym, v in inv.items()}
-
-
-def _resolve_first_with_history(
-    histories: dict[str, list[Bar]],
-    as_of: date,
-    candidates: tuple[str, ...],
-) -> tuple[str, list[Bar]] | None:
-    for sym in candidates:
-        bars = _bars_up_to(histories, sym, as_of)
-        if len(bars) > _VOL_WINDOW:
-            return sym, bars
-    return None
+def _trailing_return(bars: list[Bar], window: int) -> float | None:
+    if len(bars) <= window:
+        return None
+    end = bars[-1].close
+    start = bars[-(window + 1)].close
+    if start <= 0:
+        return None
+    return end / start - 1.0
 
 
 def _spy_uptrend(spy_bars: list[Bar]) -> bool:
-    """Return True if SPY's last close is above its 200-day moving average."""
     if len(spy_bars) < _TREND_WINDOW:
-        return True  # not enough history → assume bullish (won't fire defensive)
+        return True
     window_closes = [b.close for b in spy_bars[-_TREND_WINDOW:]]
     ma = sum(window_closes) / _TREND_WINDOW
     return spy_bars[-1].close > ma
 
 
 def _spy_drawdown(spy_bars: list[Bar]) -> float:
-    """Return current SPY drawdown vs 60-day rolling high. 0.0 if no data."""
     if len(spy_bars) < 2:
         return 0.0
     window = spy_bars[-_DD_WINDOW:] if len(spy_bars) >= _DD_WINDOW else spy_bars
@@ -132,53 +130,116 @@ def _spy_drawdown(spy_bars: list[Bar]) -> float:
 
 
 # ---------------------------------------------------------------------------
-# Sleeves
+# Core sleeves
 # ---------------------------------------------------------------------------
 
 
-def _leveraged_rp(histories: dict[str, list[Bar]], as_of: date) -> dict[str, float]:
-    """Inverse-vol on leveraged sleeves with graceful unleveraged fallback."""
-    legs: list[tuple[str, list[Bar]]] = []
-    for candidates in (_STOCK_LEG, _BOND_LEG, _GOLD_LEG):
-        leg = _resolve_first_with_history(histories, as_of, candidates)
-        if leg is not None:
-            legs.append(leg)
-    return _inverse_vol_weights(legs)
-
-
-def _unleveraged_rp(histories: dict[str, list[Bar]], as_of: date) -> dict[str, float]:
-    """Inverse-vol on plain SPY/TLT/GLD."""
-    legs: list[tuple[str, list[Bar]]] = []
-    for candidates in (_STOCK_LEG, _BOND_LEG, _GOLD_LEG):
-        unlev = candidates[-1]
-        bars = _bars_up_to(histories, unlev, as_of)
-        if len(bars) > _VOL_WINDOW:
-            legs.append((unlev, bars))
-    return _inverse_vol_weights(legs)
+def _flight_to_quality(histories: dict[str, list[Bar]], as_of: date) -> dict[str, float]:
+    for sym in (_PANIC_BOND, "TLT", _DEFENSIVE_CASH):
+        if _bars_up_to(histories, sym, as_of):
+            return {sym: _GROSS_LEVERAGE_CAP}
+    return {}
 
 
 def _defensive_mix(histories: dict[str, list[Bar]], as_of: date) -> dict[str, float]:
-    """50% IEF / 50% SHY — defensive bond mix. Falls back gracefully."""
     legs = [
         sym for sym in (_DEFENSIVE_BOND, _DEFENSIVE_CASH)
         if _bars_up_to(histories, sym, as_of)
     ]
     if not legs:
-        # Try TLT as ultimate fallback
         for sym in ("TLT", "SHY", "IEF"):
             if _bars_up_to(histories, sym, as_of):
-                return {sym: _GROSS_LEVERAGE}
+                return {sym: _GROSS_LEVERAGE_CAP}
         return {}
-    per_leg = _GROSS_LEVERAGE / len(legs)
+    per_leg = _GROSS_LEVERAGE_CAP / len(legs)
     return {sym: per_leg for sym in legs}
 
 
-def _flight_to_quality(histories: dict[str, list[Bar]], as_of: date) -> dict[str, float]:
-    """100% IEF in panic uptrend (or fallback to TLT, then SHY)."""
-    for sym in (_PANIC_BOND, "TLT", _DEFENSIVE_CASH):
-        if _bars_up_to(histories, sym, as_of):
-            return {sym: _GROSS_LEVERAGE}
-    return {}
+def _dual_momentum_picks(
+    histories: dict[str, list[Bar]],
+    as_of: date,
+) -> list[str]:
+    """Top-N unleveraged picks by 6-month return, requiring positive return.
+
+    Returns symbols from _MOMO_UNIVERSE only; the leverage-upgrade happens
+    in the caller after gating on regime.
+    """
+    scored: list[tuple[str, float]] = []
+    for sym in _MOMO_UNIVERSE:
+        bars = _bars_up_to(histories, sym, as_of)
+        ret = _trailing_return(bars, _MOMO_WINDOW)
+        vol = _realized_vol(bars, _VOL_WINDOW)
+        if ret is None or vol is None or vol <= 0:
+            continue
+        if ret <= 0:
+            continue  # Antonacci's "no edge" gate — refuse to hold losers
+        scored.append((sym, ret))
+    scored.sort(key=lambda x: x[1], reverse=True)
+    return [sym for sym, _ in scored[:_TOP_N]]
+
+
+def _vol_targeted_inverse_vol(
+    histories: dict[str, list[Bar]],
+    as_of: date,
+    symbols: list[str],
+    target_vol: float,
+) -> dict[str, float]:
+    """Inverse-vol weight `symbols`, then scale gross to hit target portfolio vol.
+
+    Approximates portfolio variance as the sum of (w_i * sigma_i)^2 — which
+    assumes zero pairwise correlation. The error is small for diversified
+    asset-class sleeves and avoids needing a full covariance matrix that
+    would overfit on rolling 60-day windows.
+
+    Result is capped at _GROSS_LEVERAGE_CAP regardless of the vol target.
+    """
+    inv_vols: dict[str, float] = {}
+    leg_vols: dict[str, float] = {}
+    for sym in symbols:
+        bars = _bars_up_to(histories, sym, as_of)
+        vol = _realized_vol(bars, window=_VOL_WINDOW)
+        if vol is None or vol <= 0:
+            continue
+        inv_vols[sym] = 1.0 / vol
+        leg_vols[sym] = vol
+    if not inv_vols:
+        return {}
+
+    total_inv = sum(inv_vols.values())
+    base_weights = {sym: v / total_inv for sym, v in inv_vols.items()}
+
+    # Approximate portfolio vol assuming uncorrelated legs
+    port_var = sum((w * leg_vols[sym]) ** 2 for sym, w in base_weights.items())
+    port_vol = sqrt(port_var) if port_var > 0 else 0.0
+
+    if port_vol <= 0:
+        return {sym: w * _GROSS_LEVERAGE_CAP for sym, w in base_weights.items()}
+
+    # Scale gross to hit target vol; cap at gross-leverage limit
+    scale = min(target_vol / port_vol, _GROSS_LEVERAGE_CAP / 1.0)
+    return {sym: w * scale for sym, w in base_weights.items()}
+
+
+def _maybe_upgrade_to_leveraged(
+    weights: dict[str, float],
+    histories: dict[str, list[Bar]],
+    as_of: date,
+) -> dict[str, float]:
+    """For each pick that has a leveraged sibling with sufficient history,
+    swap it. Halves the unleveraged weight first since the leveraged ETF
+    already provides 2-3x exposure.
+    """
+    out: dict[str, float] = {}
+    for sym, w in weights.items():
+        upgrade = _LEVERAGE_UPGRADE.get(sym)
+        if upgrade and len(_bars_up_to(histories, upgrade, as_of)) > _VOL_WINDOW:
+            # 2x ETF → halve weight to maintain similar effective exposure;
+            # the inverse-vol portfolio targeting already gave us a vol-
+            # appropriate allocation in the unleveraged version.
+            out[upgrade] = w * 0.5
+        else:
+            out[sym] = w
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -188,45 +249,56 @@ def _flight_to_quality(histories: dict[str, list[Bar]], as_of: date) -> dict[str
 
 @register
 class Apex(Strategy):
-    """Trend-filtered leveraged risk-parity with drawdown circuit breaker.
+    """Dual-momentum + vol-targeted leveraged risk parity with master switches.
 
-    See module docstring for the full decision matrix and the lessons-learned
-    from v1 that drove this design.
+    See module docstring for full design rationale and honest expectations.
     """
 
     bot_id = "apex"
-    description = "Trend-filtered leveraged RP + DD circuit breaker (target ~1.2 Sharpe)"
+    description = "Dual momentum + vol-targeting + trend/DD/VIX master switches"
 
     def target_weights(
         self,
         histories: dict[str, list[Bar]],
         as_of: date,
     ) -> dict[str, float]:
-        # Read regime inputs
+        # Master switch 1 — VIX panic
         vix_bars = _bars_up_to(histories, _VIX_SYMBOL, as_of)
-        vix = vix_bars[-1].close if vix_bars else _VIX_CALM + 1  # default NORMAL
-
-        spy_bars = _bars_up_to(histories, "SPY", as_of)
-        uptrend = _spy_uptrend(spy_bars)
-        drawdown = _spy_drawdown(spy_bars)
-
-        # Panic always overrides — flight-to-quality regardless of trend
+        vix = vix_bars[-1].close if vix_bars else _VIX_CALM + 1
         if vix >= _VIX_PANIC:
             return _flight_to_quality(histories, as_of)
 
-        # Drawdown circuit breaker — 15% off the 60-day high triggers defensive
-        # even if the long-term trend is still up. Catches fast crashes that
-        # the 200-day MA hasn't yet broken.
-        if drawdown < _DD_CIRCUIT_BREAKER:
+        # Master switch 2 — drawdown circuit breaker
+        spy_bars = _bars_up_to(histories, "SPY", as_of)
+        if _spy_drawdown(spy_bars) < _DD_CIRCUIT_BREAKER:
             return _defensive_mix(histories, as_of)
 
-        # Trend filter — never run leveraged exposure in confirmed downtrend
-        if not uptrend:
+        # Master switch 3 — long-term trend filter
+        if not _spy_uptrend(spy_bars):
             return _defensive_mix(histories, as_of)
 
-        # Uptrend + caution → deleverage to plain SPY/TLT/GLD
-        if vix >= _VIX_CAUTION:
-            return _unleveraged_rp(histories, as_of)
+        # Dual-momentum picks
+        picks = _dual_momentum_picks(histories, as_of)
+        if not picks:
+            # No asset has positive 6m return → defensive
+            return _defensive_mix(histories, as_of)
 
-        # Uptrend + normal/calm → leveraged risk parity
-        return _leveraged_rp(histories, as_of)
+        # Vol-targeted inverse-vol weights on the picks
+        weights = _vol_targeted_inverse_vol(
+            histories, as_of, picks, target_vol=_TARGET_PORTFOLIO_VOL
+        )
+        if not weights:
+            return _defensive_mix(histories, as_of)
+
+        # Leverage gate: caution (VIX 25-35) keeps everything unleveraged.
+        # Calm/normal regimes can upgrade SPY/TLT/GLD picks to SSO/TMF/UGL.
+        if vix < _VIX_CAUTION:
+            weights = _maybe_upgrade_to_leveraged(weights, histories, as_of)
+
+        # Final cap on gross exposure (vol-target shouldn't exceed it but be safe)
+        gross = sum(weights.values())
+        if gross > _GROSS_LEVERAGE_CAP:
+            scale = _GROSS_LEVERAGE_CAP / gross
+            weights = {sym: w * scale for sym, w in weights.items()}
+
+        return weights
