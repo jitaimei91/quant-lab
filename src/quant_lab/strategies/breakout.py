@@ -11,7 +11,7 @@ from datetime import date
 from ..types import Bar
 from .base import Strategy, register
 
-_INDEX_PROXIES = {"SPY", "QQQ", "^VIX"}
+_INDEX_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY"}  # also exclude apex-only sleeves
 
 
 def _adv(bars: list[Bar], window: int = 20) -> float:

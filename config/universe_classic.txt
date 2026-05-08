@@ -5,3 +5,11 @@ IWM
 TLT
 IEF
 GLD
+# Leveraged + vol-carry sleeves used by the Apex bot. SSO history starts
+# 2006, TMF/UGL ~2009, SVXY ~2011 — for stress windows that pre-date a
+# given symbol, Apex degrades gracefully to unleveraged SPY/TLT/GLD.
+SSO
+TMF
+UGL
+SVXY
+SHY

@@ -13,7 +13,7 @@ from datetime import date
 from ..types import Bar
 from .base import Strategy, register
 
-_INDEX_PROXIES = {"SPY", "QQQ", "^VIX"}
+_INDEX_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY"}  # also exclude apex-only sleeves
 
 
 def _sma(bars: list[Bar], window: int) -> float | None:

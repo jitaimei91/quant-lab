@@ -43,6 +43,10 @@ SYMBOLS_FOR_PHASE_1 = [
     "SPY", "QQQ", "IWM", "VTV", "VUG",
     "TLT", "IEF", "GLD", "USO",
     "EFA", "EEM", "VNQ", "HYG", "VXX",
+    # Leveraged + vol-carry sleeves used by the Apex strategy. Other bots
+    # may also see these in `histories.items()` loops; the per-bot weight
+    # caps in the rebalance engine prevent any single bot from over-leveraging.
+    "SSO", "TMF", "UGL", "SVXY", "SHY",
 ]
 
 # Index symbols fetched for regime/diagnostics only — never passed to strategies

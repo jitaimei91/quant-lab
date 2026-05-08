@@ -14,7 +14,7 @@ import pandas as pd
 
 from ..types import Bar
 
-_INDEX_PROXIES = {"SPY", "QQQ", "^VIX"}
+_INDEX_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY"}  # exclude apex-only sleeves from ML training too
 
 
 # ---------------------------------------------------------------------------

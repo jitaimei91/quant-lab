@@ -22,7 +22,7 @@ _REPO_ROOT = Path(__file__).resolve().parents[4]
 _STATE_DIR = _REPO_ROOT / "state"
 _VALIDATION_FILE = _STATE_DIR / "ml_validation.json"
 _MODELS_DIR = _REPO_ROOT / "models"
-_INDEX_PROXIES = {"SPY", "QQQ", "^VIX"}
+_INDEX_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY"}  # also exclude apex-only sleeves
 
 # When the ML signal isn't trustworthy we hold SPY 100%, NOT cash.
 _FALLBACK_WEIGHTS: dict[str, float] = {"SPY": 1.0}
