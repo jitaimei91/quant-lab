@@ -34,16 +34,38 @@
     <p id="period-context" class="muted" style="margin-top:.5rem;"></p>
   </section>
 
+  <!-- Simulation playback controls -->
+  <section id="sim-controls-section">
+    <div class="sim-controls">
+      <div class="sim-buttons">
+        <button id="btn-play" class="sim-btn sim-btn-primary" title="Play simulation">&#9654; Play</button>
+        <button id="btn-pause" class="sim-btn" title="Pause" disabled>&#9646;&#9646; Pause</button>
+        <button id="btn-skip" class="sim-btn" title="Jump to final state">&#9654;&#9654; Skip to End</button>
+      </div>
+      <div class="sim-speed">
+        <span class="sim-label">Speed:</span>
+        <button class="sim-speed-btn active" data-speed="1">1x</button>
+        <button class="sim-speed-btn" data-speed="5">5x</button>
+        <button class="sim-speed-btn" data-speed="30">30x</button>
+      </div>
+      <div class="sim-status">
+        <span class="sim-day-counter">Day <span id="sim-day-current">0</span>/<span id="sim-day-total">—</span></span>
+        <span class="sim-date-display" id="sim-date">—</span>
+      </div>
+    </div>
+    <p class="sim-disclaimer">Playback uses pre-computed daily NAVs from the historical backtest. Speeds are visualization only — not real trading frequency.</p>
+  </section>
+
   <section>
-    <h2>Leaderboard for this period</h2>
+    <h2>Live Leaderboard <span id="sim-window-label" class="sim-window-badge"></span></h2>
     <table id="period-leaderboard">
       <thead>
         <tr>
           <th>Rank</th>
           <th>Bot</th>
           <th>Sharpe</th>
-          <th>95% CI</th>
-          <th>Max DD</th>
+          <th>Return</th>
+          <th>Drawdown</th>
           <th>Days</th>
         </tr>
       </thead>
