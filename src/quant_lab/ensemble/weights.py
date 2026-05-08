@@ -1,11 +1,23 @@
-"""Calibrated-Sharpe-weighted strategy weight computation.
+"""Evidence-weighted strategy weight computation.
 
 Weight formula per strategy:
-    raw_weight = max(0, sharpe_ci_lo) * significance_weight * regime_stability_factor
+    evidence = max(0, sharpe_ci_lo) * (1 + max(0, median_alpha_t))
+    raw_weight = evidence * stability_factor * (1 + significance_weight)
 
-Weights are then normalized to sum = 1.0, with a per-strategy cap of `cap`.
-If all strategies have raw_weight = 0, falls back to equal-weight across
-positive-Sharpe strategies. If none have positive Sharpe, returns {} (all cash).
+Rationale:
+- `sharpe_ci_lo` is the bootstrap lower bound on Sharpe. Above zero ≈ persistent
+  edge; below zero ≈ noise. Strict floor at 0 filters out negative-edge bots.
+- `median_alpha_t` adds a multiplicative boost when alpha vs SPY is positive
+  (rare but real evidence of true alpha).
+- `significance_weight` (0–1, gates on alpha t-stat ≥ 1.96) becomes a 1–2x
+  amplifier rather than a hard multiplier — previously 0 for every bot in
+  practice, which collapsed all raw weights to 0 and triggered noisy
+  equal-weight fallback. Now significance amplifies but doesn't gate.
+- `stability_factor` rewards bots whose per-window Sharpes don't sign-flip.
+
+Normalized to sum = 1.0 with per-strategy cap. If no bot has positive
+sharpe_ci_lo (no edge anywhere), returns {} so the caller can fall back to
+the index — equal-weighting noise is worse than admitting we have no edge.
 """
 from __future__ import annotations
 
@@ -64,7 +76,6 @@ def compute_strategy_weights(
         dict mapping bot_id -> normalized weight.
     """
     raw: dict[str, float] = {}
-    sharpes: dict[str, float] = {}
 
     for strat in calibration_results:
         bot_id = strat.get("bot_id", "")
@@ -72,25 +83,28 @@ def compute_strategy_weights(
             continue
         agg = strat.get("aggregate", {})
         sharpe_ci_lo = agg.get("sharpe_ci_lo", 0.0)
+        median_alpha_t = agg.get("median_alpha_t", 0.0)
         sig_weight = agg.get("significance_weight", 0.0)
         per_window = strat.get("per_window", [])
         stability = regime_stability_factor(per_window)
 
-        sharpe_point = agg.get("sharpe", 0.0)
-        sharpes[bot_id] = sharpe_point
+        # Evidence: positive lower-CI Sharpe, boosted multiplicatively by
+        # positive median alpha t-stat (cap the alpha boost at +3 to prevent
+        # outliers from dominating).
+        alpha_boost = 1.0 + min(3.0, max(0.0, median_alpha_t))
+        evidence = max(0.0, sharpe_ci_lo) * alpha_boost
+        # Significance amplifier: 1.0 (no significance) → 2.0 (full significance)
+        sig_amplifier = 1.0 + max(0.0, min(1.0, sig_weight))
 
-        raw_w = max(0.0, sharpe_ci_lo) * sig_weight * stability
-        raw[bot_id] = raw_w
+        raw[bot_id] = evidence * stability * sig_amplifier
 
     total_raw = sum(raw.values())
 
     if total_raw <= 0.0:
-        # Fall back: equal-weight across positive-Sharpe strategies
-        positive_ids = [bid for bid, sh in sharpes.items() if sh > 0]
-        if not positive_ids:
-            return {}
-        eq = 1.0 / len(positive_ids)
-        return {bid: min(eq, cap) for bid in positive_ids}
+        # No bot has a positive lower-CI Sharpe → no demonstrated edge.
+        # Return {} so the caller (MetaEnsemble) falls back to SPY rather
+        # than spreading capital across negative-evidence bots.
+        return {}
 
     # Normalize
     normalized: dict[str, float] = {bid: w / total_raw for bid, w in raw.items() if w > 0}

@@ -95,15 +95,17 @@ def test_meta_ensemble_single_strategy_weight():
     assert 0 < result["SPY"] <= 0.10
 
 
-def test_meta_ensemble_empty_weights_uses_equal_weight():
-    """When weights_override is {}, MetaEnsemble falls back to equal weighting."""
+def test_meta_ensemble_empty_weights_falls_back_to_spy():
+    """When weights_override is {} (no calibration evidence), MetaEnsemble holds
+    100% SPY rather than equal-weighting noisy components.
+
+    Rationale: equal-weighting assumes every component contributes positive
+    expected value, which empirically isn't true for these strategies. The
+    honest fallback is benchmark-the-index until calibration produces evidence.
+    """
     ens = MetaEnsemble(weights_override={})
     histories = _make_histories()
     as_of = _BASE_DATE + timedelta(days=_N - 1)
 
     result = ens.target_weights(histories, as_of)
-    # Should produce some weights from the registered strategies
-    assert isinstance(result, dict)
-    # Total should not exceed total cap of 0.95
-    total = sum(result.values())
-    assert total <= 0.95 + 1e-9
+    assert result == {"SPY": 1.0}

@@ -26,6 +26,11 @@ _LIVE_WEIGHTS = (
 _PER_TICKER_CAP = 0.10
 _TOTAL_CAP = 0.95
 
+# When no component bot has a demonstrated edge (or all error out), hold the
+# index rather than parking in cash. Cash drag is a structural alpha sink in
+# bull regimes and equal-weighting noise wastes capital on negative-edge bots.
+_FALLBACK_WEIGHTS: dict[str, float] = {"SPY": 1.0}
+
 
 def _load_weights_from_file(path: Path) -> dict[str, float]:
     """Parse live_weights.json (dict format) or backtest_results.json (strategies list)."""
@@ -104,15 +109,12 @@ class MetaEnsemble(Strategy):
         """
         all_strategies = [s for s in get_all() if s.bot_id != "meta-ensemble"]
 
-        # Determine effective weights
-        if self._weights:
-            ens_weights = self._weights
-        else:
-            # Equal weight fallback
-            n = len(all_strategies)
-            if n == 0:
-                return {}
-            ens_weights = {s.bot_id: 1.0 / n for s in all_strategies}
+        # Determine effective weights. Empty self._weights now means "no bot
+        # has demonstrated positive-edge evidence" (per compute_strategy_weights),
+        # so fall back to SPY rather than equal-weighting noisy bots.
+        if not self._weights:
+            return dict(_FALLBACK_WEIGHTS)
+        ens_weights = self._weights
 
         # Aggregate weighted ticker exposures
         ticker_weights: dict[str, float] = {}
@@ -128,7 +130,7 @@ class MetaEnsemble(Strategy):
                 ticker_weights[ticker] = ticker_weights.get(ticker, 0.0) + ew * w
 
         if not ticker_weights:
-            return {}
+            return dict(_FALLBACK_WEIGHTS)
 
         # Apply per-ticker cap
         ticker_weights = {

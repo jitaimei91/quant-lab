@@ -116,6 +116,9 @@ def update_weights_from_live(
                 "sharpe": sharpe_pt,
                 "sharpe_ci_lo": ci_lo,
                 "sharpe_ci_hi": ci_hi,
+                # median_alpha_t feeds the evidence-weighted ensemble formula.
+                # Single live window, so median == point estimate.
+                "median_alpha_t": t_stat,
                 "significance_weight": sig_w,
             },
             "per_window": [{"sharpe": sharpe_pt}],

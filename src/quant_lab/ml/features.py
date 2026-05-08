@@ -278,6 +278,27 @@ def compute_features(
     return X_df, y_series
 
 
+def _cross_sectional_zscore(y: pd.Series) -> pd.Series:
+    """Convert raw returns to a per-date cross-sectional z-score.
+
+    For each sample_date group, compute z = (ret - mean) / std across symbols.
+    Stable label that emphasises RELATIVE ranking (which is what we use at
+    inference: pick top-decile predicted score). Smooths out the overall
+    market-direction noise that dominates raw forward-return labels.
+
+    Returns a Series with the same MultiIndex as `y`.
+    """
+    if y.empty:
+        return y
+    if not isinstance(y.index, pd.MultiIndex) or "date" not in y.index.names:
+        # Fall back: nothing to group by
+        return y
+    grouped = y.groupby(level="date")
+    means = grouped.transform("mean")
+    stds = grouped.transform("std").replace(0.0, float("nan"))
+    return (y - means) / stds
+
+
 def build_training_set(
     histories: dict[str, list[Bar]],
     target_symbols: list[str],
@@ -285,11 +306,17 @@ def build_training_set(
     train_end: date,
     horizon: int = 5,
     sample_every_days: int = 5,
+    use_rank_labels: bool = True,
 ) -> tuple[pd.DataFrame, pd.Series]:
     """For each (symbol, sampled_date) in [train_start, train_end), compute features + label.
 
     Concatenates into a single (X, y) for training.
     Strict point-in-time: features use only data <= sample_date.
+
+    `use_rank_labels=True` (default): convert raw forward returns into a
+    cross-sectional z-score per sample_date. This trains the model on
+    relative-ranking signal (what we actually use at inference) rather than
+    raw return magnitude (which is dominated by market direction noise).
     """
     # Collect all relevant dates from any symbol's bars
     all_dates: list[date] = sorted(
@@ -329,6 +356,10 @@ def build_training_set(
     X_all = pd.concat(all_X)
     y_all = pd.concat(all_y)
 
-    # Drop rows where label is NaN (no future data available)
+    if use_rank_labels:
+        y_all = _cross_sectional_zscore(y_all)
+
+    # Drop rows where label is NaN (no future data available, or only one
+    # symbol in the cross-section so std is undefined)
     valid_mask = y_all.notna()
     return X_all[valid_mask], y_all[valid_mask]

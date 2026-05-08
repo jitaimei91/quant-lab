@@ -83,7 +83,13 @@ def _build_fold_oos_returns(
     window: Window,
     horizon: int,
 ) -> list[float]:
-    """Compute OOS daily-level returns by running the model over the test window."""
+    """Compute OOS daily-level returns by running the model over the test window.
+
+    Important: realized returns must be RAW (not rank-transformed) so the
+    downstream Sharpe calculation reflects actual P&L from holding top-decile
+    predicted symbols. The model can be trained on rank labels but evaluated
+    against raw forward returns — that's the whole point.
+    """
     X_test, y_test = build_training_set(
         histories=histories,
         target_symbols=target_symbols,
@@ -91,6 +97,7 @@ def _build_fold_oos_returns(
         train_end=window.test_end,
         horizon=horizon,
         sample_every_days=5,
+        use_rank_labels=False,  # raw returns for honest Sharpe calc
     )
     if X_test.empty or y_test.empty:
         return []

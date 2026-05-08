@@ -1,4 +1,6 @@
-"""Tests for GradBoost, LightForest, and MLEnsemble strategies with gate-conditional registration."""
+"""Tests for GradBoost, LightForest, MLEnsemble — new contract:
+always register, fall back to 100% SPY when the ML signal isn't trustworthy.
+"""
 from __future__ import annotations
 
 import json
@@ -48,7 +50,6 @@ def _synth_histories(n_symbols: int = 5) -> dict[str, list[Bar]]:
 
 
 def _make_pass_validation() -> dict:
-    """Return a validation state dict where all bots pass."""
     return {
         "gradboost": {"bot_id": "gradboost", "overall_pass": True, "reasons_failed": [], "gates": {}},
         "lightforest": {"bot_id": "lightforest", "overall_pass": True, "reasons_failed": [], "gates": {}},
@@ -57,168 +58,143 @@ def _make_pass_validation() -> dict:
 
 
 def _make_fail_validation() -> dict:
-    """Return a validation state dict where all bots fail."""
     return {
         "gradboost": {
             "bot_id": "gradboost",
             "overall_pass": False,
-            "reasons_failed": ["label_shuffle"],
-            "gates": {"label_shuffle": {"pass": False, "detail": "FAIL"}},
+            "reasons_failed": ["walk_forward_sharpe"],
+            "gates": {"walk_forward_sharpe": {"pass": False, "detail": "FAIL"}},
         },
         "lightforest": {
             "bot_id": "lightforest",
             "overall_pass": False,
-            "reasons_failed": ["label_shuffle"],
-            "gates": {"label_shuffle": {"pass": False, "detail": "FAIL"}},
-        },
-        "ml-ensemble": {
-            "bot_id": "ml-ensemble",
-            "overall_pass": False,
-            "reasons_failed": ["component bots failed gates"],
-            "gates": {},
+            "reasons_failed": ["walk_forward_sharpe"],
+            "gates": {"walk_forward_sharpe": {"pass": False, "detail": "FAIL"}},
         },
     }
 
 
 # ---------------------------------------------------------------------------
-# Tests: gate-pass path
+# Gate-evaluation helper
 # ---------------------------------------------------------------------------
 
 
-def test_all_ml_bots_register_when_gates_pass(tmp_path):
-    """With gates-pass validation state, all 3 bots should have passing gate state."""
-    validation_data = _make_pass_validation()
+def test_gates_passed_returns_true_when_overall_pass(tmp_path):
     validation_file = tmp_path / "ml_validation.json"
-    validation_file.write_text(json.dumps(validation_data))
+    validation_file.write_text(json.dumps(_make_pass_validation()))
 
     import quant_lab.strategies.gradboost as gb_mod
-    import quant_lab.strategies.lightforest as lf_mod
-    import quant_lab.strategies.ml_ensemble as ens_mod
 
     with mock.patch.object(gb_mod, "_VALIDATION_FILE", validation_file):
-        gb_passes = gb_mod._load_validation_state("gradboost")
-    with mock.patch.object(lf_mod, "_VALIDATION_FILE", validation_file):
-        lf_passes = lf_mod._load_validation_state("lightforest")
-    with mock.patch.object(ens_mod, "_VALIDATION_FILE", validation_file):
-        ens_passes = ens_mod._load_validation_state("ml-ensemble")
-
-    assert gb_passes is True
-    assert lf_passes is True
-    assert ens_passes is True
+        assert gb_mod._gates_passed("gradboost") is True
+        assert gb_mod._gates_passed("lightforest") is True
 
 
-def test_ml_bots_register_when_no_validation_file():
-    """When ml_validation.json doesn't exist (dev mode), all bots should be allowed."""
+def test_gates_passed_returns_false_when_overall_fail(tmp_path):
+    validation_file = tmp_path / "ml_validation.json"
+    validation_file.write_text(json.dumps(_make_fail_validation()))
+
     import quant_lab.strategies.gradboost as gb_mod
-    from quant_lab.strategies.gradboost import _load_validation_state
+
+    with mock.patch.object(gb_mod, "_VALIDATION_FILE", validation_file):
+        assert gb_mod._gates_passed("gradboost") is False
+        assert gb_mod._gates_passed("lightforest") is False
+
+
+def test_gates_passed_dev_mode_when_file_absent():
+    """In dev mode (no validation file), bots are allowed to use their model."""
+    import quant_lab.strategies.gradboost as gb_mod
 
     nonexistent = Path("/tmp/nonexistent_ml_validation_xyz.json")
     with mock.patch.object(gb_mod, "_VALIDATION_FILE", nonexistent):
-        result = _load_validation_state("gradboost")
-    assert result is True
+        assert gb_mod._gates_passed("gradboost") is True
 
 
-def test_gradboost_target_weights_empty_without_model():
-    """GradBoost returns {} when no model is loaded."""
+# ---------------------------------------------------------------------------
+# SPY fallback contract (the new behavior)
+# ---------------------------------------------------------------------------
+
+
+def test_gradboost_falls_back_to_spy_without_model():
+    """No model loaded → 100% SPY (NOT cash). Cash drag is structural."""
     from quant_lab.strategies.gradboost import GradBoost
 
     bot = GradBoost()
-    bot._model = None  # force no model
-
-    histories = _synth_histories(n_symbols=3)
-    as_of = date(2020, 1, 6) + timedelta(days=400)
-    weights = bot.target_weights(histories, as_of)
-    assert weights == {}
-
-
-def test_lightforest_target_weights_empty_without_model():
-    """LightForest returns {} when no model is loaded."""
-    from quant_lab.strategies.lightforest import LightForest
-
-    bot = LightForest()
+    bot._gates_passed = True
     bot._model = None
 
     histories = _synth_histories(n_symbols=3)
     as_of = date(2020, 1, 6) + timedelta(days=400)
     weights = bot.target_weights(histories, as_of)
-    assert weights == {}
+    assert weights == {"SPY": 1.0}
 
 
-def test_ml_ensemble_target_weights_empty_without_models():
-    """MLEnsemble returns {} when no component models are loaded."""
+def test_lightforest_falls_back_to_spy_without_model():
+    from quant_lab.strategies.lightforest import LightForest
+
+    bot = LightForest()
+    bot._gates_passed = True
+    bot._model = None
+
+    histories = _synth_histories(n_symbols=3)
+    as_of = date(2020, 1, 6) + timedelta(days=400)
+    weights = bot.target_weights(histories, as_of)
+    assert weights == {"SPY": 1.0}
+
+
+def test_ml_ensemble_falls_back_to_spy_without_models():
     from quant_lab.strategies.ml_ensemble import MLEnsemble
 
     bot = MLEnsemble()
+    bot._gates_passed = True
     bot._xgb_model = None
     bot._lgb_model = None
 
     histories = _synth_histories(n_symbols=3)
     as_of = date(2020, 1, 6) + timedelta(days=400)
     weights = bot.target_weights(histories, as_of)
-    assert weights == {}
+    assert weights == {"SPY": 1.0}
 
 
-def test_ml_strategies_not_register_when_gates_fail(tmp_path):
-    """When gates fail for a bot, _load_validation_state returns False."""
+def test_gradboost_falls_back_to_spy_when_gates_failed():
+    """Even if a stale model file exists, failed gates → SPY fallback."""
+    from quant_lab.strategies.gradboost import GradBoost
+
+    bot = GradBoost()
+    bot._gates_passed = False
+    # Even if a stale model object is present, gates-failed should override
+    bot._model = "stale-model-object"
+
+    histories = _synth_histories(n_symbols=3)
+    as_of = date(2020, 1, 6) + timedelta(days=400)
+    weights = bot.target_weights(histories, as_of)
+    assert weights == {"SPY": 1.0}
+
+
+def test_record_failure_writes_validation_failed_json(tmp_path):
+    """_record_failure persists failure detail with a 'fallback' field set to SPY."""
     validation_data = _make_fail_validation()
     validation_file = tmp_path / "ml_validation.json"
     validation_file.write_text(json.dumps(validation_data))
 
     import quant_lab.strategies.gradboost as gb_mod
-    import quant_lab.strategies.lightforest as lf_mod
 
-    with mock.patch.object(gb_mod, "_VALIDATION_FILE", validation_file):
-        gb_fails = gb_mod._load_validation_state("gradboost")
-    with mock.patch.object(lf_mod, "_VALIDATION_FILE", validation_file):
-        lf_fails = lf_mod._load_validation_state("lightforest")
-
-    assert gb_fails is False
-    assert lf_fails is False
-
-
-def test_validation_failed_json_written_on_gate_failure(tmp_path):
-    """When gates fail, validation_failed.json should be updated."""
-    validation_data = _make_fail_validation()
-    validation_file = tmp_path / "ml_validation.json"
-    validation_file.write_text(json.dumps(validation_data))
-
-    import quant_lab.strategies.gradboost as gb_mod
-
-    # Patch paths and simulate the module-level registration check
     with (
         mock.patch.object(gb_mod, "_VALIDATION_FILE", validation_file),
         mock.patch.object(gb_mod, "_REPO_ROOT", tmp_path),
-        mock.patch.object(gb_mod, "_STATE_DIR", tmp_path),
     ):
-        passes = gb_mod._load_validation_state("gradboost")
-        assert passes is False
+        gb_mod._record_failure("gradboost")
 
-        # Manually trigger the failure path (as module would do at import time)
-        if not passes:
-            try:
-                failed_path = tmp_path / "dashboard" / "data" / "validation_failed.json"
-                failed_path.parent.mkdir(parents=True, exist_ok=True)
-                existing: dict = {}
-                data = json.loads(validation_file.read_text())
-                entry = data.get("gradboost", {})
-                existing["gradboost"] = {
-                    "bot_id": "gradboost",
-                    "reasons_failed": entry.get("reasons_failed", []),
-                    "gates": entry.get("gates", {}),
-                }
-                failed_path.write_text(json.dumps(existing, indent=2))
-            except Exception:
-                pass
-
-        # Verify the file was written
-        assert failed_path.exists()
-        content = json.loads(failed_path.read_text())
-        assert "gradboost" in content
-        assert content["gradboost"]["reasons_failed"] == ["label_shuffle"]
+    failed_path = tmp_path / "dashboard" / "data" / "validation_failed.json"
+    assert failed_path.exists()
+    content = json.loads(failed_path.read_text())
+    assert "gradboost" in content
+    assert content["gradboost"]["fallback"] == "SPY 100%"
+    assert content["gradboost"]["reasons_failed"] == ["walk_forward_sharpe"]
 
 
 # ---------------------------------------------------------------------------
-# Tests: target_weights with a real model
+# Tests: target_weights with a real model — unchanged contract
 # ---------------------------------------------------------------------------
 
 
@@ -249,12 +225,13 @@ def test_gradboost_target_weights_with_trained_model(tmp_path):
     )
 
     bot = GradBoost()
+    bot._gates_passed = True
     bot._model = result["final_model"]
 
     as_of = date(2020, 1, 6) + timedelta(days=400)
     weights = bot.target_weights(histories, as_of)
 
-    if weights:
+    if weights and weights != {"SPY": 1.0}:
         assert sum(weights.values()) <= 0.96  # cash buffer ~5%
         for sym, w in weights.items():
             assert w > 0
@@ -287,13 +264,14 @@ def test_ml_ensemble_with_both_models(tmp_path):
     )
 
     bot = MLEnsemble()
+    bot._gates_passed = True
     bot._xgb_model = xgb_result["final_model"]
     bot._lgb_model = lgb_result["final_model"]
 
     as_of = date(2020, 1, 6) + timedelta(days=400)
     weights = bot.target_weights(histories, as_of)
 
-    if weights:
+    if weights and weights != {"SPY": 1.0}:
         assert sum(weights.values()) <= 0.96
         for sym in weights:
             assert sym not in {"SPY", "QQQ", "^VIX"}

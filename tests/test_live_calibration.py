@@ -80,12 +80,16 @@ def test_insufficient_history_blends_toward_backtest(tmp_path):
 
 
 def test_sufficient_history_uses_live_weights(tmp_path):
-    """Bots with >= min_days of live data get live-Sharpe-computed weights."""
+    """Bots with >= min_days of live data and a clearly positive Sharpe get
+    live-evidence-weighted allocation. Negative-edge bots are filtered out
+    (new contract — see ensemble.weights for rationale)."""
+    # Strong drift on bot-a ensures a clearly positive bootstrap CI lower
+    # bound; bot-b is essentially noise and should get filtered.
     nav_history = {
-        "bot-a": _make_nav_series(80, drift=0.0006, seed=1),
-        "bot-b": _make_nav_series(80, drift=0.0001, seed=2),
+        "bot-a": _make_nav_series(120, drift=0.003, seed=1),
+        "bot-b": _make_nav_series(120, drift=0.0, seed=2),
     }
-    spy_rets = _make_spy_rets(80)
+    spy_rets = _make_spy_rets(120)
     bench_rets = {"SPY": spy_rets}
     weights_path = tmp_path / "live_weights.json"
 
@@ -98,11 +102,12 @@ def test_sufficient_history_uses_live_weights(tmp_path):
     )
 
     assert isinstance(result, dict)
-    # Should produce some weights
-    assert len(result) > 0
-    # Weights should sum to ~1.0
+    # bot-a's strong drift should produce a positive lower-CI Sharpe and earn
+    # weight; bot-b should be filtered out (or hold near-zero weight).
+    assert "bot-a" in result
+    assert result["bot-a"] > 0
     total = sum(result.values())
-    assert total == pytest.approx(1.0, abs=0.01) or total == pytest.approx(0.0, abs=0.01)
+    assert total == pytest.approx(1.0, abs=0.01)
 
 
 def test_live_weights_file_written(tmp_path):

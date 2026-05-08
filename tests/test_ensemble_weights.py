@@ -70,17 +70,20 @@ def test_zero_sharpe_strategy_gets_zero_weight():
     assert "good" in weights
 
 
-def test_all_negative_sharpe_falls_back_to_equal_weight():
-    """All strategies with negative/zero raw weight → equal-weight across positive Sharpe ones."""
+def test_all_negative_lower_ci_returns_empty():
+    """No bot has positive lower-CI Sharpe → return {} so caller falls back
+    to SPY rather than equal-weighting noise across negative-edge bots.
+
+    Previously this scenario returned equal-weight across positive-point-Sharpe
+    bots, but spreading capital across statistically-insignificant noise hurt
+    portfolio performance. The honest move is to admit no edge and benchmark.
+    """
     strats = [
         _make_strat("neg_a", -0.5, 0.1, 0.0),   # sharpe_ci_lo negative
         _make_strat("neg_b", -0.3, 0.05, 0.0),  # sharpe_ci_lo negative
     ]
     weights = compute_strategy_weights(strats, cap=0.30)
-    # Both have positive Sharpe (0.1, 0.05), should get equal weight = 0.5
-    assert "neg_a" in weights
-    assert "neg_b" in weights
-    assert weights["neg_a"] == pytest.approx(weights["neg_b"], abs=1e-9)
+    assert weights == {}
 
 
 def test_per_strategy_cap_enforced():
