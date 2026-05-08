@@ -51,6 +51,37 @@ def latest_bar(symbol: str) -> Bar | None:
     return bars[-1] if bars else None
 
 
+def fetch_history_range(symbol: str, start: date, end: date) -> list[Bar]:
+    """Fetch OHLCV bars for `symbol` between `start` and `end` (inclusive).
+
+    Returns an empty list on any fetch failure.
+    """
+    try:
+        ticker = yf.Ticker(symbol)
+        df = ticker.history(start=start, end=end + timedelta(days=1), auto_adjust=True)
+    except Exception:
+        return []
+    if df.empty:
+        return []
+
+    bars: list[Bar] = []
+    for ts, row in df.iterrows():
+        d = ts.date()
+        if start <= d <= end:
+            bars.append(
+                Bar(
+                    symbol=symbol.upper(),
+                    date=d,
+                    open=float(row["Open"]),
+                    high=float(row["High"]),
+                    low=float(row["Low"]),
+                    close=float(row["Close"]),
+                    volume=int(row["Volume"]),
+                )
+            )
+    return bars
+
+
 def fetch_many(symbols: Iterable[str], lookback_days: int = 365) -> dict[str, list[Bar]]:
     """Fetch histories for many symbols, skipping any that fail."""
     histories: dict[str, list[Bar]] = {}

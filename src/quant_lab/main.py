@@ -12,7 +12,7 @@ from datetime import date, datetime as _dt, timezone
 from pathlib import Path
 
 from . import strategies  # noqa: F401  (registers strategies via import)
-from .data import fetch_history
+from .data import fetch_history, fetch_history_range
 from .tournament.factors import factor_proxies_from_histories
 from .engine.regime import regime_state, should_pause_bot
 from .persistence import (
@@ -337,13 +337,15 @@ def backtest_command(
         symbols = _load_universe(universe_path)
     else:
         symbols = ["SPY", "QQQ"]
-    lookback_days = (end - start).days + 365
+    # Fetch the full range needed: training data starts train_years before `start`
+    from datetime import timedelta as _td
+    fetch_start = date(max(start.year - train_years - 1, 2000), 1, 1)
     histories = {}
-    print(f"[backtest] Fetching {len(symbols)} symbols ...")
+    print(f"[backtest] Fetching {len(symbols)} symbols from {fetch_start} to {end} ...")
     for sym in symbols:
-        bars = fetch_history(sym, lookback_days=lookback_days)
+        bars = fetch_history_range(sym, start=fetch_start, end=end)
         if bars:
-            histories[sym] = [b for b in bars if start <= b.date <= end]
+            histories[sym] = bars
     if not histories:
         raise RuntimeError("No historical data fetched.")
 
