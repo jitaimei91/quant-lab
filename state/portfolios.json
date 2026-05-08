@@ -1,0 +1,247 @@
+[
+  {
+    "bot_id": "spy-vol",
+    "cash": 0.0,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 136.61560137861616,
+        "avg_cost": 731.5800170898438
+      }
+    }
+  },
+  {
+    "bot_id": "qqq-vol",
+    "cash": 21941.334226763123,
+    "positions": {
+      "QQQ": {
+        "symbol": "QQQ",
+        "shares": 112.26171881277439,
+        "avg_cost": 694.9400024414062
+      }
+    }
+  },
+  {
+    "bot_id": "momo",
+    "cash": 5000.0,
+    "positions": {
+      "USO": {
+        "symbol": "USO",
+        "shares": 703.3883368829212,
+        "avg_cost": 134.97000122070312
+      }
+    }
+  },
+  {
+    "bot_id": "meanrev",
+    "cash": 0.0,
+    "positions": {
+      "USO": {
+        "symbol": "USO",
+        "shares": 740.4087756662328,
+        "avg_cost": 134.97000122070312
+      }
+    }
+  },
+  {
+    "bot_id": "breakout",
+    "cash": 100000.0,
+    "positions": {}
+  },
+  {
+    "bot_id": "ma_cross",
+    "cash": 5000.000000000009,
+    "positions": {
+      "EEM": {
+        "symbol": "EEM",
+        "shares": 203.65660461974494,
+        "avg_cost": 66.58999633789062
+      },
+      "EFA": {
+        "symbol": "EFA",
+        "shares": 131.8040616208321,
+        "avg_cost": 102.88999938964844
+      },
+      "HYG": {
+        "symbol": "HYG",
+        "shares": 169.82770611024262,
+        "avg_cost": 79.86000061035156
+      },
+      "IWM": {
+        "symbol": "IWM",
+        "shares": 48.05207483720015,
+        "avg_cost": 282.260009765625
+      },
+      "USO": {
+        "symbol": "USO",
+        "shares": 100.48404812613158,
+        "avg_cost": 134.97000122070312
+      },
+      "VNQ": {
+        "symbol": "VNQ",
+        "shares": 140.64678013173875,
+        "avg_cost": 96.38999938964844
+      },
+      "VTV": {
+        "symbol": "VTV",
+        "shares": 65.85119361648651,
+        "avg_cost": 205.91000366210938
+      }
+    }
+  },
+  {
+    "bot_id": "rsi_rev",
+    "cash": 100000.0,
+    "positions": {}
+  },
+  {
+    "bot_id": "codex-r1000",
+    "cash": 8000.0,
+    "positions": {
+      "EEM": {
+        "symbol": "EEM",
+        "shares": 187.60680661428708,
+        "avg_cost": 66.58999633789062
+      },
+      "EFA": {
+        "symbol": "EFA",
+        "shares": 149.21565614153656,
+        "avg_cost": 102.88999938964844
+      },
+      "IWM": {
+        "symbol": "IWM",
+        "shares": 59.92127243378467,
+        "avg_cost": 282.260009765625
+      },
+      "QQQ": {
+        "symbol": "QQQ",
+        "shares": 25.38358975891934,
+        "avg_cost": 694.9400024414062
+      },
+      "VTV": {
+        "symbol": "VTV",
+        "shares": 143.43224933950526,
+        "avg_cost": 205.91000366210938
+      }
+    }
+  },
+  {
+    "bot_id": "codex-native",
+    "cash": 7999.999999999996,
+    "positions": {
+      "EEM": {
+        "symbol": "EEM",
+        "shares": 196.14183590159405,
+        "avg_cost": 66.58999633789062
+      },
+      "EFA": {
+        "symbol": "EFA",
+        "shares": 156.004109174113,
+        "avg_cost": 102.88999938964844
+      },
+      "IWM": {
+        "symbol": "IWM",
+        "shares": 62.64734524737151,
+        "avg_cost": 282.260009765625
+      },
+      "QQQ": {
+        "symbol": "QQQ",
+        "shares": 26.538396910745046,
+        "avg_cost": 694.9400024414062
+      },
+      "VNQ": {
+        "symbol": "VNQ",
+        "shares": 276.9076247904225,
+        "avg_cost": 96.38999938964844
+      }
+    }
+  },
+  {
+    "bot_id": "meta-ensemble",
+    "cash": 53566.97641367961,
+    "positions": {
+      "EEM": {
+        "symbol": "EEM",
+        "shares": 42.638738057320126,
+        "avg_cost": 66.58999633789062
+      },
+      "EFA": {
+        "symbol": "EFA",
+        "shares": 33.91330725729439,
+        "avg_cost": 102.88999938964844
+      },
+      "IWM": {
+        "symbol": "IWM",
+        "shares": 13.61873529790624,
+        "avg_cost": 282.260009765625
+      },
+      "QQQ": {
+        "symbol": "QQQ",
+        "shares": 14.381711204095977,
+        "avg_cost": 694.9400024414062
+      },
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 13.661560137861615,
+        "avg_cost": 731.5800170898438
+      },
+      "USO": {
+        "symbol": "USO",
+        "shares": 74.04087756662328,
+        "avg_cost": 134.97000122070312
+      },
+      "VNQ": {
+        "symbol": "VNQ",
+        "shares": 30.767513865602496,
+        "avg_cost": 96.38999938964844
+      },
+      "VTV": {
+        "symbol": "VTV",
+        "shares": 15.93691659327836,
+        "avg_cost": 205.91000366210938
+      }
+    }
+  },
+  {
+    "bot_id": "regime-momo",
+    "cash": 5000.0,
+    "positions": {
+      "USO": {
+        "symbol": "USO",
+        "shares": 703.3883368829212,
+        "avg_cost": 134.97000122070312
+      }
+    }
+  },
+  {
+    "bot_id": "regime-meanrev",
+    "cash": 0.0,
+    "positions": {
+      "USO": {
+        "symbol": "USO",
+        "shares": 740.4087756662328,
+        "avg_cost": 134.97000122070312
+      }
+    }
+  },
+  {
+    "bot_id": "regime-breakout",
+    "cash": 100000.0,
+    "positions": {}
+  },
+  {
+    "bot_id": "gradboost",
+    "cash": 100000.0,
+    "positions": {}
+  },
+  {
+    "bot_id": "lightforest",
+    "cash": 100000.0,
+    "positions": {}
+  },
+  {
+    "bot_id": "ml-ensemble",
+    "cash": 100000.0,
+    "positions": {}
+  }
+]

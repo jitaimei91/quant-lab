@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-05-08T01:58:17Z",
+  "status": "success",
+  "strategies": [
+    "spy-vol",
+    "qqq-vol",
+    "momo",
+    "meanrev",
+    "breakout",
+    "ma_cross",
+    "rsi_rev",
+    "codex-r1000",
+    "codex-native",
+    "meta-ensemble",
+    "regime-momo",
+    "regime-meanrev",
+    "regime-breakout",
+    "gradboost",
+    "lightforest",
+    "ml-ensemble"
+  ]
+}
