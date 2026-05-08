@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Lab — Historical Stress Tests</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Historical Stress Tests</h1>
+    <p class="disclaimer">How would the bots have performed in famous market regimes? Walk-forward backtests on real yfinance data. Not a guarantee of future behavior.</p>
+  </header>
+
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="compare.html">Compare</a>
+    <a href="validation.html">Validation</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="backtest.html">Calibration</a>
+    <a href="historical.html">Stress Tests</a>
+  </nav>
+
+  <section>
+    <label>
+      Period:
+      <select id="period-select">
+        <option value="2008-crisis">2008 Financial Crisis (2007–2010)</option>
+        <option value="2020-covid">2020 COVID Crash + Recovery (2018–2022)</option>
+        <option value="2022-rates">2022 Rate Hikes Bear Market (2021–2024)</option>
+      </select>
+    </label>
+    <p id="period-context" class="muted" style="margin-top:.5rem;"></p>
+  </section>
+
+  <section>
+    <h2>Leaderboard for this period</h2>
+    <table id="period-leaderboard">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Bot</th>
+          <th>Sharpe</th>
+          <th>95% CI</th>
+          <th>Max DD</th>
+          <th>Days</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Equity Curves</h2>
+    <div id="curves-container"></div>
+  </section>
+
+  <footer>
+    <p>Disclaimer: all results are walk-forward out-of-sample on survivorship-biased yfinance data. Universe restricted to SPY, QQQ, IWM, TLT, IEF, GLD (classic liquid ETFs with history to 2003). ML-based bots (gradboost, lightforest, ml-ensemble) show zero return here because their trained models were built on recent data and are not re-trained per historical window — treat their zero line as an artifact, not a result.</p>
+  </footer>
+
+  <script src="historical.js"></script>
+</body>
+</html>
