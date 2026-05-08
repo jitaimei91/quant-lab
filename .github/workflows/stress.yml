@@ -30,10 +30,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .
 
-      - name: Run 2008 financial crisis stress (2007–2009)
+      # `--start` must precede the test period by at least `--train-years`
+      # (walk_forward_windows seeds the first train_end at start+train_years).
+
+      - name: Run 2008 financial crisis stress (test 2007–2009)
         run: |
           quant-lab backtest \
-            --start 2007-01-01 \
+            --start 2003-01-01 \
             --end 2009-12-31 \
             --train-years 4 \
             --step-months 12 \
@@ -45,10 +48,10 @@ jobs:
           mv dashboard/data/backtest/backtest_curves.json  dashboard/data/historical/2008-crisis/curves.json
           mv dashboard/data/backtest/calibration_report.md dashboard/data/historical/2008-crisis/report.md
 
-      - name: Run 2020 COVID stress (2018–2022)
+      - name: Run 2020 COVID stress (test 2018–2022)
         run: |
           quant-lab backtest \
-            --start 2018-01-01 \
+            --start 2015-01-01 \
             --end 2022-12-31 \
             --train-years 3 \
             --step-months 12 \
@@ -60,10 +63,10 @@ jobs:
           mv dashboard/data/backtest/backtest_curves.json  dashboard/data/historical/2020-covid/curves.json
           mv dashboard/data/backtest/calibration_report.md dashboard/data/historical/2020-covid/report.md
 
-      - name: Run 2022 rates stress (2021–2023)
+      - name: Run 2022 rates stress (test 2021–2023)
         run: |
           quant-lab backtest \
-            --start 2021-01-01 \
+            --start 2018-01-01 \
             --end 2023-12-31 \
             --train-years 3 \
             --step-months 12 \
