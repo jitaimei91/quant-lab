@@ -35,13 +35,10 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - name: Install package
+      - name: Install package (runtime deps only — tests run in CI)
         run: |
           python -m pip install --upgrade pip
-          pip install -e .[dev]
-
-      - name: Run tests
-        run: pytest -q
+          pip install -e .
 
       - name: Run morning bot
         run: quant-lab morning
