@@ -134,5 +134,13 @@
     "pause_reason": "",
     "consecutive_fail_days": 0,
     "consecutive_recovery_days": 0
+  },
+  "calendar": {
+    "bot_id": "calendar",
+    "paused": false,
+    "paused_at": null,
+    "pause_reason": "",
+    "consecutive_fail_days": 0,
+    "consecutive_recovery_days": 0
   }
 }

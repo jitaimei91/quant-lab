@@ -12,11 +12,11 @@
   },
   {
     "bot_id": "qqq-vol",
-    "cash": 22957.979800090325,
+    "cash": 24289.82561031371,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 110.82012101548072,
+        "shares": 108.94648068875087,
         "avg_cost": 694.9400024414062
       }
     }
@@ -179,24 +179,29 @@
   },
   {
     "bot_id": "apex",
-    "cash": 5000.000000000004,
+    "cash": 55263.936394337514,
     "positions": {
-      "SSO": {
-        "symbol": "SSO",
-        "shares": 569.3141229590996,
-        "avg_cost": 66.12000274658203
-      },
-      "TMF": {
-        "symbol": "TMF",
-        "shares": 1087.7999989340226,
-        "avg_cost": 35.685001373291016
-      },
       "UGL": {
         "symbol": "UGL",
-        "shares": 299.8035344004815,
+        "shares": 181.46980444114877,
         "avg_cost": 61.43989944458008
+      },
+      "EEM": {
+        "symbol": "EEM",
+        "shares": 344.614001608483,
+        "avg_cost": 67.94000244140625
+      },
+      "USO": {
+        "symbol": "USO",
+        "shares": 74.26746021607582,
+        "avg_cost": 133.58999633789062
       }
     }
+  },
+  {
+    "bot_id": "calendar",
+    "cash": 100000.0,
+    "positions": {}
   },
   {
     "bot_id": "regime-momo",

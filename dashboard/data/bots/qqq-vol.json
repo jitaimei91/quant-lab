@@ -1,8 +1,8 @@
 {
   "bot_id": "qqq-vol",
   "metrics": {
-    "total_return": 0.013663135792502556,
-    "annualized_return": 29.563315851171776,
+    "total_return": 0.01820127446190445,
+    "annualized_return": 93.20551918951494,
     "sharpe": 0.0,
     "sharpe_ci_lo": 0.0,
     "sharpe_ci_hi": 0.0,
@@ -21,7 +21,7 @@
     }
   },
   "current_weights": {
-    "QQQ": 0.773416122385617
+    "QQQ": 0.7613399383464042
   },
   "nav_series": [
     {
@@ -30,13 +30,13 @@
     },
     {
       "date": "2026-05-08",
-      "nav": 101322.21251488107
+      "nav": 101775.82894271304
     }
   ],
   "daily_returns": [
     {
       "date": "2026-05-08",
-      "ret": 0.013663135792502556
+      "ret": 0.01820127446190445
     }
   ],
   "recent_trades": [
@@ -59,6 +59,16 @@
       "slippage_bps": 5.5784021962734265,
       "timestamp": "2026-05-08",
       "reason": "rebalance to target weight 0.7730"
+    },
+    {
+      "bot_id": "qqq-vol",
+      "symbol": "QQQ",
+      "side": "SELL",
+      "shares": 1.8736403267298534,
+      "price": 710.833232623635,
+      "slippage_bps": 5.578334097410918,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.7613"
     }
   ]
 }

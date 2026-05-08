@@ -1,13 +1,13 @@
 {
   "bot_id": "regime-meanrev",
   "metrics": {
-    "total_return": -0.003186630239421784,
-    "annualized_return": -0.5526048302046691,
+    "total_return": -0.010224530416621413,
+    "annualized_return": -0.9249682794465579,
     "sharpe": 0.0,
     "sharpe_ci_lo": 0.0,
     "sharpe_ci_hi": 0.0,
     "volatility": 0.0,
-    "max_drawdown": -0.003186630239421798,
+    "max_drawdown": -0.01022453041662136,
     "days": 2,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
@@ -30,13 +30,13 @@
     },
     {
       "date": "2026-05-08",
-      "nav": 99614.52392068082
+      "nav": 98911.20562979413
     }
   ],
   "daily_returns": [
     {
       "date": "2026-05-08",
-      "ret": -0.003186630239421784
+      "ret": -0.010224530416621413
     }
   ],
   "recent_trades": [
