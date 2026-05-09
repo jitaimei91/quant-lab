@@ -30,6 +30,7 @@ from .reporting.dashboard import (
     write_per_bot_files,
     write_validation_data,
 )
+from .journal import journal_entry, append_journal, write_journal_summary
 from .strategies.base import get_all
 from .tournament.runner import run_morning_for_strategies
 from .tournament.stats import compute_metrics
@@ -47,6 +48,10 @@ SYMBOLS_FOR_PHASE_1 = [
     # may also see these in `histories.items()` loops; the per-bot weight
     # caps in the rebalance engine prevent any single bot from over-leveraging.
     "SSO", "TMF", "UGL", "SVXY", "SHY",
+    # SPDR sector universe for the sector-momo bot.
+    "XLK", "XLY", "XLV", "XLF", "XLP", "XLE", "XLI", "XLU", "XLRE", "XLB", "XLC",
+    # Credit ETFs for the credit-carry bot (HYG already above).
+    "LQD",
 ]
 
 # Index symbols fetched for regime/diagnostics only — never passed to strategies
@@ -206,6 +211,7 @@ def _morning_command_inner(
     factor_rets = factor_proxies_from_histories(histories)
 
     paused_bots: dict[str, str] = {}
+    journal_entries: list[dict] = []
     for strat in strategies_list:
         navs = nav_history.get(strat.bot_id, [])
         nav_values = [n for _, n in navs]
@@ -227,6 +233,32 @@ def _morning_command_inner(
             for sym in portfolio.positions
         }
         leaderboard.append((strat.bot_id, metrics, weights))
+
+        # Daily journal row — pure function, no side effects until we append
+        try:
+            journal_entries.append(
+                journal_entry(
+                    bot_id=strat.bot_id,
+                    today=today,
+                    weights=weights,
+                    nav_series=navs,
+                    spy_returns=spy_rets,
+                )
+            )
+        except Exception as exc:
+            print(f"[warn] journal entry failed for {strat.bot_id}: {exc}")
+
+    # Persist daily journal (idempotent on (date, bot_id))
+    try:
+        journal_path = state_dir / "bot_journal.jsonl"
+        append_journal(journal_path, journal_entries)
+        write_journal_summary(
+            journal_path=journal_path,
+            summary_path=dashboard_data_dir / "journal_summary.json",
+            lookback_days=60,
+        )
+    except Exception as exc:
+        print(f"[warn] journal append failed: {exc}")
 
     # Lifecycle: auto-pause/resume based on rolling significance
     lifecycle_state: dict = {}
