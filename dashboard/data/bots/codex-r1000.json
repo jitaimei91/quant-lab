@@ -1,8 +1,8 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.009430106455696308,
-    "annualized_return": 9.646721278256592,
+    "total_return": 0.007765103687180197,
+    "annualized_return": 6.023402800624876,
     "sharpe": 0.0,
     "sharpe_ci_lo": 0.0,
     "sharpe_ci_hi": 0.0,
@@ -21,11 +21,11 @@
     }
   },
   "current_weights": {
-    "EEM": 0.16193539078295477,
-    "GLD": 0.16868532104654155,
-    "XLB": 0.2536905198095229,
-    "XLE": 0.16051830820133806,
-    "XLK": 0.175562978261564
+    "ADI": 0.1725671961590107,
+    "CMI": 0.1541881608112275,
+    "KEYS": 0.18925534164145696,
+    "TRGP": 0.2301366251826875,
+    "VTRS": 0.1744247609743027
   },
   "nav_series": [
     {
@@ -34,13 +34,13 @@
     },
     {
       "date": "2026-05-08",
-      "nav": 100875.50116416204
+      "nav": 100709.11224070945
     }
   ],
   "daily_returns": [
     {
       "date": "2026-05-08",
-      "ret": 0.009430106455696308
+      "ret": 0.007765103687180197
     }
   ],
   "recent_trades": [
@@ -213,6 +213,106 @@
       "slippage_bps": 7.4132670990514935,
       "timestamp": "2026-05-08",
       "reason": "rebalance to target weight 0.1755"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "ADI",
+      "side": "BUY",
+      "shares": 41.72450202977385,
+      "price": 416.849250868593,
+      "slippage_bps": 7.905067310233573,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.1724"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "CMI",
+      "side": "BUY",
+      "shares": 22.850640971620862,
+      "price": 680.1895506568774,
+      "slippage_bps": 9.411564644209644,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.1541"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "EEM",
+      "side": "SELL",
+      "shares": 240.43734345657572,
+      "price": 67.89025659055535,
+      "slippage_bps": 7.322026650468874,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "GLD",
+      "side": "SELL",
+      "shares": 39.22866203422643,
+      "price": 433.4802653483057,
+      "slippage_bps": 6.6792003297628835,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "KEYS",
+      "side": "BUY",
+      "shares": 52.899633886402405,
+      "price": 360.67279487889147,
+      "slippage_bps": 10.347130129155286,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.1891"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "TRGP",
+      "side": "BUY",
+      "shares": 93.40986487314288,
+      "price": 248.38302996154715,
+      "slippage_bps": 10.601114361436832,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.2300"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "VTRS",
+      "side": "BUY",
+      "shares": 1023.0729617044669,
+      "price": 17.192304980547853,
+      "slippage_bps": 12.990625599765666,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.1744"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "XLB",
+      "side": "SELL",
+      "shares": 496.0488127678108,
+      "price": 51.54292954593606,
+      "slippage_bps": 9.123978777399659,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "XLE",
+      "side": "SELL",
+      "shares": 290.70672466861345,
+      "price": 55.66174635386484,
+      "slippage_bps": 6.867936903165985,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "XLK",
+      "side": "SELL",
+      "shares": 100.90019933293068,
+      "price": 175.3898866051711,
+      "slippage_bps": 7.4132670990514935,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }

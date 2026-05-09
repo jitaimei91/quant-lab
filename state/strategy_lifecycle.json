@@ -166,5 +166,13 @@
     "pause_reason": "",
     "consecutive_fail_days": 0,
     "consecutive_recovery_days": 0
+  },
+  "stock-momo": {
+    "bot_id": "stock-momo",
+    "paused": false,
+    "paused_at": null,
+    "pause_reason": "",
+    "consecutive_fail_days": 0,
+    "consecutive_recovery_days": 0
   }
 }

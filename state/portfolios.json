@@ -96,32 +96,32 @@
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 8030.444632885639,
+    "cash": 7999.114830076007,
     "positions": {
-      "EEM": {
-        "symbol": "EEM",
-        "shares": 240.43734345657572,
-        "avg_cost": 66.88337162052116
+      "ADI": {
+        "symbol": "ADI",
+        "shares": 41.72450202977385,
+        "avg_cost": 416.5199890136719
       },
-      "GLD": {
-        "symbol": "GLD",
-        "shares": 39.22866203422643,
-        "avg_cost": 434.10030445560733
+      "CMI": {
+        "symbol": "CMI",
+        "shares": 22.850640971620862,
+        "avg_cost": 679.5499877929688
       },
-      "XLB": {
-        "symbol": "XLB",
-        "shares": 496.0488127678108,
-        "avg_cost": 51.59000015258789
+      "KEYS": {
+        "symbol": "KEYS",
+        "shares": 52.899633886402405,
+        "avg_cost": 360.29998779296875
       },
-      "XLE": {
-        "symbol": "XLE",
-        "shares": 290.70672466861345,
-        "avg_cost": 55.70000076293945
+      "TRGP": {
+        "symbol": "TRGP",
+        "shares": 93.40986487314288,
+        "avg_cost": 248.1199951171875
       },
-      "XLK": {
-        "symbol": "XLK",
-        "shares": 100.90019933293068,
-        "avg_cost": 175.52000427246094
+      "VTRS": {
+        "symbol": "VTRS",
+        "shares": 1023.0729617044669,
+        "avg_cost": 17.170000076293945
       }
     }
   },
@@ -273,6 +273,142 @@
         "symbol": "USO",
         "shares": 34.89429096472751,
         "avg_cost": 133.58999633789062
+      }
+    }
+  },
+  {
+    "bot_id": "stock-momo",
+    "cash": 4999.99999999997,
+    "positions": {
+      "ADI": {
+        "symbol": "ADI",
+        "shares": 8.765389757166643,
+        "avg_cost": 416.5199890136719
+      },
+      "AKAM": {
+        "symbol": "AKAM",
+        "shares": 24.713468340887268,
+        "avg_cost": 147.7100067138672
+      },
+      "AMAT": {
+        "symbol": "AMAT",
+        "shares": 8.385208785546126,
+        "avg_cost": 435.44000244140625
+      },
+      "AMD": {
+        "symbol": "AMD",
+        "shares": 8.022351121363522,
+        "avg_cost": 455.19000244140625
+      },
+      "APA": {
+        "symbol": "APA",
+        "shares": 102.64369872990356,
+        "avg_cost": 35.560001373291016
+      },
+      "CAT": {
+        "symbol": "CAT",
+        "shares": 4.0683998430115835,
+        "avg_cost": 897.4500122070312
+      },
+      "CMI": {
+        "symbol": "CMI",
+        "shares": 5.3718057713729,
+        "avg_cost": 679.5499877929688
+      },
+      "DOW": {
+        "symbol": "DOW",
+        "shares": 99.00970278742751,
+        "avg_cost": 36.869998931884766
+      },
+      "FCX": {
+        "symbol": "FCX",
+        "shares": 59.219305864628616,
+        "avg_cost": 61.650001525878906
+      },
+      "FDX": {
+        "symbol": "FDX",
+        "shares": 9.642737879760336,
+        "avg_cost": 378.5799865722656
+      },
+      "GLW": {
+        "symbol": "GLW",
+        "shares": 19.53130143779193,
+        "avg_cost": 186.94000244140625
+      },
+      "HAL": {
+        "symbol": "HAL",
+        "shares": 91.65117880471765,
+        "avg_cost": 39.83000183105469
+      },
+      "INTC": {
+        "symbol": "INTC",
+        "shares": 29.231935588578896,
+        "avg_cost": 124.91999816894531
+      },
+      "KEYS": {
+        "symbol": "KEYS",
+        "shares": 10.130639753611193,
+        "avg_cost": 360.29998779296875
+      },
+      "KLAC": {
+        "symbol": "KLAC",
+        "shares": 1.9533133461638297,
+        "avg_cost": 1869.18994140625
+      },
+      "LRCX": {
+        "symbol": "LRCX",
+        "shares": 12.417198631362423,
+        "avg_cost": 294.04998779296875
+      },
+      "MCHP": {
+        "symbol": "MCHP",
+        "shares": 36.84255483214281,
+        "avg_cost": 99.08999633789062
+      },
+      "PWR": {
+        "symbol": "PWR",
+        "shares": 4.900184782516547,
+        "avg_cost": 745.0
+      },
+      "STLD": {
+        "symbol": "STLD",
+        "shares": 15.52378948417339,
+        "avg_cost": 235.10000610351562
+      },
+      "STX": {
+        "symbol": "STX",
+        "shares": 4.665353988549369,
+        "avg_cost": 782.6400146484375
+      },
+      "TER": {
+        "symbol": "TER",
+        "shares": 10.148086366348451,
+        "avg_cost": 359.7699890136719
+      },
+      "TRGP": {
+        "symbol": "TRGP",
+        "shares": 14.71053056407201,
+        "avg_cost": 248.1199951171875
+      },
+      "TWLO": {
+        "symbol": "TWLO",
+        "shares": 18.097164985496075,
+        "avg_cost": 201.6999969482422
+      },
+      "TXN": {
+        "symbol": "TXN",
+        "shares": 12.686472612419964,
+        "avg_cost": 287.79998779296875
+      },
+      "VTRS": {
+        "symbol": "VTRS",
+        "shares": 212.52799772806958,
+        "avg_cost": 17.170000076293945
+      },
+      "WDC": {
+        "symbol": "WDC",
+        "shares": 7.606972285350068,
+        "avg_cost": 480.0
       }
     }
   },
