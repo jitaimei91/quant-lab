@@ -25,6 +25,10 @@ jobs:
     env:
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+      # Optional: when set, the apex brief shows trade sizes in dollars.
+      # Configure via repo Settings → Secrets and variables → Actions → Variables.
+      # Leave unset to render percentages only.
+      ACCOUNT_SIZE_USD: ${{ vars.ACCOUNT_SIZE_USD }}
 
     steps:
       - uses: actions/checkout@v4

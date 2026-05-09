@@ -168,3 +168,65 @@ def test_brief_disclaimer_always_present():
         days_of_data=200,
     )
     assert "Not financial advice" in msg
+
+
+# ---------------------------------------------------------------------------
+# account_size_usd: dollar amounts + dust filter
+# ---------------------------------------------------------------------------
+
+
+def test_brief_with_account_size_renders_dollar_amounts():
+    """When account_size_usd is set, BUY lines include ($X.XX)."""
+    msg = build_brief(
+        today=date(2026, 5, 9),
+        target_weights={"SPY": 0.10},
+        current_weights={},
+        days_of_data=200,
+        account_size_usd=224.32,
+    )
+    # 10% of $224.32 = $22.43
+    assert "$22.43" in msg
+    assert "Account: $224.32" in msg
+
+
+def test_brief_filters_trades_below_min_dollar_threshold():
+    """At a $200 account, a 0.3% allocation = $0.60 → below $1 threshold → suppressed."""
+    msg = build_brief(
+        today=date(2026, 5, 9),
+        target_weights={"SPY": 0.20, "USO": 0.003},  # USO would be $0.60
+        current_weights={"SPY": 0.20},
+        days_of_data=200,
+        account_size_usd=200.0,
+        min_trade_dollars=1.0,
+    )
+    assert "USO" not in msg  # dust filter killed the tiny rebalance
+    assert "No trades today" in msg
+
+
+def test_brief_keeps_trades_above_min_dollar_threshold():
+    """A 5% allocation on $1000 = $50 → above $1 threshold → kept."""
+    msg = build_brief(
+        today=date(2026, 5, 9),
+        target_weights={"SPY": 0.20, "QQQ": 0.05},
+        current_weights={"SPY": 0.20},
+        days_of_data=200,
+        account_size_usd=1000.0,
+        min_trade_dollars=1.0,
+    )
+    assert "QQQ" in msg
+    assert "$50" in msg
+
+
+def test_brief_without_account_size_shows_percentages_only():
+    """Default behavior (no account_size) does not show dollar amounts."""
+    msg = build_brief(
+        today=date(2026, 5, 9),
+        target_weights={"SPY": 0.10},
+        current_weights={},
+        days_of_data=200,
+    )
+    assert "10.0%" in msg
+    # No dollar markers
+    assert "$" not in msg or "Account" not in msg
+    # Specifically: should not have a "($x.xx)" parenthetical next to the BUY
+    assert "($" not in msg

@@ -375,6 +375,12 @@ def _morning_command_inner(
             if len(spy_rets) >= 1:
                 spy_yesterday_return = spy_rets[-1]
 
+            account_size_env = os.getenv("ACCOUNT_SIZE_USD")
+            account_size_usd: float | None
+            try:
+                account_size_usd = float(account_size_env) if account_size_env else None
+            except ValueError:
+                account_size_usd = None
             brief = build_apex_brief(
                 today=today,
                 target_weights=target_w,
@@ -384,6 +390,7 @@ def _morning_command_inner(
                 spy_benchmark_return=spy_yesterday_return,
                 portfolio_return=portfolio_return,
                 dashboard_url=dashboard_url,
+                account_size_usd=account_size_usd,
             )
             post_to_discord(discord_webhook, brief)
         except Exception as exc:

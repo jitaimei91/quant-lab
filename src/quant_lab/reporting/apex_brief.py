@@ -111,6 +111,14 @@ def diff_portfolios(
     return holds, buys, sells
 
 
+def _fmt_dollar(amount: float) -> str:
+    """Render a USD amount. Sub-$1000 keeps cents (matters for small accounts);
+    larger amounts drop cents for readability."""
+    if amount < 1000:
+        return f"${amount:,.2f}"
+    return f"${amount:,.0f}"
+
+
 def build_brief(
     *,
     today: date,
@@ -121,6 +129,8 @@ def build_brief(
     spy_benchmark_return: float | None = None,
     portfolio_return: float | None = None,
     dashboard_url: str | None = None,
+    account_size_usd: float | None = None,
+    min_trade_dollars: float = 1.0,
 ) -> str:
     """Build the Discord-ready apex brief message.
 
@@ -130,13 +140,27 @@ def build_brief(
 
     `days_of_data` is the number of NAV observations the meta-ensemble has
     accumulated — drives the confidence tier.
+
+    When `account_size_usd` is provided, trade sizes are rendered in dollar
+    amounts alongside percentages. Trades smaller than `min_trade_dollars`
+    are filtered to suppress dust-level rebalances (Webull supports fractional
+    shares, but a $0.50 rebalance is below the bid-ask spread on most ETFs).
     """
     tier = _confidence_for(days_of_data)
     holds, buys, sells = diff_portfolios(target_weights, current_weights)
 
+    # Dust filter for small accounts: drop trades below min_trade_dollars
+    if account_size_usd is not None:
+        def _enough_dollars(weight: float) -> bool:
+            return weight * account_size_usd >= min_trade_dollars
+        buys = {s: w for s, w in buys.items() if _enough_dollars(w)}
+        sells = {s: w for s, w in sells.items() if _enough_dollars(w)}
+
     lines: list[str] = []
     lines.append(f"**📊 QUANT LAB BRIEF — {today.isoformat()}**")
     lines.append(f"{tier.emoji} **{tier.label}** — {tier.note}")
+    if account_size_usd is not None:
+        lines.append(f"_Account: {_fmt_dollar(account_size_usd)} · trades shown in $ at this size_")
     lines.append("")
 
     # Quick market context
@@ -162,22 +186,28 @@ def build_brief(
         lines.append("")
 
     # The actionable diff — this is the whole point
+    def _w_with_dollars(w: float) -> str:
+        pct = _format_pct(w)
+        if account_size_usd is None:
+            return pct
+        return f"{pct} ({_fmt_dollar(w * account_size_usd)})"
+
     if not buys and not sells:
         lines.append("**No trades today** — hold current positions.")
     else:
         if buys:
             lines.append("**🟢 BUY (target weight after trade):**")
             for sym, w in sorted(buys.items(), key=lambda x: -x[1]):
-                lines.append(f"  • {sym} → {_format_pct(w)}")
+                lines.append(f"  • {sym} → {_w_with_dollars(w)}")
         if sells:
             lines.append("**🔴 SELL (current position to close/trim):**")
             for sym, w in sorted(sells.items(), key=lambda x: -x[1]):
-                lines.append(f"  • {sym} (was {_format_pct(w)})")
+                lines.append(f"  • {sym} (was {_w_with_dollars(w)})")
 
     if holds:
         lines.append("")
         held_str = ", ".join(
-            f"{sym} {_format_pct(w)}"
+            f"{sym} {_w_with_dollars(w)}"
             for sym, w in sorted(holds.items(), key=lambda x: -x[1])[:8]
         )
         lines.append(f"**Holding:** {held_str}")
