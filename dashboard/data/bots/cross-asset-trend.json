@@ -1,0 +1,94 @@
+{
+  "bot_id": "cross-asset-trend",
+  "metrics": {
+    "total_return": 0.0,
+    "annualized_return": 0.0,
+    "sharpe": 0.0,
+    "sharpe_ci_lo": 0.0,
+    "sharpe_ci_hi": 0.0,
+    "volatility": 0.0,
+    "max_drawdown": 0.0,
+    "days": 1,
+    "alpha_t_stat_vs_spy": 0.0,
+    "alpha_t_stat_vs_qqq": 0.0,
+    "significance_weight": 0.0,
+    "factor_loadings": null
+  },
+  "current_weights": {
+    "EEM": 0.11007640033036878,
+    "EFA": 0.14542406648324416,
+    "GLD": 0.10545459398425423,
+    "SPY": 0.21695665202951694,
+    "TLT": 0.3254107090827396,
+    "USO": 0.0466453388484952
+  },
+  "nav_series": [
+    {
+      "date": "2026-05-08",
+      "nav": 99935.5630651962
+    }
+  ],
+  "daily_returns": [],
+  "recent_trades": [
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "EEM",
+      "side": "BUY",
+      "shares": 161.91561159704986,
+      "price": 67.98974829225715,
+      "slippage_bps": 7.322026650468874,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.1101"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "EFA",
+      "side": "BUY",
+      "shares": 139.79449879972313,
+      "price": 104.0374914166242,
+      "slippage_bps": 7.454052792802903,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.1454"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "GLD",
+      "side": "BUY",
+      "shares": 24.295512586270537,
+      "price": 434.059712679038,
+      "slippage_bps": 6.6792003297628835,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.1055"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "SPY",
+      "side": "BUY",
+      "shares": 29.394112584847967,
+      "price": 738.0244038384964,
+      "slippage_bps": 5.482616035165643,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.2169"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "TLT",
+      "side": "BUY",
+      "shares": 377.78928610450157,
+      "price": 86.14216935060499,
+      "slippage_bps": 7.222062991159104,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.3254"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "USO",
+      "side": "BUY",
+      "shares": 34.89429096472751,
+      "price": 133.67989241674795,
+      "slippage_bps": 6.7292522884698585,
+      "timestamp": "2026-05-08",
+      "reason": "rebalance to target weight 0.0466"
+    }
+  ]
+}

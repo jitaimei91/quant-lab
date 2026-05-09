@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-08T22:32:11Z",
+  "timestamp": "2026-05-09T06:32:24Z",
   "status": "success",
   "strategies": [
     "spy-vol",
@@ -14,6 +14,9 @@
     "risk-parity",
     "apex",
     "calendar",
+    "sector-momo",
+    "credit-carry",
+    "cross-asset-trend",
     "regime-momo",
     "regime-meanrev",
     "regime-breakout",
