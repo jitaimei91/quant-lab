@@ -25,6 +25,7 @@ from .persistence import (
 from .ensemble.live_calibration import update_weights_from_live
 from .lifecycle import evaluate_lifecycle, load_lifecycle_state, save_lifecycle_state
 from .reporting.discord import build_message, post_to_discord
+from .reporting.apex_brief import build_brief as build_apex_brief
 from .reporting.dashboard import (
     write_dashboard_data,
     write_per_bot_files,
@@ -348,6 +349,45 @@ def _morning_command_inner(
         except Exception as exc:
             # Log but don't crash the run; dashboard still updates
             print(f"[warn] Discord post failed: {exc}")
+
+        # Apex brief: actionable HOLD/BUY/SELL diff from yesterday → today.
+        # Posted as a separate message so the leaderboard remains the
+        # research tool and this is the user-facing briefing.
+        try:
+            target_w: dict[str, float] = {}
+            current_w: dict[str, float] = {}
+            for bot_id, _metrics, weights in leaderboard:
+                if bot_id == "meta-ensemble":
+                    target_w = weights
+                    break
+            prior_meta = prior_portfolios.get("meta-ensemble")
+            if prior_meta is not None:
+                for sym in prior_meta.positions:
+                    current_w[sym] = prior_meta.weight(sym, last_prices)
+            meta_navs = nav_history.get("meta-ensemble", [])
+            days_of_data = max(0, len(meta_navs) - 1)
+
+            # Yesterday-vs-today portfolio return (only after we have ≥2 NAVs)
+            portfolio_return = None
+            spy_yesterday_return = None
+            if len(meta_navs) >= 2 and meta_navs[-2][1] > 0:
+                portfolio_return = meta_navs[-1][1] / meta_navs[-2][1] - 1.0
+            if len(spy_rets) >= 1:
+                spy_yesterday_return = spy_rets[-1]
+
+            brief = build_apex_brief(
+                today=today,
+                target_weights=target_w,
+                current_weights=current_w,
+                days_of_data=days_of_data,
+                market_snapshot=market,
+                spy_benchmark_return=spy_yesterday_return,
+                portfolio_return=portfolio_return,
+                dashboard_url=dashboard_url,
+            )
+            post_to_discord(discord_webhook, brief)
+        except Exception as exc:
+            print(f"[warn] Apex Discord brief failed: {exc}")
 
 
 def _benchmark_returns(histories, windows, symbol="SPY"):
