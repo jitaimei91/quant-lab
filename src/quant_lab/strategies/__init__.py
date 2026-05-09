@@ -11,6 +11,7 @@ from . import calendar  # noqa: F401  (registers Calendar — turn-of-month SPY 
 from . import sector_momentum  # noqa: F401  (registers SectorMomentum — top-3 SPDR sectors)
 from . import credit_carry  # noqa: F401  (registers CreditCarry — HYG/LQD risk-on, IEF risk-off)
 from . import cross_asset_trend  # noqa: F401  (registers CrossAssetTrend — Antonacci absolute momentum)
+from . import stock_momo  # noqa: F401  (registers StockMomo — top-decile S&P 500 by 6mo return)
 from . import regime_aware  # noqa: F401  (registers RegimeMomo, RegimeMeanRev, RegimeBreakout)
 from . import gradboost, lightforest, ml_ensemble  # noqa: F401  (ML bots — always register, SPY fallback when gates fail)
 from . import ensemble  # noqa: F401  (MetaEnsemble — must import LAST so it sees all components)

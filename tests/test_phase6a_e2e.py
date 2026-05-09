@@ -196,7 +196,8 @@ def test_phase6a_auto_pause_then_resume(tmp_path):
 
     with patch("quant_lab.main.evaluate_lifecycle", side_effect=controlled_evaluate), \
          patch("quant_lab.main.post_to_discord"), \
-         patch("quant_lab.main.fetch_history") as mock_fetch:
+         patch("quant_lab.main.fetch_history") as mock_fetch, \
+         patch("quant_lab.main.fetch_history_batch", return_value={}):
 
         def fake_fetch(symbol: str, lookback_days: int = 400) -> list[Bar]:
             sliced = [b for b in full_histories.get(symbol, []) if b.date <= current_date[0]]

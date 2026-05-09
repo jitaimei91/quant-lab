@@ -92,6 +92,7 @@ def test_phase5_meta_ensemble_e2e(tmp_path):
         return full_histories.get(symbol, [])
 
     with patch("quant_lab.main.fetch_history", side_effect=fake_fetch), \
+         patch("quant_lab.main.fetch_history_batch", return_value={}), \
          patch("quant_lab.main.post_to_discord"):
         for as_of in loop_dates:
             # Slice histories to simulate data available up to `as_of`
@@ -104,7 +105,7 @@ def test_phase5_meta_ensemble_e2e(tmp_path):
             def fake_fetch_sliced(symbol: str, lookback_days: int = 400, _sliced=sliced) -> list[Bar]:
                 return _sliced.get(symbol, [])
 
-            with patch("quant_lab.main.fetch_history", side_effect=fake_fetch_sliced):
+            with patch("quant_lab.main.fetch_history", side_effect=fake_fetch_sliced), patch("quant_lab.main.fetch_history_batch", return_value={}):
                 morning_command(
                     state_dir=state,
                     dashboard_data_dir=dash,

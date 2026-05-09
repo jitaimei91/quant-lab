@@ -88,6 +88,7 @@ def test_phase2_morning_command_all_bots(tmp_path):
     snap = tmp_path / "snap"
 
     with patch("quant_lab.main.fetch_history", side_effect=fake_fetch), \
+         patch("quant_lab.main.fetch_history_batch", return_value={}), \
          patch("quant_lab.main.post_to_discord"):
         morning_command(state, dash, snap, discord_webhook="https://x", dashboard_url=None)
 
@@ -110,6 +111,7 @@ def test_phase2_leaderboard_has_new_fields(tmp_path):
     snap = tmp_path / "snap"
 
     with patch("quant_lab.main.fetch_history", side_effect=fake_fetch), \
+         patch("quant_lab.main.fetch_history_batch", return_value={}), \
          patch("quant_lab.main.post_to_discord"):
         morning_command(state, dash, snap, discord_webhook="https://x", dashboard_url=None)
 
@@ -139,6 +141,7 @@ def test_phase2_last_morning_json_written(tmp_path):
     snap = tmp_path / "snap"
 
     with patch("quant_lab.main.fetch_history", side_effect=fake_fetch), \
+         patch("quant_lab.main.fetch_history_batch", return_value={}), \
          patch("quant_lab.main.post_to_discord"):
         morning_command(state, dash, snap, discord_webhook=None, dashboard_url=None)
 
@@ -161,6 +164,7 @@ def test_phase2_two_consecutive_runs(tmp_path):
     snap = tmp_path / "snap"
 
     with patch("quant_lab.main.fetch_history", side_effect=fake_fetch), \
+         patch("quant_lab.main.fetch_history_batch", return_value={}), \
          patch("quant_lab.main.post_to_discord"):
         morning_command(state, dash, snap, discord_webhook=None, dashboard_url=None)
         morning_command(state, dash, snap, discord_webhook=None, dashboard_url=None)

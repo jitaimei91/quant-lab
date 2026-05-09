@@ -12,8 +12,10 @@ from datetime import date
 
 from ..types import Bar
 from .base import Strategy, register
+from ._universe import STOCK_UNIVERSE
 
-_INDEX_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY", "XLK", "XLY", "XLV", "XLF", "XLP", "XLE", "XLI", "XLU", "XLRE", "XLB", "XLC", "LQD"}  # also exclude apex-only sleeves
+_BASE_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY", "XLK", "XLY", "XLV", "XLF", "XLP", "XLE", "XLI", "XLU", "XLRE", "XLB", "XLC", "LQD"}
+_INDEX_PROXIES = _BASE_PROXIES | STOCK_UNIVERSE  # also exclude single stocks (S&P 500 universe)  # also exclude apex-only sleeves
 
 
 def _sma(bars: list[Bar], window: int) -> float | None:

@@ -19,6 +19,8 @@ def test_morning_command_dry_run(tmp_path, monkeypatch):
         return bars
 
     monkeypatch.setattr("quant_lab.main.fetch_history", fake_fetch)
+    # Stub the batch fetch (S&P 500) so the test doesn't hit live yfinance.
+    monkeypatch.setattr("quant_lab.main.fetch_history_batch", lambda symbols, lookback_days=365: {})
 
     state_dir = tmp_path / "state"
     dashboard_dir = tmp_path / "dashboard_data"

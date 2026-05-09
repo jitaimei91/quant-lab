@@ -12,7 +12,8 @@ from datetime import date, datetime as _dt, timezone
 from pathlib import Path
 
 from . import strategies  # noqa: F401  (registers strategies via import)
-from .data import fetch_history, fetch_history_range
+from .data import fetch_history, fetch_history_range, fetch_history_batch
+from .strategies._universe import STOCK_UNIVERSE
 from .tournament.factors import factor_proxies_from_histories
 from .engine.regime import regime_state, should_pause_bot
 from .persistence import (
@@ -135,6 +136,19 @@ def _morning_command_inner(
             histories[symbol] = bars
     if not histories:
         raise RuntimeError("No data fetched; check network or yfinance status.")
+
+    # Batch-fetch the S&P 500 single-stock universe (~450 names) in one
+    # yfinance call. This is 50-100x faster than per-symbol fetch and keeps
+    # the morning workflow well inside the 30min runner timeout.
+    if STOCK_UNIVERSE:
+        print(f"[fetch] batch-loading {len(STOCK_UNIVERSE)} S&P 500 symbols...")
+        sp500 = fetch_history_batch(STOCK_UNIVERSE, lookback_days=400)
+        print(f"[fetch] got {len(sp500)} of {len(STOCK_UNIVERSE)} symbols")
+        # Only add symbols not already in histories (don't overwrite ETF data
+        # if a name happens to overlap, which it shouldn't but be safe).
+        for sym, bars in sp500.items():
+            if sym not in histories:
+                histories[sym] = bars
 
     # Fetch index-only series (e.g. ^VIX) into a separate dict so the regime
     # engine can read them without exposing non-tradables to strategies.

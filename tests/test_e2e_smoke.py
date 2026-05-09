@@ -28,6 +28,8 @@ def test_two_consecutive_morning_runs(tmp_path, monkeypatch):
         return histories.get(symbol.upper(), [])
 
     monkeypatch.setattr("quant_lab.main.fetch_history", fake_fetch)
+    # Stub the batch fetch (S&P 500) so the test doesn't hit live yfinance.
+    monkeypatch.setattr("quant_lab.main.fetch_history_batch", lambda symbols, lookback_days=365: {})
 
     state = tmp_path / "state"
     dash = tmp_path / "dashboard_data"

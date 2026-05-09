@@ -14,7 +14,12 @@ import pandas as pd
 
 from ..types import Bar
 
-_INDEX_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY", "XLK", "XLY", "XLV", "XLF", "XLP", "XLE", "XLI", "XLU", "XLRE", "XLB", "XLC", "LQD"}  # exclude apex-only sleeves from ML training too
+from ..strategies._universe import STOCK_UNIVERSE  # noqa: E402
+
+_BASE_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY",
+                 "XLK", "XLY", "XLV", "XLF", "XLP", "XLE", "XLI", "XLU",
+                 "XLRE", "XLB", "XLC", "LQD"}
+_INDEX_PROXIES = _BASE_PROXIES | STOCK_UNIVERSE  # also exclude S&P 500 single stocks from ML feature universe
 
 
 # ---------------------------------------------------------------------------

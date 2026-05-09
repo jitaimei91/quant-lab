@@ -93,3 +93,105 @@ def fetch_many(symbols: Iterable[str], lookback_days: int = 365) -> dict[str, li
         except Exception:
             continue
     return histories
+
+
+def fetch_history_batch(
+    symbols: Iterable[str],
+    lookback_days: int = 365,
+) -> dict[str, list[Bar]]:
+    """Batch-fetch many symbols in one yfinance call. Use for 100+ symbol lists.
+
+    yfinance's `download()` can pull hundreds of tickers concurrently in one
+    HTTP request, which is dramatically faster (10-100x) than sequential
+    per-symbol calls. Returns the same shape as `fetch_many`: a dict of
+    {SYMBOL: [Bar, ...]} with failed symbols silently skipped.
+
+    Notes:
+    - yfinance returns a MultiIndex columns DataFrame keyed (ticker, field).
+    - When a single symbol is requested, yfinance returns a flat columns
+      DataFrame instead — handle both shapes.
+    - Volume can be NaN on holidays/halts; coerce to 0.
+    """
+    syms = sorted({s.upper() for s in symbols if s})
+    if not syms:
+        return {}
+
+    end = date.today()
+    start = end - timedelta(days=lookback_days)
+    try:
+        df = yf.download(
+            tickers=" ".join(syms),
+            start=start.isoformat(),
+            end=(end + timedelta(days=1)).isoformat(),
+            auto_adjust=True,
+            progress=False,
+            threads=True,
+            group_by="ticker",
+        )
+    except Exception:
+        return {}
+
+    if df is None or df.empty:
+        return {}
+
+    out: dict[str, list[Bar]] = {}
+    # Flat-columns case: only one ticker requested
+    if len(syms) == 1:
+        sym = syms[0]
+        bars: list[Bar] = []
+        for ts, row in df.iterrows():
+            try:
+                bars.append(
+                    Bar(
+                        symbol=sym,
+                        date=ts.date(),
+                        open=float(row["Open"]),
+                        high=float(row["High"]),
+                        low=float(row["Low"]),
+                        close=float(row["Close"]),
+                        volume=int(row["Volume"]) if not _is_nan(row["Volume"]) else 0,
+                    )
+                )
+            except (ValueError, KeyError, TypeError):
+                continue
+        if bars:
+            out[sym] = bars
+        return out
+
+    # MultiIndex case: (ticker, field) on columns
+    for sym in syms:
+        if sym not in df.columns.get_level_values(0):
+            continue
+        sub = df[sym]
+        if sub is None or sub.empty:
+            continue
+        bars = []
+        for ts, row in sub.iterrows():
+            close = row.get("Close")
+            if close is None or _is_nan(close):
+                continue
+            try:
+                bars.append(
+                    Bar(
+                        symbol=sym,
+                        date=ts.date(),
+                        open=float(row.get("Open", close)) if not _is_nan(row.get("Open", close)) else float(close),
+                        high=float(row.get("High", close)) if not _is_nan(row.get("High", close)) else float(close),
+                        low=float(row.get("Low", close)) if not _is_nan(row.get("Low", close)) else float(close),
+                        close=float(close),
+                        volume=int(row.get("Volume", 0)) if not _is_nan(row.get("Volume", 0)) else 0,
+                    )
+                )
+            except (ValueError, TypeError):
+                continue
+        if bars:
+            out[sym] = bars
+    return out
+
+
+def _is_nan(x) -> bool:
+    """NaN check that doesn't raise on non-numerics."""
+    try:
+        return x != x  # NaN is the only value that fails self-equality
+    except Exception:
+        return True

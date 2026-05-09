@@ -14,6 +14,7 @@ from pathlib import Path
 
 from ..types import Bar
 from .base import Strategy, register
+from ._universe import STOCK_UNIVERSE
 from ..ml.features import compute_features
 
 logger = logging.getLogger(__name__)
@@ -22,7 +23,8 @@ _REPO_ROOT = Path(__file__).resolve().parents[4]
 _STATE_DIR = _REPO_ROOT / "state"
 _VALIDATION_FILE = _STATE_DIR / "ml_validation.json"
 _MODELS_DIR = _REPO_ROOT / "models"
-_INDEX_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY", "XLK", "XLY", "XLV", "XLF", "XLP", "XLE", "XLI", "XLU", "XLRE", "XLB", "XLC", "LQD"}  # also exclude apex-only sleeves
+_BASE_PROXIES = {"SPY", "QQQ", "^VIX", "SSO", "TMF", "UGL", "SVXY", "SHY", "XLK", "XLY", "XLV", "XLF", "XLP", "XLE", "XLI", "XLU", "XLRE", "XLB", "XLC", "LQD"}
+_INDEX_PROXIES = _BASE_PROXIES | STOCK_UNIVERSE  # also exclude single stocks (S&P 500 universe)  # also exclude apex-only sleeves
 
 # When the ML signal isn't trustworthy we hold SPY 100%, NOT cash.
 _FALLBACK_WEIGHTS: dict[str, float] = {"SPY": 1.0}
