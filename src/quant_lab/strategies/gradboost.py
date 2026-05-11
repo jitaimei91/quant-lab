@@ -19,7 +19,11 @@ from ..ml.features import compute_features
 
 logger = logging.getLogger(__name__)
 
-_REPO_ROOT = Path(__file__).resolve().parents[4]
+# parents[3] = repo root (.../quant-lab/). parents[4] points one level above
+# and silently makes _MODELS_DIR / _VALIDATION_FILE nonexistent — every ML
+# bot then loads model=None and falls back to SPY=1.0. Was that way since
+# the ML bots shipped, masked by SPY fallback returning a sane Sharpe.
+_REPO_ROOT = Path(__file__).resolve().parents[3]
 _STATE_DIR = _REPO_ROOT / "state"
 _VALIDATION_FILE = _STATE_DIR / "ml_validation.json"
 _MODELS_DIR = _REPO_ROOT / "models"
