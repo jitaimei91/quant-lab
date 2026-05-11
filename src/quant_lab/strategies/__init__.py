@@ -14,4 +14,5 @@ from . import cross_asset_trend  # noqa: F401  (registers CrossAssetTrend — An
 from . import stock_momo  # noqa: F401  (registers StockMomo — top-decile S&P 500 by 6mo return)
 from . import regime_aware  # noqa: F401  (registers RegimeMomo, RegimeMeanRev, RegimeBreakout)
 from . import gradboost, lightforest, ml_ensemble  # noqa: F401  (ML bots — always register, SPY fallback when gates fail)
+from . import catboost_bot, double_ensemble, qlib_linear  # noqa: F401  (qlib-derived ML bots: CatBoost, DoubleEnsemble, Ridge)
 from . import ensemble  # noqa: F401  (MetaEnsemble — must import LAST so it sees all components)

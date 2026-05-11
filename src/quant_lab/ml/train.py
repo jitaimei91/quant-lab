@@ -46,6 +46,27 @@ _LGB_PARAMS = dict(
     verbose=-1,
 )
 
+_CATBOOST_PARAMS = dict(
+    iterations=200,
+    depth=4,
+    learning_rate=0.05,
+    rsm=0.7,  # column subsample
+    loss_function="RMSE",
+    random_seed=42,
+    verbose=False,
+    allow_writing_files=False,
+)
+
+# DoubleEnsemble: K LightGBM submodels, sample weights updated each round to
+# focus on hard-but-consistent examples (per Zhang et al., AAAI 2021).
+_DENSEMBLE_NUM_MODELS = 3
+_DENSEMBLE_SHRINK = 0.5  # downweight low-loss samples (consistency)
+_DENSEMBLE_DIVERSITY = 0.3  # upweight high-variance samples (diversity)
+
+# Ridge regression for the linear bot — qlib's LinearModel uses OLS with
+# optional L2; sklearn.linear_model.Ridge matches that interface exactly.
+_RIDGE_ALPHA = 1.0
+
 
 def _sharpe(returns: list[float]) -> float:
     """Annualised Sharpe ratio from daily return series."""
@@ -124,6 +145,86 @@ def _fit_lightgbm(X: np.ndarray, y: np.ndarray, seed: int = 42):
 
     params = {**_LGB_PARAMS, "random_state": seed}
     model = lgb.LGBMRegressor(**params)
+    model.fit(X, y)
+    return model
+
+
+def _fit_catboost(X: np.ndarray, y: np.ndarray, seed: int = 42):
+    """Fit a CatBoost regressor — gradient boosting with ordered boosting
+    that resists target leakage better than XGB/LGBM."""
+    from catboost import CatBoostRegressor
+
+    params = {**_CATBOOST_PARAMS, "random_seed": seed}
+    model = CatBoostRegressor(**params)
+    model.fit(X, y)
+    return model
+
+
+class _DoubleEnsemble:
+    """K-submodel boosted ensemble with sample-weight feedback.
+
+    Each round trains a LightGBM on weighted samples, computes per-sample
+    residuals, and updates weights for the next round: low-residual
+    (consistent) samples are downweighted, high-residual (informative)
+    samples are upweighted. Final prediction averages all submodels.
+
+    Simpler than qlib's full DoubleEnsemble (no feature selection round),
+    but captures the core sample-reweighting mechanism.
+    """
+
+    def __init__(self, num_models: int = _DENSEMBLE_NUM_MODELS, seed: int = 42) -> None:
+        self.num_models = num_models
+        self.seed = seed
+        self.submodels: list = []
+
+    def fit(self, X: np.ndarray, y: np.ndarray) -> "_DoubleEnsemble":
+        import lightgbm as lgb
+
+        n = len(y)
+        weights = np.ones(n, dtype=float)
+        for k in range(self.num_models):
+            params = {**_LGB_PARAMS, "random_state": self.seed + k}
+            model = lgb.LGBMRegressor(**params)
+            model.fit(X, y, sample_weight=weights)
+            self.submodels.append(model)
+            if k + 1 < self.num_models:
+                preds = model.predict(X)
+                residuals = np.abs(y - preds)
+                # Normalize so weight updates are scale-free.
+                if residuals.std() > 0:
+                    z = (residuals - residuals.mean()) / residuals.std()
+                else:
+                    z = np.zeros_like(residuals)
+                # Downweight easy samples, upweight hard ones — clamp to [0.1, 5].
+                weights = np.clip(
+                    1.0 + _DENSEMBLE_DIVERSITY * z - _DENSEMBLE_SHRINK * np.exp(-z),
+                    0.1,
+                    5.0,
+                )
+        return self
+
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        if not self.submodels:
+            return np.zeros(len(X))
+        preds = np.stack([m.predict(X) for m in self.submodels], axis=0)
+        return preds.mean(axis=0)
+
+
+def _fit_double_ensemble(X: np.ndarray, y: np.ndarray, seed: int = 42) -> "_DoubleEnsemble":
+    """Fit a DoubleEnsemble (3 LightGBM submodels with sample reweighting)."""
+    return _DoubleEnsemble(num_models=_DENSEMBLE_NUM_MODELS, seed=seed).fit(X, y)
+
+
+def _fit_ridge(X: np.ndarray, y: np.ndarray, seed: int = 42):
+    """Fit a ridge regression — linear model with L2 regularization.
+
+    Used as a deliberately simple baseline against the gradient-boosting
+    and neural-net bots: if a tree model can't beat ridge, the signal
+    is too thin to extract with extra capacity.
+    """
+    from sklearn.linear_model import Ridge
+
+    model = Ridge(alpha=_RIDGE_ALPHA, random_state=seed)
     model.fit(X, y)
     return model
 
@@ -265,6 +366,75 @@ def train_lightgbm_walkforward(
     return _walkforward_core(
         fit_fn=_fit_lightgbm,
         model_name="lightforest",
+        histories=histories,
+        target_symbols=target_symbols,
+        windows=windows,
+        horizon=horizon,
+        seed=seed,
+        models_dir=models_dir,
+    )
+
+
+def train_catboost_walkforward(
+    histories: dict,
+    target_symbols: list[str],
+    windows: list[Window],
+    horizon: int = 5,
+    seed: int = 42,
+    models_dir: Path | None = None,
+) -> dict[str, Any]:
+    """Train CatBoost on each window's train period. Persists to
+    models/catboost-<YYYY-MM-DD>.joblib."""
+    return _walkforward_core(
+        fit_fn=_fit_catboost,
+        model_name="catboost",
+        histories=histories,
+        target_symbols=target_symbols,
+        windows=windows,
+        horizon=horizon,
+        seed=seed,
+        models_dir=models_dir,
+    )
+
+
+def train_double_ensemble_walkforward(
+    histories: dict,
+    target_symbols: list[str],
+    windows: list[Window],
+    horizon: int = 5,
+    seed: int = 42,
+    models_dir: Path | None = None,
+) -> dict[str, Any]:
+    """Train DoubleEnsemble (K LightGBM submodels with sample reweighting).
+    Persists to models/double-ensemble-<YYYY-MM-DD>.joblib."""
+    return _walkforward_core(
+        fit_fn=_fit_double_ensemble,
+        model_name="double-ensemble",
+        histories=histories,
+        target_symbols=target_symbols,
+        windows=windows,
+        horizon=horizon,
+        seed=seed,
+        models_dir=models_dir,
+    )
+
+
+def train_ridge_walkforward(
+    histories: dict,
+    target_symbols: list[str],
+    windows: list[Window],
+    horizon: int = 5,
+    seed: int = 42,
+    models_dir: Path | None = None,
+) -> dict[str, Any]:
+    """Train ridge regression. Persists to models/qlib-linear-<YYYY-MM-DD>.joblib.
+
+    Named 'qlib-linear' to mark its lineage from qlib's LinearModel even though
+    we use sklearn directly to avoid the qlib framework dependency.
+    """
+    return _walkforward_core(
+        fit_fn=_fit_ridge,
+        model_name="qlib-linear",
         histories=histories,
         target_symbols=target_symbols,
         windows=windows,

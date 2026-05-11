@@ -501,7 +501,13 @@ def ml_train_command(
 ) -> None:
     """Walk-forward ML training pipeline: train, validate, persist state."""
     from .data.universe import load_universe as _load_universe
-    from .ml.train import train_xgboost_walkforward, train_lightgbm_walkforward
+    from .ml.train import (
+        train_xgboost_walkforward,
+        train_lightgbm_walkforward,
+        train_catboost_walkforward,
+        train_double_ensemble_walkforward,
+        train_ridge_walkforward,
+    )
     from .ml.validate import label_shuffle_test, run_all_gates
     from .ml.features import build_training_set
 
@@ -563,6 +569,9 @@ def ml_train_command(
     for train_fn_name, train_fn, bot_id in [
         ("xgboost", train_xgboost_walkforward, "gradboost"),
         ("lightgbm", train_lightgbm_walkforward, "lightforest"),
+        ("catboost", train_catboost_walkforward, "catboost"),
+        ("double-ensemble", train_double_ensemble_walkforward, "double-ensemble"),
+        ("qlib-linear", train_ridge_walkforward, "qlib-linear"),
     ]:
         print(f"[ml-train] Training {bot_id} ...")
         artifacts = train_fn(
