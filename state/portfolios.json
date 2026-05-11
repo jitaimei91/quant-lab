@@ -34,8 +34,14 @@
   },
   {
     "bot_id": "meanrev",
-    "cash": 103860.87429374782,
-    "positions": {}
+    "cash": -1.4551915228366852e-11,
+    "positions": {
+      "USO": {
+        "symbol": "USO",
+        "shares": 748.5263570271287,
+        "avg_cost": 138.66000366210938
+      }
+    }
   },
   {
     "bot_id": "breakout",
@@ -419,8 +425,14 @@
   },
   {
     "bot_id": "regime-meanrev",
-    "cash": 103860.87429374782,
-    "positions": {}
+    "cash": -1.4551915228366852e-11,
+    "positions": {
+      "USO": {
+        "symbol": "USO",
+        "shares": 748.5263570271287,
+        "avg_cost": 138.66000366210938
+      }
+    }
   },
   {
     "bot_id": "regime-breakout",
@@ -457,6 +469,50 @@
         "symbol": "SPY",
         "shares": 135.60777088209827,
         "avg_cost": 737.0167846679688
+      }
+    }
+  },
+  {
+    "bot_id": "catboost",
+    "cash": -1.4551915228366852e-11,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 135.18889939312166,
+        "avg_cost": 739.2999877929688
+      }
+    }
+  },
+  {
+    "bot_id": "double-ensemble",
+    "cash": -1.4551915228366852e-11,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 135.18889939312166,
+        "avg_cost": 739.2999877929688
+      }
+    }
+  },
+  {
+    "bot_id": "qlib-linear",
+    "cash": -1.4551915228366852e-11,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 135.18889939312166,
+        "avg_cost": 739.2999877929688
+      }
+    }
+  },
+  {
+    "bot_id": "qlib-mlp",
+    "cash": -1.4551915228366852e-11,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 135.18889939312166,
+        "avg_cost": 739.2999877929688
       }
     }
   },

@@ -1,13 +1,13 @@
 {
   "bot_id": "risk-parity",
   "metrics": {
-    "total_return": -0.00193723744299934,
-    "annualized_return": -0.38655048676146264,
+    "total_return": -0.0018398879762467901,
+    "annualized_return": -0.37128600748782203,
     "sharpe": 0.0,
     "sharpe_ci_lo": 0.0,
     "sharpe_ci_hi": 0.0,
     "volatility": 0.0,
-    "max_drawdown": -0.0019372374429993443,
+    "max_drawdown": -0.0018398879762468333,
     "days": 2,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
@@ -21,9 +21,9 @@
     }
   },
   "current_weights": {
-    "GLD": 0.15487240184245943,
-    "SPY": 0.3208644321796907,
-    "TLT": 0.47930460878260067
+    "GLD": 0.15542231316649255,
+    "SPY": 0.32075742914556415,
+    "TLT": 0.4788660852517284
   },
   "nav_series": [
     {
@@ -32,13 +32,13 @@
     },
     {
       "date": "2026-05-11",
-      "nav": 99686.54967919872
+      "nav": 99696.27294793265
     }
   ],
   "daily_returns": [
     {
       "date": "2026-05-11",
-      "ret": -0.00193723744299934
+      "ret": -0.0018398879762467901
     }
   ],
   "recent_trades": [

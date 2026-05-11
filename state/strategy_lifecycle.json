@@ -174,5 +174,37 @@
     "pause_reason": "",
     "consecutive_fail_days": 0,
     "consecutive_recovery_days": 0
+  },
+  "catboost": {
+    "bot_id": "catboost",
+    "paused": false,
+    "paused_at": null,
+    "pause_reason": "",
+    "consecutive_fail_days": 0,
+    "consecutive_recovery_days": 0
+  },
+  "double-ensemble": {
+    "bot_id": "double-ensemble",
+    "paused": false,
+    "paused_at": null,
+    "pause_reason": "",
+    "consecutive_fail_days": 0,
+    "consecutive_recovery_days": 0
+  },
+  "qlib-linear": {
+    "bot_id": "qlib-linear",
+    "paused": false,
+    "paused_at": null,
+    "pause_reason": "",
+    "consecutive_fail_days": 0,
+    "consecutive_recovery_days": 0
+  },
+  "qlib-mlp": {
+    "bot_id": "qlib-mlp",
+    "paused": false,
+    "paused_at": null,
+    "pause_reason": "",
+    "consecutive_fail_days": 0,
+    "consecutive_recovery_days": 0
   }
 }

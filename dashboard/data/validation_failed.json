@@ -1,6 +1,9 @@
 {
   "gradboost": {
     "bot_id": "gradboost",
+    "reasons_failed": [
+      "walk_forward_sharpe"
+    ],
     "gates": {
       "label_shuffle": {
         "pass": true,
@@ -15,13 +18,13 @@
         "detail": "bot_median_sharpe=1.3735 vs benchmark=1.8824; FAIL"
       }
     },
-    "overall_pass": false,
-    "reasons_failed": [
-      "walk_forward_sharpe"
-    ]
+    "fallback": "SPY 100%"
   },
   "lightforest": {
     "bot_id": "lightforest",
+    "reasons_failed": [
+      "walk_forward_sharpe"
+    ],
     "gates": {
       "label_shuffle": {
         "pass": true,
@@ -36,17 +39,14 @@
         "detail": "bot_median_sharpe=0.4049 vs benchmark=1.8824; FAIL"
       }
     },
-    "overall_pass": false,
-    "reasons_failed": [
-      "walk_forward_sharpe"
-    ]
+    "fallback": "SPY 100%"
   },
   "ml-ensemble": {
     "bot_id": "ml-ensemble",
-    "overall_pass": false,
     "reasons_failed": [
       "component bots failed gates"
     ],
-    "gates": {}
+    "gates": {},
+    "fallback": "SPY 100%"
   }
 }

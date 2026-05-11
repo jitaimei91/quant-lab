@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-11T16:59:43Z",
+  "timestamp": "2026-05-11T21:51:51Z",
   "status": "success",
   "strategies": [
     "spy-vol",
@@ -24,6 +24,10 @@
     "gradboost",
     "lightforest",
     "ml-ensemble",
+    "catboost",
+    "double-ensemble",
+    "qlib-linear",
+    "qlib-mlp",
     "meta-ensemble"
   ]
 }
