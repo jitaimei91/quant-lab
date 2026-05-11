@@ -507,6 +507,7 @@ def ml_train_command(
         train_catboost_walkforward,
         train_double_ensemble_walkforward,
         train_ridge_walkforward,
+        train_mlp_walkforward,
     )
     from .ml.validate import label_shuffle_test, run_all_gates
     from .ml.features import build_training_set
@@ -572,6 +573,7 @@ def ml_train_command(
         ("catboost", train_catboost_walkforward, "catboost"),
         ("double-ensemble", train_double_ensemble_walkforward, "double-ensemble"),
         ("qlib-linear", train_ridge_walkforward, "qlib-linear"),
+        ("qlib-mlp", train_mlp_walkforward, "qlib-mlp"),
     ]:
         print(f"[ml-train] Training {bot_id} ...")
         artifacts = train_fn(

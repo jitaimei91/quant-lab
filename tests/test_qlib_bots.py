@@ -21,6 +21,7 @@ from quant_lab.ml.train import (
     train_catboost_walkforward,
     train_double_ensemble_walkforward,
     train_ridge_walkforward,
+    train_mlp_walkforward,
 )
 from quant_lab.types import Bar
 
@@ -99,6 +100,7 @@ def _make_windows(histories: dict, n_windows: int = 2) -> list[Window]:
         (train_catboost_walkforward, "catboost"),
         (train_double_ensemble_walkforward, "double-ensemble"),
         (train_ridge_walkforward, "qlib-linear"),
+        (train_mlp_walkforward, "qlib-mlp"),
     ],
 )
 def test_walkforward_runs_and_persists(train_fn, expected_prefix):
@@ -130,6 +132,7 @@ def test_walkforward_runs_and_persists(train_fn, expected_prefix):
         train_catboost_walkforward,
         train_double_ensemble_walkforward,
         train_ridge_walkforward,
+        train_mlp_walkforward,
     ],
 )
 def test_persisted_model_matches_in_memory(train_fn):
@@ -168,11 +171,12 @@ def _import_bots():
     from quant_lab.strategies.catboost_bot import CatBoost
     from quant_lab.strategies.double_ensemble import DoubleEnsemble
     from quant_lab.strategies.qlib_linear import QlibLinear
-    return CatBoost, DoubleEnsemble, QlibLinear
+    from quant_lab.strategies.qlib_mlp import QlibMLP
+    return CatBoost, DoubleEnsemble, QlibLinear, QlibMLP
 
 
 def test_bots_registered():
-    """Importing strategies/__init__.py should auto-register all 3 bots."""
+    """Importing strategies/__init__.py should auto-register all qlib-derived bots."""
     from quant_lab.strategies import get_all
     import quant_lab.strategies  # noqa: F401 — triggers __init__
 
@@ -180,6 +184,7 @@ def test_bots_registered():
     assert "catboost" in bot_ids
     assert "double-ensemble" in bot_ids
     assert "qlib-linear" in bot_ids
+    assert "qlib-mlp" in bot_ids
 
 
 @pytest.mark.parametrize("BotClass", _import_bots())
@@ -202,6 +207,7 @@ def test_bot_falls_back_to_spy_when_no_model(BotClass, tmp_path, monkeypatch):
         ("CatBoost", train_catboost_walkforward, "catboost"),
         ("DoubleEnsemble", train_double_ensemble_walkforward, "double-ensemble"),
         ("QlibLinear", train_ridge_walkforward, "qlib-linear"),
+        ("QlibMLP", train_mlp_walkforward, "qlib-mlp"),
     ],
 )
 def test_bot_produces_weights_after_training(BotClass, train_fn, prefix, tmp_path, monkeypatch):
@@ -227,7 +233,13 @@ def test_bot_produces_weights_after_training(BotClass, train_fn, prefix, tmp_pat
     from quant_lab.strategies.catboost_bot import CatBoost
     from quant_lab.strategies.double_ensemble import DoubleEnsemble
     from quant_lab.strategies.qlib_linear import QlibLinear
-    cls = {"CatBoost": CatBoost, "DoubleEnsemble": DoubleEnsemble, "QlibLinear": QlibLinear}[BotClass]
+    from quant_lab.strategies.qlib_mlp import QlibMLP
+    cls = {
+        "CatBoost": CatBoost,
+        "DoubleEnsemble": DoubleEnsemble,
+        "QlibLinear": QlibLinear,
+        "QlibMLP": QlibMLP,
+    }[BotClass]
 
     bot = cls()
     # The bot computes features over the universe. Use a date inside the

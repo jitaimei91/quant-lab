@@ -229,6 +229,14 @@ def _fit_ridge(X: np.ndarray, y: np.ndarray, seed: int = 42):
     return model
 
 
+def _fit_mlp(X: np.ndarray, y: np.ndarray, seed: int = 42):
+    """Fit a 3-layer MLP (PyTorch). Lazy-import torch so the rest of the
+    training pipeline works without torch installed."""
+    from .torch_models import fit_mlp
+
+    return fit_mlp(X, y, seed=seed)
+
+
 def _walkforward_core(
     fit_fn,
     model_name: str,
@@ -435,6 +443,31 @@ def train_ridge_walkforward(
     return _walkforward_core(
         fit_fn=_fit_ridge,
         model_name="qlib-linear",
+        histories=histories,
+        target_symbols=target_symbols,
+        windows=windows,
+        horizon=horizon,
+        seed=seed,
+        models_dir=models_dir,
+    )
+
+
+def train_mlp_walkforward(
+    histories: dict,
+    target_symbols: list[str],
+    windows: list[Window],
+    horizon: int = 5,
+    seed: int = 42,
+    models_dir: Path | None = None,
+) -> dict[str, Any]:
+    """Train a 3-layer PyTorch MLP. Persists to models/qlib-mlp-<YYYY-MM-DD>.joblib.
+
+    Lineage: qlib's pytorch_nn (GeneralPTNN). Architectures live in
+    torch_models.py; this wrapper just plugs into _walkforward_core.
+    """
+    return _walkforward_core(
+        fit_fn=_fit_mlp,
+        model_name="qlib-mlp",
         histories=histories,
         target_symbols=target_symbols,
         windows=windows,
