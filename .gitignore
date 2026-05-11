@@ -16,12 +16,14 @@ config/account.json
 config/universe.json
 dashboard/data/*.json
 !dashboard/data/.gitkeep
+!dashboard/data/validation_failed.json
 state/*.json
 !state/.gitkeep
 !state/nav_history.json
 !state/portfolios.json
 !state/last_morning.json
 !state/strategy_lifecycle.json
+!state/ml_validation.json
 data/cache/
 .omc/
 .claude/
