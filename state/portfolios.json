@@ -12,12 +12,12 @@
   },
   {
     "bot_id": "qqq-vol",
-    "cash": 24289.82561031371,
+    "cash": 21950.907060577127,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 108.94648068875087,
-        "avg_cost": 694.9400024414062
+        "shares": 112.2249947995343,
+        "avg_cost": 695.4795252606561
       }
     }
   },
@@ -34,14 +34,8 @@
   },
   {
     "bot_id": "meanrev",
-    "cash": 0.0,
-    "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 740.4087756662328,
-        "avg_cost": 134.97000122070312
-      }
-    }
+    "cash": 103860.87429374782,
+    "positions": {}
   },
   {
     "bot_id": "breakout",
@@ -96,38 +90,38 @@
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 7999.114830076007,
+    "cash": 7698.841855119845,
     "positions": {
       "ADI": {
         "symbol": "ADI",
-        "shares": 41.72450202977385,
+        "shares": 40.35250709571477,
         "avg_cost": 416.5199890136719
-      },
-      "CMI": {
-        "symbol": "CMI",
-        "shares": 22.850640971620862,
-        "avg_cost": 679.5499877929688
       },
       "KEYS": {
         "symbol": "KEYS",
-        "shares": 52.899633886402405,
+        "shares": 49.11356489003969,
         "avg_cost": 360.29998779296875
       },
       "TRGP": {
         "symbol": "TRGP",
-        "shares": 93.40986487314288,
+        "shares": 82.77359344442787,
         "avg_cost": 248.1199951171875
       },
       "VTRS": {
         "symbol": "VTRS",
         "shares": 1023.0729617044669,
         "avg_cost": 17.170000076293945
+      },
+      "SLB": {
+        "symbol": "SLB",
+        "shares": 382.95517179017526,
+        "avg_cost": 54.584999084472656
       }
     }
   },
   {
     "bot_id": "codex-native",
-    "cash": 8063.992242541,
+    "cash": 8517.809285422934,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -141,12 +135,12 @@
       },
       "GLD": {
         "symbol": "GLD",
-        "shares": 41.153374448331384,
-        "avg_cost": 434.10514045524684
+        "shares": 43.07558054486187,
+        "avg_cost": 434.07191345770894
       },
       "XLE": {
         "symbol": "XLE",
-        "shares": 304.95034764362015,
+        "shares": 282.37672793003867,
         "avg_cost": 55.70000076293945
       },
       "XLK": {
@@ -158,7 +152,7 @@
   },
   {
     "bot_id": "risk-parity",
-    "cash": 5000.0,
+    "cash": 4481.763445349308,
     "positions": {
       "GLD": {
         "symbol": "GLD",
@@ -172,20 +166,15 @@
       },
       "TLT": {
         "symbol": "TLT",
-        "shares": 551.9369655018609,
-        "avg_cost": 86.20999908447266
+        "shares": 557.9846342102791,
+        "avg_cost": 86.20438430769718
       }
     }
   },
   {
     "bot_id": "apex",
-    "cash": 55263.936394337514,
+    "cash": 32746.501682568713,
     "positions": {
-      "UGL": {
-        "symbol": "UGL",
-        "shares": 181.46980444114877,
-        "avg_cost": 61.43989944458008
-      },
       "EEM": {
         "symbol": "EEM",
         "shares": 344.614001608483,
@@ -195,6 +184,11 @@
         "symbol": "USO",
         "shares": 74.26746021607582,
         "avg_cost": 133.58999633789062
+      },
+      "IWM": {
+        "symbol": "IWM",
+        "shares": 117.72128477935638,
+        "avg_cost": 285.9200134277344
       }
     }
   },
@@ -205,7 +199,7 @@
   },
   {
     "bot_id": "sector-momo",
-    "cash": 5000.000000000004,
+    "cash": 4935.705116075795,
     "positions": {
       "XLB": {
         "symbol": "XLB",
@@ -214,13 +208,13 @@
       },
       "XLE": {
         "symbol": "XLE",
-        "shares": 532.8915316705111,
+        "shares": 521.1408470714258,
         "avg_cost": 55.70000076293945
       },
       "XLK": {
         "symbol": "XLK",
-        "shares": 155.055794331346,
-        "avg_cost": 175.52000427246094
+        "shares": 159.18506970969128,
+        "avg_cost": 175.5789333043153
       }
     }
   },
@@ -242,7 +236,7 @@
   },
   {
     "bot_id": "cross-asset-trend",
-    "cash": 5000.000000000029,
+    "cash": 4371.113106564739,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -266,8 +260,8 @@
       },
       "TLT": {
         "symbol": "TLT",
-        "shares": 377.78928610450157,
-        "avg_cost": 86.08000183105469
+        "shares": 385.12821183722315,
+        "avg_cost": 86.07260728817823
       },
       "USO": {
         "symbol": "USO",
@@ -278,7 +272,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 4999.99999999997,
+    "cash": 4902.503291362707,
     "positions": {
       "ADI": {
         "symbol": "ADI",
@@ -325,20 +319,10 @@
         "shares": 59.219305864628616,
         "avg_cost": 61.650001525878906
       },
-      "FDX": {
-        "symbol": "FDX",
-        "shares": 9.642737879760336,
-        "avg_cost": 378.5799865722656
-      },
       "GLW": {
         "symbol": "GLW",
         "shares": 19.53130143779193,
         "avg_cost": 186.94000244140625
-      },
-      "HAL": {
-        "symbol": "HAL",
-        "shares": 91.65117880471765,
-        "avg_cost": 39.83000183105469
       },
       "INTC": {
         "symbol": "INTC",
@@ -409,6 +393,16 @@
         "symbol": "WDC",
         "shares": 7.606972285350068,
         "avg_cost": 480.0
+      },
+      "CF": {
+        "symbol": "CF",
+        "shares": 29.890260375493565,
+        "avg_cost": 124.77999877929688
+      },
+      "SLB": {
+        "symbol": "SLB",
+        "shares": 68.33504708086187,
+        "avg_cost": 54.584999084472656
       }
     }
   },
@@ -425,14 +419,8 @@
   },
   {
     "bot_id": "regime-meanrev",
-    "cash": 0.0,
-    "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 740.4087756662328,
-        "avg_cost": 134.97000122070312
-      }
-    }
+    "cash": 103860.87429374782,
+    "positions": {}
   },
   {
     "bot_id": "regime-breakout",
@@ -474,7 +462,7 @@
   },
   {
     "bot_id": "meta-ensemble",
-    "cash": 70083.08285881327,
+    "cash": 80469.17028818805,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
@@ -485,11 +473,6 @@
         "symbol": "SPY",
         "shares": 13.661560137861615,
         "avg_cost": 731.5800170898438
-      },
-      "USO": {
-        "symbol": "USO",
-        "shares": 74.04087756662328,
-        "avg_cost": 134.97000122070312
       }
     }
   }

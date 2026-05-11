@@ -1,31 +1,46 @@
 {
   "bot_id": "risk-parity",
   "metrics": {
-    "total_return": 0.0,
-    "annualized_return": 0.0,
+    "total_return": -0.00193723744299934,
+    "annualized_return": -0.38655048676146264,
     "sharpe": 0.0,
     "sharpe_ci_lo": 0.0,
     "sharpe_ci_hi": 0.0,
     "volatility": 0.0,
-    "max_drawdown": 0.0,
-    "days": 1,
+    "max_drawdown": -0.0019372374429993443,
+    "days": 2,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
-    "factor_loadings": null
+    "factor_loadings": {
+      "alpha_per_day": 0.0,
+      "beta_mkt": 0.0,
+      "beta_size": 0.0,
+      "beta_value": 0.0,
+      "r_squared": 0.0
+    }
   },
   "current_weights": {
-    "GLD": 0.15482225999654176,
-    "SPY": 0.3194397201032715,
-    "TLT": 0.47567796838025433
+    "GLD": 0.15487240184245943,
+    "SPY": 0.3208644321796907,
+    "TLT": 0.47930460878260067
   },
   "nav_series": [
     {
       "date": "2026-05-08",
       "nav": 99880.04103449907
+    },
+    {
+      "date": "2026-05-11",
+      "nav": 99686.54967919872
     }
   ],
-  "daily_returns": [],
+  "daily_returns": [
+    {
+      "date": "2026-05-11",
+      "ret": -0.00193723744299934
+    }
+  ],
   "recent_trades": [
     {
       "bot_id": "risk-parity",
@@ -56,6 +71,16 @@
       "slippage_bps": 7.222097918082017,
       "timestamp": "2026-05-08",
       "reason": "rebalance to target weight 0.4762"
+    },
+    {
+      "bot_id": "risk-parity",
+      "symbol": "TLT",
+      "side": "BUY",
+      "shares": 6.047668708418176,
+      "price": 85.69195497255359,
+      "slippage_bps": 7.235515721465564,
+      "timestamp": "2026-05-11",
+      "reason": "rebalance to target weight 0.4793"
     }
   ]
 }
