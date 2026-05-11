@@ -21,7 +21,10 @@ from .features import build_training_set
 logger = logging.getLogger(__name__)
 
 # Default model directory relative to repo root
-_MODELS_DIR = Path(__file__).resolve().parents[4] / "models"
+# parents[3] = repo root. Same off-by-one bug fixed in gradboost.py. This
+# default is dormant (main.py always passes models_dir explicitly) but fix
+# it so any future code path that relies on the default resolves correctly.
+_MODELS_DIR = Path(__file__).resolve().parents[3] / "models"
 
 # Modest hyperparameters — intentionally conservative to resist overfit
 _XGB_PARAMS = dict(
