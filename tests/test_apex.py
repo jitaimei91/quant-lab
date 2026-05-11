@@ -3,7 +3,6 @@ from __future__ import annotations
 
 from datetime import date, timedelta
 
-import pytest
 
 from quant_lab.types import Bar
 from quant_lab.strategies.apex import (
@@ -160,7 +159,7 @@ def test_all_negative_momentum_routes_to_defensive():
     # Force every momentum-eligible asset to negative drift
     for sym in _MOMO_UNIVERSE:
         if sym in h:
-            h[sym] = _bars(sym, n=280, daily_return=-0.0005, vol=0.005, seed=hash(sym) % 100)
+            h[sym] = _bars(sym, n=280, daily_return=-0.0005, vol=0.005, seed=sum(ord(c) for c in sym) % 100)
     # Recompute SPY uptrend (still up since it's based on 200d MA of new bars)
     # Actually — since we set negative drift, SPY may now be in a downtrend,
     # which would route via the trend filter rather than momentum gate.

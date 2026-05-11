@@ -9,8 +9,6 @@ import pytest
 from quant_lab.types import Bar
 from quant_lab.strategies.stock_momo import (
     StockMomo,
-    _MOMO_WINDOW,
-    _MIN_HISTORY,
     _GROSS_LEVERAGE,
     _MAX_PICKS,
     _MIN_PICKS,

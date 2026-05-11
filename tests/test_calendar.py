@@ -3,7 +3,6 @@ from __future__ import annotations
 
 from datetime import date, timedelta
 
-import pytest
 
 from quant_lab.types import Bar
 from quant_lab.strategies.calendar import Calendar, _TARGET_WEIGHT

@@ -3,7 +3,6 @@ from __future__ import annotations
 
 from datetime import date
 
-import pytest
 
 from quant_lab.reporting.apex_brief import (
     build_brief,

@@ -4,7 +4,6 @@ from __future__ import annotations
 import json
 from datetime import date, timedelta
 
-import pytest
 
 from quant_lab.journal import (
     journal_entry,
@@ -129,7 +128,7 @@ def test_append_journal_creates_file(tmp_path):
         {"date": "2026-05-09", "bot_id": "calendar", "nav": 100_000, "tag": "neutral"},
     ]
     append_journal(path, entries)
-    lines = [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
+    lines = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
     assert len(lines) == 2
     assert lines[0]["bot_id"] == "apex"
 
@@ -141,7 +140,7 @@ def test_append_journal_skips_duplicates(tmp_path):
     ]
     append_journal(path, entries)
     append_journal(path, entries)  # second call should skip
-    lines = [l for l in path.read_text().splitlines() if l.strip()]
+    lines = [line for line in path.read_text().splitlines() if line.strip()]
     assert len(lines) == 1
 
 
@@ -149,7 +148,7 @@ def test_append_journal_appends_new_rows(tmp_path):
     path = tmp_path / "bot_journal.jsonl"
     append_journal(path, [{"date": "2026-05-09", "bot_id": "apex", "nav": 100, "tag": "neutral"}])
     append_journal(path, [{"date": "2026-05-10", "bot_id": "apex", "nav": 101, "tag": "good_day"}])
-    lines = [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
+    lines = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
     assert len(lines) == 2
     assert lines[1]["date"] == "2026-05-10"
 

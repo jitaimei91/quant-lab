@@ -448,7 +448,6 @@ def backtest_command(
     else:
         symbols = ["SPY", "QQQ"]
     # Fetch the full range needed: training data starts train_years before `start`
-    from datetime import timedelta as _td
     fetch_start = date(max(start.year - train_years - 1, 2000), 1, 1)
     histories = {}
     print(f"[backtest] Fetching {len(symbols)} symbols from {fetch_start} to {end} ...")

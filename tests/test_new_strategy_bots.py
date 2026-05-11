@@ -7,7 +7,7 @@ import pytest
 
 from quant_lab.types import Bar
 from quant_lab.strategies.sector_momentum import SectorMomentum, _SECTORS, _DEFENSIVE_FALLBACK
-from quant_lab.strategies.credit_carry import CreditCarry, _RISK_ON_LEGS, _RISK_OFF_LEG
+from quant_lab.strategies.credit_carry import CreditCarry
 from quant_lab.strategies.cross_asset_trend import CrossAssetTrend, _LEGS as _XAT_LEGS, _FALLBACK as _XAT_FALLBACK
 
 

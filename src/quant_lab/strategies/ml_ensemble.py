@@ -16,7 +16,6 @@ from ..ml.features import compute_features
 from .gradboost import (
     _FALLBACK_WEIGHTS,
     _INDEX_PROXIES,
-    _VALIDATION_FILE,
     _gates_passed,
     _load_latest_model,
     _record_failure,
