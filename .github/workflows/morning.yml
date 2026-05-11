@@ -5,9 +5,13 @@ on:
   schedule:
     # 21:30 UTC = 4:30 PM EST winter / 5:30 PM EDT summer (post-close).
     # Captures today's close so NAV advances same-day, not lagged a day.
-    # Run twice for DST coverage; idempotent on the second fire of the same day.
-    - cron: "30 21 * * 1-5"
+    # 4 fires per weekday for redundancy — GitHub's scheduled cron is
+    # best-effort and frequently skips slots during high load. Runs are
+    # idempotent on the same trading day (state file dedupes).
     - cron: "30 20 * * 1-5"
+    - cron: "30 21 * * 1-5"
+    - cron: "30 22 * * 1-5"
+    - cron: "30 23 * * 1-5"
 
 permissions:
   contents: write
