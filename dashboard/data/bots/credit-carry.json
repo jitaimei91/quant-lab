@@ -1,14 +1,14 @@
 {
   "bot_id": "credit-carry",
   "metrics": {
-    "total_return": -0.0021226815014977474,
-    "annualized_return": -0.4146142638051312,
-    "sharpe": 0.0,
-    "sharpe_ci_lo": 0.0,
-    "sharpe_ci_hi": 0.0,
-    "volatility": 0.0,
-    "max_drawdown": -0.0021226815014977075,
-    "days": 2,
+    "total_return": -0.00438403515430108,
+    "annualized_return": -0.4251247244713251,
+    "sharpe": -343.34967689162687,
+    "sharpe_ci_lo": -343.3496768916268,
+    "sharpe_ci_hi": -343.3496768916268,
+    "volatility": 0.0016105870197466613,
+    "max_drawdown": -0.004384035154301078,
+    "days": 3,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,8 +21,8 @@
     }
   },
   "current_weights": {
-    "HYG": 0.4750457142910069,
-    "LQD": 0.4748162243564049
+    "HYG": 0.47546985215897974,
+    "LQD": 0.4742782073501021
   },
   "nav_series": [
     {
@@ -32,12 +32,20 @@
     {
       "date": "2026-05-11",
       "nav": 99724.63763284069
+    },
+    {
+      "date": "2026-05-12",
+      "nav": 99498.64524940337
     }
   ],
   "daily_returns": [
     {
       "date": "2026-05-11",
       "ret": -0.0021226815014977474
+    },
+    {
+      "date": "2026-05-12",
+      "ret": -0.0022661639971995884
     }
   ],
   "recent_trades": [

@@ -1,14 +1,14 @@
 {
   "bot_id": "sector-momo",
   "metrics": {
-    "total_return": 0.016428108577689615,
-    "annualized_return": 59.71835452814045,
-    "sharpe": 0.0,
-    "sharpe_ci_lo": 0.0,
-    "sharpe_ci_hi": 0.0,
-    "volatility": 0.0,
-    "max_drawdown": 0.0,
-    "days": 2,
+    "total_return": 0.013359679071864416,
+    "annualized_return": 4.3866819200180425,
+    "sharpe": 7.739967356833312,
+    "sharpe_ci_lo": 7.739967356833312,
+    "sharpe_ci_hi": 7.739967356833312,
+    "volatility": 0.21829140861920304,
+    "max_drawdown": -0.003018835744437304,
+    "days": 3,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,9 +21,9 @@
     }
   },
   "current_weights": {
-    "XLB": 0.3792709149967387,
-    "XLE": 0.2933415524811978,
-    "XLK": 0.2787916472458039
+    "XLB": 0.3795458230754857,
+    "XLE": 0.29628842242634523,
+    "XLK": 0.27542272201315143
   },
   "nav_series": [
     {
@@ -33,12 +33,20 @@
     {
       "date": "2026-05-11",
       "nav": 101566.31755995665
+    },
+    {
+      "date": "2026-05-12",
+      "nav": 101259.70553007578
     }
   ],
   "daily_returns": [
     {
       "date": "2026-05-11",
       "ret": 0.016428108577689615
+    },
+    {
+      "date": "2026-05-12",
+      "ret": -0.003018835744437287
     }
   ],
   "recent_trades": [
