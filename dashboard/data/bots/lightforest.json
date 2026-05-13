@@ -1,14 +1,14 @@
 {
   "bot_id": "lightforest",
   "metrics": {
-    "total_return": 0.0010294331652631605,
-    "annualized_return": 0.09060225673793298,
-    "sharpe": 2.88002649022501,
-    "sharpe_ci_lo": 2.8800264902250103,
-    "sharpe_ci_hi": 2.8800264902250103,
-    "volatility": 0.03011951438285737,
+    "total_return": 0.006630040724167063,
+    "annualized_return": 0.517688805566638,
+    "sharpe": 8.628435557632034,
+    "sharpe_ci_lo": 8.628435557632034,
+    "sharpe_ci_hi": 8.628435557632034,
+    "volatility": 0.04839048434676475,
     "max_drawdown": -0.0015149399914518998,
-    "days": 4,
+    "days": 5,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -39,6 +39,10 @@
     {
       "date": "2026-05-12",
       "nav": 100102.94331652632
+    },
+    {
+      "date": "2026-05-13",
+      "nav": 100663.0040724167
     }
   ],
   "daily_returns": [
@@ -53,6 +57,10 @@
     {
       "date": "2026-05-12",
       "ret": -0.0015149399914519135
+    },
+    {
+      "date": "2026-05-13",
+      "ret": 0.005594848036780231
     }
   ],
   "recent_trades": [
