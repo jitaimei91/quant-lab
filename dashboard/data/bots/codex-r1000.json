@@ -1,14 +1,14 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.02581727182331095,
-    "annualized_return": 2.6242821024900356,
-    "sharpe": 14.868643747346253,
-    "sharpe_ci_lo": 14.868643747346256,
-    "sharpe_ci_hi": 14.868643747346256,
-    "volatility": 0.08682376544779002,
-    "max_drawdown": -0.0003914276962628901,
-    "days": 6,
+    "total_return": 0.006822429372647543,
+    "annualized_return": 0.3470428523845126,
+    "sharpe": 1.7354873837330793,
+    "sharpe_ci_lo": 1.7354873837330793,
+    "sharpe_ci_hi": 1.7354873837330793,
+    "volatility": 0.17176032298119254,
+    "max_drawdown": -0.018900969175802775,
+    "days": 7,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,11 +21,11 @@
     }
   },
   "current_weights": {
-    "ADI": 0.1827095775473533,
-    "KEYS": 0.21831079621324745,
-    "CAT": 0.1515792004262611,
-    "MCHP": 0.14551756788198456,
-    "TRGP": 0.22208248955405008
+    "ADI": 0.15654992081254943,
+    "KEYS": 0.17712055874077198,
+    "TRGP": 0.1936039598213765,
+    "HAL": 0.1770996942341058,
+    "SLB": 0.21579831715717174
   },
   "nav_series": [
     {
@@ -51,6 +51,10 @@
     {
       "date": "2026-05-14",
       "nav": 102513.12174685135
+    },
+    {
+      "date": "2026-05-15",
+      "nav": 100614.90785418986
     }
   ],
   "daily_returns": [
@@ -73,79 +77,13 @@
     {
       "date": "2026-05-14",
       "ret": -0.00039142769626288043
+    },
+    {
+      "date": "2026-05-15",
+      "ret": -0.01851678946378188
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "GLD",
-      "side": "SELL",
-      "shares": 39.22866203422643,
-      "price": 433.4802653483057,
-      "slippage_bps": 6.6792003297628835,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "KEYS",
-      "side": "BUY",
-      "shares": 52.899633886402405,
-      "price": 360.67279487889147,
-      "slippage_bps": 10.347130129155286,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.1891"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "TRGP",
-      "side": "BUY",
-      "shares": 93.40986487314288,
-      "price": 248.38302996154715,
-      "slippage_bps": 10.601114361436832,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.2300"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "VTRS",
-      "side": "BUY",
-      "shares": 1023.0729617044669,
-      "price": 17.192304980547853,
-      "slippage_bps": 12.990625599765666,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.1744"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "XLB",
-      "side": "SELL",
-      "shares": 496.0488127678108,
-      "price": 51.54292954593606,
-      "slippage_bps": 9.123978777399659,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "XLE",
-      "side": "SELL",
-      "shares": 290.70672466861345,
-      "price": 55.66174635386484,
-      "slippage_bps": 6.867936903165985,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "XLK",
-      "side": "SELL",
-      "shares": 100.90019933293068,
-      "price": 175.3898866051711,
-      "slippage_bps": 7.4132670990514935,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.0000"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "ADI",
@@ -375,6 +313,76 @@
       "slippage_bps": 12.460722030790746,
       "timestamp": "2026-05-14",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "ADI",
+      "side": "SELL",
+      "shares": 6.157590047377899,
+      "price": 417.1634142539354,
+      "slippage_bps": 7.822366717254136,
+      "timestamp": "2026-05-15",
+      "reason": "rebalance to target weight 0.1565"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "CAT",
+      "side": "SELL",
+      "shares": 16.886024561838948,
+      "price": 887.665269483905,
+      "slippage_bps": 7.257917579005097,
+      "timestamp": "2026-05-15",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "HAL",
+      "side": "BUY",
+      "shares": 426.6970817185498,
+      "price": 41.79962649511878,
+      "slippage_bps": 9.48950555037321,
+      "timestamp": "2026-05-15",
+      "reason": "rebalance to target weight 0.1771"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "KEYS",
+      "side": "SELL",
+      "shares": 10.837900127020719,
+      "price": 348.65572193293576,
+      "slippage_bps": 10.151222680608896,
+      "timestamp": "2026-05-15",
+      "reason": "rebalance to target weight 0.1770"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "MCHP",
+      "side": "SELL",
+      "shares": 153.72485585173413,
+      "price": 93.77229753166532,
+      "slippage_bps": 8.279269442630973,
+      "timestamp": "2026-05-15",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "SLB",
+      "side": "BUY",
+      "shares": 392.06441634323033,
+      "price": 55.42834783049478,
+      "slippage_bps": 8.730003872712572,
+      "timestamp": "2026-05-15",
+      "reason": "rebalance to target weight 0.2158"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "TRGP",
+      "side": "SELL",
+      "shares": 13.496042106882824,
+      "price": 271.69672715937565,
+      "slippage_bps": 10.7821274873633,
+      "timestamp": "2026-05-15",
+      "reason": "rebalance to target weight 0.1935"
     }
   ]
 }
