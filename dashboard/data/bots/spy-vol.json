@@ -1,14 +1,14 @@
 {
   "bot_id": "spy-vol",
   "metrics": {
-    "total_return": 0.01037475825338241,
-    "annualized_return": 0.552260002870693,
-    "sharpe": 3.6051768080696642,
-    "sharpe_ci_lo": 3.6051768080696642,
-    "sharpe_ci_hi": 3.6051768080696642,
-    "volatility": 0.12207328688316084,
-    "max_drawdown": -0.012029351892724692,
-    "days": 7,
+    "total_return": 0.009664024657675352,
+    "annualized_return": 0.4214191861690062,
+    "sharpe": 3.130727030040576,
+    "sharpe_ci_lo": 3.1307270300405756,
+    "sharpe_ci_hi": 3.1307270300405756,
+    "volatility": 0.11240241353159168,
+    "max_drawdown": -0.012724325639293918,
+    "days": 8,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -51,6 +51,10 @@
     {
       "date": "2026-05-15",
       "nav": 100982.15173629242
+    },
+    {
+      "date": "2026-05-18",
+      "nav": 100911.11729365666
     }
   ],
   "daily_returns": [
@@ -77,6 +81,10 @@
     {
       "date": "2026-05-15",
       "ret": -0.012029351892724693
+    },
+    {
+      "date": "2026-05-18",
+      "ret": -0.0007034356211903514
     }
   ],
   "recent_trades": [

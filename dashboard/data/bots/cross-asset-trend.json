@@ -1,14 +1,14 @@
 {
   "bot_id": "cross-asset-trend",
   "metrics": {
-    "total_return": -0.0156840643594649,
-    "annualized_return": -0.5469892595837761,
-    "sharpe": -7.178573527911954,
-    "sharpe_ci_lo": -7.178573527911954,
-    "sharpe_ci_hi": -7.178573527911954,
-    "volatility": 0.11013283855394136,
+    "total_return": -0.01445248645782704,
+    "annualized_return": -0.4550223954166748,
+    "sharpe": -5.91323515703935,
+    "sharpe_ci_lo": -5.91323515703935,
+    "sharpe_ci_hi": -5.91323515703935,
+    "volatility": 0.10252933853162136,
     "max_drawdown": -0.01579638191520102,
-    "days": 6,
+    "days": 7,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,12 +21,12 @@
     }
   },
   "current_weights": {
-    "EEM": 0.10710628336822856,
-    "EFA": 0.14455790917238948,
-    "GLD": 0.10810070678923642,
-    "SPY": 0.22087679685105047,
-    "TLT": 0.3275432338469307,
-    "USO": 0.0468800656427471
+    "EEM": 0.10680804582231458,
+    "EFA": 0.14571146559975529,
+    "GLD": 0.11366032412706631,
+    "SPY": 0.220445602302861,
+    "TLT": 0.3267428715549252,
+    "USO": 0.04715630447440546
   },
   "nav_series": [
     {
@@ -52,6 +52,10 @@
     {
       "date": "2026-05-15",
       "nav": 98368.1672622823
+    },
+    {
+      "date": "2026-05-18",
+      "nav": 98491.24569334113
     }
   ],
   "daily_returns": [
@@ -74,6 +78,10 @@
     {
       "date": "2026-05-15",
       "ret": -0.014405509275673967
+    },
+    {
+      "date": "2026-05-18",
+      "ret": 0.0012512018316928053
     }
   ],
   "recent_trades": [
@@ -166,6 +174,16 @@
       "slippage_bps": 6.973514857492704,
       "timestamp": "2026-05-15",
       "reason": "rebalance to target weight 0.0469"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "GLD",
+      "side": "BUY",
+      "shares": 1.2710098685234053,
+      "price": 418.7174953819593,
+      "slippage_bps": 6.870987051848701,
+      "timestamp": "2026-05-18",
+      "reason": "rebalance to target weight 0.1137"
     }
   ]
 }
