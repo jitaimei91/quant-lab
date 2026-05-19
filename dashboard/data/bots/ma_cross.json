@@ -1,14 +1,14 @@
 {
   "bot_id": "ma_cross",
   "metrics": {
-    "total_return": 0.005774313099387252,
-    "annualized_return": 0.23382460817279238,
-    "sharpe": 2.584156819632683,
-    "sharpe_ci_lo": 2.584156819632683,
-    "sharpe_ci_hi": 2.584156819632683,
-    "volatility": 0.08134429164232038,
+    "total_return": 0.0038649097751881634,
+    "annualized_return": 0.13212811351503517,
+    "sharpe": 1.615095800136073,
+    "sharpe_ci_lo": 1.615095800136073,
+    "sharpe_ci_hi": 1.615095800136073,
+    "volatility": 0.07685594229746044,
     "max_drawdown": -0.009402792821334232,
-    "days": 8,
+    "days": 9,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,14 +21,13 @@
     }
   },
   "current_weights": {
-    "EEM": 0.11876371460661936,
-    "EFA": 0.11876118039005133,
-    "HYG": 0.11876269341463706,
-    "IWM": 0.11876514487637294,
-    "USO": 0.11875746800988123,
-    "VNQ": 0.11875774546607704,
-    "VTV": 0.11875712688311156,
-    "VUG": 0.11866513085340948
+    "EEM": 0.13572514260793117,
+    "EFA": 0.13572507916936638,
+    "IWM": 0.13572736136371819,
+    "USO": 0.13572861147240078,
+    "VNQ": 0.1357205506799729,
+    "VTV": 0.13572247598389992,
+    "VUG": 0.13572208802426988
   },
   "nav_series": [
     {
@@ -62,6 +61,10 @@
     {
       "date": "2026-05-18",
       "nav": 100504.13738765591
+    },
+    {
+      "date": "2026-05-19",
+      "nav": 100313.3361994327
     }
   ],
   "daily_returns": [
@@ -92,6 +95,10 @@
     {
       "date": "2026-05-18",
       "ret": 0.003206386698490604
+    },
+    {
+      "date": "2026-05-19",
+      "ret": -0.0018984411307095828
     }
   ],
   "recent_trades": [
@@ -254,6 +261,86 @@
       "slippage_bps": 9.112488052132104,
       "timestamp": "2026-05-18",
       "reason": "rebalance to target weight 0.1187"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "EEM",
+      "side": "BUY",
+      "shares": 28.154958966437192,
+      "price": 64.3074234688575,
+      "slippage_bps": 7.379603338091458,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.1357"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "EFA",
+      "side": "BUY",
+      "shares": 17.318327089823402,
+      "price": 101.99746000468562,
+      "slippage_bps": 7.600258745286625,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.1357"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "HYG",
+      "side": "SELL",
+      "shares": 150.0646456887661,
+      "price": 79.29637882364443,
+      "slippage_bps": 6.757359988375216,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "IWM",
+      "side": "BUY",
+      "shares": 6.620278127243658,
+      "price": 273.16805561,
+      "slippage_bps": 6.155883150183392,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.1357"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "USO",
+      "side": "BUY",
+      "shares": 9.063534402957288,
+      "price": 153.06892363993484,
+      "slippage_bps": 7.12061462388489,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.1357"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "VNQ",
+      "side": "BUY",
+      "shares": 17.265093603111847,
+      "price": 95.38401080081336,
+      "slippage_bps": 10.916459157122933,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.1357"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "VTV",
+      "side": "BUY",
+      "shares": 8.192284028869093,
+      "price": 207.27563025672518,
+      "slippage_bps": 9.44699748602884,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.1357"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "VUG",
+      "side": "BUY",
+      "shares": 20.83616086650059,
+      "price": 86.36878515810125,
+      "slippage_bps": 9.130170557191184,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.1357"
     }
   ]
 }

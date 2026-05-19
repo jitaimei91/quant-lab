@@ -1,14 +1,14 @@
 {
   "bot_id": "apex",
   "metrics": {
-    "total_return": -0.011313050845930817,
-    "annualized_return": -0.3772389427090307,
-    "sharpe": -4.6930965361404,
-    "sharpe_ci_lo": -4.693096536140399,
-    "sharpe_ci_hi": -4.693096536140399,
-    "volatility": 0.1008177916450524,
-    "max_drawdown": -0.013961925065315281,
-    "days": 7,
+    "total_return": -0.014693889176293884,
+    "annualized_return": -0.41093176791493957,
+    "sharpe": -5.715376948150771,
+    "sharpe_ci_lo": -5.715376948150771,
+    "sharpe_ci_hi": -5.715376948150771,
+    "volatility": 0.09249747896475533,
+    "max_drawdown": -0.01733370550783954,
+    "days": 8,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,9 +21,9 @@
     }
   },
   "current_weights": {
-    "EEM": 0.22148266176136397,
-    "USO": 0.1036782635003355,
-    "IWM": 0.32921364404124
+    "EEM": 0.2198139346049615,
+    "USO": 0.09974172645220972,
+    "IWM": 0.32678809199268577
   },
   "nav_series": [
     {
@@ -53,6 +53,10 @@
     {
       "date": "2026-05-18",
       "nav": 98682.24993795235
+    },
+    {
+      "date": "2026-05-19",
+      "nav": 98344.80365791178
     }
   ],
   "daily_returns": [
@@ -79,6 +83,10 @@
     {
       "date": "2026-05-18",
       "ret": -0.0015468419355770813
+    },
+    {
+      "date": "2026-05-19",
+      "ret": -0.0034195235744295394
     }
   ],
   "recent_trades": [
@@ -201,6 +209,16 @@
       "slippage_bps": 7.418355586410595,
       "timestamp": "2026-05-15",
       "reason": "rebalance to target weight 0.2215"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "USO",
+      "side": "SELL",
+      "shares": 4.404018529933638,
+      "price": 152.85108978779957,
+      "slippage_bps": 7.12061462388489,
+      "timestamp": "2026-05-19",
+      "reason": "rebalance to target weight 0.0997"
     }
   ]
 }
