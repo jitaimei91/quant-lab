@@ -2,13 +2,13 @@
   "bot_id": "meanrev",
   "metrics": {
     "total_return": 0.08011364352598349,
-    "annualized_return": 10.925008665452664,
-    "sharpe": 7.168340064340186,
-    "sharpe_ci_lo": 7.168340064340185,
-    "sharpe_ci_hi": 7.168340064340185,
-    "volatility": 0.34748178481247843,
+    "annualized_return": 8.065123151576831,
+    "sharpe": 6.725289296012998,
+    "sharpe_ci_lo": 6.725289296012998,
+    "sharpe_ci_hi": 6.725289296012998,
+    "volatility": 0.32922071239062173,
     "max_drawdown": -0.01022453041662136,
-    "days": 9,
+    "days": 10,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -57,6 +57,10 @@
     {
       "date": "2026-05-19",
       "nav": 107938.96795938416
+    },
+    {
+      "date": "2026-05-20",
+      "nav": 107938.96795938416
     }
   ],
   "daily_returns": [
@@ -90,6 +94,10 @@
     },
     {
       "date": "2026-05-19",
+      "ret": 0.0
+    },
+    {
+      "date": "2026-05-20",
       "ret": 0.0
     }
   ],

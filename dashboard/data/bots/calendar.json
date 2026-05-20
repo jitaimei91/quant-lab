@@ -8,7 +8,7 @@
     "sharpe_ci_hi": 0.0,
     "volatility": 0.0,
     "max_drawdown": 0.0,
-    "days": 8,
+    "days": 9,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -53,6 +53,10 @@
     {
       "date": "2026-05-19",
       "nav": 100000.0
+    },
+    {
+      "date": "2026-05-20",
+      "nav": 100000.0
     }
   ],
   "daily_returns": [
@@ -82,6 +86,10 @@
     },
     {
       "date": "2026-05-19",
+      "ret": 0.0
+    },
+    {
+      "date": "2026-05-20",
       "ret": 0.0
     }
   ],
