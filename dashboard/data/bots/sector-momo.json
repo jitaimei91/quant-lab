@@ -1,14 +1,14 @@
 {
   "bot_id": "sector-momo",
   "metrics": {
-    "total_return": 0.010241434693776252,
-    "annualized_return": 0.38755295144238056,
-    "sharpe": 2.665458716506986,
-    "sharpe_ci_lo": 2.6654587165069863,
-    "sharpe_ci_hi": 2.6654587165069863,
-    "volatility": 0.12296370736921668,
+    "total_return": 0.011588783474643094,
+    "annualized_return": 0.3888369272274943,
+    "sharpe": 2.8575436771692564,
+    "sharpe_ci_lo": 2.8575436771692564,
+    "sharpe_ci_hi": 2.8575436771692564,
+    "volatility": 0.11502214915588699,
     "max_drawdown": -0.012981684042699448,
-    "days": 9,
+    "days": 10,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,9 +21,9 @@
     }
   },
   "current_weights": {
-    "XLB": 0.3752814111680131,
-    "XLE": 0.2934586218250391,
-    "XLK": 0.2866286801773462
+    "XLB": 0.37145523468332203,
+    "XLE": 0.28978423414255733,
+    "XLK": 0.2886061930825297
   },
   "nav_series": [
     {
@@ -61,6 +61,10 @@
     {
       "date": "2026-05-20",
       "nav": 100948.11576188487
+    },
+    {
+      "date": "2026-05-21",
+      "nav": 101082.74924258723
     }
   ],
   "daily_returns": [
@@ -95,6 +99,10 @@
     {
       "date": "2026-05-20",
       "ret": 0.004148317943472923
+    },
+    {
+      "date": "2026-05-21",
+      "ret": 0.0013336898830280663
     }
   ],
   "recent_trades": [
@@ -217,6 +225,16 @@
       "slippage_bps": 7.370703037049138,
       "timestamp": "2026-05-19",
       "reason": "rebalance to target weight 0.2815"
+    },
+    {
+      "bot_id": "sector-momo",
+      "symbol": "XLB",
+      "side": "SELL",
+      "shares": 11.291846873475295,
+      "price": 49.97358515277757,
+      "slippage_bps": 9.279349172597335,
+      "timestamp": "2026-05-21",
+      "reason": "rebalance to target weight 0.3715"
     }
   ]
 }
