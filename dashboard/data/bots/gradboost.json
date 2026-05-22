@@ -1,14 +1,14 @@
 {
   "bot_id": "gradboost",
   "metrics": {
-    "total_return": 0.007185996166681141,
-    "annualized_return": 0.20371230321564937,
-    "sharpe": 1.765225756312262,
-    "sharpe_ci_lo": 1.7652257563122622,
-    "sharpe_ci_hi": 1.7652257563122622,
-    "volatility": 0.10507358162310669,
+    "total_return": 0.011145802669697114,
+    "annualized_return": 0.295054210510441,
+    "sharpe": 2.5650969828190173,
+    "sharpe_ci_lo": 2.565096982819017,
+    "sharpe_ci_hi": 2.565096982819017,
+    "volatility": 0.10084813187415217,
     "max_drawdown": -0.019300430077719834,
-    "days": 11,
+    "days": 12,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -67,6 +67,10 @@
     {
       "date": "2026-05-21",
       "nav": 100718.59961666811
+    },
+    {
+      "date": "2026-05-22",
+      "nav": 101114.5802669697
     }
   ],
   "daily_returns": [
@@ -109,6 +113,10 @@
     {
       "date": "2026-05-21",
       "ret": 0.0019830970699832307
+    },
+    {
+      "date": "2026-05-22",
+      "ret": 0.00393155436839554
     }
   ],
   "recent_trades": [
