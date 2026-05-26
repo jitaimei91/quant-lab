@@ -12,30 +12,36 @@
   },
   {
     "bot_id": "qqq-vol",
-    "cash": 22472.456158983056,
+    "cash": 23612.478154149663,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 111.49163005235981,
+        "shares": 109.92967966271152,
         "avg_cost": 695.9350062774932
       }
     }
   },
   {
     "bot_id": "momo",
-    "cash": 5629.514236603383,
+    "cash": 5071.474227878018,
     "positions": {
       "USO": {
         "symbol": "USO",
-        "shares": 699.26985635735,
-        "avg_cost": 134.97000122070312
+        "shares": 703.3401141372158,
+        "avg_cost": 134.9823385110608
       }
     }
   },
   {
     "bot_id": "meanrev",
-    "cash": 107938.96795938416,
-    "positions": {}
+    "cash": 0.0,
+    "positions": {
+      "USO": {
+        "symbol": "USO",
+        "shares": 787.2901892659493,
+        "avg_cost": 137.0
+      }
+    }
   },
   {
     "bot_id": "breakout",
@@ -44,7 +50,7 @@
   },
   {
     "bot_id": "ma_cross",
-    "cash": 5039.864379754701,
+    "cash": 4316.258434772268,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -63,8 +69,8 @@
       },
       "USO": {
         "symbol": "USO",
-        "shares": 82.96282532810373,
-        "avg_cost": 136.81288572981825
+        "shares": 88.24069551853904,
+        "avg_cost": 136.8301713338429
       },
       "VNQ": {
         "symbol": "VNQ",
@@ -95,42 +101,42 @@
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 8128.00704503696,
+    "cash": 8087.250594249848,
     "positions": {
       "ADI": {
         "symbol": "ADI",
-        "shares": 37.43607469944823,
+        "shares": 36.091420494557624,
         "avg_cost": 417.84817002402855
-      },
-      "TRGP": {
-        "symbol": "TRGP",
-        "shares": 71.43060908577726,
-        "avg_cost": 267.7214927174468
       },
       "SLB": {
         "symbol": "SLB",
-        "shares": 375.1425801054834,
-        "avg_cost": 55.465439266555165
+        "shares": 410.8626097548769,
+        "avg_cost": 55.688456952863056
       },
       "FFIV": {
         "symbol": "FFIV",
-        "shares": 42.23446340581213,
-        "avg_cost": 383.70001220703125
+        "shares": 46.07004585157485,
+        "avg_cost": 384.8446687174839
       },
       "KEYS": {
         "symbol": "KEYS",
-        "shares": 55.38973953978729,
-        "avg_cost": 346.55999755859375
+        "shares": 58.649857968906815,
+        "avg_cost": 347.0890980144411
+      },
+      "ODFL": {
+        "symbol": "ODFL",
+        "shares": 69.66153915137014,
+        "avg_cost": 216.61000061035156
       }
     }
   },
   {
     "bot_id": "codex-native",
-    "cash": 8133.874348711601,
+    "cash": 8566.953210752361,
     "positions": {
       "EEM": {
         "symbol": "EEM",
-        "shares": 232.1891946549581,
+        "shares": 217.88876390647738,
         "avg_cost": 66.65998923290009
       },
       "IWM": {
@@ -140,8 +146,8 @@
       },
       "XLE": {
         "symbol": "XLE",
-        "shares": 253.92148606049523,
-        "avg_cost": 55.847952245485025
+        "shares": 263.32450916857346,
+        "avg_cost": 55.92090414580815
       },
       "XLK": {
         "symbol": "XLK",
@@ -157,12 +163,12 @@
   },
   {
     "bot_id": "risk-parity",
-    "cash": 5566.613984412928,
+    "cash": 5058.303069081887,
     "positions": {
       "GLD": {
         "symbol": "GLD",
-        "shares": 39.42209307882341,
-        "avg_cost": 432.6846353543794
+        "shares": 40.649048635548745,
+        "avg_cost": 432.1292988069221
       },
       "SPY": {
         "symbol": "SPY",
@@ -178,11 +184,11 @@
   },
   {
     "bot_id": "apex",
-    "cash": 36053.04448125932,
+    "cash": 37187.67165049662,
     "positions": {
       "EEM": {
         "symbol": "EEM",
-        "shares": 336.4076800708631,
+        "shares": 319.8073274698607,
         "avg_cost": 67.94000244140625
       },
       "USO": {
@@ -204,7 +210,7 @@
   },
   {
     "bot_id": "sector-momo",
-    "cash": 5069.73838074024,
+    "cash": 4741.859289226442,
     "positions": {
       "XLB": {
         "symbol": "XLB",
@@ -213,12 +219,12 @@
       },
       "XLE": {
         "symbol": "XLE",
-        "shares": 495.38620911817605,
-        "avg_cost": 55.70000076293945
+        "shares": 511.8444395541642,
+        "avg_cost": 55.77044905535884
       },
       "XLK": {
         "symbol": "XLK",
-        "shares": 163.343261188415,
+        "shares": 159.96549565810994,
         "avg_cost": 175.5301798555297
       }
     }
@@ -241,11 +247,11 @@
   },
   {
     "bot_id": "cross-asset-trend",
-    "cash": 5043.168793867024,
+    "cash": 5167.257073369576,
     "positions": {
       "EEM": {
         "symbol": "EEM",
-        "shares": 161.91561159704986,
+        "shares": 150.45895702031459,
         "avg_cost": 67.94000244140625
       },
       "EFA": {
@@ -255,8 +261,8 @@
       },
       "GLD": {
         "symbol": "GLD",
-        "shares": 26.753691430188002,
-        "avg_cost": 432.92271449446145
+        "shares": 28.344304561288997,
+        "avg_cost": 431.87688615280723
       },
       "SPY": {
         "symbol": "SPY",
@@ -277,7 +283,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": -92.44098583453115,
+    "cash": 822.5366743551681,
     "positions": {
       "ADI": {
         "symbol": "ADI",
@@ -341,23 +347,18 @@
       },
       "TER": {
         "symbol": "TER",
-        "shares": 10.49297888515863,
+        "shares": 9.13886329769099,
         "avg_cost": 356.17733996301894
       },
       "TXN": {
         "symbol": "TXN",
-        "shares": 12.686472612419964,
+        "shares": 10.946173479935604,
         "avg_cost": 287.79998779296875
       },
       "WDC": {
         "symbol": "WDC",
         "shares": 7.606972285350068,
         "avg_cost": 480.0
-      },
-      "TRGP": {
-        "symbol": "TRGP",
-        "shares": 13.425477248038437,
-        "avg_cost": 263.2900085449219
       },
       "JBHT": {
         "symbol": "JBHT",
@@ -404,11 +405,6 @@
         "shares": 28.14976827939607,
         "avg_cost": 129.4600067138672
       },
-      "APA": {
-        "symbol": "APA",
-        "shares": 88.56149336878352,
-        "avg_cost": 38.79999923706055
-      },
       "VTRS": {
         "symbol": "VTRS",
         "shares": 206.35607295982365,
@@ -418,24 +414,40 @@
         "symbol": "XPO",
         "shares": 16.934015959285013,
         "avg_cost": 202.9199981689453
+      },
+      "CAT": {
+        "symbol": "CAT",
+        "shares": 3.9118936859559486,
+        "avg_cost": 908.5499877929688
+      },
+      "STLD": {
+        "symbol": "STLD",
+        "shares": 14.182991288990321,
+        "avg_cost": 250.49000549316406
       }
     }
   },
   {
     "bot_id": "regime-momo",
-    "cash": 5629.514236603383,
+    "cash": 5071.474227878018,
     "positions": {
       "USO": {
         "symbol": "USO",
-        "shares": 699.26985635735,
-        "avg_cost": 134.97000122070312
+        "shares": 703.3401141372158,
+        "avg_cost": 134.9823385110608
       }
     }
   },
   {
     "bot_id": "regime-meanrev",
-    "cash": 107938.96795938416,
-    "positions": {}
+    "cash": 0.0,
+    "positions": {
+      "USO": {
+        "symbol": "USO",
+        "shares": 787.2901892659493,
+        "avg_cost": 137.0
+      }
+    }
   },
   {
     "bot_id": "regime-breakout",
