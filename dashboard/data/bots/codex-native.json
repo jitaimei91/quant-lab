@@ -1,14 +1,14 @@
 {
   "bot_id": "codex-native",
   "metrics": {
-    "total_return": 0.03662228300843018,
-    "annualized_return": 1.14735674285973,
-    "sharpe": 5.479796890237251,
-    "sharpe_ci_lo": 5.479796890237252,
-    "sharpe_ci_hi": 5.479796890237252,
-    "volatility": 0.13967628712928887,
+    "total_return": 0.033244271286279936,
+    "annualized_return": 0.9012907546994877,
+    "sharpe": 4.710703251659813,
+    "sharpe_ci_lo": 4.7107032516598135,
+    "sharpe_ci_hi": 4.7107032516598135,
+    "volatility": 0.1365725681568701,
     "max_drawdown": -0.01973463167080967,
-    "days": 13,
+    "days": 14,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,11 +21,11 @@
     }
   },
   "current_weights": {
-    "EEM": 0.14387299066831824,
-    "IWM": 0.210611253599465,
-    "XLE": 0.14705607151794592,
-    "XLK": 0.17582451807065871,
-    "QQQ": 0.23993341228206266
+    "EEM": 0.14432225095078702,
+    "IWM": 0.21119797193702428,
+    "XLE": 0.14534356618617753,
+    "XLK": 0.17572285907897106,
+    "QQQ": 0.24583542342343587
   },
   "nav_series": [
     {
@@ -79,6 +79,10 @@
     {
       "date": "2026-05-26",
       "nav": 103588.53120689864
+    },
+    {
+      "date": "2026-05-27",
+      "nav": 103250.9701893198
     }
   ],
   "daily_returns": [
@@ -129,19 +133,13 @@
     {
       "date": "2026-05-26",
       "ret": 0.01442727701642288
+    },
+    {
+      "date": "2026-05-27",
+      "ret": -0.003258671724040707
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-native",
-      "symbol": "GLD",
-      "side": "BUY",
-      "shares": 37.18732644992985,
-      "price": 434.3999398933912,
-      "slippage_bps": 6.679287544926932,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.1602"
-    },
     {
       "bot_id": "codex-native",
       "symbol": "IWM",
@@ -431,6 +429,16 @@
       "slippage_bps": 7.0728168982777415,
       "timestamp": "2026-05-26",
       "reason": "rebalance to target weight 0.1471"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "QQQ",
+      "side": "BUY",
+      "shares": 0.7631023388586595,
+      "price": 729.8586406780179,
+      "slippage_bps": 5.601870781388576,
+      "timestamp": "2026-05-27",
+      "reason": "rebalance to target weight 0.2458"
     }
   ]
 }
