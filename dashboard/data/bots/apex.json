@@ -1,14 +1,14 @@
 {
   "bot_id": "apex",
   "metrics": {
-    "total_return": 0.0041355939256471075,
-    "annualized_return": 0.09576258675476468,
-    "sharpe": 0.8956124724392255,
-    "sharpe_ci_lo": 0.8956124724392255,
-    "sharpe_ci_hi": 0.8956124724392255,
-    "volatility": 0.10212803596910887,
+    "total_return": 0.007257487968219234,
+    "annualized_return": 0.15564329587453107,
+    "sharpe": 1.4686524464844768,
+    "sharpe_ci_lo": 1.4686524464844768,
+    "sharpe_ci_hi": 1.4686524464844768,
+    "volatility": 0.0985247956887403,
     "max_drawdown": -0.01733370550783954,
-    "days": 13,
+    "days": 14,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,9 +21,9 @@
     }
   },
   "current_weights": {
-    "EEM": 0.21822696197950056,
-    "USO": 0.0973901662449043,
-    "QQQ": 0.35654586339719224
+    "EEM": 0.23311710620254084,
+    "USO": 0.09690307452143851,
+    "IWM": 0.3251145509764641
   },
   "nav_series": [
     {
@@ -77,6 +77,10 @@
     {
       "date": "2026-05-27",
       "nav": 100224.20113479567
+    },
+    {
+      "date": "2026-05-28",
+      "nav": 100535.80181734994
     }
   ],
   "daily_returns": [
@@ -127,6 +131,10 @@
     {
       "date": "2026-05-27",
       "ret": -0.004633113127676447
+    },
+    {
+      "date": "2026-05-28",
+      "ret": 0.003109036330807946
     }
   ],
   "recent_trades": [
@@ -329,6 +337,36 @@
       "slippage_bps": 7.482031932765557,
       "timestamp": "2026-05-27",
       "reason": "rebalance to target weight 0.0974"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "EEM",
+      "side": "BUY",
+      "shares": 21.784495601435946,
+      "price": 68.66042986967368,
+      "slippage_bps": 7.350132469536799,
+      "timestamp": "2026-05-28",
+      "reason": "rebalance to target weight 0.2330"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "IWM",
+      "side": "BUY",
+      "shares": 111.9256658615023,
+      "price": 292.2097377419367,
+      "slippage_bps": 6.154811608091519,
+      "timestamp": "2026-05-28",
+      "reason": "rebalance to target weight 0.3252"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "QQQ",
+      "side": "SELL",
+      "shares": 48.98831137007023,
+      "price": 735.187747720133,
+      "slippage_bps": 5.603967910360485,
+      "timestamp": "2026-05-28",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
