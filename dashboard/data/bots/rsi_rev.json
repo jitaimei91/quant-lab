@@ -1,14 +1,14 @@
 {
   "bot_id": "rsi_rev",
   "metrics": {
-    "total_return": 0.0,
-    "annualized_return": 0.0,
-    "sharpe": 0.0,
-    "sharpe_ci_lo": 0.0,
-    "sharpe_ci_hi": 0.0,
-    "volatility": 0.0,
-    "max_drawdown": 0.0,
-    "days": 16,
+    "total_return": -0.001047142613572638,
+    "annualized_return": -0.016357770425416307,
+    "sharpe": -3.968626966596886,
+    "sharpe_ci_lo": -3.968626966596886,
+    "sharpe_ci_hi": -3.968626966596886,
+    "volatility": 0.0041557184140971135,
+    "max_drawdown": -0.0010471426135726506,
+    "days": 17,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -20,7 +20,9 @@
       "r_squared": 0.0
     }
   },
-  "current_weights": {},
+  "current_weights": {
+    "VXX": 0.8998951759729371
+  },
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -85,6 +87,10 @@
     {
       "date": "2026-05-29",
       "nav": 100000.0
+    },
+    {
+      "date": "2026-06-01",
+      "nav": 99895.28573864273
     }
   ],
   "daily_returns": [
@@ -147,7 +153,22 @@
     {
       "date": "2026-05-29",
       "ret": 0.0
+    },
+    {
+      "date": "2026-06-01",
+      "ret": -0.001047142613572638
     }
   ],
-  "recent_trades": []
+  "recent_trades": [
+    {
+      "bot_id": "rsi_rev",
+      "symbol": "VXX",
+      "side": "BUY",
+      "shares": 3627.7354014396496,
+      "price": 24.808865598159095,
+      "slippage_bps": 11.648470828794164,
+      "timestamp": "2026-06-01",
+      "reason": "rebalance to target weight 0.9000"
+    }
+  ]
 }

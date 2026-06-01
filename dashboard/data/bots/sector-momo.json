@@ -1,14 +1,14 @@
 {
   "bot_id": "sector-momo",
   "metrics": {
-    "total_return": 0.025667072485646925,
-    "annualized_return": 0.5850869197734403,
-    "sharpe": 4.690782212229069,
-    "sharpe_ci_lo": 4.690782212229069,
-    "sharpe_ci_hi": 4.690782212229069,
-    "volatility": 0.09829075184863885,
+    "total_return": 0.036474772939286026,
+    "annualized_return": 0.8342176918889594,
+    "sharpe": 6.0004800090828985,
+    "sharpe_ci_lo": 6.000480009082899,
+    "sharpe_ci_hi": 6.000480009082899,
+    "volatility": 0.10121669930810621,
     "max_drawdown": -0.012981684042699448,
-    "days": 15,
+    "days": 16,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,9 +21,9 @@
     }
   },
   "current_weights": {
-    "XLB": 0.37419002237474297,
-    "XLE": 0.2865932670764537,
-    "XLK": 0.28629526648678644
+    "XLB": 0.3855782174668194,
+    "XLE": 0.28271801045619044,
+    "XLK": 0.2817024561074625
   },
   "nav_series": [
     {
@@ -85,6 +85,10 @@
     {
       "date": "2026-05-29",
       "nav": 102489.51865433966
+    },
+    {
+      "date": "2026-06-01",
+      "nav": 103569.47534493456
     }
   ],
   "daily_returns": [
@@ -143,6 +147,10 @@
     {
       "date": "2026-05-29",
       "ret": 0.001555089493450179
+    },
+    {
+      "date": "2026-06-01",
+      "ret": 0.010537240341982779
     }
   ],
   "recent_trades": [
@@ -345,6 +353,36 @@
       "slippage_bps": 7.260617325141684,
       "timestamp": "2026-05-29",
       "reason": "rebalance to target weight 0.2863"
+    },
+    {
+      "bot_id": "sector-momo",
+      "symbol": "XLB",
+      "side": "BUY",
+      "shares": 34.48600301584454,
+      "price": 50.96756068444347,
+      "slippage_bps": 9.340635744005422,
+      "timestamp": "2026-06-01",
+      "reason": "rebalance to target weight 0.3856"
+    },
+    {
+      "bot_id": "sector-momo",
+      "symbol": "XLE",
+      "side": "SELL",
+      "shares": 10.80068717777354,
+      "price": 57.25945061685471,
+      "slippage_bps": 7.076548123164507,
+      "timestamp": "2026-06-01",
+      "reason": "rebalance to target weight 0.2827"
+    },
+    {
+      "bot_id": "sector-momo",
+      "symbol": "XLK",
+      "side": "SELL",
+      "shares": 4.569832892624611,
+      "price": 195.6182625287032,
+      "slippage_bps": 7.240088992123699,
+      "timestamp": "2026-06-01",
+      "reason": "rebalance to target weight 0.2817"
     }
   ]
 }

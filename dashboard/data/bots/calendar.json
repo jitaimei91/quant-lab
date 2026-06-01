@@ -1,14 +1,14 @@
 {
   "bot_id": "calendar",
   "metrics": {
-    "total_return": 0.007091412147987697,
-    "annualized_return": 0.13594155376203942,
-    "sharpe": 5.308135015738721,
-    "sharpe_ci_lo": 5.308135015738721,
-    "sharpe_ci_hi": 5.308135015738721,
-    "volatility": 0.02401862613797642,
+    "total_return": 0.009697701836122397,
+    "annualized_return": 0.17635361971496222,
+    "sharpe": 6.586333212879105,
+    "sharpe_ci_lo": 6.586333212879105,
+    "sharpe_ci_hi": 6.586333212879105,
+    "volatility": 0.024668028289099257,
     "max_drawdown": -0.0005249831656443712,
-    "days": 15,
+    "days": 16,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,7 +21,7 @@
     }
   },
   "current_weights": {
-    "SPY": 0.9503520739062238
+    "SPY": 0.9504802279840039
   },
   "nav_series": [
     {
@@ -83,6 +83,10 @@
     {
       "date": "2026-05-29",
       "nav": 100709.14121479877
+    },
+    {
+      "date": "2026-06-01",
+      "nav": 100969.77018361223
     }
   ],
   "daily_returns": [
@@ -141,6 +145,10 @@
     {
       "date": "2026-05-29",
       "ret": 0.0023674074042503435
+    },
+    {
+      "date": "2026-06-01",
+      "ret": 0.002587937556309594
     }
   ],
   "recent_trades": [
