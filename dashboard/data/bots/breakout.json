@@ -8,7 +8,7 @@
     "sharpe_ci_hi": 0.0,
     "volatility": 0.0,
     "max_drawdown": 0.0,
-    "days": 17,
+    "days": 18,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -89,6 +89,10 @@
     {
       "date": "2026-06-01",
       "nav": 100000.0
+    },
+    {
+      "date": "2026-06-02",
+      "nav": 100000.0
     }
   ],
   "daily_returns": [
@@ -154,6 +158,10 @@
     },
     {
       "date": "2026-06-01",
+      "ret": 0.0
+    },
+    {
+      "date": "2026-06-02",
       "ret": 0.0
     }
   ],
