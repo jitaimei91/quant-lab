@@ -1,14 +1,14 @@
 {
   "bot_id": "qqq-vol",
   "metrics": {
-    "total_return": 0.05474689023487245,
-    "annualized_return": 1.1229433583382629,
-    "sharpe": 6.360197482031908,
-    "sharpe_ci_lo": 6.360197482031908,
-    "sharpe_ci_hi": 6.360197482031908,
-    "volatility": 0.11853862333333809,
+    "total_return": 0.05064650102030921,
+    "annualized_return": 0.9383119670043498,
+    "sharpe": 5.62115268532916,
+    "sharpe_ci_lo": 5.621152685329159,
+    "sharpe_ci_hi": 5.621152685329159,
+    "volatility": 0.11789170743128172,
     "max_drawdown": -0.019642652602321436,
-    "days": 19,
+    "days": 20,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,7 +21,7 @@
     }
   },
   "current_weights": {
-    "QQQ": 0.8036471788357584
+    "QQQ": 0.8028808668655867
   },
   "nav_series": [
     {
@@ -99,6 +99,10 @@
     {
       "date": "2026-06-03",
       "nav": 105428.8005435209
+    },
+    {
+      "date": "2026-06-04",
+      "nav": 105018.94001617037
     }
   ],
   "daily_returns": [
@@ -173,6 +177,10 @@
     {
       "date": "2026-06-03",
       "ret": -0.002101261582337144
+    },
+    {
+      "date": "2026-06-04",
+      "ret": -0.003887557529228869
     }
   ],
   "recent_trades": [

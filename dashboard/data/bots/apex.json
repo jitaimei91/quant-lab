@@ -1,14 +1,14 @@
 {
   "bot_id": "apex",
   "metrics": {
-    "total_return": 0.019941586495450636,
-    "annualized_return": 0.3462892644449276,
-    "sharpe": 2.988591935334216,
-    "sharpe_ci_lo": 2.9885919353342163,
-    "sharpe_ci_hi": 2.9885919353342163,
-    "volatility": 0.0995544468461702,
+    "total_return": 0.011809710034807797,
+    "annualized_return": 0.18450033223323659,
+    "sharpe": 1.652872112048303,
+    "sharpe_ci_lo": 1.6528721120483028,
+    "sharpe_ci_hi": 1.6528721120483028,
+    "volatility": 0.10247491064453207,
     "max_drawdown": -0.01733370550783954,
-    "days": 18,
+    "days": 19,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,9 +21,9 @@
     }
   },
   "current_weights": {
-    "EEM": 0.23461368086117837,
-    "USO": 0.10307399719617318,
-    "QQQ": 0.3708864356230535
+    "EEM": 0.23372567337608527,
+    "USO": 0.10086337179825768,
+    "IWM": 0.33552790425796314
   },
   "nav_series": [
     {
@@ -97,6 +97,10 @@
     {
       "date": "2026-06-03",
       "nav": 101801.81972339476
+    },
+    {
+      "date": "2026-06-04",
+      "nav": 100990.16557337253
     }
   ],
   "daily_returns": [
@@ -167,6 +171,10 @@
     {
       "date": "2026-06-03",
       "ret": -0.0012959493175217496
+    },
+    {
+      "date": "2026-06-04",
+      "ret": -0.007972884494870214
     }
   ],
   "recent_trades": [
@@ -429,6 +437,26 @@
       "slippage_bps": 5.610195047485874,
       "timestamp": "2026-06-02",
       "reason": "rebalance to target weight 0.3714"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "IWM",
+      "side": "BUY",
+      "shares": 116.04060639118298,
+      "price": 292.19025925704506,
+      "slippage_bps": 6.172716187529419,
+      "timestamp": "2026-06-04",
+      "reason": "rebalance to target weight 0.3356"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "QQQ",
+      "side": "SELL",
+      "shares": 50.73421875866355,
+      "price": 740.1945696505766,
+      "slippage_bps": 5.6091020807487855,
+      "timestamp": "2026-06-04",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
