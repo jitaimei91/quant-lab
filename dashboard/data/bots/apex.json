@@ -1,14 +1,14 @@
 {
   "bot_id": "apex",
   "metrics": {
-    "total_return": 0.011809710034807797,
-    "annualized_return": 0.18450033223323659,
-    "sharpe": 1.652872112048303,
-    "sharpe_ci_lo": 1.6528721120483028,
-    "sharpe_ci_hi": 1.6528721120483028,
-    "volatility": 0.10247491064453207,
-    "max_drawdown": -0.01733370550783954,
-    "days": 19,
+    "total_return": -0.01846731653362843,
+    "annualized_return": -0.2106374821909308,
+    "sharpe": -1.5819929850854566,
+    "sharpe_ci_lo": -1.5819929850854566,
+    "sharpe_ci_hi": -1.5819929850854566,
+    "volatility": 0.14944353814360595,
+    "max_drawdown": -0.03890509041472404,
+    "days": 20,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,9 +21,9 @@
     }
   },
   "current_weights": {
-    "EEM": 0.23372567337608527,
-    "USO": 0.10086337179825768,
-    "IWM": 0.33552790425796314
+    "EEM": 0.21207690198163895,
+    "USO": 0.1011460492804264,
+    "IWM": 0.31423810695622545
   },
   "nav_series": [
     {
@@ -101,6 +101,10 @@
     {
       "date": "2026-06-04",
       "nav": 100990.16557337253
+    },
+    {
+      "date": "2026-06-05",
+      "nav": 97968.1725089745
     }
   ],
   "daily_returns": [
@@ -175,6 +179,10 @@
     {
       "date": "2026-06-04",
       "ret": -0.007972884494870214
+    },
+    {
+      "date": "2026-06-05",
+      "ret": -0.02992363709120227
     }
   ],
   "recent_trades": [
@@ -457,6 +465,26 @@
       "slippage_bps": 5.6091020807487855,
       "timestamp": "2026-06-04",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "EEM",
+      "side": "SELL",
+      "shares": 19.91992809523621,
+      "price": 64.54254847789935,
+      "slippage_bps": 7.346007536996705,
+      "timestamp": "2026-06-05",
+      "reason": "rebalance to target weight 0.2121"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "IWM",
+      "side": "SELL",
+      "shares": 6.737095869909198,
+      "price": 281.47625177896845,
+      "slippage_bps": 6.168724348696131,
+      "timestamp": "2026-06-05",
+      "reason": "rebalance to target weight 0.3142"
     }
   ]
 }

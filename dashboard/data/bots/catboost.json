@@ -1,14 +1,14 @@
 {
   "bot_id": "catboost",
   "metrics": {
-    "total_return": 0.024063356359045107,
-    "annualized_return": 0.4281843049965812,
-    "sharpe": 3.905930289096051,
-    "sharpe_ci_lo": 3.9059302890960517,
-    "sharpe_ci_hi": 3.9059302890960517,
-    "volatility": 0.0913114276068669,
-    "max_drawdown": -0.019300430077719682,
-    "days": 18,
+    "total_return": -0.0023671040563985057,
+    "annualized_return": -0.024193470572785647,
+    "sharpe": -0.18141102910490212,
+    "sharpe_ci_lo": -0.18141102910490212,
+    "sharpe_ci_hi": -0.18141102910490212,
+    "volatility": 0.13499592793517812,
+    "max_drawdown": -0.02899011193032911,
+    "days": 19,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -95,6 +95,10 @@
     {
       "date": "2026-06-04",
       "nav": 102350.16747209973
+    },
+    {
+      "date": "2026-06-05",
+      "nav": 99708.57109714174
     }
   ],
   "daily_returns": [
@@ -165,6 +169,10 @@
     {
       "date": "2026-06-04",
       "ret": 0.003778686701838785
+    },
+    {
+      "date": "2026-06-05",
+      "ret": -0.0258093996346227
     }
   ],
   "recent_trades": [
