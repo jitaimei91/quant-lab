@@ -1,14 +1,14 @@
 {
   "bot_id": "spy-vol",
   "metrics": {
-    "total_return": 0.007429544694972368,
-    "annualized_return": 0.09677897936701374,
-    "sharpe": 0.7358229370191799,
-    "sharpe_ci_lo": -0.15938931915090987,
-    "sharpe_ci_hi": 1.7316466690062067,
-    "volatility": 0.12556637324161835,
-    "max_drawdown": -0.02969401580100829,
-    "days": 23,
+    "total_return": -0.008456411981238032,
+    "annualized_return": -0.08094369666598511,
+    "sharpe": -0.6307393100699712,
+    "sharpe_ci_lo": -1.1919600632209049,
+    "sharpe_ci_hi": 1.8080301646422192,
+    "volatility": 0.13380132896457436,
+    "max_drawdown": -0.04499457841486339,
+    "days": 24,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,7 +21,7 @@
     }
   },
   "current_weights": {
-    "SPY": 1.0
+    "SPY": 0.9940094769512532
   },
   "nav_series": [
     {
@@ -115,6 +115,10 @@
     {
       "date": "2026-06-09",
       "nav": 100687.79164859063
+    },
+    {
+      "date": "2026-06-10",
+      "nav": 99100.06583255144
     }
   ],
   "daily_returns": [
@@ -205,6 +209,10 @@
     {
       "date": "2026-06-09",
       "ret": -0.002935503633772485
+    },
+    {
+      "date": "2026-06-10",
+      "ret": -0.015768801659495124
     }
   ],
   "recent_trades": [
@@ -237,6 +245,16 @@
       "slippage_bps": 5.5304630901707785,
       "timestamp": "2026-06-08",
       "reason": "rebalance to target weight 1.0000"
+    },
+    {
+      "bot_id": "spy-vol",
+      "symbol": "SPY",
+      "side": "SELL",
+      "shares": 0.8188096579456603,
+      "price": 725.0295874522102,
+      "slippage_bps": 5.5195570573833805,
+      "timestamp": "2026-06-10",
+      "reason": "rebalance to target weight 0.9940"
     }
   ]
 }
