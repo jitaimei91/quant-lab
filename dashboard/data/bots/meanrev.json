@@ -1,14 +1,14 @@
 {
   "bot_id": "meanrev",
   "metrics": {
-    "total_return": 0.06475306775910927,
-    "annualized_return": 1.0885050702045262,
-    "sharpe": 2.2870875150730052,
-    "sharpe_ci_lo": -0.5313967259614069,
-    "sharpe_ci_hi": 5.6388630101227974,
-    "volatility": 0.32247374919389366,
+    "total_return": 0.09581408843362094,
+    "annualized_return": 1.7485427632811787,
+    "sharpe": 3.10148449144351,
+    "sharpe_ci_lo": -0.520687853871518,
+    "sharpe_ci_hi": 5.510239314145237,
+    "volatility": 0.3266506369149264,
     "max_drawdown": -0.058437471002678425,
-    "days": 24,
+    "days": 25,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,8 +21,7 @@
     }
   },
   "current_weights": {
-    "EEM": 0.5007175172831974,
-    "VUG": 0.4992824827168027
+    "USO": 1.000816767311762
   },
   "nav_series": [
     {
@@ -120,6 +119,10 @@
     {
       "date": "2026-06-10",
       "nav": 106403.93995054811
+    },
+    {
+      "date": "2026-06-11",
+      "nav": 109507.96010200844
     }
   ],
   "daily_returns": [
@@ -214,6 +217,10 @@
     {
       "date": "2026-06-10",
       "ret": -0.018944147943381506
+    },
+    {
+      "date": "2026-06-11",
+      "ret": 0.029172041494919698
     }
   ],
   "recent_trades": [
@@ -306,6 +313,36 @@
       "slippage_bps": 9.10128748583417,
       "timestamp": "2026-06-09",
       "reason": "rebalance to target weight 0.5000"
+    },
+    {
+      "bot_id": "meanrev",
+      "symbol": "EEM",
+      "side": "SELL",
+      "shares": 823.9763938091121,
+      "price": 67.45106256507708,
+      "slippage_bps": 7.249990358950376,
+      "timestamp": "2026-06-11",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meanrev",
+      "symbol": "USO",
+      "side": "BUY",
+      "shares": 850.713351443723,
+      "price": 128.9318940677357,
+      "slippage_bps": 7.909045659614625,
+      "timestamp": "2026-06-11",
+      "reason": "rebalance to target weight 1.0000"
+    },
+    {
+      "bot_id": "meanrev",
+      "symbol": "VUG",
+      "side": "SELL",
+      "shares": 635.1700585489752,
+      "price": 85.04267033713056,
+      "slippage_bps": 9.085104200678565,
+      "timestamp": "2026-06-11",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }

@@ -2,13 +2,13 @@
   "bot_id": "calendar",
   "metrics": {
     "total_return": 0.007332592792155257,
-    "annualized_return": 0.08786682810276902,
-    "sharpe": 2.5198676470795434,
-    "sharpe_ci_lo": 2.5198676470795434,
-    "sharpe_ci_hi": 2.5198676470795434,
-    "volatility": 0.03342747583397344,
+    "annualized_return": 0.08389132158151624,
+    "sharpe": 2.465614584318446,
+    "sharpe_ci_lo": 2.465614584318446,
+    "sharpe_ci_hi": 2.465614584318446,
+    "volatility": 0.0326776614199863,
     "max_drawdown": -0.006670110761314937,
-    "days": 23,
+    "days": 24,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -113,6 +113,10 @@
     {
       "date": "2026-06-10",
       "nav": 100733.25927921552
+    },
+    {
+      "date": "2026-06-11",
+      "nav": 100733.25927921552
     }
   ],
   "daily_returns": [
@@ -202,6 +206,10 @@
     },
     {
       "date": "2026-06-10",
+      "ret": 0.0
+    },
+    {
+      "date": "2026-06-11",
       "ret": 0.0
     }
   ],
