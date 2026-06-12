@@ -1,14 +1,14 @@
 {
   "bot_id": "codex-native",
   "metrics": {
-    "total_return": 0.011571691965126973,
-    "annualized_return": 0.15145974245608684,
-    "sharpe": 0.6914439630939947,
-    "sharpe_ci_lo": -1.1462114872113034,
-    "sharpe_ci_hi": 1.3722571945432858,
-    "volatility": 0.20402224487490378,
+    "total_return": 0.018018053953013258,
+    "annualized_return": 0.22089488833050663,
+    "sharpe": 0.9954420073373793,
+    "sharpe_ci_lo": -1.1674180820902464,
+    "sharpe_ci_hi": 1.6558410295095412,
+    "volatility": 0.2005773913742128,
     "max_drawdown": -0.0586776771009294,
-    "days": 25,
+    "days": 26,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,11 +21,11 @@
     }
   },
   "current_weights": {
-    "EEM": 0.13626983633618547,
-    "IWM": 0.21310315127032084,
-    "XLK": 0.14412721096925774,
-    "QQQ": 0.2048401410210398,
-    "XLI": 0.21973357599578427
+    "EEM": 0.13616922477547116,
+    "IWM": 0.2136057835950925,
+    "XLK": 0.14445745304155683,
+    "QQQ": 0.2047408270835858,
+    "XLI": 0.2284534587936023
   },
   "nav_series": [
     {
@@ -127,6 +127,10 @@
     {
       "date": "2026-06-11",
       "nav": 101085.25303646464
+    },
+    {
+      "date": "2026-06-12",
+      "nav": 101729.43094089397
     }
   ],
   "daily_returns": [
@@ -225,19 +229,13 @@
     {
       "date": "2026-06-11",
       "ret": 0.012718147705112814
+    },
+    {
+      "date": "2026-06-12",
+      "ret": 0.006372619992324413
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-native",
-      "symbol": "EEM",
-      "side": "SELL",
-      "shares": 14.30043074848071,
-      "price": 68.34958247626557,
-      "slippage_bps": 7.3712059193826995,
-      "timestamp": "2026-05-26",
-      "reason": "rebalance to target weight 0.1439"
-    },
     {
       "bot_id": "codex-native",
       "symbol": "XLE",
@@ -527,6 +525,16 @@
       "slippage_bps": 7.024387874793188,
       "timestamp": "2026-06-11",
       "reason": "rebalance to target weight 0.1440"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "XLI",
+      "side": "BUY",
+      "shares": 5.0970367057633705,
+      "price": 176.31485207973398,
+      "slippage_bps": 7.654637845338682,
+      "timestamp": "2026-06-12",
+      "reason": "rebalance to target weight 0.2285"
     }
   ]
 }

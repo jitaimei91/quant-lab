@@ -1,14 +1,14 @@
 {
   "bot_id": "qlib-linear",
   "metrics": {
-    "total_return": -0.002083021848737099,
-    "annualized_return": -0.013530288753345499,
-    "sharpe": -0.09318927900411252,
-    "sharpe_ci_lo": -1.6800653628952806,
-    "sharpe_ci_hi": 1.0030699847515117,
-    "volatility": 0.14617871478668448,
+    "total_return": 0.003313962190565123,
+    "annualized_return": 0.04730620537361818,
+    "sharpe": 0.3211051815482518,
+    "sharpe_ci_lo": -2.898441035651107,
+    "sharpe_ci_hi": 0.8463893626463658,
+    "volatility": 0.14395777684507186,
     "max_drawdown": -0.04494650173024147,
-    "days": 23,
+    "days": 24,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -115,6 +115,10 @@
     {
       "date": "2026-06-11",
       "nav": 99736.96373647351
+    },
+    {
+      "date": "2026-06-12",
+      "nav": 100276.36612484798
     }
   ],
   "daily_returns": [
@@ -205,6 +209,10 @@
     {
       "date": "2026-06-11",
       "ret": 0.016996839411566045
+    },
+    {
+      "date": "2026-06-12",
+      "ret": 0.005408249541260179
     }
   ],
   "recent_trades": [

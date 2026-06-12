@@ -1,14 +1,14 @@
 {
   "bot_id": "regime-momo",
   "metrics": {
-    "total_return": -0.042562524497254284,
-    "annualized_return": -0.3036801851271148,
-    "sharpe": -0.8148206854359408,
-    "sharpe_ci_lo": -1.2746774287145577,
-    "sharpe_ci_hi": 2.227090454194503,
-    "volatility": 0.44388467332572035,
-    "max_drawdown": -0.1501650088183643,
-    "days": 25,
+    "total_return": -0.06649133585539613,
+    "annualized_return": -0.45111005321828845,
+    "sharpe": -1.3588240976068373,
+    "sharpe_ci_lo": -2.5670087970617192,
+    "sharpe_ci_hi": 2.1538775907367063,
+    "volatility": 0.44092825552105264,
+    "max_drawdown": -0.17140455887760486,
+    "days": 26,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,7 +21,7 @@
     }
   },
   "current_weights": {
-    "USO": 0.9469970030175838
+    "USO": 0.9456383667617859
   },
   "nav_series": [
     {
@@ -123,6 +123,10 @@
     {
       "date": "2026-06-11",
       "nav": 95682.78242002973
+    },
+    {
+      "date": "2026-06-12",
+      "nav": 93291.42495875136
     }
   ],
   "daily_returns": [
@@ -221,6 +225,10 @@
     {
       "date": "2026-06-11",
       "ret": -0.03865436759818408
+    },
+    {
+      "date": "2026-06-12",
+      "ret": -0.024992557707830376
     }
   ],
   "recent_trades": [

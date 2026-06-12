@@ -1,14 +1,14 @@
 {
   "bot_id": "regime-breakout",
   "metrics": {
-    "total_return": -0.0006518844159506543,
-    "annualized_return": -0.00682150649966895,
-    "sharpe": -3.24037034920393,
-    "sharpe_ci_lo": -3.24037034920393,
+    "total_return": -0.0013038733709711536,
+    "annualized_return": -0.013061620448498679,
+    "sharpe": -4.5865584010085145,
+    "sharpe_ci_lo": -4.586558401008514,
     "sharpe_ci_hi": 0.0,
-    "volatility": 0.0021123469325546214,
-    "max_drawdown": -0.0006518844159506261,
-    "days": 25,
+    "volatility": 0.0028664914824240006,
+    "max_drawdown": -0.0013038733709711233,
+    "days": 26,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -20,9 +20,7 @@
       "r_squared": 0.0
     }
   },
-  "current_weights": {
-    "HYG": 0.9499673845176778
-  },
+  "current_weights": {},
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -123,6 +121,10 @@
     {
       "date": "2026-06-11",
       "nav": 99934.81155840494
+    },
+    {
+      "date": "2026-06-12",
+      "nav": 99869.61266290289
     }
   ],
   "daily_returns": [
@@ -221,6 +223,10 @@
     {
       "date": "2026-06-11",
       "ret": -0.0006518844159506543
+    },
+    {
+      "date": "2026-06-12",
+      "ret": -0.0006524142537052136
     }
   ],
   "recent_trades": [
@@ -233,6 +239,16 @@
       "slippage_bps": 6.866653077512374,
       "timestamp": "2026-06-11",
       "reason": "rebalance to target weight 0.9500"
+    },
+    {
+      "bot_id": "regime-breakout",
+      "symbol": "HYG",
+      "side": "SELL",
+      "shares": 1187.5757900806852,
+      "price": 79.8851016122999,
+      "slippage_bps": 6.867754244389895,
+      "timestamp": "2026-06-12",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }

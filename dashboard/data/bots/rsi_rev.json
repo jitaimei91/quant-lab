@@ -2,13 +2,13 @@
   "bot_id": "rsi_rev",
   "metrics": {
     "total_return": -0.01694874425164805,
-    "annualized_return": -0.16322480386566063,
-    "sharpe": -3.4559375039725175,
-    "sharpe_ci_lo": -3.455937503972517,
-    "sharpe_ci_hi": -3.455937503972517,
-    "volatility": 0.051545155483624185,
+    "annualized_return": -0.15723692843242665,
+    "sharpe": -3.3857093697489598,
+    "sharpe_ci_lo": -3.385709369748959,
+    "sharpe_ci_hi": -3.385709369748959,
+    "volatility": 0.05050975847855287,
     "max_drawdown": -0.016948744251648024,
-    "days": 25,
+    "days": 26,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -121,6 +121,10 @@
     {
       "date": "2026-06-11",
       "nav": 98305.1255748352
+    },
+    {
+      "date": "2026-06-12",
+      "nav": 98305.1255748352
     }
   ],
   "daily_returns": [
@@ -218,6 +222,10 @@
     },
     {
       "date": "2026-06-11",
+      "ret": 0.0
+    },
+    {
+      "date": "2026-06-12",
       "ret": 0.0
     }
   ],
