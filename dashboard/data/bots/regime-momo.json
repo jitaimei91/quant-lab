@@ -1,14 +1,14 @@
 {
   "bot_id": "regime-momo",
   "metrics": {
-    "total_return": -0.06649133585539613,
-    "annualized_return": -0.45111005321828845,
-    "sharpe": -1.3588240976068373,
-    "sharpe_ci_lo": -2.5670087970617192,
-    "sharpe_ci_hi": 2.1538775907367063,
-    "volatility": 0.44092825552105264,
-    "max_drawdown": -0.17140455887760486,
-    "days": 26,
+    "total_return": -0.09619562745660437,
+    "annualized_return": -0.5877253752956051,
+    "sharpe": -2.0027996500397447,
+    "sharpe_ci_lo": -4.306761703130901,
+    "sharpe_ci_hi": 2.586201726383051,
+    "volatility": 0.4416366103656184,
+    "max_drawdown": -0.19777050656281966,
+    "days": 27,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,7 +21,7 @@
     }
   },
   "current_weights": {
-    "USO": 0.9456383667617859
+    "USO": 0.9499997555493065
   },
   "nav_series": [
     {
@@ -127,6 +127,10 @@
     {
       "date": "2026-06-12",
       "nav": 93291.42495875136
+    },
+    {
+      "date": "2026-06-15",
+      "nav": 90322.88722867442
     }
   ],
   "daily_returns": [
@@ -229,6 +233,10 @@
     {
       "date": "2026-06-12",
       "ret": -0.024992557707830376
+    },
+    {
+      "date": "2026-06-15",
+      "ret": -0.03182004917804049
     }
   ],
   "recent_trades": [
@@ -260,6 +268,16 @@
       "price": 137.10188369046475,
       "slippage_bps": 7.436765727354022,
       "timestamp": "2026-05-26",
+      "reason": "rebalance to target weight 0.9500"
+    },
+    {
+      "bot_id": "regime-momo",
+      "symbol": "USO",
+      "side": "BUY",
+      "shares": 4.5777262708892605,
+      "price": 121.30646397168735,
+      "slippage_bps": 7.958492528942344,
+      "timestamp": "2026-06-15",
       "reason": "rebalance to target weight 0.9500"
     }
   ]
