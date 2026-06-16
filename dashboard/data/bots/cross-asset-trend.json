@@ -1,14 +1,14 @@
 {
   "bot_id": "cross-asset-trend",
   "metrics": {
-    "total_return": -0.008130289789375467,
-    "annualized_return": -0.07169661310098874,
-    "sharpe": -0.5814337002095284,
-    "sharpe_ci_lo": -3.603782719718553,
-    "sharpe_ci_hi": 1.2612642781556247,
-    "volatility": 0.12793495331505977,
+    "total_return": -0.010808906858128076,
+    "annualized_return": -0.09309578269792329,
+    "sharpe": -0.7780255541551709,
+    "sharpe_ci_lo": -3.945211282776604,
+    "sharpe_ci_hi": 1.5000589323526414,
+    "volatility": 0.12557363188182785,
     "max_drawdown": -0.03797415019076995,
-    "days": 26,
+    "days": 27,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,12 +21,12 @@
     }
   },
   "current_weights": {
-    "EEM": 0.10073989142611185,
-    "EFA": 0.14678533923349638,
-    "GLD": 0.11339373357875406,
-    "SPY": 0.21156381424842552,
-    "TLT": 0.32990574312471577,
-    "USO": 0.04789112711099538
+    "EEM": 0.09940516904555655,
+    "EFA": 0.14750806147265533,
+    "GLD": 0.11401045881154595,
+    "SPY": 0.2041441835678263,
+    "TLT": 0.341871801055597,
+    "USO": 0.04574674637651405
   },
   "nav_series": [
     {
@@ -132,6 +132,10 @@
     {
       "date": "2026-06-15",
       "nav": 99123.05797721175
+    },
+    {
+      "date": "2026-06-16",
+      "nav": 98855.3688722099
     }
   ],
   "daily_returns": [
@@ -234,6 +238,10 @@
     {
       "date": "2026-06-15",
       "ret": 0.006079764239490526
+    },
+    {
+      "date": "2026-06-16",
+      "ret": -0.0027005735140192
     }
   ],
   "recent_trades": [
@@ -456,6 +464,26 @@
       "slippage_bps": 7.127838215460105,
       "timestamp": "2026-06-15",
       "reason": "rebalance to target weight 0.3299"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "SPY",
+      "side": "SELL",
+      "shares": 0.8863882011152943,
+      "price": 749.9168071743466,
+      "slippage_bps": 5.5070423158574275,
+      "timestamp": "2026-06-16",
+      "reason": "rebalance to target weight 0.2041"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "TLT",
+      "side": "BUY",
+      "shares": 10.619519890963398,
+      "price": 86.25147939420606,
+      "slippage_bps": 7.132724336747712,
+      "timestamp": "2026-06-16",
+      "reason": "rebalance to target weight 0.3419"
     }
   ]
 }
