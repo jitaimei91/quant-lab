@@ -2,13 +2,13 @@
   "bot_id": "breakout",
   "metrics": {
     "total_return": -0.0013038733709711536,
-    "annualized_return": -0.011670328655580375,
-    "sharpe": -4.3234597685723575,
-    "sharpe_ci_lo": -4.323459768572357,
+    "annualized_return": -0.011270170951114267,
+    "sharpe": -4.2453486678154455,
+    "sharpe_ci_lo": -4.2453486678154455,
     "sharpe_ci_hi": 0.0,
-    "volatility": 0.0027151144350254994,
+    "volatility": 0.0026697231648065553,
     "max_drawdown": -0.0013038733709711233,
-    "days": 29,
+    "days": 30,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -137,6 +137,10 @@
     {
       "date": "2026-06-17",
       "nav": 99869.61266290289
+    },
+    {
+      "date": "2026-06-18",
+      "nav": 99869.61266290289
     }
   ],
   "daily_returns": [
@@ -250,6 +254,10 @@
     },
     {
       "date": "2026-06-17",
+      "ret": 0.0
+    },
+    {
+      "date": "2026-06-18",
       "ret": 0.0
     }
   ],

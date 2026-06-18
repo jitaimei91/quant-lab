@@ -1,14 +1,14 @@
 {
   "bot_id": "qqq-vol",
   "metrics": {
-    "total_return": 0.027807164849227517,
-    "annualized_return": 0.3042786317473012,
-    "sharpe": 1.3493967383903165,
-    "sharpe_ci_lo": -0.5933210396310041,
-    "sharpe_ci_hi": 3.256640988226882,
-    "volatility": 0.19696963598165373,
+    "total_return": 0.04436766328628927,
+    "annualized_return": 0.48635212702254416,
+    "sharpe": 1.9986915175600812,
+    "sharpe_ci_lo": -0.12741468963450325,
+    "sharpe_ci_hi": 3.468529904363024,
+    "volatility": 0.19844818211417634,
     "max_drawdown": -0.055137532722963956,
-    "days": 29,
+    "days": 30,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -21,7 +21,7 @@
     }
   },
   "current_weights": {
-    "QQQ": 0.643074016573066
+    "QQQ": 0.6373242857801803
   },
   "nav_series": [
     {
@@ -139,6 +139,10 @@
     {
       "date": "2026-06-17",
       "nav": 102736.00006155131
+    },
+    {
+      "date": "2026-06-18",
+      "nav": 104391.32941382224
     }
   ],
   "daily_returns": [
@@ -253,6 +257,10 @@
     {
       "date": "2026-06-17",
       "ret": -0.006499368154995633
+    },
+    {
+      "date": "2026-06-18",
+      "ret": 0.016112456697547017
     }
   ],
   "recent_trades": [
@@ -445,6 +453,16 @@
       "slippage_bps": 5.556520585334776,
       "timestamp": "2026-06-15",
       "reason": "rebalance to target weight 0.6498"
+    },
+    {
+      "bot_id": "qqq-vol",
+      "symbol": "QQQ",
+      "side": "SELL",
+      "shares": 1.6090751968101296,
+      "price": 740.2090968507036,
+      "slippage_bps": 5.5480309631509686,
+      "timestamp": "2026-06-18",
+      "reason": "rebalance to target weight 0.6373"
     }
   ]
 }
