@@ -1,27 +1,27 @@
 {
   "bot_id": "spy-vol",
   "metrics": {
-    "total_return": 0.020340636482717223,
-    "annualized_return": 0.20383296698092557,
-    "sharpe": 1.2586495051667608,
-    "sharpe_ci_lo": -0.5329190883760145,
-    "sharpe_ci_hi": 3.3056905291216094,
-    "volatility": 0.1474428771697893,
+    "total_return": 0.017194817908359417,
+    "annualized_return": 0.16584730160922323,
+    "sharpe": 1.0563939166236886,
+    "sharpe_ci_lo": -0.6741036595994097,
+    "sharpe_ci_hi": 2.98470931703641,
+    "volatility": 0.1453007691092752,
     "max_drawdown": -0.04499457841486339,
-    "days": 30,
-    "alpha_t_stat_vs_spy": 0.0,
-    "alpha_t_stat_vs_qqq": 0.0,
+    "days": 31,
+    "alpha_t_stat_vs_spy": 0.05095686515594551,
+    "alpha_t_stat_vs_qqq": 0.02450291097767695,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.0,
-      "beta_mkt": 0.0,
-      "beta_size": 0.0,
-      "beta_value": 0.0,
-      "r_squared": 0.0
+      "alpha_per_day": 8.247692658886098e-05,
+      "beta_mkt": 0.22687111239319835,
+      "beta_size": 0.35906330128910924,
+      "beta_value": -0.0024795268797707377,
+      "r_squared": 0.12553394032650889
     }
   },
   "current_weights": {
-    "SPY": 0.979703249177195
+    "SPY": 0.9796404786099315
   },
   "nav_series": [
     {
@@ -143,6 +143,10 @@
     {
       "date": "2026-06-18",
       "nav": 101978.19386751094
+    },
+    {
+      "date": "2026-06-22",
+      "nav": 101663.78426254437
     }
   ],
   "daily_returns": [
@@ -261,6 +265,10 @@
     {
       "date": "2026-06-18",
       "ret": 0.007641110322604394
+    },
+    {
+      "date": "2026-06-22",
+      "ret": -0.0030831062312698387
     }
   ],
   "recent_trades": [

@@ -1,27 +1,27 @@
 {
   "bot_id": "momo",
   "metrics": {
-    "total_return": -0.1411061895544169,
-    "annualized_return": -0.7074886011489595,
-    "sharpe": -2.811389401990801,
-    "sharpe_ci_lo": -7.592286434254892,
-    "sharpe_ci_hi": 1.1895502067969106,
-    "volatility": 0.4361752152338297,
-    "max_drawdown": -0.2416578028768743,
-    "days": 30,
-    "alpha_t_stat_vs_spy": 0.0,
-    "alpha_t_stat_vs_qqq": 0.0,
+    "total_return": -0.15654863366021587,
+    "annualized_return": -0.7381456250329383,
+    "sharpe": -3.1059752916834102,
+    "sharpe_ci_lo": -6.8055792785993665,
+    "sharpe_ci_hi": 0.932376047936093,
+    "volatility": 0.430270819742292,
+    "max_drawdown": -0.25134068509369367,
+    "days": 31,
+    "alpha_t_stat_vs_spy": -0.6834696304760279,
+    "alpha_t_stat_vs_qqq": -0.672876184911569,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.0,
-      "beta_mkt": 0.0,
-      "beta_size": 0.0,
-      "beta_value": 0.0,
-      "r_squared": 0.0
+      "alpha_per_day": -0.0032439357399327434,
+      "beta_mkt": -0.9807455495499338,
+      "beta_size": -0.6939257587421057,
+      "beta_value": 0.38307338273444536,
+      "r_squared": 0.15226658215173827
     }
   },
   "current_weights": {
-    "USO": 0.9473853007051812
+    "USO": 0.9464219973240633
   },
   "nav_series": [
     {
@@ -143,6 +143,10 @@
     {
       "date": "2026-06-18",
       "nav": 85834.69071295958
+    },
+    {
+      "date": "2026-06-22",
+      "nav": 84291.42960483054
     }
   ],
   "daily_returns": [
@@ -261,6 +265,10 @@
     {
       "date": "2026-06-18",
       "ret": 0.005306375845347322
+    },
+    {
+      "date": "2026-06-22",
+      "ret": -0.017979456736086696
     }
   ],
   "recent_trades": [
