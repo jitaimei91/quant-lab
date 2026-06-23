@@ -1,27 +1,27 @@
 {
   "bot_id": "spy-vol",
   "metrics": {
-    "total_return": 0.017194817908359417,
-    "annualized_return": 0.16584730160922323,
-    "sharpe": 1.0563939166236886,
-    "sharpe_ci_lo": -0.6741036595994097,
-    "sharpe_ci_hi": 2.98470931703641,
-    "volatility": 0.1453007691092752,
+    "total_return": 0.0027203940612823274,
+    "annualized_return": 0.03341328714305147,
+    "sharpe": 0.22061193612616453,
+    "sharpe_ci_lo": -1.0046120866084205,
+    "sharpe_ci_hi": 2.673725692803687,
+    "volatility": 0.14899165708221906,
     "max_drawdown": -0.04499457841486339,
-    "days": 31,
-    "alpha_t_stat_vs_spy": 0.050960136136597764,
-    "alpha_t_stat_vs_qqq": 0.024498242022233545,
+    "days": 32,
+    "alpha_t_stat_vs_spy": -0.20753154943091953,
+    "alpha_t_stat_vs_qqq": -0.2267583166393531,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 8.248437486268415e-05,
-      "beta_mkt": 0.226849698426426,
-      "beta_size": 0.3590889865792388,
-      "beta_value": -0.0025030573320910087,
-      "r_squared": 0.12553461757616136
+      "alpha_per_day": -0.0003430365404717757,
+      "beta_mkt": 0.18344198719641258,
+      "beta_size": 0.3552614011605643,
+      "beta_value": 0.043508910665925424,
+      "r_squared": 0.09805264133523717
     }
   },
   "current_weights": {
-    "SPY": 0.9796404786099315
+    "SPY": 0.9857246160385427
   },
   "nav_series": [
     {
@@ -147,6 +147,10 @@
     {
       "date": "2026-06-22",
       "nav": 101663.78426254437
+    },
+    {
+      "date": "2026-06-23",
+      "nav": 100217.13443951466
     }
   ],
   "daily_returns": [
@@ -269,6 +273,10 @@
     {
       "date": "2026-06-22",
       "ret": -0.0030831062312698387
+    },
+    {
+      "date": "2026-06-23",
+      "ret": -0.014229745956473305
     }
   ],
   "recent_trades": [
@@ -361,6 +369,16 @@
       "slippage_bps": 5.504232564973922,
       "timestamp": "2026-06-17",
       "reason": "rebalance to target weight 0.9795"
+    },
+    {
+      "bot_id": "spy-vol",
+      "symbol": "SPY",
+      "side": "BUY",
+      "shares": 0.8708483880253702,
+      "price": 733.9830048911919,
+      "slippage_bps": 5.493440278631682,
+      "timestamp": "2026-06-23",
+      "reason": "rebalance to target weight 0.9857"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "bot_id": "double-ensemble",
   "metrics": {
-    "total_return": 0.006884927552432307,
-    "annualized_return": 0.07519777477799994,
-    "sharpe": 0.4864533825425945,
-    "sharpe_ci_lo": -0.805917962448206,
-    "sharpe_ci_hi": 3.1237909872034177,
-    "volatility": 0.14906886290740679,
+    "total_return": -0.007737009059341271,
+    "annualized_return": -0.05463341078957462,
+    "sharpe": -0.36775628482202805,
+    "sharpe_ci_lo": -1.0524902892593615,
+    "sharpe_ci_hi": 3.105219117124526,
+    "volatility": 0.15275398833729592,
     "max_drawdown": -0.04494650173024147,
-    "days": 29,
+    "days": 30,
     "alpha_t_stat_vs_spy": 0.0,
     "alpha_t_stat_vs_qqq": 0.0,
     "significance_weight": 0.0,
@@ -139,6 +139,10 @@
     {
       "date": "2026-06-22",
       "nav": 100633.26679955196
+    },
+    {
+      "date": "2026-06-23",
+      "nav": 99171.87512716334
     }
   ],
   "daily_returns": [
@@ -253,6 +257,10 @@
     {
       "date": "2026-06-22",
       "ret": -0.003146979693962826
+    },
+    {
+      "date": "2026-06-23",
+      "ret": -0.014521954010491611
     }
   ],
   "recent_trades": [

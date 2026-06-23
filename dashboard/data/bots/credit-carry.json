@@ -1,28 +1,28 @@
 {
   "bot_id": "credit-carry",
   "metrics": {
-    "total_return": -0.0030122203248538204,
-    "annualized_return": -0.024798706681723237,
-    "sharpe": -0.5251339032305667,
-    "sharpe_ci_lo": -1.7514221802445245,
-    "sharpe_ci_hi": 3.7263203418380924,
-    "volatility": 0.04781661085250609,
+    "total_return": -0.002861628005754957,
+    "annualized_return": -0.022742766128842407,
+    "sharpe": -0.48955186529225614,
+    "sharpe_ci_lo": -1.6010599174287727,
+    "sharpe_ci_hi": 2.9357301103922095,
+    "volatility": 0.04699057164919445,
     "max_drawdown": -0.013729559773608657,
-    "days": 30,
-    "alpha_t_stat_vs_spy": 0.0,
-    "alpha_t_stat_vs_qqq": 0.0,
+    "days": 31,
+    "alpha_t_stat_vs_spy": -0.02374772894405465,
+    "alpha_t_stat_vs_qqq": -0.039704310773026316,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.0,
-      "beta_mkt": 0.0,
-      "beta_size": 0.0,
-      "beta_value": 0.0,
-      "r_squared": 0.0
+      "alpha_per_day": -1.6196843736824692e-05,
+      "beta_mkt": -0.08898548315950072,
+      "beta_size": 0.05698417701185765,
+      "beta_value": -0.059112586227642004,
+      "r_squared": 0.029752414262828486
     }
   },
   "current_weights": {
-    "HYG": 0.47523176295872765,
-    "LQD": 0.4745854411864061
+    "HYG": 0.47474391609817274,
+    "LQD": 0.475080866878364
   },
   "nav_series": [
     {
@@ -144,6 +144,10 @@
     {
       "date": "2026-06-22",
       "nav": 99635.73999464905
+    },
+    {
+      "date": "2026-06-23",
+      "nav": 99650.7897048429
     }
   ],
   "daily_returns": [
@@ -262,6 +266,10 @@
     {
       "date": "2026-06-22",
       "ret": -0.0016785320245709112
+    },
+    {
+      "date": "2026-06-23",
+      "ret": 0.00015104730686665846
     }
   ],
   "recent_trades": [
