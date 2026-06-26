@@ -1,29 +1,29 @@
 {
   "bot_id": "apex",
   "metrics": {
-    "total_return": -0.028150932144098917,
-    "annualized_return": -0.1917312305975114,
-    "sharpe": -1.356665869446476,
-    "sharpe_ci_lo": -2.2073670977588966,
-    "sharpe_ci_hi": 1.4213636810430446,
-    "volatility": 0.15683358030012362,
+    "total_return": -0.03345662657804149,
+    "annualized_return": -0.21974548449674036,
+    "sharpe": -1.6012249558344398,
+    "sharpe_ci_lo": -2.304988943293298,
+    "sharpe_ci_hi": 1.2593132332908445,
+    "volatility": 0.15488953318607238,
     "max_drawdown": -0.05586854936649478,
-    "days": 33,
-    "alpha_t_stat_vs_spy": -0.554594364901185,
-    "alpha_t_stat_vs_qqq": -0.606474017924404,
+    "days": 34,
+    "alpha_t_stat_vs_spy": -0.6635681064753716,
+    "alpha_t_stat_vs_qqq": -0.7078587126507164,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0008287989621164821,
-      "beta_mkt": -0.06101902046184209,
-      "beta_size": -0.06982724741093231,
-      "beta_value": -0.3592354736944152,
-      "r_squared": 0.052940972521573926
+      "alpha_per_day": -0.0011113077207838093,
+      "beta_mkt": -0.04189850797216121,
+      "beta_size": -0.01319550386838049,
+      "beta_value": -0.338775427841942,
+      "r_squared": 0.04460750022098359
     }
   },
   "current_weights": {
-    "EEM": 0.20935442441751975,
-    "USO": 0.1174894265444644,
-    "IWM": 0.33744149793947203
+    "EEM": 0.20811860722584702,
+    "USO": 0.11399518538098084,
+    "IWM": 0.3557535510468347
   },
   "nav_series": [
     {
@@ -157,6 +157,10 @@
     {
       "date": "2026-06-25",
       "nav": 97001.63706841556
+    },
+    {
+      "date": "2026-06-26",
+      "nav": 96472.0681642516
     }
   ],
   "daily_returns": [
@@ -287,19 +291,13 @@
     {
       "date": "2026-06-25",
       "ret": 0.00792419164055791
+    },
+    {
+      "date": "2026-06-26",
+      "ret": -0.005459381100861749
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "apex",
-      "symbol": "EEM",
-      "side": "BUY",
-      "shares": 21.784495601435946,
-      "price": 68.66042986967368,
-      "slippage_bps": 7.350132469536799,
-      "timestamp": "2026-05-28",
-      "reason": "rebalance to target weight 0.2330"
-    },
     {
       "bot_id": "apex",
       "symbol": "IWM",
@@ -589,6 +587,16 @@
       "slippage_bps": 6.103493352145739,
       "timestamp": "2026-06-25",
       "reason": "rebalance to target weight 0.3374"
+    },
+    {
+      "bot_id": "apex",
+      "symbol": "IWM",
+      "side": "BUY",
+      "shares": 4.960009730696316,
+      "price": 300.01295243960925,
+      "slippage_bps": 6.102320499539614,
+      "timestamp": "2026-06-26",
+      "reason": "rebalance to target weight 0.3558"
     }
   ]
 }
