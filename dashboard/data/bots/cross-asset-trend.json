@@ -1,32 +1,32 @@
 {
   "bot_id": "cross-asset-trend",
   "metrics": {
-    "total_return": -0.026819359943069165,
-    "annualized_return": -0.18160462677516176,
-    "sharpe": -1.648921495074238,
-    "sharpe_ci_lo": -2.3044998618396,
-    "sharpe_ci_hi": 1.1483686491349334,
-    "volatility": 0.12149156217250219,
+    "total_return": -0.022389181305028427,
+    "annualized_return": -0.14849415246726216,
+    "sharpe": -1.333379543723605,
+    "sharpe_ci_lo": -2.4085662742175447,
+    "sharpe_ci_hi": 0.7598958260972617,
+    "volatility": 0.12051906223160488,
     "max_drawdown": -0.03797415019076995,
-    "days": 34,
-    "alpha_t_stat_vs_spy": -0.8598160896741532,
-    "alpha_t_stat_vs_qqq": -0.8340382072214947,
+    "days": 35,
+    "alpha_t_stat_vs_spy": -0.22888831799384746,
+    "alpha_t_stat_vs_qqq": -0.28843717805749786,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0011820164210823042,
-      "beta_mkt": 0.12501412101533574,
-      "beta_size": 0.11851389115157797,
-      "beta_value": -0.0653358536051695,
-      "r_squared": 0.034228510573353965
+      "alpha_per_day": -0.0002604475448325516,
+      "beta_mkt": -0.24900931269101567,
+      "beta_size": 0.10924505724654086,
+      "beta_value": -0.016858464880885767,
+      "r_squared": 0.02629704316483039
     }
   },
   "current_weights": {
-    "EEM": 0.0910940353252688,
-    "EFA": 0.1473906295573055,
-    "GLD": 0.12156518084616323,
-    "SPY": 0.21041612223173317,
-    "TLT": 0.3341754041983227,
-    "USO": 0.04974666196238392
+    "EEM": 0.09100513694706341,
+    "EFA": 0.14802480607128274,
+    "GLD": 0.11937865086335746,
+    "SPY": 0.20659190747685685,
+    "TLT": 0.33300374217272916,
+    "USO": 0.05027240258882822
   },
   "nav_series": [
     {
@@ -164,6 +164,10 @@
     {
       "date": "2026-06-26",
       "nav": 97255.35522823741
+    },
+    {
+      "date": "2026-06-29",
+      "nav": 97698.08762490941
     }
   ],
   "daily_returns": [
@@ -298,19 +302,13 @@
     {
       "date": "2026-06-26",
       "ret": -0.003814567838816285
+    },
+    {
+      "date": "2026-06-29",
+      "ret": 0.004552267539746246
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "cross-asset-trend",
-      "symbol": "TLT",
-      "side": "BUY",
-      "shares": 377.78928610450157,
-      "price": 86.14216935060499,
-      "slippage_bps": 7.222062991159104,
-      "timestamp": "2026-05-08",
-      "reason": "rebalance to target weight 0.3254"
-    },
     {
       "bot_id": "cross-asset-trend",
       "symbol": "USO",
@@ -600,6 +598,16 @@
       "slippage_bps": 7.0675079828925575,
       "timestamp": "2026-06-26",
       "reason": "rebalance to target weight 0.3342"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "SPY",
+      "side": "SELL",
+      "shares": 0.8334731150634656,
+      "price": 740.5935527516034,
+      "slippage_bps": 5.485118062032596,
+      "timestamp": "2026-06-29",
+      "reason": "rebalance to target weight 0.2066"
     }
   ]
 }
