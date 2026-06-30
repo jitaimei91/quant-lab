@@ -12,11 +12,11 @@
   },
   {
     "bot_id": "qqq-vol",
-    "cash": 36838.47132206543,
+    "cash": 37671.90720375132,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 91.32582201679958,
+        "shares": 90.19342454602084,
         "avg_cost": 698.30869030023
       }
     }
@@ -34,14 +34,8 @@
   },
   {
     "bot_id": "meanrev",
-    "cash": -39.0451886411538,
-    "positions": {
-      "EEM": {
-        "symbol": "EEM",
-        "shares": 1387.9381813542266,
-        "avg_cost": 67.33484439349836
-      }
-    }
+    "cash": 94841.98397471337,
+    "positions": {}
   },
   {
     "bot_id": "breakout",
@@ -50,54 +44,53 @@
   },
   {
     "bot_id": "ma_cross",
-    "cash": 5015.115381579195,
+    "cash": 5056.855822112624,
     "positions": {
       "EEM": {
         "symbol": "EEM",
-        "shares": 236.97457442090078,
+        "shares": 200.61356326065044,
         "avg_cost": 66.45913596244668
       },
       "IWM": {
         "symbol": "IWM",
-        "shares": 53.901788481293224,
+        "shares": 45.67897474589191,
         "avg_cost": 284.8584911880152
       },
       "VTV": {
         "symbol": "VTV",
-        "shares": 73.208133721713,
+        "shares": 62.97305784391732,
         "avg_cost": 210.26212193133745
       },
       "HYG": {
         "symbol": "HYG",
-        "shares": 199.30117600953446,
+        "shares": 171.61715360423173,
         "avg_cost": 79.82067824090795
       },
       "EFA": {
         "symbol": "EFA",
-        "shares": 155.35657716773542,
+        "shares": 132.11329485522705,
         "avg_cost": 104.29347412727478
       },
       "VNQ": {
         "symbol": "VNQ",
-        "shares": 162.6565628523583,
+        "shares": 142.31728359308747,
         "avg_cost": 96.75520776059992
+      },
+      "VUG": {
+        "symbol": "VUG",
+        "shares": 159.20086758013844,
+        "avg_cost": 86.13999938964844
       }
     }
   },
   {
     "bot_id": "rsi_rev",
-    "cash": 9712.25938928318,
-    "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 815.6322029505122,
-        "avg_cost": 107.08000183105469
-      }
-    }
+    "cash": 96455.98381993122,
+    "positions": {}
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 8183.4665000119985,
+    "cash": 8778.55223145516,
     "positions": {
       "IRM": {
         "symbol": "IRM",
@@ -106,8 +99,8 @@
       },
       "FTNT": {
         "symbol": "FTNT",
-        "shares": 92.45742747519697,
-        "avg_cost": 145.39090471908406
+        "shares": 95.76982334702166,
+        "avg_cost": 145.67989456250578
       },
       "VLO": {
         "symbol": "VLO",
@@ -119,16 +112,16 @@
         "shares": 49.78130560806688,
         "avg_cost": 394.5299987792969
       },
-      "MPC": {
-        "symbol": "MPC",
-        "shares": 69.33556301043781,
-        "avg_cost": 254.05999755859375
+      "HUM": {
+        "symbol": "HUM",
+        "shares": 41.76779220278081,
+        "avg_cost": 397.2200012207031
       }
     }
   },
   {
     "bot_id": "codex-native",
-    "cash": 8713.755311500023,
+    "cash": 8593.589571210636,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -137,8 +130,8 @@
       },
       "IWM": {
         "symbol": "IWM",
-        "shares": 78.08594590730192,
-        "avg_cost": 287.631139669389
+        "shares": 83.0431244964917,
+        "avg_cost": 288.40726090543336
       },
       "XLI": {
         "symbol": "XLI",
@@ -147,12 +140,12 @@
       },
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 25.409318785407084,
+        "shares": 24.618852730439496,
         "avg_cost": 716.3800048828125
       },
       "XLK": {
         "symbol": "XLK",
-        "shares": 74.89408691572494,
+        "shares": 70.75334544208357,
         "avg_cost": 184.57000732421875
       }
     }
@@ -180,7 +173,7 @@
   },
   {
     "bot_id": "apex",
-    "cash": 31076.80358097531,
+    "cash": 29965.10522462905,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -189,8 +182,8 @@
       },
       "USO": {
         "symbol": "USO",
-        "shares": 104.2600582525255,
-        "avg_cost": 129.64652037298106
+        "shares": 114.69574928961748,
+        "avg_cost": 127.5431061157444
       },
       "IWM": {
         "symbol": "IWM",
@@ -212,16 +205,16 @@
   },
   {
     "bot_id": "sector-momo",
-    "cash": 4747.238323943169,
+    "cash": 4638.009294880732,
     "positions": {
       "XLE": {
         "symbol": "XLE",
-        "shares": 597.6799816718557,
-        "avg_cost": 55.71716731250134
+        "shares": 611.2429491739273,
+        "avg_cost": 55.6601604394126
       },
       "XLK": {
         "symbol": "XLK",
-        "shares": 138.69432892001745,
+        "shares": 135.4818583278192,
         "avg_cost": 176.22641891480706
       },
       "XLI": {
@@ -249,7 +242,7 @@
   },
   {
     "bot_id": "cross-asset-trend",
-    "cash": 5053.27275961094,
+    "cash": 4540.9754441854,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -258,8 +251,8 @@
       },
       "EFA": {
         "symbol": "EFA",
-        "shares": 139.79449879972313,
-        "avg_cost": 103.95999908447266
+        "shares": 144.7224047224919,
+        "avg_cost": 103.95994532780739
       },
       "GLD": {
         "symbol": "GLD",
@@ -285,7 +278,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 2885.6556373503818,
+    "cash": 6549.631713470621,
     "positions": {
       "AMAT": {
         "symbol": "AMAT",
@@ -397,11 +390,6 @@
         "shares": 14.793105512279116,
         "avg_cost": 248.52000427246094
       },
-      "TRGP": {
-        "symbol": "TRGP",
-        "shares": 13.67884869445063,
-        "avg_cost": 268.7200012207031
-      },
       "NWL": {
         "symbol": "NWL",
         "shares": 637.9499581080453,
@@ -442,14 +430,8 @@
   },
   {
     "bot_id": "regime-meanrev",
-    "cash": -39.0451886411538,
-    "positions": {
-      "EEM": {
-        "symbol": "EEM",
-        "shares": 1387.9381813542266,
-        "avg_cost": 67.33484439349836
-      }
-    }
+    "cash": 94841.98397471337,
+    "positions": {}
   },
   {
     "bot_id": "regime-breakout",
