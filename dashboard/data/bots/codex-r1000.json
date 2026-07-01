@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": -0.01506557329910696,
-    "annualized_return": -0.08044168996120815,
-    "sharpe": -0.39129080482216194,
-    "sharpe_ci_lo": -2.4077810822034054,
-    "sharpe_ci_hi": 0.2974354648025612,
-    "volatility": 0.21428530530927972,
+    "total_return": -0.0032322513722686796,
+    "annualized_return": 0.00024561107115550485,
+    "sharpe": 0.0011490185864340041,
+    "sharpe_ci_lo": -2.3012465307370125,
+    "sharpe_ci_hi": 0.4824022695356494,
+    "volatility": 0.21373112345522352,
     "max_drawdown": -0.06514181151959973,
-    "days": 37,
-    "alpha_t_stat_vs_spy": -0.2846920038589797,
-    "alpha_t_stat_vs_qqq": -0.10431582674234344,
+    "days": 38,
+    "alpha_t_stat_vs_spy": -0.14872543544719702,
+    "alpha_t_stat_vs_qqq": 0.01495539091662024,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.00026882171584970485,
-      "beta_mkt": 0.2375403739159086,
-      "beta_size": 0.1625922153569292,
-      "beta_value": 0.4592002427612361,
-      "r_squared": 0.06910073834709674
+      "alpha_per_day": 7.223408994882207e-05,
+      "beta_mkt": 0.2751802156673938,
+      "beta_size": 0.09187824562241706,
+      "beta_value": 0.4545634905054912,
+      "r_squared": 0.05755806572007971
     }
   },
   "current_weights": {
-    "IRM": 0.22009197025648256,
-    "FTNT": 0.14947193739640455,
-    "VLO": 0.1623092708994489,
-    "FFIV": 0.21037836405392205,
-    "HUM": 0.16856051844665929
+    "FTNT": 0.15285080767887357,
+    "VLO": 0.16592470344239285,
+    "FFIV": 0.23690155966650617,
+    "HUM": 0.17167504044092358,
+    "MPC": 0.18736173031732703
   },
   "nav_series": [
     {
@@ -175,6 +175,10 @@
     {
       "date": "2026-06-30",
       "nav": 98427.5714305237
+    },
+    {
+      "date": "2026-07-01",
+      "nav": 99610.11222475261
     }
   ],
   "daily_returns": [
@@ -321,39 +325,13 @@
     {
       "date": "2026-06-30",
       "ret": -0.011690079249416896
+    },
+    {
+      "date": "2026-07-01",
+      "ret": 0.012014324614964433
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "FTNT",
-      "side": "SELL",
-      "shares": 7.266660548002824,
-      "price": 147.8772472648217,
-      "slippage_bps": 8.29410372826364,
-      "timestamp": "2026-06-23",
-      "reason": "rebalance to target weight 0.1550"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "IRM",
-      "side": "SELL",
-      "shares": 18.429281039336697,
-      "price": 132.89174663077978,
-      "slippage_bps": 12.644741537732319,
-      "timestamp": "2026-06-23",
-      "reason": "rebalance to target weight 0.2341"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "KEYS",
-      "side": "SELL",
-      "shares": 5.6726030859399215,
-      "price": 352.2610261518781,
-      "slippage_bps": 9.046469809259142,
-      "timestamp": "2026-06-23",
-      "reason": "rebalance to target weight 0.1557"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "PWR",
@@ -623,6 +601,36 @@
       "slippage_bps": 8.967864186443023,
       "timestamp": "2026-06-30",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "FFIV",
+      "side": "BUY",
+      "shares": 5.850245507160744,
+      "price": 424.6486697816615,
+      "slippage_bps": 11.049014898694505,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.2368"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "IRM",
+      "side": "SELL",
+      "shares": 171.5075492235313,
+      "price": 121.74963847172464,
+      "slippage_bps": 12.334950965717464,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "MPC",
+      "side": "BUY",
+      "shares": 70.46144647405448,
+      "price": 265.1076935262656,
+      "slippage_bps": 8.974153866426068,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.1874"
     }
   ]
 }

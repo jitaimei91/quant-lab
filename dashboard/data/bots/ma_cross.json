@@ -1,33 +1,32 @@
 {
   "bot_id": "ma_cross",
   "metrics": {
-    "total_return": 0.011879067954467804,
-    "annualized_return": 0.09356134448099596,
-    "sharpe": 0.7590111223730639,
-    "sharpe_ci_lo": -1.692048312882527,
-    "sharpe_ci_hi": 1.423422874085518,
-    "volatility": 0.11785799962247148,
+    "total_return": 0.0057484185947431765,
+    "annualized_return": 0.046832721535778665,
+    "sharpe": 0.38986269332297147,
+    "sharpe_ci_lo": -1.4720412722266594,
+    "sharpe_ci_hi": 1.2794384271678412,
+    "volatility": 0.1174087883549998,
     "max_drawdown": -0.028807517739569546,
-    "days": 37,
-    "alpha_t_stat_vs_spy": -0.05214070132454279,
-    "alpha_t_stat_vs_qqq": 0.20911059526334203,
+    "days": 38,
+    "alpha_t_stat_vs_spy": -0.18833822416615745,
+    "alpha_t_stat_vs_qqq": 0.09691338378796424,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.00031012748653896384,
-      "beta_mkt": 0.16632699360128145,
-      "beta_size": 0.2878669720930205,
-      "beta_value": 0.28292820693867143,
-      "r_squared": 0.1929165990283681
+      "alpha_per_day": 0.00022871219101434952,
+      "beta_mkt": 0.1573392240343455,
+      "beta_size": 0.30474912852338987,
+      "beta_value": 0.2840292968391251,
+      "r_squared": 0.20314328045660335
     }
   },
   "current_weights": {
-    "EEM": 0.13572751345046502,
-    "IWM": 0.1357302224939493,
-    "VTV": 0.13572497609453826,
-    "HYG": 0.13572997982979673,
-    "EFA": 0.1357270596008233,
-    "VNQ": 0.135724359619276,
-    "VUG": 0.13562454112372618
+    "EEM": 0.15834747617171083,
+    "IWM": 0.15835224731127662,
+    "VTV": 0.15834576906581535,
+    "EFA": 0.15834852355697607,
+    "VNQ": 0.1583431943797326,
+    "VUG": 0.1583464980675432
   },
   "nav_series": [
     {
@@ -177,6 +176,10 @@
     {
       "date": "2026-06-30",
       "nav": 101114.16800056971
+    },
+    {
+      "date": "2026-07-01",
+      "nav": 100501.54982420511
     }
   ],
   "daily_returns": [
@@ -323,79 +326,13 @@
     {
       "date": "2026-06-30",
       "ret": 0.0001669456027679761
+    },
+    {
+      "date": "2026-07-01",
+      "ret": -0.006058677913080901
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "ma_cross",
-      "symbol": "VTV",
-      "side": "SELL",
-      "shares": 10.513769851877976,
-      "price": 214.87908343295757,
-      "slippage_bps": 9.341565760954865,
-      "timestamp": "2026-06-11",
-      "reason": "rebalance to target weight 0.1357"
-    },
-    {
-      "bot_id": "ma_cross",
-      "symbol": "VUG",
-      "side": "SELL",
-      "shares": 26.73937976248085,
-      "price": 85.04267033713056,
-      "slippage_bps": 9.085104200678565,
-      "timestamp": "2026-06-11",
-      "reason": "rebalance to target weight 0.1357"
-    },
-    {
-      "bot_id": "ma_cross",
-      "symbol": "EEM",
-      "side": "BUY",
-      "shares": 29.78595579214345,
-      "price": 68.60922083272007,
-      "slippage_bps": 7.179590997541577,
-      "timestamp": "2026-06-17",
-      "reason": "rebalance to target weight 0.1583"
-    },
-    {
-      "bot_id": "ma_cross",
-      "symbol": "EFA",
-      "side": "BUY",
-      "shares": 23.014554535592456,
-      "price": 103.85891555990128,
-      "slippage_bps": 7.604237958435534,
-      "timestamp": "2026-06-17",
-      "reason": "rebalance to target weight 0.1583"
-    },
-    {
-      "bot_id": "ma_cross",
-      "symbol": "HYG",
-      "side": "BUY",
-      "shares": 28.745014240285606,
-      "price": 79.78506944050321,
-      "slippage_bps": 6.906569829566187,
-      "timestamp": "2026-06-17",
-      "reason": "rebalance to target weight 0.1583"
-    },
-    {
-      "bot_id": "ma_cross",
-      "symbol": "IWM",
-      "side": "BUY",
-      "shares": 7.8692818853577595,
-      "price": 290.05764527018266,
-      "slippage_bps": 6.128066247341491,
-      "timestamp": "2026-06-17",
-      "reason": "rebalance to target weight 0.1583"
-    },
-    {
-      "bot_id": "ma_cross",
-      "symbol": "VNQ",
-      "side": "SELL",
-      "shares": 139.91252157400007,
-      "price": 95.50663131550027,
-      "slippage_bps": 10.811556760945301,
-      "timestamp": "2026-06-17",
-      "reason": "rebalance to target weight 0.0000"
-    },
     {
       "bot_id": "ma_cross",
       "symbol": "VTV",
@@ -625,6 +562,76 @@
       "slippage_bps": 8.888194338369583,
       "timestamp": "2026-06-30",
       "reason": "rebalance to target weight 0.1357"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "EEM",
+      "side": "BUY",
+      "shares": 38.76919790686302,
+      "price": 66.5275882915985,
+      "slippage_bps": 7.157781627870788,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.1583"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "EFA",
+      "side": "BUY",
+      "shares": 22.364209982876922,
+      "price": 103.09778011533403,
+      "slippage_bps": 7.5503275870905,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.1583"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "HYG",
+      "side": "SELL",
+      "shares": 171.61715360423173,
+      "price": 79.5349652825265,
+      "slippage_bps": 6.914318117379024,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "IWM",
+      "side": "BUY",
+      "shares": 7.490362029149071,
+      "price": 299.50228460578467,
+      "slippage_bps": 6.089712585381427,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.1583"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "VNQ",
+      "side": "BUY",
+      "shares": 22.046861102620518,
+      "price": 96.92319608494323,
+      "slippage_bps": 10.658581950452598,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.1583"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "VTV",
+      "side": "BUY",
+      "shares": 10.23512525369188,
+      "price": 217.57701239250466,
+      "slippage_bps": 9.062816508738234,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.1583"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "VUG",
+      "side": "BUY",
+      "shares": 25.48137453645522,
+      "price": 86.24625507303683,
+      "slippage_bps": 8.849588686542493,
+      "timestamp": "2026-07-01",
+      "reason": "rebalance to target weight 0.1583"
     }
   ]
 }
