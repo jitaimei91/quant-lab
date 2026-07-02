@@ -1,27 +1,27 @@
 {
   "bot_id": "qqq-vol",
   "metrics": {
-    "total_return": 0.031220459330181916,
-    "annualized_return": 0.25610373044461454,
-    "sharpe": 1.168084697415244,
-    "sharpe_ci_lo": -1.4962627313112653,
-    "sharpe_ci_hi": 2.307241873266293,
-    "volatility": 0.19529220809800135,
+    "total_return": 0.019965925171625543,
+    "annualized_return": 0.16147940353024892,
+    "sharpe": 0.7677952120687479,
+    "sharpe_ci_lo": -1.5316832202000967,
+    "sharpe_ci_hi": 2.084460364584317,
+    "volatility": 0.19502467337161783,
     "max_drawdown": -0.055137532722963956,
-    "days": 38,
-    "alpha_t_stat_vs_spy": 0.8129886481112053,
-    "alpha_t_stat_vs_qqq": 0.7386955784951428,
+    "days": 39,
+    "alpha_t_stat_vs_spy": 0.7636995152916112,
+    "alpha_t_stat_vs_qqq": 0.6262871863666364,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.0014443333367570815,
-      "beta_mkt": -0.13035335248356927,
-      "beta_size": -0.5834573126405554,
-      "beta_value": 0.03891061600674486,
-      "r_squared": 0.11246905579744393
+      "alpha_per_day": 0.0013416087528086065,
+      "beta_mkt": -0.18230768640830372,
+      "beta_size": -0.5836689567711564,
+      "beta_value": 0.013810628163480006,
+      "r_squared": 0.12508747033637224
     }
   },
   "current_weights": {
-    "QQQ": 0.6294434518757476
+    "QQQ": 0.6196902875975676
   },
   "nav_series": [
     {
@@ -175,6 +175,10 @@
     {
       "date": "2026-07-01",
       "nav": 103077.18100871553
+    },
+    {
+      "date": "2026-07-02",
+      "nav": 101952.21723968422
     }
   ],
   "daily_returns": [
@@ -325,6 +329,10 @@
     {
       "date": "2026-07-01",
       "ret": -0.00973352726322918
+    },
+    {
+      "date": "2026-07-02",
+      "ret": -0.010913800300147769
     }
   ],
   "recent_trades": [
@@ -587,6 +595,16 @@
       "slippage_bps": 5.537431279379519,
       "timestamp": "2026-07-01",
       "reason": "rebalance to target weight 0.6294"
+    },
+    {
+      "bot_id": "qqq-vol",
+      "symbol": "QQQ",
+      "side": "SELL",
+      "shares": 0.8108533481602422,
+      "price": 712.2052755366032,
+      "slippage_bps": 5.538872619379911,
+      "timestamp": "2026-07-02",
+      "reason": "rebalance to target weight 0.6197"
     }
   ]
 }
