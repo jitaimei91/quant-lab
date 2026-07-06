@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": -0.020076757567658032,
-    "annualized_return": -0.10582485031312161,
-    "sharpe": -0.5194856236152279,
-    "sharpe_ci_lo": -2.4001325329967,
-    "sharpe_ci_hi": 0.4458615102912438,
-    "volatility": 0.2152682977996695,
+    "total_return": -0.006503476095542582,
+    "annualized_return": -0.0192728169298646,
+    "sharpe": -0.09030149207812267,
+    "sharpe_ci_lo": -2.3969570039004986,
+    "sharpe_ci_hi": -0.009417276900572447,
+    "volatility": 0.21550261313696717,
     "max_drawdown": -0.06514181151959973,
-    "days": 39,
-    "alpha_t_stat_vs_spy": 0.20496213710039968,
-    "alpha_t_stat_vs_qqq": 0.006744951903030714,
+    "days": 40,
+    "alpha_t_stat_vs_spy": -0.4866828967918679,
+    "alpha_t_stat_vs_qqq": -0.4542506942963895,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.00037843632913379385,
-      "beta_mkt": -0.6247428687495294,
-      "beta_size": 0.10539939119480772,
-      "beta_value": -0.4774438199038391,
-      "r_squared": 0.06975819271998196
+      "alpha_per_day": -0.0009778837705044898,
+      "beta_mkt": 0.1320098292650549,
+      "beta_size": 0.4934902292866623,
+      "beta_value": -0.5417806874804791,
+      "r_squared": 0.0972960849311083
     }
   },
   "current_weights": {
-    "FTNT": 0.15280839064902998,
-    "VLO": 0.1765544372461187,
-    "FFIV": 0.22410454956863804,
-    "HUM": 0.1692220471052161,
-    "MPC": 0.19164732198206
+    "FTNT": 0.1566048442172529,
+    "VLO": 0.18300361210139124,
+    "FFIV": 0.21804641717171536,
+    "HUM": 0.17149821385625408,
+    "MPC": 0.19090261162948174
   },
   "nav_series": [
     {
@@ -183,6 +183,10 @@
     {
       "date": "2026-07-02",
       "nav": 97926.78814569482
+    },
+    {
+      "date": "2026-07-06",
+      "nav": 99283.20852803258
     }
   ],
   "daily_returns": [
@@ -337,39 +341,13 @@
     {
       "date": "2026-07-02",
       "ret": -0.016899128426435817
+    },
+    {
+      "date": "2026-07-06",
+      "ret": 0.013851372111987281
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "CAT",
-      "side": "BUY",
-      "shares": 1.47328944046656,
-      "price": 995.1389179616639,
-      "slippage_bps": 6.927505115150998,
-      "timestamp": "2026-06-24",
-      "reason": "rebalance to target weight 0.1665"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "FTNT",
-      "side": "BUY",
-      "shares": 9.401468018973446,
-      "price": 145.400716404127,
-      "slippage_bps": 8.309307946342326,
-      "timestamp": "2026-06-24",
-      "reason": "rebalance to target weight 0.1676"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "IRM",
-      "side": "BUY",
-      "shares": 15.729344167963571,
-      "price": 130.75401526218943,
-      "slippage_bps": 12.559838341247378,
-      "timestamp": "2026-06-24",
-      "reason": "rebalance to target weight 0.2531"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "KEYS",
@@ -639,6 +617,36 @@
       "slippage_bps": 8.514982419778727,
       "timestamp": "2026-07-02",
       "reason": "rebalance to target weight 0.1766"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "FFIV",
+      "side": "SELL",
+      "shares": 2.1073653416499534,
+      "price": 418.56565191939626,
+      "slippage_bps": 11.081470569013401,
+      "timestamp": "2026-07-06",
+      "reason": "rebalance to target weight 0.2181"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "HUM",
+      "side": "BUY",
+      "shares": 1.5730762067075599,
+      "price": 393.23222643845264,
+      "slippage_bps": 9.475159109346802,
+      "timestamp": "2026-07-06",
+      "reason": "rebalance to target weight 0.1715"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "VLO",
+      "side": "BUY",
+      "shares": 2.643076205516056,
+      "price": 270.5510535895977,
+      "slippage_bps": 8.547138913837731,
+      "timestamp": "2026-07-06",
+      "reason": "rebalance to target weight 0.1830"
     }
   ]
 }
