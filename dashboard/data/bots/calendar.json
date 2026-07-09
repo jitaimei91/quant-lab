@@ -2,22 +2,22 @@
   "bot_id": "calendar",
   "metrics": {
     "total_return": 0.030830621321083163,
-    "annualized_return": 0.21260252999730955,
-    "sharpe": 3.5005469873244555,
-    "sharpe_ci_lo": 1.8473317823092426,
-    "sharpe_ci_hi": 4.382158356171881,
-    "volatility": 0.05508929045616662,
+    "annualized_return": 0.20691675903836115,
+    "sharpe": 3.4565731888227873,
+    "sharpe_ci_lo": 1.824925665325699,
+    "sharpe_ci_hi": 4.6475644633198625,
+    "volatility": 0.05442939009264705,
     "max_drawdown": -0.006670110761314937,
-    "days": 41,
-    "alpha_t_stat_vs_spy": 1.2726163317492363,
-    "alpha_t_stat_vs_qqq": 1.2693418468779092,
-    "significance_weight": 0.13630816587461814,
+    "days": 42,
+    "alpha_t_stat_vs_spy": 1.2633544014281788,
+    "alpha_t_stat_vs_qqq": 1.2536576697137685,
+    "significance_weight": 0.1316772007140894,
     "factor_loadings": {
-      "alpha_per_day": 0.0006075254768154118,
-      "beta_mkt": 0.12240742629213068,
-      "beta_size": -0.15208490048117515,
-      "beta_value": 0.029940581032883485,
-      "r_squared": 0.06126317100784706
+      "alpha_per_day": 0.0005940445411450175,
+      "beta_mkt": 0.11600646316377176,
+      "beta_size": -0.15514482390181666,
+      "beta_value": 0.03368660338314673,
+      "r_squared": 0.0602922461570945
     }
   },
   "current_weights": {},
@@ -185,6 +185,10 @@
     {
       "date": "2026-07-08",
       "nav": 103083.06213210832
+    },
+    {
+      "date": "2026-07-09",
+      "nav": 103083.06213210832
     }
   ],
   "daily_returns": [
@@ -346,6 +350,10 @@
     },
     {
       "date": "2026-07-08",
+      "ret": 0.0
+    },
+    {
+      "date": "2026-07-09",
       "ret": 0.0
     }
   ],

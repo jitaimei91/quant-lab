@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.0071841521076261294,
-    "annualized_return": 0.06964836382437745,
-    "sharpe": 0.30822498913436897,
-    "sharpe_ci_lo": -2.449029690162511,
-    "sharpe_ci_hi": 0.1626612707757918,
-    "volatility": 0.21847338920546702,
+    "total_return": 0.016402220590188588,
+    "annualized_return": 0.12819688152738928,
+    "sharpe": 0.5562774447412172,
+    "sharpe_ci_lo": -2.7025198328289495,
+    "sharpe_ci_hi": 0.4550666529818471,
+    "volatility": 0.21688736745959725,
     "max_drawdown": -0.06514181151959973,
-    "days": 42,
-    "alpha_t_stat_vs_spy": 0.0659082057362518,
-    "alpha_t_stat_vs_qqq": 0.22726074146800715,
+    "days": 43,
+    "alpha_t_stat_vs_spy": 0.19275810853957148,
+    "alpha_t_stat_vs_qqq": 0.33514348735505994,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.00015732046554382462,
-      "beta_mkt": 0.48856497645730523,
-      "beta_size": -0.32544634355530333,
-      "beta_value": 0.6603101842141285,
-      "r_squared": 0.07061234281546924
+      "alpha_per_day": 0.00044825376639097414,
+      "beta_mkt": 0.41483334390585963,
+      "beta_size": -0.24712109555632344,
+      "beta_value": 0.647773099205944,
+      "r_squared": 0.07094119813586475
     }
   },
   "current_weights": {
-    "FTNT": 0.1556649333501673,
-    "VLO": 0.18249753167335014,
-    "FFIV": 0.2294107902749667,
-    "MPC": 0.1962514780126743,
-    "USO": 0.15630320224948904
+    "VLO": 0.17980035859773483,
+    "FFIV": 0.2193344399754217,
+    "MPC": 0.19628689895985177,
+    "USO": 0.150468621897618,
+    "CSCO": 0.16610472512045027
   },
   "nav_series": [
     {
@@ -195,6 +195,10 @@
     {
       "date": "2026-07-08",
       "nav": 100651.0559361027
+    },
+    {
+      "date": "2026-07-09",
+      "nav": 101572.24629093472
     }
   ],
   "daily_returns": [
@@ -361,39 +365,13 @@
     {
       "date": "2026-07-08",
       "ret": 0.02244946052151331
+    },
+    {
+      "date": "2026-07-09",
+      "ret": 0.009152316846202213
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "FTNT",
-      "side": "SELL",
-      "shares": 4.961230818595498,
-      "price": 151.22454896605166,
-      "slippage_bps": 8.289205973216053,
-      "timestamp": "2026-06-26",
-      "reason": "rebalance to target weight 0.1427"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "IRM",
-      "side": "SELL",
-      "shares": 12.299968101068702,
-      "price": 132.2752287544401,
-      "slippage_bps": 12.441383564535245,
-      "timestamp": "2026-06-26",
-      "reason": "rebalance to target weight 0.2227"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "KEYS",
-      "side": "SELL",
-      "shares": 41.302157018120134,
-      "price": 328.3618567707144,
-      "slippage_bps": 9.071590338734536,
-      "timestamp": "2026-06-26",
-      "reason": "rebalance to target weight 0.0000"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "MPC",
@@ -663,6 +641,36 @@
       "slippage_bps": 8.588443801431804,
       "timestamp": "2026-07-08",
       "reason": "rebalance to target weight 0.1824"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "CSCO",
+      "side": "BUY",
+      "shares": 142.60527764499878,
+      "price": 118.39040518309595,
+      "slippage_bps": 6.796350787038872,
+      "timestamp": "2026-07-09",
+      "reason": "rebalance to target weight 0.1662"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "FFIV",
+      "side": "SELL",
+      "shares": 3.3185831383128748,
+      "price": 429.8407314730455,
+      "slippage_bps": 11.137661345413214,
+      "timestamp": "2026-07-09",
+      "reason": "rebalance to target weight 0.2193"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "FTNT",
+      "side": "SELL",
+      "shares": 99.97983053197679,
+      "price": 163.59587423830493,
+      "slippage_bps": 8.191626014412035,
+      "timestamp": "2026-07-09",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
