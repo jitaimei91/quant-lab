@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-native",
   "metrics": {
-    "total_return": -0.012329523540939524,
-    "annualized_return": -0.04711377794660365,
-    "sharpe": -0.25093937315110154,
-    "sharpe_ci_lo": -1.9767167427361385,
-    "sharpe_ci_hi": 1.6849063437430214,
-    "volatility": 0.1922980453109127,
-    "max_drawdown": -0.0692300472151695,
-    "days": 48,
-    "alpha_t_stat_vs_spy": -0.137061337567906,
-    "alpha_t_stat_vs_qqq": -0.07416531930255162,
+    "total_return": -0.015162015023890252,
+    "annualized_return": -0.06041196018894068,
+    "sharpe": -0.327340591165384,
+    "sharpe_ci_lo": -1.9499799462574512,
+    "sharpe_ci_hi": 1.6981641877027407,
+    "volatility": 0.19034013270461927,
+    "max_drawdown": -0.07189935649056807,
+    "days": 49,
+    "alpha_t_stat_vs_spy": -0.17348309895926436,
+    "alpha_t_stat_vs_qqq": -0.1144392443130913,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0003254860028559812,
-      "beta_mkt": 0.18221456277475498,
-      "beta_size": -0.0986775584744888,
-      "beta_value": 0.17149416087696923,
-      "r_squared": 0.006751398912142048
+      "alpha_per_day": -0.00035822994244305356,
+      "beta_mkt": 0.19262790026071352,
+      "beta_size": -0.10690997206729796,
+      "beta_value": 0.17751239364953364,
+      "r_squared": 0.0075815679717520235
     }
   },
   "current_weights": {
-    "XLE": 0.18771161399666525,
-    "IWM": 0.23146766340670288,
-    "QQQ": 0.14518023729761284,
-    "XLK": 0.11141061458797066,
-    "VNQ": 0.24429024783265518
+    "XLE": 0.1904304801996703,
+    "QQQ": 0.1434095156464906,
+    "XLK": 0.11051629606777799,
+    "VNQ": 0.2511308831649639,
+    "XLI": 0.21362664808500037
   },
   "nav_series": [
     {
@@ -219,6 +219,10 @@
     {
       "date": "2026-07-16",
       "nav": 98696.83070663821
+    },
+    {
+      "date": "2026-07-17",
+      "nav": 98413.78293004268
     }
   ],
   "daily_returns": [
@@ -409,39 +413,13 @@
     {
       "date": "2026-07-16",
       "ret": -0.007091847062622114
+    },
+    {
+      "date": "2026-07-17",
+      "ret": -0.002867850715863929
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-native",
-      "symbol": "XLK",
-      "side": "SELL",
-      "shares": 5.896798053992101,
-      "price": 185.22107285609962,
-      "slippage_bps": 6.95620410953676,
-      "timestamp": "2026-07-09",
-      "reason": "rebalance to target weight 0.1294"
-    },
-    {
-      "bot_id": "codex-native",
-      "symbol": "IWM",
-      "side": "SELL",
-      "shares": 11.05800151131346,
-      "price": 295.8089437132229,
-      "slippage_bps": 6.1166433705653045,
-      "timestamp": "2026-07-10",
-      "reason": "rebalance to target weight 0.2369"
-    },
-    {
-      "bot_id": "codex-native",
-      "symbol": "QQQ",
-      "side": "SELL",
-      "shares": 3.0321884320534496,
-      "price": 725.1082389238583,
-      "slippage_bps": 5.537771172813458,
-      "timestamp": "2026-07-10",
-      "reason": "rebalance to target weight 0.1536"
-    },
     {
       "bot_id": "codex-native",
       "symbol": "USO",
@@ -711,6 +689,36 @@
       "slippage_bps": 7.039055389966743,
       "timestamp": "2026-07-16",
       "reason": "rebalance to target weight 0.1114"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "IWM",
+      "side": "SELL",
+      "shares": 77.28652888238504,
+      "price": 293.8597685552961,
+      "slippage_bps": 6.129777730510437,
+      "timestamp": "2026-07-17",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "VNQ",
+      "side": "BUY",
+      "shares": 6.159914506982517,
+      "price": 100.12446063269216,
+      "slippage_bps": 10.444310451093827,
+      "timestamp": "2026-07-17",
+      "reason": "rebalance to target weight 0.2511"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "XLI",
+      "side": "BUY",
+      "shares": 117.18302292833619,
+      "price": 179.54800784260377,
+      "slippage_bps": 7.69211179295782,
+      "timestamp": "2026-07-17",
+      "reason": "rebalance to target weight 0.2137"
     }
   ]
 }

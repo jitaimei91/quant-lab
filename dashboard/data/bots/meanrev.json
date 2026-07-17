@@ -1,26 +1,28 @@
 {
   "bot_id": "meanrev",
   "metrics": {
-    "total_return": -0.05094403988828844,
-    "annualized_return": -0.2073968702436435,
-    "sharpe": -0.7427581511641962,
-    "sharpe_ci_lo": -5.754537181222391,
-    "sharpe_ci_hi": 1.0240771277710514,
-    "volatility": 0.31278753354997735,
+    "total_return": -0.05163120003647148,
+    "annualized_return": -0.20657226947116625,
+    "sharpe": -0.7474301550322515,
+    "sharpe_ci_lo": -5.7653301359124605,
+    "sharpe_ci_hi": 0.8840098634580359,
+    "volatility": 0.3094424483169323,
     "max_drawdown": -0.17510215424094244,
-    "days": 48,
-    "alpha_t_stat_vs_spy": -0.20575252243700595,
-    "alpha_t_stat_vs_qqq": -0.27711049436321783,
+    "days": 49,
+    "alpha_t_stat_vs_spy": -0.2202429446932561,
+    "alpha_t_stat_vs_qqq": -0.28610244210707514,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0004153875617462331,
-      "beta_mkt": -0.6262881249921176,
-      "beta_size": 0.2315936272097932,
-      "beta_value": -0.5179055918632106,
-      "r_squared": 0.028641246955841804
+      "alpha_per_day": -0.0005263316033197221,
+      "beta_mkt": -0.5909959219702752,
+      "beta_size": 0.2037072426334455,
+      "beta_value": -0.49751539611654794,
+      "r_squared": 0.027778232452149387
     }
   },
-  "current_weights": {},
+  "current_weights": {
+    "EEM": 1.0
+  },
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -213,6 +215,10 @@
     {
       "date": "2026-07-16",
       "nav": 94841.98397471337
+    },
+    {
+      "date": "2026-07-17",
+      "nav": 94773.31401793404
     }
   ],
   "daily_returns": [
@@ -403,6 +409,10 @@
     {
       "date": "2026-07-16",
       "ret": 0.0
+    },
+    {
+      "date": "2026-07-17",
+      "ret": -0.0007240459752257955
     }
   ],
   "recent_trades": [
@@ -585,6 +595,16 @@
       "slippage_bps": 7.143520067276485,
       "timestamp": "2026-06-30",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meanrev",
+      "symbol": "EEM",
+      "side": "BUY",
+      "shares": 1497.4452938376035,
+      "price": 63.33585898931603,
+      "slippage_bps": 7.245705976508191,
+      "timestamp": "2026-07-17",
+      "reason": "rebalance to target weight 1.0000"
     }
   ]
 }
