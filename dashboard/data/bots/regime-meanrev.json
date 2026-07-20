@@ -1,28 +1,26 @@
 {
   "bot_id": "regime-meanrev",
   "metrics": {
-    "total_return": -0.05163120003647148,
-    "annualized_return": -0.20657226947116625,
-    "sharpe": -0.7474301550322515,
-    "sharpe_ci_lo": -5.7653301359124605,
-    "sharpe_ci_hi": 0.8840098634580359,
-    "volatility": 0.3094424483169323,
+    "total_return": -0.04827425189854151,
+    "annualized_return": -0.1881571241754184,
+    "sharpe": -0.6801024719865925,
+    "sharpe_ci_lo": -5.726103545162456,
+    "sharpe_ci_hi": 0.940809629156633,
+    "volatility": 0.3063689381312436,
     "max_drawdown": -0.17510215424094244,
-    "days": 49,
-    "alpha_t_stat_vs_spy": -0.03073035618196702,
-    "alpha_t_stat_vs_qqq": -0.15309639335673902,
+    "days": 50,
+    "alpha_t_stat_vs_spy": -0.6961070980197515,
+    "alpha_t_stat_vs_qqq": -0.5443668957883279,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 5.5299247222623965e-05,
-      "beta_mkt": -1.1121389067540195,
-      "beta_size": 0.7362183026923792,
-      "beta_value": -0.4308632788249556,
-      "r_squared": 0.07320981115407099
+      "alpha_per_day": -0.0019032619202632695,
+      "beta_mkt": 0.9535386856078665,
+      "beta_size": 0.06776167728127647,
+      "beta_value": 0.5695334630923554,
+      "r_squared": 0.10952894532136459
     }
   },
-  "current_weights": {
-    "EEM": 1.0
-  },
+  "current_weights": {},
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -219,6 +217,10 @@
     {
       "date": "2026-07-17",
       "nav": 94773.31401793404
+    },
+    {
+      "date": "2026-07-20",
+      "nav": 95108.78382675756
     }
   ],
   "daily_returns": [
@@ -413,6 +415,10 @@
     {
       "date": "2026-07-17",
       "ret": -0.0007240459752257955
+    },
+    {
+      "date": "2026-07-20",
+      "ret": 0.0035397074830583186
     }
   ],
   "recent_trades": [
@@ -605,6 +611,16 @@
       "slippage_bps": 7.245705976508191,
       "timestamp": "2026-07-17",
       "reason": "rebalance to target weight 1.0000"
+    },
+    {
+      "bot_id": "regime-meanrev",
+      "symbol": "EEM",
+      "side": "SELL",
+      "shares": 1497.4452938376035,
+      "price": 63.51402900537081,
+      "slippage_bps": 7.232908578810352,
+      "timestamp": "2026-07-20",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
