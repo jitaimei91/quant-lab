@@ -12,7 +12,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 66,
+    "consecutive_fail_days": 67,
     "consecutive_recovery_days": 0
   },
   "momo": {
@@ -44,7 +44,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 74,
+    "consecutive_fail_days": 75,
     "consecutive_recovery_days": 0
   },
   "rsi_rev": {
@@ -60,7 +60,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 10,
+    "consecutive_fail_days": 11,
     "consecutive_recovery_days": 0
   },
   "codex-native": {
@@ -68,7 +68,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 70,
+    "consecutive_fail_days": 71,
     "consecutive_recovery_days": 0
   },
   "regime-momo": {
@@ -156,7 +156,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 78,
+    "consecutive_fail_days": 79,
     "consecutive_recovery_days": 0
   },
   "cross-asset-trend": {
@@ -172,39 +172,39 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 66,
+    "consecutive_fail_days": 67,
     "consecutive_recovery_days": 0
   },
   "catboost": {
     "bot_id": "catboost",
-    "paused": false,
-    "paused_at": null,
-    "pause_reason": "",
-    "consecutive_fail_days": 89,
+    "paused": true,
+    "paused_at": "2026-07-24",
+    "pause_reason": "sig_weight=0.00 alpha=-0.0001 for 90 consecutive days",
+    "consecutive_fail_days": 90,
     "consecutive_recovery_days": 0
   },
   "double-ensemble": {
     "bot_id": "double-ensemble",
-    "paused": false,
-    "paused_at": null,
-    "pause_reason": "",
-    "consecutive_fail_days": 89,
+    "paused": true,
+    "paused_at": "2026-07-24",
+    "pause_reason": "sig_weight=0.00 alpha=-0.0001 for 90 consecutive days",
+    "consecutive_fail_days": 90,
     "consecutive_recovery_days": 0
   },
   "qlib-linear": {
     "bot_id": "qlib-linear",
-    "paused": false,
-    "paused_at": null,
-    "pause_reason": "",
-    "consecutive_fail_days": 89,
+    "paused": true,
+    "paused_at": "2026-07-24",
+    "pause_reason": "sig_weight=0.00 alpha=-0.0001 for 90 consecutive days",
+    "consecutive_fail_days": 90,
     "consecutive_recovery_days": 0
   },
   "qlib-mlp": {
     "bot_id": "qlib-mlp",
-    "paused": false,
-    "paused_at": null,
-    "pause_reason": "",
-    "consecutive_fail_days": 89,
+    "paused": true,
+    "paused_at": "2026-07-24",
+    "pause_reason": "sig_weight=0.00 alpha=-0.0001 for 90 consecutive days",
+    "consecutive_fail_days": 90,
     "consecutive_recovery_days": 0
   }
 }
