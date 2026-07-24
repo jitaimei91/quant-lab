@@ -9,15 +9,15 @@
     "volatility": 0.1333733643829281,
     "max_drawdown": -0.04499457841486339,
     "days": 54,
-    "alpha_t_stat_vs_spy": 0.4530209112482664,
-    "alpha_t_stat_vs_qqq": 0.44566099613140764,
+    "alpha_t_stat_vs_spy": 0.4530210405647352,
+    "alpha_t_stat_vs_qqq": 0.4456590258450606,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.0005451323659582576,
-      "beta_mkt": -0.23491413253470478,
-      "beta_size": 0.0932578594899146,
-      "beta_value": 0.021285396098456318,
-      "r_squared": 0.028722701764850478
+      "alpha_per_day": 0.0005451344720253119,
+      "beta_mkt": -0.23491275475731133,
+      "beta_size": 0.09325603342896571,
+      "beta_value": 0.021287986721097878,
+      "r_squared": 0.028722496226829652
     }
   },
   "current_weights": {
