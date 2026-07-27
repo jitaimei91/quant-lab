@@ -12,7 +12,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 68,
+    "consecutive_fail_days": 69,
     "consecutive_recovery_days": 0
   },
   "momo": {
@@ -20,7 +20,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 0,
+    "consecutive_fail_days": 1,
     "consecutive_recovery_days": 0
   },
   "meanrev": {
@@ -44,7 +44,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 76,
+    "consecutive_fail_days": 77,
     "consecutive_recovery_days": 0
   },
   "rsi_rev": {
@@ -60,7 +60,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 12,
+    "consecutive_fail_days": 0,
     "consecutive_recovery_days": 0
   },
   "codex-native": {
@@ -68,7 +68,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 72,
+    "consecutive_fail_days": 73,
     "consecutive_recovery_days": 0
   },
   "regime-momo": {
@@ -76,7 +76,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 0,
+    "consecutive_fail_days": 1,
     "consecutive_recovery_days": 0
   },
   "regime-meanrev": {
@@ -156,7 +156,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 80,
+    "consecutive_fail_days": 81,
     "consecutive_recovery_days": 0
   },
   "cross-asset-trend": {
@@ -172,7 +172,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 68,
+    "consecutive_fail_days": 69,
     "consecutive_recovery_days": 0
   },
   "catboost": {
