@@ -12,7 +12,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 77,
+    "consecutive_fail_days": 78,
     "consecutive_recovery_days": 0
   },
   "momo": {
@@ -20,7 +20,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 9,
+    "consecutive_fail_days": 10,
     "consecutive_recovery_days": 0
   },
   "meanrev": {
@@ -44,7 +44,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 85,
+    "consecutive_fail_days": 86,
     "consecutive_recovery_days": 0
   },
   "rsi_rev": {
@@ -68,7 +68,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 81,
+    "consecutive_fail_days": 82,
     "consecutive_recovery_days": 0
   },
   "regime-momo": {
@@ -76,7 +76,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 9,
+    "consecutive_fail_days": 10,
     "consecutive_recovery_days": 0
   },
   "regime-meanrev": {
@@ -153,10 +153,10 @@
   },
   "credit-carry": {
     "bot_id": "credit-carry",
-    "paused": false,
-    "paused_at": null,
-    "pause_reason": "",
-    "consecutive_fail_days": 89,
+    "paused": true,
+    "paused_at": "2026-07-29",
+    "pause_reason": "sig_weight=0.00 alpha=-0.0003 for 90 consecutive days",
+    "consecutive_fail_days": 90,
     "consecutive_recovery_days": 0
   },
   "cross-asset-trend": {
@@ -172,7 +172,7 @@
     "paused": false,
     "paused_at": null,
     "pause_reason": "",
-    "consecutive_fail_days": 77,
+    "consecutive_fail_days": 78,
     "consecutive_recovery_days": 0
   },
   "catboost": {
