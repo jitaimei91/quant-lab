@@ -1443,3 +1443,6 @@
 {"bot_id": "stock-momo", "symbol": "TRV", "side": "BUY", "shares": 7.51559009732018, "price": 397.5633731821388, "slippage_bps": 8.644377432668119, "timestamp": "2026-07-28", "reason": "rebalance to target weight 0.0339"}
 {"bot_id": "stock-momo", "symbol": "TWLO", "side": "SELL", "shares": 2.9219674510281783, "price": 194.13375469106083, "slippage_bps": 10.098653740787835, "timestamp": "2026-07-28", "reason": "rebalance to target weight 0.0339"}
 {"bot_id": "regime-meanrev", "symbol": "USO", "side": "BUY", "shares": 788.6732706994297, "price": 120.5933906475757, "slippage_bps": 8.581026279299302, "timestamp": "2026-07-28", "reason": "rebalance to target weight 1.0000"}
+{"bot_id": "cross-asset-trend", "symbol": "EFA", "side": "SELL", "shares": 5.350505389699436, "price": 103.80938339474491, "slippage_bps": 7.759745440094404, "timestamp": "2026-07-28", "reason": "rebalance to target weight 0.1618"}
+{"bot_id": "stock-momo", "symbol": "TGT", "side": "SELL", "shares": 20.70185511702273, "price": 144.06923355223384, "slippage_bps": 9.068196863782235, "timestamp": "2026-07-28", "reason": "rebalance to target weight 0.0000"}
+{"bot_id": "stock-momo", "symbol": "WST", "side": "BUY", "shares": 8.853887340897101, "price": 337.36645405612296, "slippage_bps": 10.874007600087172, "timestamp": "2026-07-28", "reason": "rebalance to target weight 0.0339"}

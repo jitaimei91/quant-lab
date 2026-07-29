@@ -227,7 +227,7 @@
   },
   {
     "bot_id": "cross-asset-trend",
-    "cash": 5439.264671915802,
+    "cash": 5994.69733727076,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -236,7 +236,7 @@
       },
       "EFA": {
         "symbol": "EFA",
-        "shares": 155.98250454149576,
+        "shares": 150.63199915179632,
         "avg_cost": 104.01650499773358
       },
       "GLD": {
@@ -263,7 +263,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 2031.2053608233182,
+    "cash": 2026.7011838313224,
     "positions": {
       "AMAT": {
         "symbol": "AMAT",
@@ -395,15 +395,15 @@
         "shares": 11.491412438056622,
         "avg_cost": 259.739990234375
       },
-      "TGT": {
-        "symbol": "TGT",
-        "shares": 20.70185511702273,
-        "avg_cost": 144.1999969482422
-      },
       "TRV": {
         "symbol": "TRV",
         "shares": 7.51559009732018,
         "avg_cost": 397.2200012207031
+      },
+      "WST": {
+        "symbol": "WST",
+        "shares": 8.853887340897101,
+        "avg_cost": 337.0
       }
     }
   },
