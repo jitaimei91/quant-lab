@@ -1,27 +1,27 @@
 {
   "bot_id": "meanrev",
   "metrics": {
-    "total_return": 0.01888491784067381,
-    "annualized_return": 0.14507247040030813,
-    "sharpe": 0.41735814183161507,
-    "sharpe_ci_lo": -4.825706595613637,
-    "sharpe_ci_hi": 1.4213243544994918,
-    "volatility": 0.32467162539244343,
+    "total_return": 0.059267694778519564,
+    "annualized_return": 0.36092395147120504,
+    "sharpe": 0.9285064846247544,
+    "sharpe_ci_lo": -4.61338740998149,
+    "sharpe_ci_hi": 1.8975831471557438,
+    "volatility": 0.33209498223655864,
     "max_drawdown": -0.17510215424094244,
-    "days": 57,
-    "alpha_t_stat_vs_spy": -0.16109119872439967,
-    "alpha_t_stat_vs_qqq": -0.04166170175139092,
+    "days": 58,
+    "alpha_t_stat_vs_spy": 0.12688113646938448,
+    "alpha_t_stat_vs_qqq": 0.22550507168866601,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0005030402212598437,
-      "beta_mkt": 0.9576010913446575,
-      "beta_size": -0.38396489606718487,
-      "beta_value": 0.1980076893963354,
-      "r_squared": 0.04486544315510399
+      "alpha_per_day": 0.00031879705402414844,
+      "beta_mkt": 0.8803672780574723,
+      "beta_size": -0.36951170352534396,
+      "beta_value": 0.1899733953612406,
+      "r_squared": 0.03554994898694308
     }
   },
   "current_weights": {
-    "EEM": 1.000860110569142
+    "USO": 1.0007448319840124
   },
   "nav_series": [
     {
@@ -251,6 +251,10 @@
     {
       "date": "2026-07-29",
       "nav": 101820.19934688344
+    },
+    {
+      "date": "2026-07-30",
+      "nav": 105855.77031863392
     }
   ],
   "daily_returns": [
@@ -477,6 +481,10 @@
     {
       "date": "2026-07-29",
       "ret": 0.07148433012397604
+    },
+    {
+      "date": "2026-07-30",
+      "ret": 0.039634286690030995
     }
   ],
   "recent_trades": [
@@ -709,6 +717,26 @@
       "slippage_bps": 8.587346788141652,
       "timestamp": "2026-07-29",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meanrev",
+      "symbol": "EEM",
+      "side": "SELL",
+      "shares": 1668.7043799859503,
+      "price": 63.542751062592544,
+      "slippage_bps": 7.430270464219807,
+      "timestamp": "2026-07-30",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "meanrev",
+      "symbol": "USO",
+      "side": "BUY",
+      "shares": 830.9900556360298,
+      "price": 127.58917441818213,
+      "slippage_bps": 8.56377928880747,
+      "timestamp": "2026-07-30",
+      "reason": "rebalance to target weight 1.0000"
     }
   ]
 }
