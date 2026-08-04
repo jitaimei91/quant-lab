@@ -1,28 +1,28 @@
 {
   "bot_id": "meta-ensemble",
   "metrics": {
-    "total_return": 0.009904781283871289,
-    "annualized_return": 0.04382732303120762,
-    "sharpe": 1.0652537615466426,
-    "sharpe_ci_lo": -2.0622494506769002,
-    "sharpe_ci_hi": 1.3839001827098563,
-    "volatility": 0.04026996077318202,
+    "total_return": 0.015011888370499271,
+    "annualized_return": 0.0654681317176471,
+    "sharpe": 1.540717486724479,
+    "sharpe_ci_lo": -2.0616620587542767,
+    "sharpe_ci_hi": 1.4527733599488228,
+    "volatility": 0.04116409595097243,
     "max_drawdown": -0.014999869880496924,
-    "days": 60,
-    "alpha_t_stat_vs_spy": 0.2846594177136703,
-    "alpha_t_stat_vs_qqq": 0.40050871221351636,
+    "days": 61,
+    "alpha_t_stat_vs_spy": 0.5724483188316258,
+    "alpha_t_stat_vs_qqq": 0.6706661883149709,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.00011432463598708937,
-      "beta_mkt": 0.14504464997032862,
-      "beta_size": -0.0970767574173947,
-      "beta_value": 0.06046740873283434,
-      "r_squared": 0.07219946948374667
+      "alpha_per_day": 0.00020626819963804176,
+      "beta_mkt": 0.1434018038249502,
+      "beta_size": -0.10698691620711222,
+      "beta_value": 0.06748946484396125,
+      "r_squared": 0.0740304320197519
     }
   },
   "current_weights": {
-    "QQQ": 0.09461506451170197,
-    "SPY": 0.10252598165622281
+    "QQQ": 0.08787259933583945,
+    "SPY": 0.10384925526066495
   },
   "nav_series": [
     {
@@ -264,6 +264,10 @@
     {
       "date": "2026-08-03",
       "nav": 100959.32629923208
+    },
+    {
+      "date": "2026-08-04",
+      "nav": 101469.87947252089
     }
   ],
   "daily_returns": [
@@ -502,6 +506,10 @@
     {
       "date": "2026-08-03",
       "ret": 0.003081864979916915
+    },
+    {
+      "date": "2026-08-04",
+      "ret": 0.005057018425178361
     }
   ],
   "recent_trades": [
@@ -704,6 +712,16 @@
       "slippage_bps": 5.556520585334776,
       "timestamp": "2026-06-15",
       "reason": "rebalance to target weight 0.1000"
+    },
+    {
+      "bot_id": "meta-ensemble",
+      "symbol": "QQQ",
+      "side": "SELL",
+      "shares": 1.3266873271760995,
+      "price": 723.4461975420884,
+      "slippage_bps": 5.578200697213426,
+      "timestamp": "2026-08-04",
+      "reason": "rebalance to target weight 0.0879"
     }
   ]
 }
