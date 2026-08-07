@@ -1,28 +1,26 @@
 {
   "bot_id": "calendar",
   "metrics": {
-    "total_return": 0.08440417540553491,
-    "annualized_return": 0.4088184239731534,
-    "sharpe": 4.863688734381761,
-    "sharpe_ci_lo": 2.447217685348783,
-    "sharpe_ci_hi": 5.385384092609219,
-    "volatility": 0.0705194293021852,
+    "total_return": 0.08218545252683085,
+    "annualized_return": 0.38915402627731477,
+    "sharpe": 4.680562299194645,
+    "sharpe_ci_lo": 2.1253925032866805,
+    "sharpe_ci_hi": 5.570340570172914,
+    "volatility": 0.07027134469995637,
     "max_drawdown": -0.006670110761314937,
-    "days": 61,
-    "alpha_t_stat_vs_spy": 2.5723892056516435,
-    "alpha_t_stat_vs_qqq": 2.6325424610879313,
-    "significance_weight": 0.7861946028258218,
+    "days": 62,
+    "alpha_t_stat_vs_spy": 2.2940762139814845,
+    "alpha_t_stat_vs_qqq": 2.3774714781738897,
+    "significance_weight": 0.6470381069907423,
     "factor_loadings": {
-      "alpha_per_day": 0.001505343677250808,
-      "beta_mkt": -0.03332251773463563,
-      "beta_size": -0.0582604026634976,
-      "beta_value": 0.11162235349130492,
-      "r_squared": 0.04391073467784745
+      "alpha_per_day": 0.0013640090985084354,
+      "beta_mkt": -0.04171110046738688,
+      "beta_size": 0.07218944413971742,
+      "beta_value": 0.05654941129717076,
+      "r_squared": 0.036366466909557804
     }
   },
-  "current_weights": {
-    "SPY": 0.9524701838714525
-  },
+  "current_weights": {},
   "nav_series": [
     {
       "date": "2026-05-08",
@@ -267,6 +265,10 @@
     {
       "date": "2026-08-05",
       "nav": 108440.41754055349
+    },
+    {
+      "date": "2026-08-06",
+      "nav": 108218.54525268309
     }
   ],
   "daily_returns": [
@@ -509,6 +511,10 @@
     {
       "date": "2026-08-05",
       "ret": -0.0019018843688524134
+    },
+    {
+      "date": "2026-08-06",
+      "ret": -0.002046029450111897
     }
   ],
   "recent_trades": [
@@ -561,6 +567,16 @@
       "slippage_bps": 5.507066745752221,
       "timestamp": "2026-07-29",
       "reason": "rebalance to target weight 0.9500"
+    },
+    {
+      "bot_id": "calendar",
+      "symbol": "SPY",
+      "side": "SELL",
+      "shares": 134.17460266062238,
+      "price": 768.1363693452923,
+      "slippage_bps": 5.51197323106987,
+      "timestamp": "2026-08-06",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
