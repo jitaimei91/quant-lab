@@ -278,7 +278,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 3834.2846000636346,
+    "cash": 4069.9538255214466,
     "positions": {
       "AMD": {
         "symbol": "AMD",
@@ -390,25 +390,10 @@
         "shares": 15.631894515729648,
         "avg_cost": 198.83999633789062
       },
-      "KEYS": {
-        "symbol": "KEYS",
-        "shares": 9.022745112931936,
-        "avg_cost": 354.5
-      },
       "ABNB": {
         "symbol": "ABNB",
         "shares": 17.75251024785095,
         "avg_cost": 180.09500122070312
-      },
-      "RHI": {
-        "symbol": "RHI",
-        "shares": 76.89540048732813,
-        "avg_cost": 41.54999923706055
-      },
-      "PSX": {
-        "symbol": "PSX",
-        "shares": 13.552309042676237,
-        "avg_cost": 232.61000061035156
       },
       "PYPL": {
         "symbol": "PYPL",
@@ -419,6 +404,21 @@
         "symbol": "ZBRA",
         "shares": 8.302170941902709,
         "avg_cost": 379.6300048828125
+      },
+      "ETSY": {
+        "symbol": "ETSY",
+        "shares": 39.063140685679315,
+        "avg_cost": 80.66999816894531
+      },
+      "FFIV": {
+        "symbol": "FFIV",
+        "shares": 7.57541806290028,
+        "avg_cost": 416.0
+      },
+      "SAIC": {
+        "symbol": "SAIC",
+        "shares": 24.86053601629704,
+        "avg_cost": 126.66000366210938
       }
     }
   },
