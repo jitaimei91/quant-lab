@@ -278,7 +278,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 4069.9538255214466,
+    "cash": 4057.5123068932003,
     "positions": {
       "AMD": {
         "symbol": "AMD",
@@ -405,20 +405,20 @@
         "shares": 8.302170941902709,
         "avg_cost": 379.6300048828125
       },
-      "ETSY": {
-        "symbol": "ETSY",
-        "shares": 39.063140685679315,
-        "avg_cost": 80.66999816894531
-      },
-      "FFIV": {
-        "symbol": "FFIV",
-        "shares": 7.57541806290028,
-        "avg_cost": 416.0
-      },
       "SAIC": {
         "symbol": "SAIC",
         "shares": 24.86053601629704,
         "avg_cost": 126.66000366210938
+      },
+      "KEYS": {
+        "symbol": "KEYS",
+        "shares": 8.904753735237172,
+        "avg_cost": 353.8500061035156
+      },
+      "RHI": {
+        "symbol": "RHI",
+        "shares": 71.92995346017527,
+        "avg_cost": 43.779998779296875
       }
     }
   },
