@@ -1899,3 +1899,5 @@
 {"bot_id": "stock-momo", "symbol": "INTC", "side": "BUY", "shares": 5.908033660228017, "price": 96.74242717518028, "slippage_bps": 5.93986844254026, "timestamp": "2026-08-18", "reason": "rebalance to target weight 0.0365"}
 {"bot_id": "stock-momo", "symbol": "KEYS", "side": "SELL", "shares": 9.232987000968604, "price": 340.6564025526619, "slippage_bps": 10.076171476189554, "timestamp": "2026-08-18", "reason": "rebalance to target weight 0.0000"}
 {"bot_id": "stock-momo", "symbol": "STT", "side": "SELL", "shares": 17.273824739472207, "price": 191.6765489454032, "slippage_bps": 10.082148157983932, "timestamp": "2026-08-18", "reason": "rebalance to target weight 0.0000"}
+{"bot_id": "cross-asset-trend", "symbol": "EFA", "side": "BUY", "shares": 5.441856853388561, "price": 107.35701440906318, "slippage_bps": 8.112032135724313, "timestamp": "2026-08-18", "reason": "rebalance to target weight 0.2770"}
+{"bot_id": "stock-momo", "symbol": "STT", "side": "BUY", "shares": 16.54051130607393, "price": 192.0634412889718, "slippage_bps": 10.082148157983932, "timestamp": "2026-08-18", "reason": "rebalance to target weight 0.0352"}
