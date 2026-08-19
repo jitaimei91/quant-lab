@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.030861804321986597,
-    "annualized_return": 0.137969473489715,
-    "sharpe": 0.6216624544448932,
+    "total_return": 0.030856384287441196,
+    "annualized_return": 0.13794867109539766,
+    "sharpe": 0.6215690578468184,
     "sharpe_ci_lo": -1.4126229812438746,
     "sharpe_ci_hi": 2.3527583273806862,
-    "volatility": 0.20795635805296145,
+    "volatility": 0.20795818021164805,
     "max_drawdown": -0.06514181151959973,
     "days": 72,
-    "alpha_t_stat_vs_spy": 0.16596048041358585,
-    "alpha_t_stat_vs_qqq": 0.17842102029644405,
+    "alpha_t_stat_vs_spy": 0.16592179197671364,
+    "alpha_t_stat_vs_qqq": 0.17837916111051658,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.00026453081281533426,
-      "beta_mkt": 0.4290728647807841,
-      "beta_size": -0.3165380365186824,
-      "beta_value": 0.108910628509782,
-      "r_squared": 0.03767988789973575
+      "alpha_per_day": 0.00026447347058579135,
+      "beta_mkt": 0.4290602657234674,
+      "beta_size": -0.31654017118054206,
+      "beta_value": 0.108908277902105,
+      "r_squared": 0.03767833911160279
     }
   },
   "current_weights": {
-    "FTNT": 0.13302143596305363,
-    "SNOW": 0.1497976374531895,
-    "HUM": 0.1299105930886257,
-    "MPC": 0.13411753159177892,
-    "ROKU": 0.29988905563815876
+    "FTNT": 0.133022135362882,
+    "SNOW": 0.149798425058895,
+    "HUM": 0.13556712175997268,
+    "MPC": 0.13411823675465656,
+    "ROKU": 0.29989063239420954
   },
   "nav_series": [
     {
@@ -314,7 +314,7 @@
     },
     {
       "date": "2026-08-19",
-      "nav": 103017.23762440286
+      "nav": 103016.69598343375
     }
   ],
   "daily_returns": [
@@ -600,20 +600,10 @@
     },
     {
       "date": "2026-08-19",
-      "ret": -0.01991079061149459
+      "ret": -0.019915943695400062
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "HUM",
-      "side": "BUY",
-      "shares": 34.39811947256993,
-      "price": 389.18550516945015,
-      "slippage_bps": 9.14329165604233,
-      "timestamp": "2026-08-12",
-      "reason": "rebalance to target weight 0.1277"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "MPC",
@@ -903,6 +893,16 @@
       "slippage_bps": 7.697377327462011,
       "timestamp": "2026-08-19",
       "reason": "rebalance to target weight 0.1497"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "HUM",
+      "side": "BUY",
+      "shares": 1.5413114292670855,
+      "price": 378.37140467103524,
+      "slippage_bps": 9.296218919011782,
+      "timestamp": "2026-08-19",
+      "reason": "rebalance to target weight 0.1356"
     }
   ]
 }
