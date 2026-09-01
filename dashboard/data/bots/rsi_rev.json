@@ -1,28 +1,26 @@
 {
   "bot_id": "rsi_rev",
   "metrics": {
-    "total_return": -0.08745384575829385,
-    "annualized_return": -0.25183439550237074,
-    "sharpe": -2.733094320405384,
-    "sharpe_ci_lo": -5.400596539158121,
-    "sharpe_ci_hi": 0.7682782257875499,
-    "volatility": 0.10609365920953744,
-    "max_drawdown": -0.0874538457582939,
-    "days": 79,
-    "alpha_t_stat_vs_spy": -1.6659043367870063,
-    "alpha_t_stat_vs_qqq": -1.7038057168909109,
+    "total_return": -0.10459470593474218,
+    "annualized_return": -0.29280493565898413,
+    "sharpe": -3.146934244558186,
+    "sharpe_ci_lo": -5.612364236798179,
+    "sharpe_ci_hi": 0.7923932147534274,
+    "volatility": 0.11001523411334878,
+    "max_drawdown": -0.10459470593474224,
+    "days": 80,
+    "alpha_t_stat_vs_spy": -1.7167313809700764,
+    "alpha_t_stat_vs_qqq": -1.7225023374315256,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0011937158677922904,
-      "beta_mkt": -0.021166054757528453,
-      "beta_size": 0.06764910448922863,
-      "beta_value": -0.19259700113401745,
-      "r_squared": 0.05382398798473287
+      "alpha_per_day": -0.0013434791813085785,
+      "beta_mkt": -0.04131529601491758,
+      "beta_size": 0.040508037483347796,
+      "beta_value": 0.014872294277944028,
+      "r_squared": 0.004274884215968111
     }
   },
-  "current_weights": {
-    "VXX": 0.8998844386751608
-  },
+  "current_weights": {},
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -339,6 +337,10 @@
     {
       "date": "2026-08-28",
       "nav": 91254.61542417061
+    },
+    {
+      "date": "2026-08-31",
+      "nav": 89540.52940652578
     }
   ],
   "daily_returns": [
@@ -653,6 +655,10 @@
     {
       "date": "2026-08-28",
       "ret": -0.0011542793478862556
+    },
+    {
+      "date": "2026-08-31",
+      "ret": -0.01878355423095479
     }
   ],
   "recent_trades": [
@@ -945,6 +951,16 @@
       "slippage_bps": 12.841796109889827,
       "timestamp": "2026-08-28",
       "reason": "rebalance to target weight 0.9000"
+    },
+    {
+      "bot_id": "rsi_rev",
+      "symbol": "VXX",
+      "side": "SELL",
+      "shares": 4472.690939410868,
+      "price": 17.97676688352701,
+      "slippage_bps": 12.90728692944045,
+      "timestamp": "2026-08-31",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
