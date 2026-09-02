@@ -1,29 +1,29 @@
 {
   "bot_id": "sector-momo",
   "metrics": {
-    "total_return": 0.031098997641866966,
-    "annualized_return": 0.1104472922050237,
-    "sharpe": 0.8769266126297152,
-    "sharpe_ci_lo": -0.9410187751110036,
+    "total_return": 0.03108398549804936,
+    "annualized_return": 0.11039593835459205,
+    "sharpe": 0.8765272899091621,
+    "sharpe_ci_lo": -0.9413471468523528,
     "sharpe_ci_hi": 2.333218869891132,
-    "volatility": 0.11949081933940806,
+    "volatility": 0.11949247246445796,
     "max_drawdown": -0.04557431759368893,
     "days": 80,
-    "alpha_t_stat_vs_spy": 0.5588744897591107,
-    "alpha_t_stat_vs_qqq": 0.5661763374976063,
+    "alpha_t_stat_vs_spy": 0.5586284329167357,
+    "alpha_t_stat_vs_qqq": 0.5659311073855798,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.00043103750552541195,
-      "beta_mkt": 0.06706580161348943,
-      "beta_size": -0.18044166600439768,
-      "beta_value": 0.1547499961789012,
-      "r_squared": 0.03668734309727806
+      "alpha_per_day": 0.0004308360257492891,
+      "beta_mkt": 0.06711578136011571,
+      "beta_size": -0.18049135259420185,
+      "beta_value": 0.1547524365738996,
+      "r_squared": 0.03669042153428048
     }
   },
   "current_weights": {
-    "XLE": 0.2756552237235895,
-    "XLK": 0.1881663291947314,
-    "XLF": 0.4901879793076257
+    "XLE": 0.2756592371462795,
+    "XLK": 0.17653023984851318,
+    "XLF": 0.4976757762408745
   },
   "nav_series": [
     {
@@ -344,7 +344,7 @@
     },
     {
       "date": "2026-09-01",
-      "nav": 103032.3023797431
+      "nav": 103030.80229512976
     }
   ],
   "daily_returns": [
@@ -662,30 +662,10 @@
     },
     {
       "date": "2026-09-01",
-      "ret": -0.0037924892125066334
+      "ret": -0.003806993358527855
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "sector-momo",
-      "symbol": "XLV",
-      "side": "BUY",
-      "shares": 259.14272378520616,
-      "price": 168.56577796672343,
-      "slippage_bps": 7.467081660778087,
-      "timestamp": "2026-08-12",
-      "reason": "rebalance to target weight 0.4193"
-    },
-    {
-      "bot_id": "sector-momo",
-      "symbol": "XLE",
-      "side": "BUY",
-      "shares": 15.331507392280027,
-      "price": 61.07528091400079,
-      "slippage_bps": 7.4196519104761975,
-      "timestamp": "2026-08-12",
-      "reason": "rebalance to target weight 0.3245"
-    },
     {
       "bot_id": "sector-momo",
       "symbol": "XLI",
@@ -965,6 +945,26 @@
       "slippage_bps": 7.721484706093836,
       "timestamp": "2026-09-01",
       "reason": "rebalance to target weight 0.1882"
+    },
+    {
+      "bot_id": "sector-momo",
+      "symbol": "XLF",
+      "side": "BUY",
+      "shares": 13.474447407867824,
+      "price": 57.24266288838583,
+      "slippage_bps": 7.458413440095797,
+      "timestamp": "2026-09-01",
+      "reason": "rebalance to target weight 0.4977"
+    },
+    {
+      "bot_id": "sector-momo",
+      "symbol": "XLK",
+      "side": "SELL",
+      "shares": 6.529938413849967,
+      "price": 183.49830800007038,
+      "slippage_bps": 7.7157149885098555,
+      "timestamp": "2026-09-01",
+      "reason": "rebalance to target weight 0.1765"
     }
   ]
 }
