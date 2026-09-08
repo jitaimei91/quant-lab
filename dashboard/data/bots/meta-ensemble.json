@@ -1,28 +1,28 @@
 {
   "bot_id": "meta-ensemble",
   "metrics": {
-    "total_return": 0.014216239112441853,
-    "annualized_return": 0.044462440788288315,
-    "sharpe": 1.2050397462521478,
-    "sharpe_ci_lo": -1.3674453557032396,
-    "sharpe_ci_hi": 2.312149082238225,
-    "volatility": 0.036103454307867024,
+    "total_return": 0.013572090429058825,
+    "annualized_return": 0.041934894648788745,
+    "sharpe": 1.1439674520962955,
+    "sharpe_ci_lo": -1.401635867036711,
+    "sharpe_ci_hi": 2.2948242615768604,
+    "volatility": 0.03591256779261753,
     "max_drawdown": -0.014999869880496924,
-    "days": 84,
-    "alpha_t_stat_vs_spy": 0.5146876427580818,
-    "alpha_t_stat_vs_qqq": 0.5518437033594198,
+    "days": 85,
+    "alpha_t_stat_vs_spy": 0.4803019716724299,
+    "alpha_t_stat_vs_qqq": 0.5129294013466662,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.00012790131230394758,
-      "beta_mkt": 0.062013124671647143,
-      "beta_size": -0.02874306525696166,
-      "beta_value": 0.00827925071781706,
-      "r_squared": 0.028817584105954697
+      "alpha_per_day": 0.00011630570156486056,
+      "beta_mkt": 0.06282449840480235,
+      "beta_size": -0.028629075222818774,
+      "beta_value": 0.009748881894811831,
+      "r_squared": 0.028321799217509658
     }
   },
   "current_weights": {
-    "QQQ": 0.07450282438677432,
-    "SPY": 0.10377711654203522
+    "QQQ": 0.07979537589886221,
+    "SPY": 0.10327275010630976
   },
   "nav_series": [
     {
@@ -360,6 +360,10 @@
     {
       "date": "2026-09-04",
       "nav": 101390.33908955344
+    },
+    {
+      "date": "2026-09-08",
+      "nav": 101325.94409082078
     }
   ],
   "daily_returns": [
@@ -694,6 +698,10 @@
     {
       "date": "2026-09-04",
       "ret": -0.000267776122783836
+    },
+    {
+      "date": "2026-09-08",
+      "ret": -0.000635119670285178
     }
   ],
   "recent_trades": [
@@ -916,6 +924,16 @@
       "slippage_bps": 5.5746396823220135,
       "timestamp": "2026-08-05",
       "reason": "rebalance to target weight 0.0744"
+    },
+    {
+      "bot_id": "meta-ensemble",
+      "symbol": "QQQ",
+      "side": "BUY",
+      "shares": 0.7486212476959105,
+      "price": 718.7640441178866,
+      "slippage_bps": 5.624739330744663,
+      "timestamp": "2026-09-08",
+      "reason": "rebalance to target weight 0.0798"
     }
   ]
 }
