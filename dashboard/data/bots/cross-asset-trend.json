@@ -1,31 +1,31 @@
 {
   "bot_id": "cross-asset-trend",
   "metrics": {
-    "total_return": 0.008925825379680008,
-    "annualized_return": 0.03222262165358014,
-    "sharpe": 0.31383280993517604,
-    "sharpe_ci_lo": -2.0403533201661013,
-    "sharpe_ci_hi": 4.024712965110193,
-    "volatility": 0.10106132044881105,
+    "total_return": 0.0031698231723154002,
+    "annualized_return": 0.014533527686111158,
+    "sharpe": 0.14292360844106108,
+    "sharpe_ci_lo": -1.9522610114700638,
+    "sharpe_ci_hi": 4.125163640865658,
+    "volatility": 0.10095841736209829,
     "max_drawdown": -0.044736376275724084,
-    "days": 85,
-    "alpha_t_stat_vs_spy": 0.05512925895081265,
-    "alpha_t_stat_vs_qqq": 0.08608065858484497,
+    "days": 86,
+    "alpha_t_stat_vs_spy": 0.20328000355869877,
+    "alpha_t_stat_vs_qqq": 0.16453268821406597,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 4.4025158630739444e-05,
-      "beta_mkt": 0.09986443187477025,
-      "beta_size": -0.052361503205283565,
-      "beta_value": -0.003025585650043302,
-      "r_squared": 0.012822080493234411
+      "alpha_per_day": 0.00016445668805332666,
+      "beta_mkt": -0.028093234190753158,
+      "beta_size": -0.12660911827888358,
+      "beta_value": 0.0048793177283519345,
+      "r_squared": 0.03129751343202325
     }
   },
   "current_weights": {
-    "EEM": 0.13415958938703768,
-    "EFA": 0.2900057862513094,
-    "GLD": 0.15224428563828907,
-    "SPY": 0.3057343898449603,
-    "USO": 0.0736524301615301
+    "EEM": 0.13201325196446886,
+    "EFA": 0.2837971408798492,
+    "GLD": 0.15046431623421994,
+    "SPY": 0.3132000538058121,
+    "USO": 0.07042840532465372
   },
   "nav_series": [
     {
@@ -367,6 +367,10 @@
     {
       "date": "2026-09-09",
       "nav": 100827.57045033615
+    },
+    {
+      "date": "2026-09-10",
+      "nav": 100252.34112873866
     }
   ],
   "daily_returns": [
@@ -705,39 +709,13 @@
     {
       "date": "2026-09-09",
       "ret": -0.0020697141609400393
+    },
+    {
+      "date": "2026-09-10",
+      "ret": -0.005705079662519763
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "cross-asset-trend",
-      "symbol": "EFA",
-      "side": "SELL",
-      "shares": 82.61674024723312,
-      "price": 108.72226466072142,
-      "slippage_bps": 8.062944567670352,
-      "timestamp": "2026-08-25",
-      "reason": "rebalance to target weight 0.1909"
-    },
-    {
-      "bot_id": "cross-asset-trend",
-      "symbol": "GLD",
-      "side": "SELL",
-      "shares": 12.62403997573305,
-      "price": 427.7843776790442,
-      "slippage_bps": 6.672498429871031,
-      "timestamp": "2026-08-25",
-      "reason": "rebalance to target weight 0.1101"
-    },
-    {
-      "bot_id": "cross-asset-trend",
-      "symbol": "SPY",
-      "side": "SELL",
-      "shares": 12.336966166963663,
-      "price": 765.4856733807374,
-      "slippage_bps": 5.539812493260135,
-      "timestamp": "2026-08-25",
-      "reason": "rebalance to target weight 0.2097"
-    },
     {
       "bot_id": "cross-asset-trend",
       "symbol": "TLT",
@@ -1007,6 +985,36 @@
       "slippage_bps": 8.898462057370054,
       "timestamp": "2026-09-08",
       "reason": "rebalance to target weight 0.0716"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "EFA",
+      "side": "SELL",
+      "shares": 5.13239037900352,
+      "price": 105.57397285933638,
+      "slippage_bps": 8.142229773919102,
+      "timestamp": "2026-09-10",
+      "reason": "rebalance to target weight 0.2838"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "SPY",
+      "side": "BUY",
+      "shares": 0.9993850928150729,
+      "price": 758.2512502883148,
+      "slippage_bps": 5.558412691129297,
+      "timestamp": "2026-09-10",
+      "reason": "rebalance to target weight 0.3132"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "USO",
+      "side": "SELL",
+      "shares": 4.937672375893081,
+      "price": 158.23841006268546,
+      "slippage_bps": 8.940195464182551,
+      "timestamp": "2026-09-10",
+      "reason": "rebalance to target weight 0.0704"
     }
   ]
 }
