@@ -1,28 +1,26 @@
 {
   "bot_id": "rsi_rev",
   "metrics": {
-    "total_return": -0.09532403115106647,
-    "annualized_return": -0.24758839794560616,
-    "sharpe": -2.6448056250773684,
-    "sharpe_ci_lo": -6.5419683980308605,
-    "sharpe_ci_hi": 0.5883476673218084,
-    "volatility": 0.10749797847601561,
+    "total_return": -0.1002389016104478,
+    "annualized_return": -0.25681670751441477,
+    "sharpe": -2.76904708375301,
+    "sharpe_ci_lo": -6.4136184986297105,
+    "sharpe_ci_hi": 0.6177253073784622,
+    "volatility": 0.10712632716205413,
     "max_drawdown": -0.10563885181915669,
-    "days": 88,
-    "alpha_t_stat_vs_spy": -1.6171817732560825,
-    "alpha_t_stat_vs_qqq": -1.5564983196482172,
+    "days": 89,
+    "alpha_t_stat_vs_spy": -1.468840134134598,
+    "alpha_t_stat_vs_qqq": -1.541176119444718,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0012389423705819168,
-      "beta_mkt": 0.05161467079624075,
-      "beta_size": 0.07253847640072729,
-      "beta_value": 0.03175499783809871,
-      "r_squared": 0.0146412131450524
+      "alpha_per_day": -0.0010798979985082364,
+      "beta_mkt": -0.05347771539101295,
+      "beta_size": -0.09854075299398404,
+      "beta_value": 0.0707532885929514,
+      "r_squared": 0.032122504538478425
     }
   },
-  "current_weights": {
-    "VNQ": 0.8999026403657168
-  },
+  "current_weights": {},
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -375,6 +373,10 @@
     {
       "date": "2026-09-11",
       "nav": 90467.59688489336
+    },
+    {
+      "date": "2026-09-14",
+      "nav": 89976.10983895522
     }
   ],
   "daily_returns": [
@@ -725,19 +727,13 @@
     {
       "date": "2026-09-11",
       "ret": -0.0009726493749587783
+    },
+    {
+      "date": "2026-09-14",
+      "ret": -0.005432741256114926
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "rsi_rev",
-      "symbol": "USO",
-      "side": "BUY",
-      "shares": 404.3602018768147,
-      "price": 109.4007429597446,
-      "slippage_bps": 8.301656131884403,
-      "timestamp": "2026-06-25",
-      "reason": "rebalance to target weight 0.4500"
-    },
     {
       "bot_id": "rsi_rev",
       "symbol": "GLD",
@@ -1027,6 +1023,16 @@
       "slippage_bps": 10.818907503563887,
       "timestamp": "2026-09-11",
       "reason": "rebalance to target weight 0.9000"
+    },
+    {
+      "bot_id": "rsi_rev",
+      "symbol": "VNQ",
+      "side": "SELL",
+      "shares": 858.7766527793087,
+      "price": 94.22769237662766,
+      "slippage_bps": 10.845908241396153,
+      "timestamp": "2026-09-14",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
