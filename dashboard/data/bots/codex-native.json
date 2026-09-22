@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-native",
   "metrics": {
-    "total_return": -0.0390283550353927,
-    "annualized_return": -0.09183077510566273,
-    "sharpe": -0.6324600749328796,
+    "total_return": -0.03903251751627812,
+    "annualized_return": -0.09184161127335211,
+    "sharpe": -0.6325438632373226,
     "sharpe_ci_lo": -4.2753435013707515,
     "sharpe_ci_hi": 0.19713751844769398,
-    "volatility": 0.1522722829773157,
+    "volatility": 0.15227096884887684,
     "max_drawdown": -0.11990916597337102,
     "days": 94,
-    "alpha_t_stat_vs_spy": -0.4235439975352427,
-    "alpha_t_stat_vs_qqq": -0.3826152734336908,
+    "alpha_t_stat_vs_spy": -0.4235974254284188,
+    "alpha_t_stat_vs_qqq": -0.382667889978373,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.000549122303593538,
-      "beta_mkt": 0.2453058906617089,
-      "beta_size": -0.17403975367633454,
-      "beta_value": 0.17667008389754,
-      "r_squared": 0.017494950610767557
+      "alpha_per_day": -0.0005491740144532249,
+      "beta_mkt": 0.2453093492606958,
+      "beta_size": -0.17403638730228416,
+      "beta_value": 0.17667175241500882,
+      "r_squared": 0.01749531323389719
     }
   },
   "current_weights": {
-    "XLK": 0.14699524737025815,
-    "QQQ": 0.21164714250216243,
-    "USO": 0.07505901840740288,
-    "EEM": 0.149452991191813,
-    "SPY": 0.29889991201264654
+    "XLK": 0.14699588408785638,
+    "QQQ": 0.21164805926282415,
+    "USO": 0.07505934352946486,
+    "EEM": 0.1548997092186068,
+    "SPY": 0.29890120671324055
   },
   "nav_series": [
     {
@@ -402,7 +402,7 @@
     },
     {
       "date": "2026-09-21",
-      "nav": 96028.8456702521
+      "nav": 96028.42971808885
     }
   ],
   "daily_returns": [
@@ -776,20 +776,10 @@
     },
     {
       "date": "2026-09-21",
-      "ret": 0.016216496839240646
+      "ret": 0.01621209506342791
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-native",
-      "symbol": "XLF",
-      "side": "SELL",
-      "shares": 47.760198244024245,
-      "price": 56.82773832608827,
-      "slippage_bps": 7.431089606158441,
-      "timestamp": "2026-09-10",
-      "reason": "rebalance to target weight 0.2557"
-    },
     {
       "bot_id": "codex-native",
       "symbol": "XLK",
@@ -1079,6 +1069,16 @@
       "slippage_bps": 8.74399581795707,
       "timestamp": "2026-09-21",
       "reason": "rebalance to target weight 0.0751"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "EEM",
+      "side": "BUY",
+      "shares": 7.598105477592304,
+      "price": 68.88474602544352,
+      "slippage_bps": 7.953536674777485,
+      "timestamp": "2026-09-21",
+      "reason": "rebalance to target weight 0.1549"
     }
   ]
 }
