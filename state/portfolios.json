@@ -12,12 +12,12 @@
   },
   {
     "bot_id": "qqq-vol",
-    "cash": 29882.351485064122,
+    "cash": 27589.351419870465,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 101.22815259889931,
-        "avg_cost": 702.208203251556
+        "shares": 104.3199942169579,
+        "avg_cost": 703.3765652587938
       }
     }
   },
@@ -34,14 +34,8 @@
   },
   {
     "bot_id": "meanrev",
-    "cash": 0.0,
-    "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 747.5994409713884,
-        "avg_cost": 148.16000366210938
-      }
-    }
+    "cash": 111168.74450779118,
+    "positions": {}
   },
   {
     "bot_id": "breakout",
@@ -50,27 +44,22 @@
   },
   {
     "bot_id": "ma_cross",
-    "cash": 4744.864416882559,
+    "cash": 4711.01684378277,
     "positions": {
       "USO": {
         "symbol": "USO",
-        "shares": 156.38596144056905,
-        "avg_cost": 157.00773484923567
+        "shares": 201.19803878378173,
+        "avg_cost": 155.21508333457413
       },
       "EEM": {
         "symbol": "EEM",
-        "shares": 326.07617217362207,
-        "avg_cost": 66.91000366210938
+        "shares": 442.23653816802926,
+        "avg_cost": 67.13427251857665
       },
       "VUG": {
         "symbol": "VUG",
-        "shares": 247.26289437863048,
-        "avg_cost": 88.43000030517578
-      },
-      "EFA": {
-        "symbol": "EFA",
-        "shares": 211.45418332167787,
-        "avg_cost": 106.5
+        "shares": 331.70179054141477,
+        "avg_cost": 88.92060801911617
       }
     }
   },
@@ -81,7 +70,7 @@
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 10103.40657014385,
+    "cash": 12241.726418354358,
     "positions": {
       "MPC": {
         "symbol": "MPC",
@@ -100,7 +89,7 @@
       },
       "ZBRA": {
         "symbol": "ZBRA",
-        "shares": 51.676573652553714,
+        "shares": 45.90638544571791,
         "avg_cost": 346.8549286154115
       },
       "ROKU": {
@@ -112,7 +101,7 @@
   },
   {
     "bot_id": "codex-native",
-    "cash": 10674.174637773609,
+    "cash": 9278.554960364629,
     "positions": {
       "XLK": {
         "symbol": "XLK",
@@ -121,29 +110,29 @@
       },
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 26.686753619563607,
+        "shares": 25.93347491653526,
         "avg_cost": 713.0001509195732
       },
       "USO": {
         "symbol": "USO",
-        "shares": 53.291328071602166,
+        "shares": 49.41697124645381,
         "avg_cost": 157.46592225897658
-      },
-      "EEM": {
-        "symbol": "EEM",
-        "shares": 216.10889792741787,
-        "avg_cost": 66.9794330142165
       },
       "SPY": {
         "symbol": "SPY",
         "shares": 37.10796835360617,
         "avg_cost": 762.5999755859375
+      },
+      "XLV": {
+        "symbol": "XLV",
+        "shares": 101.5257201299063,
+        "avg_cost": 168.8000030517578
       }
     }
   },
   {
     "bot_id": "risk-parity",
-    "cash": 5120.844303120457,
+    "cash": 4944.991741263451,
     "positions": {
       "GLD": {
         "symbol": "GLD",
@@ -152,19 +141,19 @@
       },
       "SPY": {
         "symbol": "SPY",
-        "shares": 44.12293183502604,
-        "avg_cost": 742.4715203100911
+        "shares": 46.01149494148184,
+        "avg_cost": 743.529107502843
       },
       "TLT": {
         "symbol": "TLT",
-        "shares": 512.6235791425764,
+        "shares": 496.7659715483839,
         "avg_cost": 85.62770002978777
       }
     }
   },
   {
     "bot_id": "apex",
-    "cash": 25671.104748493526,
+    "cash": 24809.353658600783,
     "positions": {
       "USO": {
         "symbol": "USO",
@@ -173,8 +162,8 @@
       },
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 43.48414364487003,
-        "avg_cost": 703.6583301371564
+        "shares": 44.64611390583149,
+        "avg_cost": 704.6465692589001
       },
       "EEM": {
         "symbol": "EEM",
@@ -227,7 +216,7 @@
   },
   {
     "bot_id": "cross-asset-trend",
-    "cash": 4626.8019542736465,
+    "cash": 3685.1224027622075,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -246,8 +235,8 @@
       },
       "SPY": {
         "symbol": "SPY",
-        "shares": 40.280544473173805,
-        "avg_cost": 759.7331326693019
+        "shares": 41.5063102474899,
+        "avg_cost": 759.9842915848812
       },
       "USO": {
         "symbol": "USO",
@@ -258,7 +247,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 4603.892098943746,
+    "cash": 5095.1228667524265,
     "positions": {
       "AMD": {
         "symbol": "AMD",
@@ -337,7 +326,7 @@
       },
       "TWLO": {
         "symbol": "TWLO",
-        "shares": 12.600756751374153,
+        "shares": 10.841936909350002,
         "avg_cost": 203.20029685762063
       },
       "PAYC": {
@@ -349,11 +338,6 @@
         "symbol": "HPQ",
         "shares": 97.12718257383432,
         "avg_cost": 29.9507860242732
-      },
-      "RHI": {
-        "symbol": "RHI",
-        "shares": 83.98655659204901,
-        "avg_cost": 43.03797119719911
       },
       "GTLB": {
         "symbol": "GTLB",
@@ -399,6 +383,11 @@
         "symbol": "WDC",
         "shares": 6.729021584894783,
         "avg_cost": 464.6000061035156
+      },
+      "FFIV": {
+        "symbol": "FFIV",
+        "shares": 6.9047854861974205,
+        "avg_cost": 455.989990234375
       }
     }
   },
@@ -415,14 +404,8 @@
   },
   {
     "bot_id": "regime-meanrev",
-    "cash": 0.0,
-    "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 747.5994409713884,
-        "avg_cost": 148.16000366210938
-      }
-    }
+    "cash": 111168.74450779118,
+    "positions": {}
   },
   {
     "bot_id": "regime-breakout",
