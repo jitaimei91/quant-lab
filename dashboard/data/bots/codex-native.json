@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-native",
   "metrics": {
-    "total_return": -0.04295834264646892,
-    "annualized_return": -0.09979345577836984,
-    "sharpe": -0.6966200863288344,
-    "sharpe_ci_lo": -3.970805566662451,
-    "sharpe_ci_hi": 0.07755767908208791,
-    "volatility": 0.1508844259336145,
+    "total_return": -0.04073833082455025,
+    "annualized_return": -0.09330046524313296,
+    "sharpe": -0.6521660082166134,
+    "sharpe_ci_lo": -4.171631881686767,
+    "sharpe_ci_hi": 0.07012536528762987,
+    "volatility": 0.15015367994339118,
     "max_drawdown": -0.11990916597337102,
-    "days": 96,
-    "alpha_t_stat_vs_spy": -0.3557689269259308,
-    "alpha_t_stat_vs_qqq": -0.3845878615424517,
+    "days": 97,
+    "alpha_t_stat_vs_spy": -0.26073729537580415,
+    "alpha_t_stat_vs_qqq": -0.27056180983909806,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.000337591655147182,
-      "beta_mkt": -0.08076832869553116,
-      "beta_size": -0.02155823134776536,
-      "beta_value": -0.015174290427066752,
-      "r_squared": 0.00405016462781016
+      "alpha_per_day": -0.00022347716850242523,
+      "beta_mkt": -0.07809749747858179,
+      "beta_size": -0.17127426567310208,
+      "beta_value": 0.013984459892825178,
+      "r_squared": 0.028040164249436783
     }
   },
   "current_weights": {
-    "XLK": 0.14797003495857725,
-    "QQQ": 0.20099257733708947,
-    "USO": 0.0769032394472747,
-    "SPY": 0.2979195225862775,
-    "XLV": 0.17919527410578218
+    "XLK": 0.14715147637645312,
+    "QQQ": 0.20955819147260793,
+    "USO": 0.07892138727769417,
+    "SPY": 0.2969861660002032,
+    "EEM": 0.15175529474681865
   },
   "nav_series": [
     {
@@ -411,6 +411,10 @@
     {
       "date": "2026-09-23",
       "nav": 95636.12630567196
+    },
+    {
+      "date": "2026-09-24",
+      "nav": 95857.96965947977
     }
   ],
   "daily_returns": [
@@ -793,39 +797,13 @@
     {
       "date": "2026-09-23",
       "ret": -0.00534461168063749
+    },
+    {
+      "date": "2026-09-24",
+      "ret": 0.002319660596653117
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-native",
-      "symbol": "EEM",
-      "side": "BUY",
-      "shares": 15.319795879337576,
-      "price": 66.04203156031964,
-      "slippage_bps": 7.885088382262424,
-      "timestamp": "2026-09-14",
-      "reason": "rebalance to target weight 0.1525"
-    },
-    {
-      "bot_id": "codex-native",
-      "symbol": "QQQ",
-      "side": "BUY",
-      "shares": 3.1168539438511504,
-      "price": 709.5809374183839,
-      "slippage_bps": 5.6536386635762454,
-      "timestamp": "2026-09-14",
-      "reason": "rebalance to target weight 0.1889"
-    },
-    {
-      "bot_id": "codex-native",
-      "symbol": "SPY",
-      "side": "BUY",
-      "shares": 4.398090038586956,
-      "price": 761.3037041158017,
-      "slippage_bps": 5.568542086403397,
-      "timestamp": "2026-09-14",
-      "reason": "rebalance to target weight 0.3000"
-    },
     {
       "bot_id": "codex-native",
       "symbol": "XLE",
@@ -1095,6 +1073,36 @@
       "slippage_bps": 7.773520610454796,
       "timestamp": "2026-09-23",
       "reason": "rebalance to target weight 0.1793"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "EEM",
+      "side": "BUY",
+      "shares": 216.31159017852718,
+      "price": 67.30335181415015,
+      "slippage_bps": 7.933355263962429,
+      "timestamp": "2026-09-24",
+      "reason": "rebalance to target weight 0.1518"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "QQQ",
+      "side": "BUY",
+      "shares": 1.171940576421167,
+      "price": 741.5189799598479,
+      "slippage_bps": 5.653817132825215,
+      "timestamp": "2026-09-24",
+      "reason": "rebalance to target weight 0.2095"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "XLV",
+      "side": "SELL",
+      "shares": 101.5257201299063,
+      "price": 169.7379946561704,
+      "slippage_bps": 7.770675505467176,
+      "timestamp": "2026-09-24",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
