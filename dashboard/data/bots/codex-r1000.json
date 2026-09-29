@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.04171573234300219,
-    "annualized_return": 0.13149937348105611,
-    "sharpe": 0.6404563562844666,
-    "sharpe_ci_lo": -0.8016221073777495,
-    "sharpe_ci_hi": 2.206817447960959,
-    "volatility": 0.19294666983876282,
+    "total_return": 0.045575812632645096,
+    "annualized_return": 0.14079279538424783,
+    "sharpe": 0.6861380510818594,
+    "sharpe_ci_lo": -0.8241489954281387,
+    "sharpe_ci_hi": 2.2404325930155577,
+    "volatility": 0.1920282482022833,
     "max_drawdown": -0.06514181151959973,
-    "days": 99,
-    "alpha_t_stat_vs_spy": 0.4482637454177112,
-    "alpha_t_stat_vs_qqq": 0.45466090657471364,
+    "days": 100,
+    "alpha_t_stat_vs_spy": 0.47926737598750735,
+    "alpha_t_stat_vs_qqq": 0.4864963674904265,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.0004429305570961165,
-      "beta_mkt": -0.02478532802609931,
-      "beta_size": 0.06046301286147425,
-      "beta_value": 0.10645470395046398,
-      "r_squared": 0.009898191293734482
+      "alpha_per_day": 0.00046748095314773835,
+      "beta_mkt": -0.023990426962825943,
+      "beta_size": 0.06288451590376956,
+      "beta_value": 0.10707693712378863,
+      "r_squared": 0.010115542150712531
     }
   },
   "current_weights": {
-    "NTAP": 0.1451311719746488,
-    "ZBRA": 0.2116746411382314,
-    "RVTY": 0.13426018533779083,
-    "HUM": 0.22029180511598753,
-    "PAYC": 0.21925505227132427
+    "NTAP": 0.13913042329874592,
+    "ZBRA": 0.20736526642413639,
+    "RVTY": 0.13531456628564106,
+    "HUM": 0.21792381376542008,
+    "PAYC": 0.2216999313382875
   },
   "nav_series": [
     {
@@ -423,6 +423,10 @@
     {
       "date": "2026-09-28",
       "nav": 104101.90452874561
+    },
+    {
+      "date": "2026-09-29",
+      "nav": 104487.65440014469
     }
   ],
   "daily_returns": [
@@ -817,39 +821,13 @@
     {
       "date": "2026-09-28",
       "ret": -0.00406174499292955
+    },
+    {
+      "date": "2026-09-29",
+      "ret": 0.003705502537588723
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "NTAP",
-      "side": "SELL",
-      "shares": 4.590084169769933,
-      "price": 196.73150740383554,
-      "slippage_bps": 9.57194631639624,
-      "timestamp": "2026-09-17",
-      "reason": "rebalance to target weight 0.1422"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "HUM",
-      "side": "SELL",
-      "shares": 4.653108550674739,
-      "price": 385.827857177561,
-      "slippage_bps": 10.15338516655548,
-      "timestamp": "2026-09-18",
-      "reason": "rebalance to target weight 0.1922"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "MPC",
-      "side": "SELL",
-      "shares": 4.280256947103938,
-      "price": 424.5386025667959,
-      "slippage_bps": 8.270659924366464,
-      "timestamp": "2026-09-18",
-      "reason": "rebalance to target weight 0.1857"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "NTAP",
@@ -1119,6 +1097,36 @@
       "slippage_bps": 12.866182363375641,
       "timestamp": "2026-09-28",
       "reason": "rebalance to target weight 0.2194"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "NTAP",
+      "side": "SELL",
+      "shares": 4.415245873285252,
+      "price": 208.97849182382606,
+      "slippage_bps": 9.632893154724407,
+      "timestamp": "2026-09-29",
+      "reason": "rebalance to target weight 0.1391"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "PAYC",
+      "side": "BUY",
+      "shares": 2.5024726953115985,
+      "price": 218.86139322058082,
+      "slippage_bps": 12.873610905339515,
+      "timestamp": "2026-09-29",
+      "reason": "rebalance to target weight 0.2217"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "ZBRA",
+      "side": "SELL",
+      "shares": 1.6266595964221322,
+      "price": 375.52191043297114,
+      "slippage_bps": 11.918259070594218,
+      "timestamp": "2026-09-29",
+      "reason": "rebalance to target weight 0.2074"
     }
   ]
 }
