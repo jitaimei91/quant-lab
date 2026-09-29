@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-native",
   "metrics": {
-    "total_return": -0.03791036664806602,
-    "annualized_return": -0.0854036999846014,
-    "sharpe": -0.5971691335717816,
-    "sharpe_ci_lo": -4.022372693499422,
-    "sharpe_ci_hi": 0.23476651322294617,
-    "volatility": 0.14946636961151596,
+    "total_return": -0.04457336552660873,
+    "annualized_return": -0.1007343914294836,
+    "sharpe": -0.7121266373971418,
+    "sharpe_ci_lo": -4.067723051213929,
+    "sharpe_ci_hi": 0.12392741843318016,
+    "volatility": 0.14906684949750876,
     "max_drawdown": -0.11990916597337102,
-    "days": 98,
-    "alpha_t_stat_vs_spy": -0.4270646897296234,
-    "alpha_t_stat_vs_qqq": -0.3925515224854306,
+    "days": 99,
+    "alpha_t_stat_vs_spy": -0.445330020258742,
+    "alpha_t_stat_vs_qqq": -0.43524351511166737,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0005321852205955795,
-      "beta_mkt": 0.23925795325656954,
-      "beta_size": -0.0909565055771048,
-      "beta_value": 0.2096922813751185,
-      "r_squared": 0.02172837013814488
+      "alpha_per_day": -0.00035924667446680735,
+      "beta_mkt": -0.2517464345608686,
+      "beta_size": 0.3595015765754949,
+      "beta_value": -0.21716380349630487,
+      "r_squared": 0.048957451326308465
     }
   },
   "current_weights": {
-    "XLK": 0.14789443746274594,
-    "QQQ": 0.20990080335785136,
-    "USO": 0.07624273305852691,
-    "SPY": 0.2977227195978389,
-    "EEM": 0.15295169757225546
+    "XLK": 0.1476055485483076,
+    "QQQ": 0.20293875366847688,
+    "USO": 0.07764398913953002,
+    "SPY": 0.2975680421252544,
+    "XLV": 0.17862367714267485
   },
   "nav_series": [
     {
@@ -419,6 +419,10 @@
     {
       "date": "2026-09-25",
       "nav": 96140.56502729066
+    },
+    {
+      "date": "2026-09-28",
+      "nav": 95474.7388352679
     }
   ],
   "daily_returns": [
@@ -809,39 +813,13 @@
     {
       "date": "2026-09-25",
       "ret": 0.0029480633568055303
+    },
+    {
+      "date": "2026-09-28",
+      "ret": -0.006925548979598406
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-native",
-      "symbol": "XLE",
-      "side": "BUY",
-      "shares": 215.63277640602044,
-      "price": 64.5780829856416,
-      "slippage_bps": 7.4514500626571065,
-      "timestamp": "2026-09-14",
-      "reason": "rebalance to target weight 0.1478"
-    },
-    {
-      "bot_id": "codex-native",
-      "symbol": "XLF",
-      "side": "SELL",
-      "shares": 391.0830382964875,
-      "price": 56.98744642020798,
-      "slippage_bps": 7.46139926349421,
-      "timestamp": "2026-09-14",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "codex-native",
-      "symbol": "XLK",
-      "side": "BUY",
-      "shares": 7.6124251230774185,
-      "price": 184.42474138025406,
-      "slippage_bps": 7.85449326654929,
-      "timestamp": "2026-09-14",
-      "reason": "rebalance to target weight 0.1283"
-    },
     {
       "bot_id": "codex-native",
       "symbol": "EEM",
@@ -1111,6 +1089,36 @@
       "slippage_bps": 7.770675505467176,
       "timestamp": "2026-09-24",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "EEM",
+      "side": "SELL",
+      "shares": 216.31159017852718,
+      "price": 67.14695945848034,
+      "slippage_bps": 7.892483953934865,
+      "timestamp": "2026-09-28",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "QQQ",
+      "side": "SELL",
+      "shares": 0.7989191718908075,
+      "price": 736.113605824483,
+      "slippage_bps": 5.653855998098498,
+      "timestamp": "2026-09-28",
+      "reason": "rebalance to target weight 0.2029"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "XLV",
+      "side": "BUY",
+      "shares": 99.57987546421047,
+      "price": 171.39289561298898,
+      "slippage_bps": 7.760195633297933,
+      "timestamp": "2026-09-28",
+      "reason": "rebalance to target weight 0.1787"
     }
   ]
 }

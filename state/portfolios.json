@@ -12,23 +12,23 @@
   },
   {
     "bot_id": "qqq-vol",
-    "cash": 25583.573466166912,
+    "cash": 24530.463433751618,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 107.01958659745328,
-        "avg_cost": 704.3758957637243
+        "shares": 108.44860498604578,
+        "avg_cost": 704.8050753266482
       }
     }
   },
   {
     "bot_id": "momo",
-    "cash": 5406.521596228558,
+    "cash": 5602.2559765485785,
     "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 723.2778905222065,
-        "avg_cost": 144.0800018310547
+      "VUG": {
+        "symbol": "VUG",
+        "shares": 1200.6353694566571,
+        "avg_cost": 90.04000091552734
       }
     }
   },
@@ -65,29 +65,13 @@
   },
   {
     "bot_id": "rsi_rev",
-    "cash": 8921.040525695062,
-    "positions": {
-      "IEF": {
-        "symbol": "IEF",
-        "shares": 445.66036453808385,
-        "avg_cost": 90.0
-      },
-      "IWM": {
-        "symbol": "IWM",
-        "shares": 142.28248640259037,
-        "avg_cost": 281.9700012207031
-      }
-    }
+    "cash": 88603.09842788035,
+    "positions": {}
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 8123.55127314894,
+    "cash": 7223.333857076621,
     "positions": {
-      "MPC": {
-        "symbol": "MPC",
-        "shares": 56.41836908996767,
-        "avg_cost": 386.70427264325974
-      },
       "NTAP": {
         "symbol": "NTAP",
         "shares": 73.91238754647328,
@@ -107,12 +91,17 @@
         "symbol": "HUM",
         "shares": 58.85788100828368,
         "avg_cost": 397.92999267578125
+      },
+      "PAYC": {
+        "symbol": "PAYC",
+        "shares": 103.47659955355525,
+        "avg_cost": 220.5800018310547
       }
     }
   },
   {
     "bot_id": "codex-native",
-    "cash": 11083.815865173456,
+    "cash": 9129.293513081418,
     "positions": {
       "XLK": {
         "symbol": "XLK",
@@ -121,7 +110,7 @@
       },
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 27.10541549295643,
+        "shares": 26.30649632106562,
         "avg_cost": 714.2332024089702
       },
       "USO": {
@@ -134,10 +123,10 @@
         "shares": 37.10796835360617,
         "avg_cost": 762.5999755859375
       },
-      "EEM": {
-        "symbol": "EEM",
-        "shares": 216.31159017852718,
-        "avg_cost": 67.25
+      "XLV": {
+        "symbol": "XLV",
+        "shares": 99.57987546421047,
+        "avg_cost": 171.25999450683594
       }
     }
   },
@@ -164,29 +153,35 @@
   },
   {
     "bot_id": "apex",
-    "cash": 23951.60886025222,
+    "cash": 27487.919848106292,
     "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 84.54808981533083,
-        "avg_cost": 129.49517816891134
-      },
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 45.39508631377376,
+        "shares": 35.48288018299672,
         "avg_cost": 705.2549262523958
       },
       "EEM": {
         "symbol": "EEM",
-        "shares": 399.3267086058538,
+        "shares": 306.67626515443845,
         "avg_cost": 66.94334589277541
+      },
+      "SSO": {
+        "symbol": "SSO",
+        "shares": 323.7477065132672,
+        "avg_cost": 69.88999938964844
       }
     }
   },
   {
     "bot_id": "calendar",
-    "cash": 107983.31606177012,
-    "positions": {}
+    "cash": 5399.1658030885155,
+    "positions": {
+      "SPY": {
+        "symbol": "SPY",
+        "shares": 133.91557522754633,
+        "avg_cost": 765.6099853515625
+      }
+    }
   },
   {
     "bot_id": "sector-momo",
@@ -258,7 +253,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 7419.709465215907,
+    "cash": 6641.651056795601,
     "positions": {
       "AMD": {
         "symbol": "AMD",
@@ -375,16 +370,6 @@
         "shares": 72.96729909588026,
         "avg_cost": 41.20000076293945
       },
-      "AFRM": {
-        "symbol": "AFRM",
-        "shares": 45.65080016512349,
-        "avg_cost": 71.56999969482422
-      },
-      "MDB": {
-        "symbol": "MDB",
-        "shares": 7.754412793762521,
-        "avg_cost": 421.3999938964844
-      },
       "ANET": {
         "symbol": "ANET",
         "shares": 15.71404230448731,
@@ -394,17 +379,27 @@
         "symbol": "WDC",
         "shares": 7.1061542664132435,
         "avg_cost": 456.80999755859375
+      },
+      "A": {
+        "symbol": "A",
+        "shares": 18.348517004982913,
+        "avg_cost": 175.2100067138672
+      },
+      "SWKS": {
+        "symbol": "SWKS",
+        "shares": 36.70607540257005,
+        "avg_cost": 87.58999633789062
       }
     }
   },
   {
     "bot_id": "regime-momo",
-    "cash": 5406.521596228558,
+    "cash": 5602.2559765485785,
     "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 723.2778905222065,
-        "avg_cost": 144.0800018310547
+      "VUG": {
+        "symbol": "VUG",
+        "shares": 1200.6353694566571,
+        "avg_cost": 90.04000091552734
       }
     }
   },
@@ -497,12 +492,12 @@
   },
   {
     "bot_id": "meta-ensemble",
-    "cash": 82660.22163949392,
+    "cash": 82134.25080640879,
     "positions": {
       "QQQ": {
         "symbol": "QQQ",
-        "shares": 11.458054507609054,
-        "avg_cost": 697.1344822448954
+        "shares": 12.171770994212185,
+        "avg_cost": 699.4689379079958
       },
       "SPY": {
         "symbol": "SPY",
