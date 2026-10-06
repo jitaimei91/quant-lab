@@ -44,12 +44,12 @@
   },
   {
     "bot_id": "ma_cross",
-    "cash": 4460.0491577223065,
+    "cash": 4311.313001320751,
     "positions": {
       "USO": {
         "symbol": "USO",
-        "shares": 203.22192010017724,
-        "avg_cost": 154.6971359085637
+        "shares": 208.16003455206243,
+        "avg_cost": 154.44601293736963
       },
       "EEM": {
         "symbol": "EEM",
@@ -58,30 +58,25 @@
       },
       "VUG": {
         "symbol": "VUG",
-        "shares": 331.70179054141477,
+        "shares": 325.5813758152879,
         "avg_cost": 88.92060801911617
       }
     }
   },
   {
     "bot_id": "rsi_rev",
-    "cash": 8817.242038354772,
+    "cash": 8811.155486824457,
     "positions": {
       "HYG": {
         "symbol": "HYG",
-        "shares": 519.0394849847879,
-        "avg_cost": 76.91000366210938
-      },
-      "VNQ": {
-        "symbol": "VNQ",
-        "shares": 445.85865919102315,
-        "avg_cost": 89.5
+        "shares": 1034.592573702558,
+        "avg_cost": 76.97015477631612
       }
     }
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 9973.154246143962,
+    "cash": 8620.010921217041,
     "positions": {
       "NTAP": {
         "symbol": "NTAP",
@@ -90,29 +85,29 @@
       },
       "ZBRA": {
         "symbol": "ZBRA",
-        "shares": 62.09845643929834,
-        "avg_cost": 352.850050313571
+        "shares": 64.84113217438622,
+        "avg_cost": 353.8341063912566
       },
       "PAYC": {
         "symbol": "PAYC",
-        "shares": 95.77557850842386,
+        "shares": 92.78240637934225,
         "avg_cost": 220.53942050655
       },
       "MPC": {
         "symbol": "MPC",
-        "shares": 45.35092422389697,
+        "shares": 43.56127641857986,
         "avg_cost": 395.4200134277344
       },
-      "VLO": {
-        "symbol": "VLO",
-        "shares": 44.90813168068379,
-        "avg_cost": 408.4599914550781
+      "HUM": {
+        "symbol": "HUM",
+        "shares": 50.901769722129906,
+        "avg_cost": 404.07000732421875
       }
     }
   },
   {
     "bot_id": "codex-native",
-    "cash": 7631.356021364223,
+    "cash": 6977.872328893987,
     "positions": {
       "XLK": {
         "symbol": "XLK",
@@ -136,14 +131,14 @@
       },
       "XLV": {
         "symbol": "XLV",
-        "shares": 112.5211316864065,
-        "avg_cost": 166.17999267578125
+        "shares": 116.42252423853569,
+        "avg_cost": 166.22423073680721
       }
     }
   },
   {
     "bot_id": "risk-parity",
-    "cash": 4316.58935114731,
+    "cash": 4823.095066161279,
     "positions": {
       "GLD": {
         "symbol": "GLD",
@@ -152,7 +147,7 @@
       },
       "SPY": {
         "symbol": "SPY",
-        "shares": 46.01149494148184,
+        "shares": 45.35743244742219,
         "avg_cost": 743.529107502843
       },
       "TLT": {
@@ -233,7 +228,7 @@
   },
   {
     "bot_id": "cross-asset-trend",
-    "cash": 5086.356293088084,
+    "cash": 5590.924993075231,
     "positions": {
       "EEM": {
         "symbol": "EEM",
@@ -252,7 +247,7 @@
       },
       "SPY": {
         "symbol": "SPY",
-        "shares": 41.5063102474899,
+        "shares": 40.85474906554168,
         "avg_cost": 759.9842915848812
       },
       "USO": {
@@ -264,7 +259,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 4642.276288226073,
+    "cash": 7506.629668001167,
     "positions": {
       "AMD": {
         "symbol": "AMD",
@@ -338,8 +333,8 @@
       },
       "HPQ": {
         "symbol": "HPQ",
-        "shares": 97.12718257383432,
-        "avg_cost": 29.9507860242732
+        "shares": 113.64792664443547,
+        "avg_cost": 30.17591394174112
       },
       "GTLB": {
         "symbol": "GTLB",
@@ -385,11 +380,6 @@
         "symbol": "VLO",
         "shares": 8.30202203577262,
         "avg_cost": 408.4599914550781
-      },
-      "LRCX": {
-        "symbol": "LRCX",
-        "shares": 9.794988674013489,
-        "avg_cost": 347.489990234375
       },
       "NWL": {
         "symbol": "NWL",
