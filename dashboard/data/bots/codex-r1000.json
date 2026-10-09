@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.08666235105098385,
-    "annualized_return": 0.243060573875034,
-    "sharpe": 1.1386782211067366,
-    "sharpe_ci_lo": -0.7701844513042937,
-    "sharpe_ci_hi": 2.289146323351311,
-    "volatility": 0.19116067562093572,
+    "total_return": 0.10360511240864434,
+    "annualized_return": 0.28731303895827054,
+    "sharpe": 1.3188178028106787,
+    "sharpe_ci_lo": -0.7269268349064711,
+    "sharpe_ci_hi": 2.3998607604412077,
+    "volatility": 0.19159866514500884,
     "max_drawdown": -0.06514181151959973,
-    "days": 106,
-    "alpha_t_stat_vs_spy": 0.6261515242442528,
-    "alpha_t_stat_vs_qqq": 0.6435491495530344,
+    "days": 107,
+    "alpha_t_stat_vs_spy": 0.7533320222646696,
+    "alpha_t_stat_vs_qqq": 0.8086095306575327,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.0009026583086392764,
-      "beta_mkt": -0.05465448800492578,
-      "beta_size": 0.32956882792525216,
-      "beta_value": -0.20752773387842827,
-      "r_squared": 0.038415790894166135
+      "alpha_per_day": 0.000718238798494429,
+      "beta_mkt": 0.38555420135304613,
+      "beta_size": -0.13680813157051205,
+      "beta_value": 0.1356375477820084,
+      "r_squared": 0.02932497812576651
     }
   },
   "current_weights": {
-    "NTAP": 0.14244409637969616,
-    "MPC": 0.18810587254032451,
-    "HUM": 0.20104602576544228,
-    "PAYC": 0.20369526089405177,
-    "VLO": 0.18331644510388387
+    "NTAP": 0.14917520887481434,
+    "MPC": 0.18419370523052264,
+    "HUM": 0.20276235954743163,
+    "PAYC": 0.2062376000565239,
+    "VLO": 0.18098224207259453
   },
   "nav_series": [
     {
@@ -451,6 +451,10 @@
     {
       "date": "2026-10-07",
       "nav": 108593.56042329977
+    },
+    {
+      "date": "2026-10-08",
+      "nav": 110286.70344739662
     }
   ],
   "daily_returns": [
@@ -873,49 +877,13 @@
     {
       "date": "2026-10-07",
       "ret": 0.005414479164062458
+    },
+    {
+      "date": "2026-10-08",
+      "ret": 0.015591560102615087
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "MPC",
-      "side": "SELL",
-      "shares": 10.426953591243098,
-      "price": 419.81404221696164,
-      "slippage_bps": 7.995993916531716,
-      "timestamp": "2026-10-01",
-      "reason": "rebalance to target weight 0.1790"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "PAYC",
-      "side": "SELL",
-      "shares": 10.203493740442982,
-      "price": 227.17766994091969,
-      "slippage_bps": 12.851421207836815,
-      "timestamp": "2026-10-01",
-      "reason": "rebalance to target weight 0.2046"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "RVTY",
-      "side": "SELL",
-      "shares": 92.54893789322388,
-      "price": 148.89783689033302,
-      "slippage_bps": 10.878885745116806,
-      "timestamp": "2026-10-01",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "VLO",
-      "side": "BUY",
-      "shares": 44.90813168068379,
-      "price": 408.7777884255885,
-      "slippage_bps": 7.780369611678645,
-      "timestamp": "2026-10-01",
-      "reason": "rebalance to target weight 0.1724"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "ZBRA",
@@ -1175,6 +1143,46 @@
       "slippage_bps": 12.172836258805384,
       "timestamp": "2026-10-07",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "HUM",
+      "side": "BUY",
+      "shares": 2.7038480212206117,
+      "price": 387.50021112246634,
+      "slippage_bps": 9.821657627468682,
+      "timestamp": "2026-10-08",
+      "reason": "rebalance to target weight 0.2028"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "MPC",
+      "side": "SELL",
+      "shares": 2.345170755393655,
+      "price": 462.9694627863922,
+      "slippage_bps": 7.997012009043818,
+      "timestamp": "2026-10-08",
+      "reason": "rebalance to target weight 0.1842"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "NTAP",
+      "side": "BUY",
+      "shares": 5.59706783761605,
+      "price": 231.26544954698082,
+      "slippage_bps": 9.324669654937221,
+      "timestamp": "2026-10-08",
+      "reason": "rebalance to target weight 0.1492"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "VLO",
+      "side": "SELL",
+      "shares": 1.96429759874735,
+      "price": 443.4566503436185,
+      "slippage_bps": 7.73631047305147,
+      "timestamp": "2026-10-08",
+      "reason": "rebalance to target weight 0.1810"
     }
   ]
 }
