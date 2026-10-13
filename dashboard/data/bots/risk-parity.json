@@ -1,29 +1,29 @@
 {
   "bot_id": "risk-parity",
   "metrics": {
-    "total_return": -0.04219051043308586,
-    "annualized_return": -0.09320421623825936,
-    "sharpe": -1.0111552070182488,
-    "sharpe_ci_lo": -2.8242742434476136,
-    "sharpe_ci_hi": 1.316533772009876,
-    "volatility": 0.09673986654656157,
+    "total_return": -0.043082244349956,
+    "annualized_return": -0.09436324080095704,
+    "sharpe": -1.0291986420194164,
+    "sharpe_ci_lo": -2.772120018322486,
+    "sharpe_ci_hi": 1.3089361954657328,
+    "volatility": 0.09628606904967081,
     "max_drawdown": -0.0520784652120789,
-    "days": 107,
-    "alpha_t_stat_vs_spy": -0.5563847101519307,
-    "alpha_t_stat_vs_qqq": -0.5997482417024875,
+    "days": 108,
+    "alpha_t_stat_vs_spy": -0.6258390530518239,
+    "alpha_t_stat_vs_qqq": -0.655458406274672,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0002976378361653644,
-      "beta_mkt": -0.12440413949374994,
-      "beta_size": 0.06632696909637313,
-      "beta_value": -0.032132291548212594,
-      "r_squared": 0.014470891953144993
+      "alpha_per_day": -0.00020791476532848067,
+      "beta_mkt": -0.17098916516181842,
+      "beta_size": 0.15475955194555355,
+      "beta_value": -0.1331632683603674,
+      "r_squared": 0.03068405426628984
     }
   },
   "current_weights": {
-    "GLD": 0.1689508082520883,
-    "SPY": 0.36913760000469387,
-    "TLT": 0.4052951116451577
+    "GLD": 0.16803972933143188,
+    "SPY": 0.3772865527396707,
+    "TLT": 0.40603695574908416
   },
   "nav_series": [
     {
@@ -453,6 +453,10 @@
     {
       "date": "2026-10-09",
       "nav": 95666.05112117599
+    },
+    {
+      "date": "2026-10-12",
+      "nav": 95576.98470096715
     }
   ],
   "daily_returns": [
@@ -879,19 +883,13 @@
     {
       "date": "2026-10-09",
       "ret": 0.005419163353526546
+    },
+    {
+      "date": "2026-10-12",
+      "ret": -0.000931013867145225
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "risk-parity",
-      "symbol": "TLT",
-      "side": "BUY",
-      "shares": 10.67448644130459,
-      "price": 83.05941751665127,
-      "slippage_bps": 7.158736945935612,
-      "timestamp": "2026-08-05",
-      "reason": "rebalance to target weight 0.4674"
-    },
     {
       "bot_id": "risk-parity",
       "symbol": "GLD",
@@ -1181,6 +1179,16 @@
       "slippage_bps": 6.733872614243054,
       "timestamp": "2026-10-08",
       "reason": "rebalance to target weight 0.4069"
+    },
+    {
+      "bot_id": "risk-parity",
+      "symbol": "SPY",
+      "side": "BUY",
+      "shares": 0.9861123546782333,
+      "price": 778.5319806159215,
+      "slippage_bps": 5.552050424609527,
+      "timestamp": "2026-10-12",
+      "reason": "rebalance to target weight 0.3773"
     }
   ]
 }
