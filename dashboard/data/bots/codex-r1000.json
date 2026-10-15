@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.13890831140672844,
-    "annualized_return": 0.3722230311234347,
-    "sharpe": 1.640661662870421,
-    "sharpe_ci_lo": -0.6282700444966154,
-    "sharpe_ci_hi": 2.6525542418873385,
-    "volatility": 0.1929897155094742,
+    "total_return": 0.13361464325249495,
+    "annualized_return": 0.3539737001557346,
+    "sharpe": 1.576704214570239,
+    "sharpe_ci_lo": -0.5287075341166725,
+    "sharpe_ci_hi": 2.7072229598580306,
+    "volatility": 0.19231637365497692,
     "max_drawdown": -0.06514181151959973,
-    "days": 111,
-    "alpha_t_stat_vs_spy": 1.1204904286811057,
-    "alpha_t_stat_vs_qqq": 1.141587309581585,
-    "significance_weight": 0.060245214340552855,
+    "days": 112,
+    "alpha_t_stat_vs_spy": 1.0799999373501017,
+    "alpha_t_stat_vs_qqq": 1.0987835704544455,
+    "significance_weight": 0.039999968675050845,
     "factor_loadings": {
-      "alpha_per_day": 0.000753026339887308,
-      "beta_mkt": 0.33598772714662595,
-      "beta_size": -0.3877444399767781,
-      "beta_value": 0.4585306684951589,
-      "r_squared": 0.06570003358819732
+      "alpha_per_day": 0.000722553213530731,
+      "beta_mkt": 0.3414918024458374,
+      "beta_size": -0.3925939208737725,
+      "beta_value": 0.46225535248502925,
+      "r_squared": 0.06718394439686903
     }
   },
   "current_weights": {
-    "MPC": 0.17498114127820816,
-    "PAYC": 0.20310281458545879,
-    "VLO": 0.16793378362453837,
-    "FTNT": 0.15898634083922433,
-    "PSX": 0.21679747368957666
+    "MPC": 0.1783302946348726,
+    "PAYC": 0.18593112953457663,
+    "VLO": 0.16294947496757936,
+    "FTNT": 0.17459313073802543,
+    "PSX": 0.21188271328939579
   },
   "nav_series": [
     {
@@ -471,6 +471,10 @@
     {
       "date": "2026-10-14",
       "nav": 113814.66231136792
+    },
+    {
+      "date": "2026-10-15",
+      "nav": 113285.64953015611
     }
   ],
   "daily_returns": [
@@ -913,39 +917,13 @@
     {
       "date": "2026-10-14",
       "ret": -0.011111212598373443
+    },
+    {
+      "date": "2026-10-15",
+      "ret": -0.004648019600186237
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "NTAP",
-      "side": "SELL",
-      "shares": 3.888290880600138,
-      "price": 228.23505319995127,
-      "slippage_bps": 9.408787531725302,
-      "timestamp": "2026-10-06",
-      "reason": "rebalance to target weight 0.1386"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "NWL",
-      "side": "SELL",
-      "shares": 3107.849996070713,
-      "price": 5.537991465114323,
-      "slippage_bps": 21.637342716830922,
-      "timestamp": "2026-10-06",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "PAYC",
-      "side": "BUY",
-      "shares": 93.49595766373538,
-      "price": 222.7272081958574,
-      "slippage_bps": 12.911605435123052,
-      "timestamp": "2026-10-06",
-      "reason": "rebalance to target weight 0.1926"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "PSX",
@@ -1215,6 +1193,36 @@
       "slippage_bps": 7.698236505466893,
       "timestamp": "2026-10-14",
       "reason": "rebalance to target weight 0.1679"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "FTNT",
+      "side": "BUY",
+      "shares": 10.413472027407119,
+      "price": 182.07150078045504,
+      "slippage_bps": 8.877858011902514,
+      "timestamp": "2026-10-15",
+      "reason": "rebalance to target weight 0.1746"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "MPC",
+      "side": "BUY",
+      "shares": 1.2903625064784436,
+      "price": 477.30223595238226,
+      "slippage_bps": 8.014394738873108,
+      "timestamp": "2026-10-15",
+      "reason": "rebalance to target weight 0.1783"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "PAYC",
+      "side": "SELL",
+      "shares": 13.422926291884444,
+      "price": 252.53904826970623,
+      "slippage_bps": 13.087628183323707,
+      "timestamp": "2026-10-15",
+      "reason": "rebalance to target weight 0.1860"
     }
   ]
 }
