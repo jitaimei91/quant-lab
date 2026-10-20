@@ -1,50 +1,52 @@
 {
   "bot_id": "stock-momo",
   "metrics": {
-    "total_return": -0.10934585061183544,
-    "annualized_return": -0.1872709014864049,
-    "sharpe": -0.6358340722001282,
-    "sharpe_ci_lo": -2.3847883643759427,
-    "sharpe_ci_hi": 1.3291524268911579,
-    "volatility": 0.3259846520649642,
+    "total_return": -0.09988008737778953,
+    "annualized_return": -0.16623387226244368,
+    "sharpe": -0.5592308982009452,
+    "sharpe_ci_lo": -2.2637583685963194,
+    "sharpe_ci_hi": 1.4233891170492057,
+    "volatility": 0.3249762756928363,
     "max_drawdown": -0.19927077677896363,
-    "days": 113,
-    "alpha_t_stat_vs_spy": -0.5188861802169885,
-    "alpha_t_stat_vs_qqq": -0.4767655259554785,
+    "days": 114,
+    "alpha_t_stat_vs_spy": -0.4568583258463858,
+    "alpha_t_stat_vs_qqq": -0.41192269369267326,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0007251537894000609,
-      "beta_mkt": 0.22881643953895692,
-      "beta_size": 0.012287054939188323,
-      "beta_value": -0.18834533878338505,
-      "r_squared": 0.02160415782113989
+      "alpha_per_day": -0.000601808584272584,
+      "beta_mkt": 0.2055968174448694,
+      "beta_size": 0.04286768621350279,
+      "beta_value": -0.1895230636612373,
+      "r_squared": 0.01989301055508197
     }
   },
   "current_weights": {
-    "AMD": 0.03981962442098545,
-    "HPE": 0.03600992986391839,
-    "FTNT": 0.03967696710481053,
-    "DDOG": 0.03973035855721283,
-    "PANW": 0.03573235043923142,
-    "CRWD": 0.03925140898462496,
-    "NTAP": 0.03981505366233998,
-    "OKTA": 0.03968697065629113,
-    "HUM": 0.03943271994595112,
-    "SNOW": 0.03642601096556351,
-    "TWLO": 0.03936346713151436,
-    "PAYC": 0.04174609638402249,
-    "HPQ": 0.03861779809598238,
-    "GTLB": 0.040443589726854044,
-    "ZBRA": 0.03889500866215255,
-    "RVTY": 0.03660084057944704,
-    "NET": 0.03929885729474425,
-    "MPC": 0.040960365198410134,
-    "VLO": 0.04042283773332629,
-    "PSX": 0.038543380295751974,
-    "ZS": 0.035879993461234626,
-    "DOCU": 0.037367848545680746,
-    "DBX": 0.03974491730661667,
-    "NOW": 0.036948858772771834
+    "AMD": 0.039158488829579806,
+    "HPE": 0.03577155173464463,
+    "FTNT": 0.03912923373639357,
+    "DDOG": 0.03871914799383347,
+    "PANW": 0.034676864884771376,
+    "CRWD": 0.038714337583278836,
+    "NTAP": 0.039890305732734506,
+    "OKTA": 0.040115262145141314,
+    "HUM": 0.04018393682812496,
+    "SNOW": 0.03652984552175831,
+    "TWLO": 0.03916145271258388,
+    "PAYC": 0.03653627929818806,
+    "HPQ": 0.039437393717579185,
+    "GTLB": 0.041302409102963095,
+    "ZBRA": 0.03933708592541936,
+    "RVTY": 0.03743241565141396,
+    "MPC": 0.04064512987653025,
+    "VLO": 0.0400079018663919,
+    "PSX": 0.038201060736796265,
+    "ZS": 0.03583342936705416,
+    "DOCU": 0.03872089096120509,
+    "DBX": 0.039786537875485896,
+    "NOW": 0.03761163353065261,
+    "ADP": 0.03651062672757487,
+    "FFIV": 0.03650285925092909,
+    "MOH": 0.03649500470445148
   },
   "nav_series": [
     {
@@ -498,6 +500,10 @@
     {
       "date": "2026-10-19",
       "nav": 88992.9888590236
+    },
+    {
+      "date": "2026-10-20",
+      "nav": 89938.79544692113
     }
   ],
   "daily_returns": [
@@ -948,59 +954,13 @@
     {
       "date": "2026-10-19",
       "ret": 0.011583173789396772
+    },
+    {
+      "date": "2026-10-20",
+      "ret": 0.010627877544328923
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "stock-momo",
-      "symbol": "NOW",
-      "side": "BUY",
-      "shares": 24.914838645238618,
-      "price": 140.9629339465799,
-      "slippage_bps": 7.307492246365779,
-      "timestamp": "2026-10-09",
-      "reason": "rebalance to target weight 0.0365"
-    },
-    {
-      "bot_id": "stock-momo",
-      "symbol": "NTAP",
-      "side": "SELL",
-      "shares": 2.1656259308196253,
-      "price": 236.92935410840556,
-      "slippage_bps": 9.303807453401372,
-      "timestamp": "2026-10-09",
-      "reason": "rebalance to target weight 0.0365"
-    },
-    {
-      "bot_id": "stock-momo",
-      "symbol": "SMCI",
-      "side": "SELL",
-      "shares": 84.99031913077451,
-      "price": 41.82810861735246,
-      "slippage_bps": 7.61872731344788,
-      "timestamp": "2026-10-09",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "stock-momo",
-      "symbol": "ZS",
-      "side": "SELL",
-      "shares": 2.368917999379809,
-      "price": 233.52296857856456,
-      "slippage_bps": 8.857534452524463,
-      "timestamp": "2026-10-09",
-      "reason": "rebalance to target weight 0.0365"
-    },
-    {
-      "bot_id": "stock-momo",
-      "symbol": "AFRM",
-      "side": "SELL",
-      "shares": 46.17468880932382,
-      "price": 78.55091847869039,
-      "slippage_bps": 10.05707458855824,
-      "timestamp": "2026-10-12",
-      "reason": "rebalance to target weight 0.0000"
-    },
     {
       "bot_id": "stock-momo",
       "symbol": "FFIV",
@@ -1250,6 +1210,56 @@
       "slippage_bps": 8.743569553923466,
       "timestamp": "2026-10-16",
       "reason": "rebalance to target weight 0.0396"
+    },
+    {
+      "bot_id": "stock-momo",
+      "symbol": "ADP",
+      "side": "BUY",
+      "shares": 11.216812259232272,
+      "price": 293.0212290768997,
+      "slippage_bps": 9.264870261305916,
+      "timestamp": "2026-10-20",
+      "reason": "rebalance to target weight 0.0365"
+    },
+    {
+      "bot_id": "stock-momo",
+      "symbol": "FFIV",
+      "side": "BUY",
+      "shares": 7.18841990064056,
+      "price": 457.23040111112505,
+      "slippage_bps": 11.39475084372351,
+      "timestamp": "2026-10-20",
+      "reason": "rebalance to target weight 0.0365"
+    },
+    {
+      "bot_id": "stock-momo",
+      "symbol": "MOH",
+      "side": "BUY",
+      "shares": 14.938634374260186,
+      "price": 220.0177092618514,
+      "slippage_bps": 13.549428340355254,
+      "timestamp": "2026-10-20",
+      "reason": "rebalance to target weight 0.0365"
+    },
+    {
+      "bot_id": "stock-momo",
+      "symbol": "NET",
+      "side": "SELL",
+      "shares": 11.752546969600148,
+      "price": 291.4532047996183,
+      "slippage_bps": 8.118126771779234,
+      "timestamp": "2026-10-20",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "stock-momo",
+      "symbol": "PAYC",
+      "side": "SELL",
+      "shares": 2.1574338385653724,
+      "price": 261.97924863182226,
+      "slippage_bps": 12.990190716765682,
+      "timestamp": "2026-10-20",
+      "reason": "rebalance to target weight 0.0365"
     }
   ]
 }
