@@ -1,28 +1,28 @@
 {
   "bot_id": "ma_cross",
   "metrics": {
-    "total_return": -0.0404698643719702,
-    "annualized_return": -0.0804705919748192,
-    "sharpe": -0.774584990171104,
-    "sharpe_ci_lo": -3.0762817616393976,
-    "sharpe_ci_hi": 0.3794603867240231,
-    "volatility": 0.10828933041074891,
+    "total_return": -0.02381405828245209,
+    "annualized_return": -0.04474736707381688,
+    "sharpe": -0.4127486378593174,
+    "sharpe_ci_lo": -2.975156355079981,
+    "sharpe_ci_hi": 0.4712603613835347,
+    "volatility": 0.11090352382816476,
     "max_drawdown": -0.08572336211378266,
-    "days": 117,
-    "alpha_t_stat_vs_spy": -0.5129497654496713,
-    "alpha_t_stat_vs_qqq": -0.5189226465895779,
+    "days": 118,
+    "alpha_t_stat_vs_spy": -0.27603309366349904,
+    "alpha_t_stat_vs_qqq": -0.2790292193793334,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.00036873530134968617,
-      "beta_mkt": -0.000717020538567452,
-      "beta_size": -0.021491920615326805,
-      "beta_value": 0.03794081190714422,
-      "r_squared": 0.0025242944791303845
+      "alpha_per_day": -0.0001956579619099378,
+      "beta_mkt": 0.004331774820703728,
+      "beta_size": -0.009935110144156375,
+      "beta_value": 0.015440301500689958,
+      "r_squared": 0.00029413130106159535
     }
   },
   "current_weights": {
-    "USO": 0.4751389974971288,
-    "VTV": 0.4751258094315603
+    "USO": 0.4749993376399071,
+    "VTV": 0.474999648613257
   },
   "nav_series": [
     {
@@ -492,6 +492,10 @@
     {
       "date": "2026-10-22",
       "nav": 95883.08959847741
+    },
+    {
+      "date": "2026-10-23",
+      "nav": 97547.45644670658
     }
   ],
   "daily_returns": [
@@ -958,29 +962,13 @@
     {
       "date": "2026-10-22",
       "ret": -0.0008885571632936129
+    },
+    {
+      "date": "2026-10-23",
+      "ret": 0.017358293888932064
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "ma_cross",
-      "symbol": "EEM",
-      "side": "BUY",
-      "shares": 116.16036599440716,
-      "price": 67.76382227617748,
-      "slippage_bps": 7.949075828175289,
-      "timestamp": "2026-09-23",
-      "reason": "rebalance to target weight 0.3167"
-    },
-    {
-      "bot_id": "ma_cross",
-      "symbol": "EFA",
-      "side": "SELL",
-      "shares": 211.45418332167787,
-      "price": 104.7151412898816,
-      "slippage_bps": 8.09749612643674,
-      "timestamp": "2026-09-23",
-      "reason": "rebalance to target weight 0.0000"
-    },
     {
       "bot_id": "ma_cross",
       "symbol": "USO",
@@ -1260,6 +1248,26 @@
       "slippage_bps": 9.483415345773167,
       "timestamp": "2026-10-22",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "USO",
+      "side": "SELL",
+      "shares": 7.024094742594634,
+      "price": 169.38705486702906,
+      "slippage_bps": 8.431776871178506,
+      "timestamp": "2026-10-23",
+      "reason": "rebalance to target weight 0.4750"
+    },
+    {
+      "bot_id": "ma_cross",
+      "symbol": "VTV",
+      "side": "BUY",
+      "shares": 4.799419029897896,
+      "price": 225.25288530006196,
+      "slippage_bps": 9.014985361164594,
+      "timestamp": "2026-10-23",
+      "reason": "rebalance to target weight 0.4750"
     }
   ]
 }

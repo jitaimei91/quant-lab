@@ -1,26 +1,28 @@
 {
   "bot_id": "rsi_rev",
   "metrics": {
-    "total_return": -0.10890598406338425,
-    "annualized_return": -0.2180328385880086,
-    "sharpe": -2.563978137000984,
-    "sharpe_ci_lo": -6.059825856075052,
-    "sharpe_ci_hi": -0.04985460222372827,
-    "volatility": 0.09587544938411469,
+    "total_return": -0.10952610086589021,
+    "annualized_return": -0.21756135610728566,
+    "sharpe": -2.5687699551057643,
+    "sharpe_ci_lo": -5.986533433023672,
+    "sharpe_ci_hi": -0.0724831000428987,
+    "volatility": 0.09546218044161302,
     "max_drawdown": -0.11593411502799121,
-    "days": 117,
-    "alpha_t_stat_vs_spy": -1.7188811329393743,
-    "alpha_t_stat_vs_qqq": -1.7456205548581853,
+    "days": 118,
+    "alpha_t_stat_vs_spy": -1.6977788702453593,
+    "alpha_t_stat_vs_qqq": -1.728794816679541,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0008604603082588752,
-      "beta_mkt": -0.2699362609539292,
-      "beta_size": 0.004835330924143697,
-      "beta_value": -0.05877830863992525,
-      "r_squared": 0.08800544692517198
+      "alpha_per_day": -0.0008426172653764178,
+      "beta_mkt": -0.269415518354663,
+      "beta_size": 0.006027213887956208,
+      "beta_value": -0.06109720142953387,
+      "r_squared": 0.08720583512349245
     }
   },
-  "current_weights": {},
+  "current_weights": {
+    "EEM": 0.8999303610354993
+  },
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -489,6 +491,10 @@
     {
       "date": "2026-10-22",
       "nav": 89109.40159366158
+    },
+    {
+      "date": "2026-10-23",
+      "nav": 89047.38991341098
     }
   ],
   "daily_returns": [
@@ -955,19 +961,13 @@
     {
       "date": "2026-10-22",
       "ret": 0.0
+    },
+    {
+      "date": "2026-10-23",
+      "ret": -0.0006959050239543352
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "rsi_rev",
-      "symbol": "IEF",
-      "side": "BUY",
-      "shares": 295.3810914086282,
-      "price": 91.32828341385878,
-      "slippage_bps": 8.579004258497926,
-      "timestamp": "2026-09-17",
-      "reason": "rebalance to target weight 0.3000"
-    },
     {
       "bot_id": "rsi_rev",
       "symbol": "IWM",
@@ -1257,6 +1257,16 @@
       "slippage_bps": 6.724364472832263,
       "timestamp": "2026-10-13",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "rsi_rev",
+      "symbol": "EEM",
+      "side": "BUY",
+      "shares": 1292.3149802153298,
+      "price": 62.057983279689665,
+      "slippage_bps": 7.738261482874131,
+      "timestamp": "2026-10-23",
+      "reason": "rebalance to target weight 0.9000"
     }
   ]
 }
