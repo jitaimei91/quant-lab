@@ -1,30 +1,30 @@
 {
   "bot_id": "cross-asset-trend",
   "metrics": {
-    "total_return": -0.016434673852744552,
-    "annualized_return": -0.030386374071014854,
-    "sharpe": -0.312765712639591,
-    "sharpe_ci_lo": -1.9223796691679749,
-    "sharpe_ci_hi": 2.4528250408040146,
-    "volatility": 0.09865442464221377,
+    "total_return": -0.01159054177153751,
+    "annualized_return": -0.019876874784798382,
+    "sharpe": -0.2038025421372773,
+    "sharpe_ci_lo": -1.8904929396990522,
+    "sharpe_ci_hi": 2.509000519819355,
+    "volatility": 0.09850847425895741,
     "max_drawdown": -0.044736376275724084,
-    "days": 118,
-    "alpha_t_stat_vs_spy": -0.21306019915247795,
-    "alpha_t_stat_vs_qqq": -0.21159075224037968,
+    "days": 119,
+    "alpha_t_stat_vs_spy": -0.13822874109824182,
+    "alpha_t_stat_vs_qqq": -0.13892677110809176,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -6.525435496585433e-05,
-      "beta_mkt": -0.11175869382404201,
-      "beta_size": 0.2029110607013313,
-      "beta_value": -0.08072290607350428,
-      "r_squared": 0.03780462585648614
+      "alpha_per_day": -1.7703825425785797e-05,
+      "beta_mkt": -0.12592249278580125,
+      "beta_size": 0.20381385757838302,
+      "beta_value": -0.08485856154511424,
+      "r_squared": 0.03782351201529399
     }
   },
   "current_weights": {
-    "EEM": 0.17520793627490522,
-    "EFA": 0.33042685141518063,
-    "SPY": 0.35312212187860903,
-    "USO": 0.08548216345941775
+    "EEM": 0.17632344628343868,
+    "EFA": 0.32468442365608075,
+    "SPY": 0.3604086004203884,
+    "USO": 0.08889861059400007
   },
   "nav_series": [
     {
@@ -498,6 +498,10 @@
     {
       "date": "2026-10-26",
       "nav": 98293.15467992931
+    },
+    {
+      "date": "2026-10-27",
+      "nav": 98777.25574702692
     }
   ],
   "daily_returns": [
@@ -968,39 +972,13 @@
     {
       "date": "2026-10-26",
       "ret": 0.0011889391732067267
+    },
+    {
+      "date": "2026-10-27",
+      "ret": 0.0049250740672022175
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "cross-asset-trend",
-      "symbol": "USO",
-      "side": "BUY",
-      "shares": 4.085149421676025,
-      "price": 144.20562005907618,
-      "slippage_bps": 8.71864425493324,
-      "timestamp": "2026-09-22",
-      "reason": "rebalance to target weight 0.0694"
-    },
-    {
-      "bot_id": "cross-asset-trend",
-      "symbol": "SPY",
-      "side": "BUY",
-      "shares": 1.2257657743160968,
-      "price": 768.2377589934255,
-      "slippage_bps": 5.571188655942725,
-      "timestamp": "2026-09-23",
-      "reason": "rebalance to target weight 0.3185"
-    },
-    {
-      "bot_id": "cross-asset-trend",
-      "symbol": "USO",
-      "side": "SELL",
-      "shares": 3.962707397663991,
-      "price": 152.95699428326154,
-      "slippage_bps": 8.687834464085363,
-      "timestamp": "2026-09-24",
-      "reason": "rebalance to target weight 0.0684"
-    },
     {
       "bot_id": "cross-asset-trend",
       "symbol": "EFA",
@@ -1270,6 +1248,36 @@
       "slippage_bps": 5.549130560398053,
       "timestamp": "2026-10-26",
       "reason": "rebalance to target weight 0.3531"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "EFA",
+      "side": "SELL",
+      "shares": 6.00317559417385,
+      "price": 103.51136028503907,
+      "slippage_bps": 7.591085590452069,
+      "timestamp": "2026-10-27",
+      "reason": "rebalance to target weight 0.3247"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "SPY",
+      "side": "BUY",
+      "shares": 0.9044706834395134,
+      "price": 770.0872621169364,
+      "slippage_bps": 5.551659009360693,
+      "timestamp": "2026-10-27",
+      "reason": "rebalance to target weight 0.3604"
+    },
+    {
+      "bot_id": "cross-asset-trend",
+      "symbol": "USO",
+      "side": "BUY",
+      "shares": 3.036567063127358,
+      "price": 164.01843717318405,
+      "slippage_bps": 8.447173922807181,
+      "timestamp": "2026-10-27",
+      "reason": "rebalance to target weight 0.0889"
     }
   ]
 }
