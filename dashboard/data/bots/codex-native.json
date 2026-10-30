@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-native",
   "metrics": {
-    "total_return": -0.025091319786850086,
-    "annualized_return": -0.04295277324577851,
-    "sharpe": -0.31882635219752764,
-    "sharpe_ci_lo": -3.073909707342826,
-    "sharpe_ci_hi": 0.5918729080721207,
-    "volatility": 0.13768848040302414,
+    "total_return": -0.01733170015681773,
+    "annualized_return": -0.026600702766058526,
+    "sharpe": -0.19590485324990833,
+    "sharpe_ci_lo": -3.0511985838098608,
+    "sharpe_ci_hi": 0.9047748591061824,
+    "volatility": 0.13761507647728907,
     "max_drawdown": -0.11990916597337102,
-    "days": 121,
-    "alpha_t_stat_vs_spy": -0.2127076606785735,
-    "alpha_t_stat_vs_qqq": -0.21591022214088187,
+    "days": 122,
+    "alpha_t_stat_vs_spy": -0.13211242406260965,
+    "alpha_t_stat_vs_qqq": -0.1262041421523811,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.0001848653250722493,
-      "beta_mkt": -0.11291744544821418,
-      "beta_size": 0.060347964320029764,
-      "beta_value": 0.004659338356688026,
-      "r_squared": 0.010109667967084013
+      "alpha_per_day": 9.022282570202604e-05,
+      "beta_mkt": -0.07409939480313639,
+      "beta_size": 0.04121103160505882,
+      "beta_value": -0.19832133844535746,
+      "r_squared": 0.028058070268418
     }
   },
   "current_weights": {
-    "XLE": 0.1419822883631961,
-    "USO": 0.08276597104905131,
-    "XLV": 0.18187731823508801,
-    "XLF": 0.23202045811247385,
-    "SPY": 0.28214667628173784
+    "XLE": 0.14139617854102418,
+    "USO": 0.0829110046748901,
+    "XLV": 0.17201893525990372,
+    "XLF": 0.22367272530057475,
+    "SPY": 0.2971684236193906
   },
   "nav_series": [
     {
@@ -511,6 +511,10 @@
     {
       "date": "2026-10-28",
       "nav": 97421.55836265674
+    },
+    {
+      "date": "2026-10-29",
+      "nav": 98196.96866723412
     }
   ],
   "daily_returns": [
@@ -993,39 +997,13 @@
     {
       "date": "2026-10-28",
       "ret": 0.004372897332440839
+    },
+    {
+      "date": "2026-10-29",
+      "ret": 0.007959329717257102
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-native",
-      "symbol": "USO",
-      "side": "SELL",
-      "shares": 5.222221684678565,
-      "price": 153.43102165521728,
-      "slippage_bps": 8.399056097097494,
-      "timestamp": "2026-10-14",
-      "reason": "rebalance to target weight 0.0744"
-    },
-    {
-      "bot_id": "codex-native",
-      "symbol": "XLE",
-      "side": "SELL",
-      "shares": 41.38794306539132,
-      "price": 67.58141708426315,
-      "slippage_bps": 7.183228024213716,
-      "timestamp": "2026-10-14",
-      "reason": "rebalance to target weight 0.1459"
-    },
-    {
-      "bot_id": "codex-native",
-      "symbol": "XLF",
-      "side": "BUY",
-      "shares": 399.8101371873716,
-      "price": 54.55941606555654,
-      "slippage_bps": 7.229568499986815,
-      "timestamp": "2026-10-14",
-      "reason": "rebalance to target weight 0.2270"
-    },
     {
       "bot_id": "codex-native",
       "symbol": "XLK",
@@ -1295,6 +1273,36 @@
       "slippage_bps": 7.640485769503879,
       "timestamp": "2026-10-28",
       "reason": "rebalance to target weight 0.1819"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "SPY",
+      "side": "BUY",
+      "shares": 2.338129052155483,
+      "price": 769.7878622497959,
+      "slippage_bps": 5.561465456745562,
+      "timestamp": "2026-10-29",
+      "reason": "rebalance to target weight 0.2972"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "XLF",
+      "side": "SELL",
+      "shares": 16.965236258590224,
+      "price": 56.89864512639759,
+      "slippage_bps": 7.262645119207201,
+      "timestamp": "2026-10-29",
+      "reason": "rebalance to target weight 0.2237"
+    },
+    {
+      "bot_id": "codex-native",
+      "symbol": "XLV",
+      "side": "SELL",
+      "shares": 6.8080096278501525,
+      "price": 183.8995972925334,
+      "slippage_bps": 7.628558939422122,
+      "timestamp": "2026-10-29",
+      "reason": "rebalance to target weight 0.1720"
     }
   ]
 }

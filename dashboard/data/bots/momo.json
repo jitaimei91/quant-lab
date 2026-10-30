@@ -1,27 +1,27 @@
 {
   "bot_id": "momo",
   "metrics": {
-    "total_return": 0.25121628074116753,
-    "annualized_return": 0.7595172846345917,
-    "sharpe": 1.2942076320851807,
-    "sharpe_ci_lo": -2.1813226441478024,
-    "sharpe_ci_hi": 4.146420287044909,
-    "volatility": 0.43708090768734525,
+    "total_return": 0.25929534882085736,
+    "annualized_return": 0.7749855667556491,
+    "sharpe": 1.319660423899384,
+    "sharpe_ci_lo": -2.2072452940426475,
+    "sharpe_ci_hi": 4.118221693737559,
+    "volatility": 0.43529837401204124,
     "max_drawdown": -0.31070679358947656,
-    "days": 121,
-    "alpha_t_stat_vs_spy": 0.8952221132912274,
-    "alpha_t_stat_vs_qqq": 0.8896786780072727,
+    "days": 122,
+    "alpha_t_stat_vs_spy": 0.9088583839221637,
+    "alpha_t_stat_vs_qqq": 0.9064922024330208,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.002829074069385156,
-      "beta_mkt": -0.5617112629587924,
-      "beta_size": 0.05403130893183569,
-      "beta_value": -0.5656824303725261,
-      "r_squared": 0.025405402162102186
+      "alpha_per_day": 0.0014819604101796986,
+      "beta_mkt": 0.5001804856824962,
+      "beta_size": -0.3956580809021073,
+      "beta_value": 0.8662606701009183,
+      "r_squared": 0.04399769815538179
     }
   },
   "current_weights": {
-    "VTV": 0.9507236030041271
+    "USO": 0.9507701539096516
   },
   "nav_series": [
     {
@@ -507,6 +507,10 @@
     {
       "date": "2026-10-28",
       "nav": 125041.95648670601
+    },
+    {
+      "date": "2026-10-29",
+      "nav": 125849.34885749205
     }
   ],
   "daily_returns": [
@@ -989,6 +993,10 @@
     {
       "date": "2026-10-28",
       "ret": 0.01388459732440439
+    },
+    {
+      "date": "2026-10-29",
+      "ret": 0.006456971671519485
     }
   ],
   "recent_trades": [
@@ -1201,6 +1209,26 @@
       "slippage_bps": 8.968963077165753,
       "timestamp": "2026-10-28",
       "reason": "rebalance to target weight 0.9500"
+    },
+    {
+      "bot_id": "momo",
+      "symbol": "USO",
+      "side": "BUY",
+      "shares": 711.4204354943864,
+      "price": 168.33266482284895,
+      "slippage_bps": 8.482215314338347,
+      "timestamp": "2026-10-29",
+      "reason": "rebalance to target weight 0.9500"
+    },
+    {
+      "bot_id": "momo",
+      "symbol": "VTV",
+      "side": "SELL",
+      "shares": 523.8403900538434,
+      "price": 228.67504487337155,
+      "slippage_bps": 8.954911091769484,
+      "timestamp": "2026-10-29",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
