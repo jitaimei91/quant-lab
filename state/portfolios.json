@@ -34,14 +34,8 @@
   },
   {
     "bot_id": "meanrev",
-    "cash": 0.0,
-    "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 708.0687067780852,
-        "avg_cost": 156.8699951171875
-      }
-    }
+    "cash": 111900.70961067847,
+    "positions": {}
   },
   {
     "bot_id": "breakout",
@@ -66,49 +60,43 @@
   },
   {
     "bot_id": "rsi_rev",
-    "cash": 9058.954516358033,
-    "positions": {
-      "EEM": {
-        "symbol": "EEM",
-        "shares": 1333.136024974112,
-        "avg_cost": 61.11000061035156
-      }
-    }
+    "cash": 90450.92962922825,
+    "positions": {}
   },
   {
     "bot_id": "codex-r1000",
-    "cash": 8346.527177163924,
+    "cash": 8403.088820469919,
     "positions": {
       "PAYC": {
         "symbol": "PAYC",
-        "shares": 78.29383246536764,
-        "avg_cost": 232.2106542658809
+        "shares": 80.8847262488468,
+        "avg_cost": 233.20784647506144
       },
       "RVTY": {
         "symbol": "RVTY",
-        "shares": 129.2106417301464,
+        "shares": 103.94209577685405,
         "avg_cost": 161.55036353865893
       },
       "DOCU": {
         "symbol": "DOCU",
-        "shares": 218.55761564854453,
-        "avg_cost": 83.45378808783283
+        "shares": 231.95897958658736,
+        "avg_cost": 83.28067831332031
       },
       "BBY": {
         "symbol": "BBY",
-        "shares": 177.7385908309858,
-        "avg_cost": 96.13999938964844
+        "shares": 185.45716519466876,
+        "avg_cost": 96.04986988051432
       },
       "SAIC": {
         "symbol": "SAIC",
-        "shares": 136.75454878060654,
-        "avg_cost": 152.91000366210938
+        "shares": 147.18472099500855,
+        "avg_cost": 152.8361040201482
       }
     }
   },
   {
     "bot_id": "codex-native",
-    "cash": 7905.3382938704635,
+    "cash": 6928.8461416425125,
     "positions": {
       "XLE": {
         "symbol": "XLE",
@@ -127,12 +115,12 @@
       },
       "XLF": {
         "symbol": "XLF",
-        "shares": 430.7494656440705,
-        "avg_cost": 55.03146218698712
+        "shares": 462.50849622253327,
+        "avg_cost": 55.18252684412802
       },
       "XLP": {
         "symbol": "XLP",
-        "shares": 211.80777649013504,
+        "shares": 202.3442117496812,
         "avg_cost": 89.41999816894531
       }
     }
@@ -192,7 +180,7 @@
   },
   {
     "bot_id": "sector-momo",
-    "cash": 5149.41475643013,
+    "cash": 4740.167978338543,
     "positions": {
       "XLV": {
         "symbol": "XLV",
@@ -201,12 +189,12 @@
       },
       "XLE": {
         "symbol": "XLE",
-        "shares": 361.94376777368177,
-        "avg_cost": 63.71372060862235
+        "shares": 384.1915002455274,
+        "avg_cost": 63.88825094869151
       },
       "XLF": {
         "symbol": "XLF",
-        "shares": 731.937216718298,
+        "shares": 713.1214866961811,
         "avg_cost": 57.560001373291016
       }
     }
@@ -255,7 +243,7 @@
   },
   {
     "bot_id": "stock-momo",
-    "cash": 1116.5088241346557,
+    "cash": 3872.6680757888025,
     "positions": {
       "HPE": {
         "symbol": "HPE",
@@ -357,20 +345,10 @@
         "shares": 18.062622358850582,
         "avg_cost": 145.72999572753906
       },
-      "WAT": {
-        "symbol": "WAT",
-        "shares": 6.991163408951606,
-        "avg_cost": 468.54998779296875
-      },
       "A": {
         "symbol": "A",
         "shares": 17.978346685548352,
         "avg_cost": 181.47999572753906
-      },
-      "IT": {
-        "symbol": "IT",
-        "shares": 11.742959892078698,
-        "avg_cost": 225.05999755859375
       },
       "ACN": {
         "symbol": "ACN",
@@ -401,6 +379,11 @@
         "symbol": "SIG",
         "shares": 22.999634103080865,
         "avg_cost": 119.94999694824219
+      },
+      "BAX": {
+        "symbol": "BAX",
+        "shares": 111.7109481484774,
+        "avg_cost": 25.489999771118164
       }
     }
   },
@@ -417,14 +400,8 @@
   },
   {
     "bot_id": "regime-meanrev",
-    "cash": 0.0,
-    "positions": {
-      "USO": {
-        "symbol": "USO",
-        "shares": 708.0687067780852,
-        "avg_cost": 156.8699951171875
-      }
-    }
+    "cash": 111900.70961067847,
+    "positions": {}
   },
   {
     "bot_id": "regime-breakout",
