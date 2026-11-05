@@ -1,26 +1,28 @@
 {
   "bot_id": "breakout",
   "metrics": {
-    "total_return": -0.02380285751635902,
-    "annualized_return": -0.04731997761290829,
-    "sharpe": -1.5657090581270316,
-    "sharpe_ci_lo": -3.5651398236458363,
+    "total_return": -0.024621657503037686,
+    "annualized_return": -0.048560922397532846,
+    "sharpe": -1.6136116297530698,
+    "sharpe_ci_lo": -3.550244091512611,
     "sharpe_ci_hi": 0.0,
-    "volatility": 0.03095819585641708,
-    "max_drawdown": -0.023802857516359074,
-    "days": 125,
-    "alpha_t_stat_vs_spy": -1.0673654340633227,
-    "alpha_t_stat_vs_qqq": -1.0290077938459974,
+    "volatility": 0.03084676929490153,
+    "max_drawdown": -0.024621657503037714,
+    "days": 126,
+    "alpha_t_stat_vs_spy": -1.1281373723870556,
+    "alpha_t_stat_vs_qqq": -1.1201317689230754,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.00013195745493794532,
-      "beta_mkt": -0.0448557501466652,
-      "beta_size": 0.04804887115080545,
-      "beta_value": -0.06846457421634711,
-      "r_squared": 0.055493818519272264
+      "alpha_per_day": -0.00018122206724504407,
+      "beta_mkt": 0.009953472678223624,
+      "beta_size": 0.02115367858382357,
+      "beta_value": -0.021721386088567878,
+      "r_squared": 0.02392198062070272
     }
   },
-  "current_weights": {},
+  "current_weights": {
+    "VTV": 0.9499580265446236
+  },
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -521,6 +523,10 @@
     {
       "date": "2026-11-03",
       "nav": 97619.7142483641
+    },
+    {
+      "date": "2026-11-04",
+      "nav": 97537.83424969623
     }
   ],
   "daily_returns": [
@@ -1019,6 +1025,10 @@
     {
       "date": "2026-11-03",
       "ret": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "ret": -0.0008387649902308336
     }
   ],
   "recent_trades": [
@@ -1061,6 +1071,16 @@
       "slippage_bps": 8.882190951666548,
       "timestamp": "2026-09-11",
       "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "breakout",
+      "symbol": "VTV",
+      "side": "BUY",
+      "shares": 401.14663715976,
+      "price": 231.18411060993617,
+      "slippage_bps": 8.836907358760492,
+      "timestamp": "2026-11-04",
+      "reason": "rebalance to target weight 0.9500"
     }
   ]
 }

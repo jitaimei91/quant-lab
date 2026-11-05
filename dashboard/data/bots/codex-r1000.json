@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.05098523863332183,
-    "annualized_return": 0.12690463820245523,
-    "sharpe": 0.62054936156766,
-    "sharpe_ci_lo": -0.3771191728053691,
-    "sharpe_ci_hi": 3.2148340427388074,
-    "volatility": 0.1925760455717035,
+    "total_return": 0.06344368401954736,
+    "annualized_return": 0.1530429210625579,
+    "sharpe": 0.740059596637601,
+    "sharpe_ci_lo": -0.3588477899099834,
+    "sharpe_ci_hi": 3.280842669910425,
+    "volatility": 0.19247734986337575,
     "max_drawdown": -0.091101426960927,
-    "days": 125,
-    "alpha_t_stat_vs_spy": 0.4876601852217636,
-    "alpha_t_stat_vs_qqq": 0.5128018127411412,
+    "days": 126,
+    "alpha_t_stat_vs_spy": 0.5310186986644809,
+    "alpha_t_stat_vs_qqq": 0.5388810028712658,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.0007356432736151631,
-      "beta_mkt": 0.14449874967694967,
-      "beta_size": -0.16754680179042342,
-      "beta_value": -0.10580043574465288,
-      "r_squared": 0.03233124410313526
+      "alpha_per_day": 0.0006400137964119,
+      "beta_mkt": 0.07573429016984064,
+      "beta_size": 0.03138078920798779,
+      "beta_value": -0.0725442916395232,
+      "r_squared": 0.010203710211982076
     }
   },
   "current_weights": {
-    "PAYC": 0.2025348071485258,
-    "RVTY": 0.16178938299048456,
-    "DOCU": 0.17747821527567764,
-    "BBY": 0.1657541381041567,
-    "SAIC": 0.21243555382023938
+    "PAYC": 0.20409697821251951,
+    "RVTY": 0.1559328251022705,
+    "DOCU": 0.18599187999879963,
+    "BBY": 0.15136509450474375,
+    "SAIC": 0.21662584162160378
   },
   "nav_series": [
     {
@@ -527,6 +527,10 @@
     {
       "date": "2026-11-03",
       "nav": 105028.23522425414
+    },
+    {
+      "date": "2026-11-04",
+      "nav": 106273.24655691048
     }
   ],
   "daily_returns": [
@@ -1025,39 +1029,13 @@
     {
       "date": "2026-11-03",
       "ret": 0.004014269006846538
+    },
+    {
+      "date": "2026-11-04",
+      "ret": 0.01185406314785764
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "DOCU",
-      "side": "BUY",
-      "shares": 202.9296447640475,
-      "price": 83.69982867160336,
-      "slippage_bps": 11.941411400045698,
-      "timestamp": "2026-10-28",
-      "reason": "rebalance to target weight 0.1533"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "FTNT",
-      "side": "SELL",
-      "shares": 110.93168783046008,
-      "price": 173.92682396787222,
-      "slippage_bps": 8.799279731806017,
-      "timestamp": "2026-10-28",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "MPC",
-      "side": "SELL",
-      "shares": 39.83978179605592,
-      "price": 440.416722979922,
-      "slippage_bps": 8.014747885634815,
-      "timestamp": "2026-10-28",
-      "reason": "rebalance to target weight 0.0000"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "NTAP",
@@ -1327,6 +1305,36 @@
       "slippage_bps": 18.284660502991805,
       "timestamp": "2026-11-03",
       "reason": "rebalance to target weight 0.2124"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "BBY",
+      "side": "SELL",
+      "shares": 26.75491665926501,
+      "price": 101.24745230004163,
+      "slippage_bps": 11.103819024488509,
+      "timestamp": "2026-11-04",
+      "reason": "rebalance to target weight 0.1514"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "DOCU",
+      "side": "BUY",
+      "shares": 13.580907627024306,
+      "price": 80.59847534419661,
+      "slippage_bps": 12.232962012001781,
+      "timestamp": "2026-11-04",
+      "reason": "rebalance to target weight 0.1860"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "SAIC",
+      "side": "BUY",
+      "shares": 5.833105154704239,
+      "price": 150.72545442463286,
+      "slippage_bps": 18.3089054156264,
+      "timestamp": "2026-11-04",
+      "reason": "rebalance to target weight 0.2166"
     }
   ]
 }
