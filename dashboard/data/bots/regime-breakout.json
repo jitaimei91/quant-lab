@@ -1,28 +1,26 @@
 {
   "bot_id": "regime-breakout",
   "metrics": {
-    "total_return": -0.024621657503037686,
-    "annualized_return": -0.048560922397532846,
-    "sharpe": -1.6136116297530698,
-    "sharpe_ci_lo": -3.550244091512611,
+    "total_return": -0.05389148552733347,
+    "annualized_return": -0.10364685102443671,
+    "sharpe": -2.0970827430635763,
+    "sharpe_ci_lo": -3.5355335996334736,
     "sharpe_ci_hi": 0.0,
-    "volatility": 0.03084676929490153,
-    "max_drawdown": -0.024621657503037714,
-    "days": 126,
-    "alpha_t_stat_vs_spy": -1.1281373697986241,
-    "alpha_t_stat_vs_qqq": -1.1201317751768123,
+    "volatility": 0.05216630206861425,
+    "max_drawdown": -0.05389148552733342,
+    "days": 127,
+    "alpha_t_stat_vs_spy": -1.5044000755015186,
+    "alpha_t_stat_vs_qqq": -1.509347161532818,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.00018122217624974828,
-      "beta_mkt": 0.009953480167451324,
-      "beta_size": 0.021153834841041292,
-      "beta_value": -0.021721302233617575,
-      "r_squared": 0.023921967682542733
+      "alpha_per_day": -0.0003930710637425048,
+      "beta_mkt": -0.08220783846565412,
+      "beta_size": -0.008241541567358448,
+      "beta_value": -0.03512008311723006,
+      "r_squared": 0.032987848661331864
     }
   },
-  "current_weights": {
-    "VTV": 0.9499580265446236
-  },
+  "current_weights": {},
   "nav_series": [
     {
       "date": "2026-05-07",
@@ -527,6 +525,10 @@
     {
       "date": "2026-11-04",
       "nav": 97537.83424969623
+    },
+    {
+      "date": "2026-11-05",
+      "nav": 94610.85144726666
     }
   ],
   "daily_returns": [
@@ -1029,6 +1031,10 @@
     {
       "date": "2026-11-04",
       "ret": -0.0008387649902308336
+    },
+    {
+      "date": "2026-11-05",
+      "ret": -0.03000869175479659
     }
   ],
   "recent_trades": [
@@ -1081,6 +1087,16 @@
       "slippage_bps": 8.836907358760492,
       "timestamp": "2026-11-04",
       "reason": "rebalance to target weight 0.9500"
+    },
+    {
+      "bot_id": "regime-breakout",
+      "symbol": "VTV",
+      "side": "SELL",
+      "shares": 401.14663715976,
+      "price": 223.6834549334955,
+      "slippage_bps": 8.779254289362418,
+      "timestamp": "2026-11-05",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
