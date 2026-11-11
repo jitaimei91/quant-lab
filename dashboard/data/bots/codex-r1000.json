@@ -1,31 +1,31 @@
 {
   "bot_id": "codex-r1000",
   "metrics": {
-    "total_return": 0.04795865105395403,
-    "annualized_return": 0.11878802550985923,
-    "sharpe": 0.5592865087845498,
-    "sharpe_ci_lo": -0.6443961760736492,
-    "sharpe_ci_hi": 3.063079594556768,
-    "volatility": 0.20073965596080184,
+    "total_return": 0.043666255601610526,
+    "annualized_return": 0.10891055180169817,
+    "sharpe": 0.5168549092425867,
+    "sharpe_ci_lo": -0.9350294330816662,
+    "sharpe_ci_hi": 3.108175496828906,
+    "volatility": 0.20005470383790533,
     "max_drawdown": -0.1156360297860361,
-    "days": 129,
-    "alpha_t_stat_vs_spy": 0.44319355960131185,
-    "alpha_t_stat_vs_qqq": 0.41675641595803786,
+    "days": 130,
+    "alpha_t_stat_vs_spy": 0.35603271020490423,
+    "alpha_t_stat_vs_qqq": 0.35855981129609404,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": 0.000866145956779691,
-      "beta_mkt": -0.47247425916199753,
-      "beta_size": -0.0033008112852402406,
-      "beta_value": -0.3433459640293116,
-      "r_squared": 0.07359552527710134
+      "alpha_per_day": 0.00034192321542382255,
+      "beta_mkt": -0.015941082312753853,
+      "beta_size": 0.16607205539673456,
+      "beta_value": -0.011274332996747728,
+      "r_squared": 0.008252352913824423
     }
   },
   "current_weights": {
-    "RVTY": 0.1341458810073089,
-    "DOCU": 0.1617466728022411,
-    "SAIC": 0.17906397351522021,
-    "A": 0.20398508734893,
-    "MTD": 0.24118306551933108
+    "RVTY": 0.1333398974140472,
+    "SAIC": 0.1816703626433576,
+    "A": 0.2022206875725236,
+    "MTD": 0.23552539769797617,
+    "TMO": 0.1763100027167647
   },
   "nav_series": [
     {
@@ -543,6 +543,10 @@
     {
       "date": "2026-11-09",
       "nav": 104725.77888088435
+    },
+    {
+      "date": "2026-11-10",
+      "nav": 104296.82640593762
     }
   ],
   "daily_returns": [
@@ -1057,39 +1061,13 @@
     {
       "date": "2026-11-09",
       "ret": 0.028896753253815355
+    },
+    {
+      "date": "2026-11-10",
+      "ret": -0.004095958793819188
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "ZBRA",
-      "side": "SELL",
-      "shares": 71.30168321516338,
-      "price": 360.8168003702718,
-      "slippage_bps": 12.268432247476174,
-      "timestamp": "2026-10-30",
-      "reason": "rebalance to target weight 0.0000"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "BBY",
-      "side": "BUY",
-      "shares": 177.7385908309858,
-      "price": 96.24683954415615,
-      "slippage_bps": 11.112976407945391,
-      "timestamp": "2026-11-02",
-      "reason": "rebalance to target weight 0.1634"
-    },
-    {
-      "bot_id": "codex-r1000",
-      "symbol": "DOCU",
-      "side": "SELL",
-      "shares": 9.399607526561436,
-      "price": 81.5511812574347,
-      "slippage_bps": 12.102910789643992,
-      "timestamp": "2026-11-02",
-      "reason": "rebalance to target weight 0.1705"
-    },
     {
       "bot_id": "codex-r1000",
       "symbol": "MPC",
@@ -1359,6 +1337,36 @@
       "slippage_bps": 18.008210020806377,
       "timestamp": "2026-11-09",
       "reason": "rebalance to target weight 0.1790"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "DOCU",
+      "side": "SELL",
+      "shares": 217.8655471460611,
+      "price": 77.56535274168952,
+      "slippage_bps": 12.187859381474189,
+      "timestamp": "2026-11-10",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "MTD",
+      "side": "SELL",
+      "shares": 0.3067906432316401,
+      "price": 1749.5361123073785,
+      "slippage_bps": 10.528226714324152,
+      "timestamp": "2026-11-10",
+      "reason": "rebalance to target weight 0.2355"
+    },
+    {
+      "bot_id": "codex-r1000",
+      "symbol": "TMO",
+      "side": "BUY",
+      "shares": 25.603694562010162,
+      "price": 718.7403979979589,
+      "slippage_bps": 7.524168501013936,
+      "timestamp": "2026-11-10",
+      "reason": "rebalance to target weight 0.1764"
     }
   ]
 }
