@@ -1,29 +1,26 @@
 {
   "bot_id": "credit-carry",
   "metrics": {
-    "total_return": -0.046962611781374286,
-    "annualized_return": -0.08554470306759265,
-    "sharpe": -1.961489767012934,
-    "sharpe_ci_lo": -4.216228481596205,
-    "sharpe_ci_hi": 0.5361532959750557,
-    "volatility": 0.04558312305314975,
+    "total_return": -0.04706946049310157,
+    "annualized_return": -0.08513019300948677,
+    "sharpe": -1.9588220763643291,
+    "sharpe_ci_lo": -4.05974386362626,
+    "sharpe_ci_hi": 0.5078870042825973,
+    "volatility": 0.045413928747376674,
     "max_drawdown": -0.05286216160786357,
-    "days": 135,
-    "alpha_t_stat_vs_spy": -1.5012394883957616,
-    "alpha_t_stat_vs_qqq": -1.5321654389989425,
+    "days": 136,
+    "alpha_t_stat_vs_spy": -1.489352278526499,
+    "alpha_t_stat_vs_qqq": -1.4755761471617301,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -0.00035946953052526457,
-      "beta_mkt": 0.027032771337701916,
-      "beta_size": -0.027179650873333006,
-      "beta_value": -0.01677778527934369,
-      "r_squared": 0.017461111375122962
+      "alpha_per_day": -0.0004009514206760741,
+      "beta_mkt": 0.04941023952858273,
+      "beta_size": 0.0024214442533115666,
+      "beta_value": 0.03841765323717803,
+      "r_squared": 0.016572064919847862
     }
   },
-  "current_weights": {
-    "HYG": 0.47162948108717595,
-    "LQD": 0.47644951700818994
-  },
+  "current_weights": {},
   "nav_series": [
     {
       "date": "2026-05-08",
@@ -564,6 +561,10 @@
     {
       "date": "2026-11-18",
       "nav": 95243.47976328316
+    },
+    {
+      "date": "2026-11-20",
+      "nav": 95232.80164798681
     }
   ],
   "daily_returns": [
@@ -1102,6 +1103,10 @@
     {
       "date": "2026-11-18",
       "ret": 0.0020209684556398155
+    },
+    {
+      "date": "2026-11-20",
+      "ret": -0.0001121138719720749
     }
   ],
   "recent_trades": [
@@ -1144,6 +1149,26 @@
       "slippage_bps": 7.0338313882137875,
       "timestamp": "2026-08-14",
       "reason": "rebalance to target weight 0.4750"
+    },
+    {
+      "bot_id": "credit-carry",
+      "symbol": "HYG",
+      "side": "SELL",
+      "shares": 586.0356430981703,
+      "price": 76.27912456562456,
+      "slippage_bps": 6.665434849948216,
+      "timestamp": "2026-11-20",
+      "reason": "rebalance to target weight 0.0000"
+    },
+    {
+      "bot_id": "credit-carry",
+      "symbol": "LQD",
+      "side": "SELL",
+      "shares": 439.92931905105877,
+      "price": 103.6197792689545,
+      "slippage_bps": 6.772414967530303,
+      "timestamp": "2026-11-20",
+      "reason": "rebalance to target weight 0.0000"
     }
   ]
 }
