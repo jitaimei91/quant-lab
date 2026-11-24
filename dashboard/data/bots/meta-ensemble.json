@@ -1,28 +1,28 @@
 {
   "bot_id": "meta-ensemble",
   "metrics": {
-    "total_return": -0.011499138240437023,
-    "annualized_return": -0.020376740937222193,
-    "sharpe": -0.49994265627510004,
-    "sharpe_ci_lo": -1.7736080523256006,
-    "sharpe_ci_hi": 1.9113668059644935,
-    "volatility": 0.04117746222053365,
+    "total_return": -0.0009382718872152918,
+    "annualized_return": -0.00078399211139768,
+    "sharpe": -0.018010615556445543,
+    "sharpe_ci_lo": -1.7032720957242042,
+    "sharpe_ci_hi": 1.8486038647662248,
+    "volatility": 0.04354645020180488,
     "max_drawdown": -0.03141065893580928,
-    "days": 137,
-    "alpha_t_stat_vs_spy": -0.25972844746078816,
-    "alpha_t_stat_vs_qqq": -0.24221645586875537,
+    "days": 138,
+    "alpha_t_stat_vs_spy": 0.05348460342552449,
+    "alpha_t_stat_vs_qqq": 0.07065592311251108,
     "significance_weight": 0.0,
     "factor_loadings": {
-      "alpha_per_day": -6.364177043548335e-05,
-      "beta_mkt": -0.03522882671021623,
-      "beta_size": 0.011509403821331591,
-      "beta_value": 0.002494068807839228,
-      "r_squared": 0.012825905392075843
+      "alpha_per_day": 2.3945095780763117e-05,
+      "beta_mkt": -0.03702877956375535,
+      "beta_size": 0.010314366112111069,
+      "beta_value": -0.017453925848944733,
+      "r_squared": 0.006412872140626802
     }
   },
   "current_weights": {
-    "QQQ": 0.08864345715194724,
-    "SPY": 0.09536449532637803
+    "QQQ": 0.07609005118545539,
+    "SPY": 0.09879922757033441
   },
   "nav_series": [
     {
@@ -572,6 +572,10 @@
     {
       "date": "2026-11-20",
       "nav": 98819.59457859403
+    },
+    {
+      "date": "2026-11-23",
+      "nav": 99875.3554502299
     }
   ],
   "daily_returns": [
@@ -1118,19 +1122,13 @@
     {
       "date": "2026-11-20",
       "ret": -0.012855204153722433
+    },
+    {
+      "date": "2026-11-23",
+      "ret": 0.010683719925567825
     }
   ],
   "recent_trades": [
-    {
-      "bot_id": "meta-ensemble",
-      "symbol": "EEM",
-      "side": "BUY",
-      "shares": 42.638738057320126,
-      "price": 66.63878442227939,
-      "slippage_bps": 7.326638695276728,
-      "timestamp": "2026-05-07",
-      "reason": "rebalance to target weight 0.0284"
-    },
     {
       "bot_id": "meta-ensemble",
       "symbol": "EFA",
@@ -1420,6 +1418,16 @@
       "slippage_bps": 5.564280460991775,
       "timestamp": "2026-11-11",
       "reason": "rebalance to target weight 0.0985"
+    },
+    {
+      "bot_id": "meta-ensemble",
+      "symbol": "QQQ",
+      "side": "SELL",
+      "shares": 2.7236900226435767,
+      "price": 650.6699513816981,
+      "slippage_bps": 5.5308956418773025,
+      "timestamp": "2026-11-23",
+      "reason": "rebalance to target weight 0.0761"
     }
   ]
 }
